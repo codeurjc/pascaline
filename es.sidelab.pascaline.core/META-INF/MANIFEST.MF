@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Pascaline Core Plug-in
+Bundle-SymbolicName: es.sidelab.pascaline.core;singleton:=true
+Bundle-Version: 1.0.1.qualifier
+Bundle-Activator: net.sf.pascaline.core.PascalineCorePlugin
+Bundle-Vendor: Pascaline Team
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.cdt.core,
+ org.eclipse.core.resources
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Export-Package: net.sf.pascaline.core
