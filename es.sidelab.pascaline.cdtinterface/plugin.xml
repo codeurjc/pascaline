@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.cdt.core.language">
+      <language
+            class="net.sf.pascaline.cdtinterface.core.FreePascalLanguage"
+            id="freepascal"
+            name="Pascal">
+         <contentType
+               id="net.sf.pascaline.core.pascalSource">
+         </contentType>
+      </language>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="net.sf.pascaline.cdtinterface.ui.FreePascalPerspectiveFactory"
+            icon="icons/etool16/p_pers.gif"
+            id="net.sf.pascaline.ui.FreePascalPerspective"
+            name="Pascal">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="net.sf.pascaline.ui.FreePascalPerspective">
+         <perspectiveShortcut
+               id="org.eclipse.debug.ui.DebugPerspective">
+         </perspectiveShortcut>
+         <perspectiveShortcut
+               id="org.eclipse.team.ui.TeamSynchronizingPerspective">
+         </perspectiveShortcut>
+         <view
+               id="org.eclipse.cdt.make.ui.views.MakeView"
+               relationship="stack"
+               relative="org.eclipse.ui.views.ContentOutline"
+               visible="true">
+         </view>
+         <viewShortcut
+               id="org.eclipse.cdt.make.ui.views.MakeView">
+         </viewShortcut>
+         <actionSet
+               id="org.eclipse.cdt.make.ui.makeTargetActionSet">
+         </actionSet>
+         <actionSet
+               id="org.eclipse.debug.ui.launchActionSet">
+         </actionSet>
+         <actionSet
+               id="org.eclipse.cdt.ui.buildConfigActionSet">
+         </actionSet>
+         <actionSet
+               id="org.eclipse.cdt.ui.NavigationActionSet">
+         </actionSet>
+         <actionSet
+               id="org.eclipse.cdt.ui.OpenActionSet">
+         </actionSet>
+         <actionSet
+               id="org.eclipse.ui.edit.text.actionSet.presentation">
+         </actionSet>
+         <viewShortcut
+               id="org.eclipse.ui.navigator.ProjectExplorer">
+         </viewShortcut>
+         <viewShortcut
+               id="org.eclipse.cdt.ui.includeBrowser">
+         </viewShortcut>
+         <actionSet
+               id="net.sf.pascaline.cdtinterface.actionSet1">
+         </actionSet>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="net.sf.pascaline.ui.views"
+            name="Pascal">
+      </category>
+      <view
+            category="net.sf.pascaline.ui.views"
+            class="net.sf.pascaline.cdtinterface.ui.FreePascalView"
+            icon="icons/etool16/pview.gif"
+            id="net.sf.pascaline.ui.FreePascalView"
+            name="Pascal Projects"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="net.sf.pascaline.ui.newFreePascalWizards"
+            name="Pascal">
+      </category>
+      <wizard
+            canFinishEarly="false"
+            category="net.sf.pascaline.ui.newFreePascalWizards"
+            class="net.sf.pascaline.cdtinterface.ui.wizards.TurboPascalProjectWizard"
+            finalPerspective="net.sf.pascaline.ui.FreePascalPerspective"
+            hasPages="true"
+            icon="icons/etool16/newpascal_app.gif"
+            id="net.sf.pascaline.ui.wizards.TurboPascalProjectWizard"
+            name="Turbo Pascal Project"
+            project="true">
+         <description>
+            Creates a new Turbo Pascal project
+         </description>
+      </wizard>
+      <wizard
+            canFinishEarly="false"
+            category="net.sf.pascaline.ui.newFreePascalWizards"
+            class="net.sf.pascaline.cdtinterface.ui.wizards.FreePascalProjectWizard"
+            finalPerspective="net.sf.pascaline.ui.FreePascalPerspective"
+            hasPages="true"
+            icon="icons/etool16/newpascal_app.gif"
+            id="net.sf.pascaline.ui.wizards.FreePascalProjectWizard"
+            name="Free Pascal Project"
+            project="true">
+         <description>
+            Creates a new Free Pascal project
+         </description>
+      </wizard>
+      <wizard
+            category="net.sf.pascaline.ui.newFreePascalWizards"
+            class="net.sf.pascaline.cdtinterface.ui.wizards.NewSourceFileCreationWizard"
+            finalPerspective="net.sf.pascaline.ui.FreePascalPerspective"
+            icon="icons/etool16/newpascalfile_wiz.gif"
+            id="net.sf.pascaline.ui.wizards.NewSourceFileCreationWizard"
+            name="Pascal Source File">
+         <class class="net.sf.pascaline.cdtinterface.ui.NewSourceFileCreationWizard">
+            <parameter name="cfile" value="true"/>
+         </class>
+         <description>
+            Create a new source file
+         </description>
+      </wizard>
+      <wizard
+            category="net.sf.pascaline.ui.newFreePascalWizards"
+            class="net.sf.pascaline.cdtinterface.ui.wizards.NewSourceFolderCreationWizard"
+            finalPerspective="net.sf.pascaline.ui.FreePascalPerspective"
+            icon="icons/etool16/newsrcfldr_wiz.gif"
+            id="net.sf.pascaline.ui.wizards.NewSourceFolderCreationWizard"
+            name="Source Folder">
+         <class class="net.sf.pascaline.cdtinterface.ui.NewSourceFolderCreationWizard">
+            <parameter name="cfolder" value="true"/>
+         </class>
+         <description>
+            Create a new folder intended to contain source code
+         </description>
+      </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            delegate="net.sf.pascaline.cdtinterface.launch.internal.FreePascalLaunchDelegate"
+            id="net.sf.pascaline.launch.localCLaunch"
+            modes="run,debug"
+            name="Pascal Local Application"
+            public="true"
+            sourceLocatorId="org.eclipse.cdt.debug.core.sourceLocator"
+            sourcePathComputerId="org.eclipse.cdt.debug.core.sourcePathComputer">
+      </launchConfigurationType>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+      <launchConfigurationTabGroup
+            class="net.sf.pascaline.cdtinterface.launch.FreePascalLocalRunLaunchConfigurationTabGroup"
+            id="net.sf.pascaline.launch.localRunLaunchTabGroup"
+            type="net.sf.pascaline.launch.localCLaunch">
+      </launchConfigurationTabGroup>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+      <launchConfigurationTypeImage
+            configTypeID="net.sf.pascaline.launch.localCLaunch"
+            icon="icons/obj16/f_app.gif"
+            id="net.sf.pascaline.launch.localRunLaunchImage">
+      </launchConfigurationTypeImage>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchShortcuts">
+      <shortcut
+            class="net.sf.pascaline.cdtinterface.launch.FreePascalApplicationLaunchShortcut"
+            icon="icons/obj16/f_app.gif"
+            id="net.sf.pascaline.debug.ui.localCShortcut"
+            label="Local Pascal Application"
+            modes="run,debug">
+         <contextualLaunch>
+            <enablement>
+               <with
+                     variable="selection">
+                  <count
+                        value="1">
+                  </count>
+                  <iterate>
+                     <or>
+                        <instanceof
+                              value="org.eclipse.cdt.core.model.IBinary">
+                        </instanceof>
+                        <instanceof
+                              value="org.eclipse.cdt.core.model.ICProject">
+                        </instanceof>
+                        <test
+                              forcePluginActivation="true"
+                              property="org.eclipse.cdt.launch.isExecutable">
+                        </test>
+                        <test
+                              forcePluginActivation="true"
+                              property="org.eclipse.cdt.launch.isCProject">
+                        </test>
+                        <and>
+                           <instanceof
+                                 value="org.eclipse.ui.IFileEditorInput">
+                           </instanceof>
+                           <adapt
+                                 type="org.eclipse.core.resources.IResource">
+                              <adapt
+                                    type="org.eclipse.cdt.core.model.ICElement">
+                              </adapt>
+                           </adapt>
+                        </and>
+                     </or>
+                  </iterate>
+               </with>
+            </enablement>
+         </contextualLaunch>
+         <description
+               description="Runs a local FreePascal application"
+               mode="run">
+         </description>
+         <description
+               description="Debugs a local FreePascal application"
+               mode="debug">
+         </description>
+         <configurationType
+               id="net.sf.pascaline.launch.localCLaunch">
+         </configurationType>
+      </shortcut>
+   </extension>
+<!--
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            description="Pascal Element Creation Action Set"
+            id="net.sf.pascaline.cdtinterface.FreePascalElementCreationActionSet"
+            label="Pascal Element Creation"
+            visible="true">
+         <action
+               class="net.sf.pascaline.cdtinterface.ui.NewFileDropDownAction"
+               icon="icons/etool16/newpascalfile_wiz.gif"
+               id="net.sf.pascaline.cdtinterface.actions.NewFileDropDown"
+               label="&amp;Source File..."
+               style="pulldown"
+               toolbarPath="Normal/FreePascalWizards"
+               tooltip="New Source File">
+         </action>
+         <action
+               class="net.sf.pascaline.cdtinterface.ui.NewFolderDropDown"
+               icon="icons/etool16/newsrcfldr_wiz.gif"
+               id="net.sf.pascaline.cdtinterface.actions.NewFolderDropDown"
+               label="&amp;Source Folder..."
+               style="pulldown"
+               toolbarPath="Normal/FreePascalWizards"
+               tooltip="New Source Folder">
+         </action>
+         <action
+               class="net.sf.pascaline.cdtinterface.ui.NewProjectDropDown"
+               icon="icons/etool16/newpascal_app.gif"
+               id="net.sf.pascaline.cdtinterface.actions.NewProjectDropDown"
+               label="&amp;Project..."
+               style="pulldown"
+               toolbarPath="Normal/FreePascalWizards"
+               tooltip="New FreePascal Project">
+         </action>
+      </actionSet>
+   </extension>
+ -->
+   <extension
+         point="org.eclipse.ui.actionSetPartAssociations">
+      <actionSetPartAssociation
+            targetID="org.eclipse.cdt.ui.SearchActionSet">
+         <part
+               id="net.sf.pascaline.ui.FreePascalView">
+         </part>
+         <part
+               id="org.eclipse.search.SearchResultView">
+         </part>
+      </actionSetPartAssociation>
+   </extension>
+   <extension
+         point="org.eclipse.cdt.debug.mi.core.commandFactories">
+      <commandFactory
+            class="net.sf.pascaline.cdtinterface.launch.internal.FreePascalStandardWinCommandFactory"
+            debuggerID="org.eclipse.cdt.debug.mi.core.MinGW"
+            description="This MI command factory sets up gdb to open a new console for the debuggee under Windows"
+            id="net.sf.pascaline.cdtinterface.WinShellCommandFactory"
+            name="Extern Shell Command Factory">
+      </commandFactory>
+   </extension>
+
+</plugin>

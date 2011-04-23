@@ -1,0 +1,34 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Pascaline CDT Interface Plug-in
+Bundle-SymbolicName: es.sidelab.pascaline.cdtinterface;singleton:=true
+Bundle-Version: 1.0.1.qualifier
+Bundle-Activator: net.sf.pascaline.cdtinterface.CDTInterfacePlugin
+Bundle-Vendor: Pascaline Team
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.cdt.core,
+ org.eclipse.core.resources,
+ org.eclipse.search,
+ org.eclipse.ui.console,
+ org.eclipse.cdt.ui,
+ org.eclipse.ui.ide,
+ org.eclipse.cdt.make.ui,
+ org.eclipse.cdt.managedbuilder.ui,
+ org.eclipse.jface.text,
+ org.eclipse.debug.core,
+ org.eclipse.debug.ui,
+ org.eclipse.cdt.launch,
+ org.eclipse.cdt.debug.core,
+ org.eclipse.cdt.debug.ui,
+ org.eclipse.cdt.debug.mi.core,
+ org.eclipse.cdt.managedbuilder.core,
+ com.ibm.icu;bundle-version="4.0.1",
+ es.sidelab.pascaline.core;bundle-version="[1.0.0,2.0.0)"
+Bundle-ActivationPolicy: lazy
+Export-Package: net.sf.pascaline.cdtinterface,
+ net.sf.pascaline.cdtinterface.core,
+ net.sf.pascaline.cdtinterface.dom,
+ net.sf.pascaline.cdtinterface.launch,
+ net.sf.pascaline.cdtinterface.ui,
+ net.sf.pascaline.internal.core.model
