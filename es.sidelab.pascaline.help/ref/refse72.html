@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Libraries</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 6782--><div class="crosslinks"><p class="noindent">[<a 
+href="refse71.html" >prev</a>] [<a 
+href="refse71.html#tailrefse71.html" >prev-tail</a>] [<a 
+href="refsu70.html#tailrefse72.html">tail</a>] [<a 
+href="refse70.html#refse74.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">13.5   </span> <a 
+href="#x166-17300013.5" id="x166-17300013.5">Libraries</a></h3>
+<a 
+ id="dx166-173001"></a>
+<a 
+ id="dx166-173002"></a>
+<!--l. 6784--><p class="noindent" >Free Pascal supports making of dynamic libraries (DLLs under Win32 and <span 
+class="cmcsc-10"><span 
+class="small-caps">o</span><span 
+class="small-caps">s</span>/2</span>) trough the use of
+the <span 
+class="cmtt-10">Library </span>keyword.
+<!--l. 6787--><p class="noindent" >A Library is just like a unit or a program:
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<span 
+class="cmbx-10">Libraries</span> <BR/><img 
+src="ref178x.png" alt="--library- library header- ;--------------block -.---------------------
+                        -uses clause-|
+     " ><BR/>
+     <BR/><img 
+src="ref179x.png" alt="--           -      -       -------------------------------------
+  library header library  identifier
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 6790--><p class="noindent" >By default, functions and procedures that are declared and implemented in library are not
+available to a programmer that wishes to use this library.
+<!--l. 6793--><p class="noindent" >In order to make functions or procedures available from the library, they must be exported in an
+exports clause:
+<!--l. 1--><p class="noindent" >
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<span 
+class="cmbx-10">Exports clause</span> <BR/><img 
+src="ref180x.png" alt="--exports clause exports-exports list ;------------------------------
+     " ><BR/>
+     <BR/><img 
+src="ref181x.png" alt="--exports list|-exports entry----------------------------------------
+             -----,-------
+     " ><BR/>
+     <BR/><img 
+src="ref182x.png" alt="            -       ----------------------------------------------
+ exports entry identifier  -index -integer constant-| -name -string constant-|
+-----------------------------------------------------------------
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 6798--><p class="noindent" >Under Win32, an index clause can be added to an exports entry. An index entry must be a positive
+number larger or equal than 1, and less than <span 
+class="cmtt-10">MaxInt</span>.
+<!--l. 6802--><p class="noindent" >Optionally, an exports entry can have a name specifier. If present, the name specifier
+gives the exact name (case sensitive) by which the function will be exported from the
+library.
+<!--l. 6806--><p class="noindent" >If neither of these constructs is present, the functions or procedures are exported with the exact
+names as specified in the exports clause.
+                                                                            
+
+                                                                            
+<!--l. 6812--><div class="crosslinks"><p class="noindent">[<a 
+href="refse71.html" >prev</a>] [<a 
+href="refse71.html#tailrefse71.html" >prev-tail</a>] [<a 
+href="refse72.html" >front</a>] [<a 
+href="refse70.html#refse74.html" >up</a>] </p></div>
+<!--l. 6812--><p class="noindent" ><a 
+ id="tailrefse72.html"></a>  
+</body></html> 

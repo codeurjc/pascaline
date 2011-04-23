@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Variants and interfaces</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 2151--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu19.html" >prev</a>] [<a 
+href="refsu19.html#tailrefsu19.html" >prev-tail</a>] [<a 
+href="refsu19.html#tailrefsu20.html">tail</a>] [<a 
+href="refsu18.html#refch4.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">3.7.3   </span> <a 
+href="#x48-540003.7.3" id="x48-540003.7.3">Variants and interfaces</a></h4>
+<a 
+ id="dx48-54001"></a>
+<!--l. 2153--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> Dispatch interface support for variants is currently broken in the compiler.
+<!--l. 2157--><p class="noindent" >Variants can contain a reference to an interface - a normal interface (descending from <span 
+class="cmtt-10">IInterface</span>)
+or a dispatchinterface (descending from <span 
+class="cmtt-10">IDispatch</span>). Variants containing a reference to a dispatch
+interface can be used to control the object behind it: the compiler will use late binding to perform
+the call to the dispatch interface: there will be no run-time checking of the function
+names and parameters or arguments given to the functions. The result type is also not
+checked. The compiler will simply insert code to make the dispatch call and retrieve the
+result.
+<!--l. 2166--><p class="noindent" >This means basically, that you can do the following on Windows:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Var
+&#x00A0;<br />&#x00A0;&#x00A0;W&#x00A0;:&#x00A0;Variant;
+&#x00A0;<br />&#x00A0;&#x00A0;V&#x00A0;:&#x00A0;String;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;W:=CreateOleObject(&#8217;Word.Application&#8217;);
+&#x00A0;<br />&#x00A0;&#x00A0;V:=W.Application.Version;
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;Installed&#x00A0;version&#x00A0;of&#x00A0;MS&#x00A0;Word&#x00A0;is&#x00A0;:&#x00A0;&#8217;,V);
+&#x00A0;<br />end;
+</div>
+</td></tr></table>
+<!--l. 2177--><p class="nopar" >The line
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+&#x00A0;&#x00A0;V:=W.Application.Version;
+</div>
+</td></tr></table>
+<!--l. 2181--><p class="nopar" >is executed by inserting the necessary code to query the dispatch interface stored in the variant <span 
+class="cmtt-10">W</span>,
+and execute the call if the needed dispatch information is found.
+                                                                            
+
+                                                                            
+<!--l. 2189--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu19.html" >prev</a>] [<a 
+href="refsu19.html#tailrefsu19.html" >prev-tail</a>] [<a 
+href="refsu20.html" >front</a>] [<a 
+href="refsu18.html#refch4.html" >up</a>] </p></div>
+<!--l. 2189--><p class="noindent" ><a 
+ id="tailrefsu20.html"></a>  
+</body></html> 

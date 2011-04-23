@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Fields</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 2485--><div class="crosslinks"><p class="noindent">[<a 
+href="refse27.html" >next</a>] [<a 
+href="refse24.html" >prev</a>] [<a 
+href="refse24.html#tailrefse24.html" >prev-tail</a>] [<a 
+href="refse24.html#tailrefse25.html">tail</a>] [<a 
+href="refse24.html#refse26.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">5.2   </span> <a 
+href="#x57-630005.2" id="x57-630005.2">Fields</a></h3>
+<a 
+ id="dx57-63001"></a>
+<!--l. 2487--><p class="noindent" >Object Fields are like record fields. They are accessed in the same way as a record field would be
+accessed : by using a qualified identifier. Given the following declaration:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Type&#x00A0;TAnObject&#x00A0;=&#x00A0;Object
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;AField&#x00A0;:&#x00A0;Longint;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Procedure&#x00A0;AMethod;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+&#x00A0;<br />Var&#x00A0;AnObject&#x00A0;:&#x00A0;TAnObject;
+</div>
+</td></tr></table>
+<!--l. 2496--><p class="nopar" >then the following would be a valid assignment:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+&#x00A0;&#x00A0;AnObject.AField&#x00A0;:=&#x00A0;0;
+</div>
+</td></tr></table>
+<!--l. 2500--><p class="nopar" >Inside methods, fields can be accessed using the short identifier:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Procedure&#x00A0;TAnObject.AMethod;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;...
+&#x00A0;<br />&#x00A0;&#x00A0;AField&#x00A0;:=&#x00A0;0;
+&#x00A0;<br />&#x00A0;&#x00A0;...
+&#x00A0;<br />end;
+</div>
+</td></tr></table>
+<!--l. 2509--><p class="nopar" >Or, one can use the <span 
+class="cmtt-10">self </span>identifier. The <span 
+class="cmtt-10">self </span>identifier refers to the current instance of the
+object:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Procedure&#x00A0;TAnObject.AMethod;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;...
+&#x00A0;<br />&#x00A0;&#x00A0;Self.AField&#x00A0;:=&#x00A0;0;
+&#x00A0;<br />&#x00A0;&#x00A0;...
+&#x00A0;<br />end;
+</div>
+</td></tr></table>
+<!--l. 2519--><p class="nopar" >One cannot access fields that are in a private or protected sections of an object from outside the
+objects&#8217; methods. If this is attempted anyway, the compiler will complain about an unknown
+identifier.
+<!--l. 2524--><p class="noindent" >It is also possible to use the <span 
+class="cmtt-10">with </span>statement with an object instance, just as with a
+record:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+With&#x00A0;AnObject&#x00A0;do
+&#x00A0;<br />&#x00A0;&#x00A0;begin
+&#x00A0;<br />&#x00A0;&#x00A0;Afield&#x00A0;:=&#x00A0;12;
+&#x00A0;<br />&#x00A0;&#x00A0;AMethod;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+</div>
+</td></tr></table>
+<!--l. 2532--><p class="nopar" >In this example, between the <span 
+class="cmtt-10">begin </span>and <span 
+class="cmtt-10">end</span>, it is as if <span 
+class="cmtt-10">AnObject </span>was prepended to the <span 
+class="cmtt-10">Afield </span>and
+<span 
+class="cmtt-10">Amethod </span>identifiers. More about this in section <a 
+href="refsu45.html#x115-12200010.2.7">10.2.7<!--tex4ht:ref: se:With --></a>, page <a 
+href="refsu45.html#x115-12200010.2.7">410<!--tex4ht:ref: se:With --></a>.
+                                                                            
+
+                                                                            
+<!--l. 2537--><div class="crosslinks"><p class="noindent">[<a 
+href="refse27.html" >next</a>] [<a 
+href="refse24.html" >prev</a>] [<a 
+href="refse24.html#tailrefse24.html" >prev-tail</a>] [<a 
+href="refse25.html" >front</a>] [<a 
+href="refse24.html#refse26.html" >up</a>] </p></div>
+<!--l. 2537--><p class="noindent" ><a 
+ id="tailrefse25.html"></a>  
+</body></html> 

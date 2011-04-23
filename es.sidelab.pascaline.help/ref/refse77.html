@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Exception classes</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 6996--><div class="crosslinks"><p class="noindent">[<a 
+href="refse76.html" >prev</a>] [<a 
+href="refse76.html#tailrefse76.html" >prev-tail</a>] [<a 
+href="refse74.html#tailrefse77.html">tail</a>] [<a 
+href="refse75.html#refse79.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">14.5   </span> <a 
+href="#x172-17900014.5" id="x172-17900014.5">Exception classes</a></h3>
+<a 
+ id="dx172-179001"></a>
+<!--l. 6999--><p class="noindent" >The <span 
+class="cmss-10">sysutils </span>unit contains a great deal of exception handling. It defines the base exception class,
+<span 
+class="cmtt-10">Exception</span>
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Exception&#x00A0;=&#x00A0;class(TObject)
+&#x00A0;<br />private
+&#x00A0;<br />&#x00A0;&#x00A0;fmessage&#x00A0;:&#x00A0;string;
+&#x00A0;<br />&#x00A0;&#x00A0;fhelpcontext&#x00A0;:&#x00A0;longint;
+&#x00A0;<br />public
+&#x00A0;<br />&#x00A0;&#x00A0;constructor&#x00A0;create(const&#x00A0;msg&#x00A0;:&#x00A0;string);
+&#x00A0;<br />&#x00A0;&#x00A0;constructor&#x00A0;createres(indent&#x00A0;:&#x00A0;longint);
+&#x00A0;<br />&#x00A0;&#x00A0;property&#x00A0;helpcontext&#x00A0;:&#x00A0;longint&#x00A0;read&#x00A0;fhelpcontext&#x00A0;write&#x00A0;fhelpcontext;
+&#x00A0;<br />&#x00A0;&#x00A0;property&#x00A0;message&#x00A0;:&#x00A0;string&#x00A0;read&#x00A0;fmessage&#x00A0;write&#x00A0;fmessage;
+&#x00A0;<br />end;
+&#x00A0;<br />ExceptClass&#x00A0;=&#x00A0;Class&#x00A0;of&#x00A0;Exception;
+</div>
+</td></tr></table>
+<!--l. 7013--><p class="nopar" >And uses this declaration to define quite a number of exceptions, for instance:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+{&#x00A0;mathematical&#x00A0;exceptions&#x00A0;}
+&#x00A0;<br />EIntError&#x00A0;=&#x00A0;class(Exception);
+&#x00A0;<br />EDivByZero&#x00A0;=&#x00A0;class(EIntError);
+&#x00A0;<br />ERangeError&#x00A0;=&#x00A0;class(EIntError);
+&#x00A0;<br />EIntOverflow&#x00A0;=&#x00A0;class(EIntError);
+&#x00A0;<br />EMathError&#x00A0;=&#x00A0;class(Exception);
+</div>
+</td></tr></table>
+<!--l. 7023--><p class="nopar" >The <span 
+class="cmss-10">SysUtils </span>unit also installs an exception handler. If an exception is unhandled by any exception
+handling block, this handler is called by the Run-Time library. Basically, it prints the exception
+address, and it prints the message of the Exception object, and exits with a exit code of 217. If the
+exception object is not a descendent object of the <span 
+class="cmtt-10">Exception </span>object, then the class name is printed
+instead of the exception message.
+<!--l. 7031--><p class="noindent" >It is recommended to use the <span 
+class="cmtt-10">Exception </span>object or a descendant class for all <span 
+class="cmtt-10">raise </span>statements,
+since then the message field of the exception object can be used.
+                                                                            
+
+                                                                            
+<!--l. 7038--><div class="crosslinks"><p class="noindent">[<a 
+href="refse76.html" >prev</a>] [<a 
+href="refse76.html#tailrefse76.html" >prev-tail</a>] [<a 
+href="refse77.html" >front</a>] [<a 
+href="refse75.html#refse79.html" >up</a>] </p></div>
+<!--l. 7038--><p class="noindent" ><a 
+ id="tailrefse77.html"></a>  
+</body></html> 

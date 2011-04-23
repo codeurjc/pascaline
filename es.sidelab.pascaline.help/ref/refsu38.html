@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Goto statements</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 4806--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu37.html" >prev</a>] [<a 
+href="refsu37.html#tailrefsu37.html" >prev-tail</a>] [<a 
+href="refse50.html#tailrefsu38.html">tail</a>] [<a 
+href="refsu38.html#refsu40.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">10.1.3   </span> <a 
+href="#x107-11400010.1.3" id="x107-11400010.1.3">Goto statements</a></h4>
+<a 
+ id="dx107-114001"></a>
+<!--l. 4807--><p class="noindent" ><a name="keyword:goto"></a> Free Pascal supports the <span 
+class="cmtt-10">goto </span>jump statement. Its prototype syntax is
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<span 
+class="cmbx-10">Goto statement</span><BR/><img 
+src="ref119x.png" alt="--goto statement-goto-label----------------------------------------
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 4810--><p class="noindent" >When using <span 
+class="cmtt-10">goto </span>statements, the following must be kept in mind:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x107-114003x1">The jump label must be defined in the same block as the <span 
+class="cmtt-10">Goto </span>statement.
+     </li>
+     <li 
+  class="enumerate" id="x107-114005x2">Jumping from outside a loop to the inside of a loop or vice versa can have strange
+     effects.
+     </li>
+     <li 
+  class="enumerate" id="x107-114007x3">To be able to use the <span 
+class="cmtt-10">Goto </span>statement, the <span 
+class="cmtt-10">-Sg </span>compiler switch must be used, or <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$GOTO</span>
+     <span 
+class="cmtt-10">ON</span><span 
+class="cmsy-10">} </span>must be used.</li></ol>
+<!--l. 4819--><p class="noindent" ><span 
+class="cmtt-10">Goto </span>statements are considered bad practice and should be avoided as much as possible. It is
+always possible to replace a <span 
+class="cmtt-10">goto </span>statement by a construction that doesn&#8217;t need a <span 
+class="cmtt-10">goto</span>, although
+this construction may not be as clear as a goto statement. For instance, the following is an allowed
+goto statement:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+label
+&#x00A0;<br />&#x00A0;&#x00A0;jumpto;
+&#x00A0;<br />...
+&#x00A0;<br />Jumpto&#x00A0;:
+&#x00A0;<br />&#x00A0;&#x00A0;Statement;
+&#x00A0;<br />...
+&#x00A0;<br />Goto&#x00A0;jumpto;
+&#x00A0;<br />...
+</div>
+</td></tr></table>
+<!--l. 4833--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 4837--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu37.html" >prev</a>] [<a 
+href="refsu37.html#tailrefsu37.html" >prev-tail</a>] [<a 
+href="refsu38.html" >front</a>] [<a 
+href="refsu38.html#refsu40.html" >up</a>] </p></div>
+<!--l. 4837--><p class="noindent" ><a 
+ id="tailrefsu38.html"></a>  
+</body></html> 

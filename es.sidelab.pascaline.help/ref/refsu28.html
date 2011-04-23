@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Using inherited</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 3328--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu27.html" >prev</a>] [<a 
+href="refsu27.html#tailrefsu27.html" >prev-tail</a>] [<a 
+href="refsu26.html#tailrefsu28.html">tail</a>] [<a 
+href="refsu24.html#refch7.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">6.3.6   </span> <a 
+href="#x74-820006.3.6" id="x74-820006.3.6">Using inherited</a></h4>
+<!--l. 3329--><p class="noindent" >In an overridden virtual method, it is often necessary to call the parent class&#8217; implementation of
+the virtual method. This can be done with the <span 
+class="cmtt-10">inherited </span>keyword. Likewise, the <span 
+class="cmtt-10">inherited</span>
+keyword can be used to call any method of the parent class.
+<!--l. 3334--><p class="noindent" >The first case is the simplest:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;TMyClass&#x00A0;=&#x00A0;Class(TComponent)
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Constructor&#x00A0;Create(AOwner&#x00A0;:&#x00A0;TComponent);&#x00A0;override;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />Constructor&#x00A0;TMyClass.Create(AOwner&#x00A0;:&#x00A0;TComponent);
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Inherited;
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;Do&#x00A0;more&#x00A0;things
+&#x00A0;<br />end;
+</div>
+</td></tr></table>
+<!--l. 3347--><p class="nopar" >In the above example, the <span 
+class="cmtt-10">Inherited </span>statement will call <span 
+class="cmtt-10">Create </span>of <span 
+class="cmtt-10">TComponent</span>, passing it <span 
+class="cmtt-10">AOwner</span>
+as a parameter: the same parameters that were passed to the current method will be passed to the
+parent&#8217;s method. They must not be specified again: if none are specified, the compiler will pass the
+same arguments as the ones received.
+<!--l. 3354--><p class="noindent" >The second case is slightly more complicated:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;TMyClass&#x00A0;=&#x00A0;Class(TComponent)
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Constructor&#x00A0;Create(AOwner&#x00A0;:&#x00A0;TComponent);&#x00A0;override;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Constructor&#x00A0;CreateNew(AOwner&#x00A0;:&#x00A0;TComponent;&#x00A0;DoExtra&#x00A0;:&#x00A0;Boolean);
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />Constructor&#x00A0;TMyClass.Create(AOwner&#x00A0;:&#x00A0;TComponent);
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Inherited;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />Constructor&#x00A0;TMyClass.CreateNew(AOwner&#x00A0;:&#x00A0;TComponent;&#x00A0;DoExtra);
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Inherited&#x00A0;Create(AOwner);
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;Do&#x00A0;stuff
+&#x00A0;<br />end;
+</div>
+</td></tr></table>
+<!--l. 3374--><p class="nopar" >The <span 
+class="cmtt-10">CreateNew </span>method will first call <span 
+class="cmtt-10">TComponent.Create </span>and will pass it <span 
+class="cmtt-10">AOwner </span>as a parameter.
+It will not call <span 
+class="cmtt-10">TMyClass.Create</span>.
+<!--l. 3379--><p class="noindent" >Although the examples were given using constructors, the use of <span 
+class="cmtt-10">inherited </span>is not restricted to
+constructors, it can be used for any procedure or function or destructor as well.
+                                                                            
+
+                                                                            
+<!--l. 3385--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu27.html" >prev</a>] [<a 
+href="refsu27.html#tailrefsu27.html" >prev-tail</a>] [<a 
+href="refsu28.html" >front</a>] [<a 
+href="refsu24.html#refch7.html" >up</a>] </p></div>
+<!--l. 3385--><p class="noindent" ><a 
+ id="tailrefsu28.html"></a>  
+</body></html> 

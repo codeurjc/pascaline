@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Interface identification: A GUID</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 3670--><div class="crosslinks"><p class="noindent">[<a 
+href="refch8.html" >next</a>] [<a 
+href="refse34.html" >prev</a>] [<a 
+href="refse34.html#tailrefse34.html" >prev-tail</a>] [<a 
+href="refch7.html#tailrefse35.html">tail</a>] [<a 
+href="refse35.html#refse38.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">7.2   </span> <a 
+href="#x79-860007.2" id="x79-860007.2">Interface identification: A GUID</a></h3>
+<!--l. 3671--><p class="noindent" >An interface can be identified by a GUID. This is a 128-bit number, which is represented in a text
+representation (a string literal):
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+[&#8217;{HHHHHHHH-HHHH-HHHH-HHHH-HHHHHHHHHHHH}&#8217;]
+</div>
+</td></tr></table>
+<!--l. 3675--><p class="nopar" >Each <span 
+class="cmtt-10">H </span>character represents a hexadecimal number (0-9,A-F). The format contains 8-4-4-4-12
+numbers. A GUID can also be represented by the following record, defined in the <span 
+class="cmss-10">objpas </span>unit
+(included automatically when in <span 
+class="cmtt-10">DELPHI </span>or <span 
+class="cmtt-10">OBJFPC </span>mode):
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+PGuid&#x00A0;=&#x00A0;^TGuid;
+&#x00A0;<br />TGuid&#x00A0;=&#x00A0;packed&#x00A0;record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;case&#x00A0;integer&#x00A0;of
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;1&#x00A0;:&#x00A0;(
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Data1&#x00A0;:&#x00A0;DWord;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Data2&#x00A0;:&#x00A0;word;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Data3&#x00A0;:&#x00A0;word;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Data4&#x00A0;:&#x00A0;array[0..7]&#x00A0;of&#x00A0;byte;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;2&#x00A0;:&#x00A0;(
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;D1&#x00A0;:&#x00A0;DWord;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;D2&#x00A0;:&#x00A0;word;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;D3&#x00A0;:&#x00A0;word;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;D4&#x00A0;:&#x00A0;array[0..7]&#x00A0;of&#x00A0;byte;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;);
+&#x00A0;<br />end;
+</div>
+</td></tr></table>
+<!--l. 3697--><p class="nopar" >A constant of type TGUID can be specified using a string literal:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+{$mode&#x00A0;objfpc}
+&#x00A0;<br />program&#x00A0;testuid;
+&#x00A0;<br />
+&#x00A0;<br />Const
+&#x00A0;<br />&#x00A0;&#x00A0;MyGUID&#x00A0;:&#x00A0;TGUID&#x00A0;=&#x00A0;&#8217;{10101010-1010-0101-1001-110110110110}&#8217;;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />end.
+</div>
+</td></tr></table>
+<!--l. 3708--><p class="nopar" >Normally, the GUIDs are only used in Windows, when using COM interfaces. More on this in the
+next section.
+                                                                            
+
+                                                                            
+<!--l. 3712--><div class="crosslinks"><p class="noindent">[<a 
+href="refch8.html" >next</a>] [<a 
+href="refse34.html" >prev</a>] [<a 
+href="refse34.html#tailrefse34.html" >prev-tail</a>] [<a 
+href="refse35.html" >front</a>] [<a 
+href="refse35.html#refse38.html" >up</a>] </p></div>
+<!--l. 3712--><p class="noindent" ><a 
+ id="tailrefse35.html"></a>  
+</body></html> 

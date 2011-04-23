@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>11 Using functions and procedures</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 5247--><div class="crosslinks"><p class="noindent">[<a 
+href="refse65.html" >next</a>] [<a 
+href="refch10.html" >prev</a>] [<a 
+href="refch10.html#tailrefch10.html" >prev-tail</a>] [<a 
+href="refsu45.html#tailrefch11.html">tail</a>] [<a 
+href="ref.html#refse55.html" >up</a>] </p></div>
+<h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;11</span><br /><a 
+href="#x118-12500011" id="x118-12500011">Using functions and procedures</a></h2>
+<a 
+ id="dx118-125001"></a>
+<a 
+ id="dx118-125002"></a>
+<!--l. 5249--><p class="noindent" >Free Pascal supports the use of functions and procedures. It supports
+     <ul class="itemize1">
+     <li class="itemize">Function overloading, i.e. functions with the same name but different parameter lists.
+     </li>
+     <li class="itemize"><span 
+class="cmtt-10">Const </span>parameters.
+     </li>
+     <li class="itemize">Open arrays (i.e. arrays without bounds).
+     </li>
+     <li class="itemize">Variable number of arguments as in C.
+     </li>
+     <li class="itemize">Return-like construct as in C, through the <span 
+class="cmtt-10">Exit </span>keyword.</li></ul>
+<!--l. 5259--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> In many of the subsequent paragraphs the words <span 
+class="cmtt-10">procedure </span>and <span 
+class="cmtt-10">function </span>will be
+used interchangeably. The statements made are valid for both, except when indicated
+otherwise.
+<div class="sectionTOCS">
+&#x00A0;<span class="sectionToc" >.1<a 
+href="refse53.html#x119-12600011.1">Procedure declaration</a></span>
+<br />&#x00A0;<span class="sectionToc" >.2<a 
+href="refse54.html#x120-12700011.2">Function declaration</a></span>
+<br />&#x00A0;<span class="sectionToc" >.3<a 
+href="refse55.html#x121-12800011.3">Function results</a></span>
+<br />&#x00A0;<span class="sectionToc" >.4<a 
+href="refse56.html#x122-12900011.4">Parameter lists</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.4.1<a 
+href="refsu47.html#x123-13000011.4.1">Value parameters</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.4.2<a 
+href="refsu48.html#x124-13100011.4.2">Variable parameters</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.4.3<a 
+href="refsu49.html#x125-13200011.4.3">Out parameters</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.4.4<a 
+href="refsu50.html#x126-13300011.4.4">Constant parameters</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.4.5<a 
+href="refsu51.html#x127-13400011.4.5">Open array parameters</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.4.6<a 
+href="refsu52.html#x128-13500011.4.6">Array of const</a></span>
+<br />&#x00A0;<span class="sectionToc" >.5<a 
+href="refse57.html#x129-13600011.5">Function overloading</a></span>
+<br />&#x00A0;<span class="sectionToc" >.6<a 
+href="refse58.html#x130-13700011.6">Forward defined functions</a></span>
+<br />&#x00A0;<span class="sectionToc" >.7<a 
+href="refse59.html#x131-13800011.7">External functions</a></span>
+<br />&#x00A0;<span class="sectionToc" >.8<a 
+href="refse60.html#x132-13900011.8">Assembler functions</a></span>
+<br />&#x00A0;<span class="sectionToc" >.9<a 
+href="refse61.html#x133-14000011.9">Modifiers</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.9.1<a 
+href="refsu53.html#x134-14100011.9.1">alias</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.9.2<a 
+href="refsu54.html#x135-14200011.9.2">cdecl</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.9.3<a 
+href="refsu55.html#x136-14300011.9.3">export</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.9.4<a 
+href="refsu56.html#x137-14400011.9.4">inline</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.9.5<a 
+href="refsu57.html#x138-14500011.9.5">interrupt</a></span>
+                                                                            
+
+                                                                            
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.9.6<a 
+href="refsu58.html#x139-14600011.9.6">local</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.9.7<a 
+href="refsu59.html#x140-14700011.9.7">nostackframe</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.9.8<a 
+href="refsu60.html#x141-14800011.9.8">overload</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.9.9<a 
+href="refsu61.html#x142-14900011.9.9">pascal</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.9.10<a 
+href="refsu62.html#x143-15000011.9.10">public</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.9.11<a 
+href="refsu63.html#x144-15100011.9.11">register</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.9.12<a 
+href="refsu64.html#x145-15200011.9.12">safecall</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.9.13<a 
+href="refsu65.html#x146-15300011.9.13">saveregisters</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.9.14<a 
+href="refsu66.html#x147-15400011.9.14">softfloat</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.9.15<a 
+href="refsu67.html#x148-15500011.9.15">stdcall</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.9.16<a 
+href="refsu68.html#x149-15600011.9.16">varargs</a></span>
+<br />&#x00A0;<span class="sectionToc" >.10<a 
+href="refse62.html#x150-15700011.10">Unsupported Turbo Pascal modifiers</a></span>
+</div>
+
+
+
+
+
+
+
+
+
+                                                                            
+
+                                                                            
+<!--l. 6216--><div class="crosslinks"><p class="noindent">[<a 
+href="refse65.html" >next</a>] [<a 
+href="refch10.html" >prev</a>] [<a 
+href="refch10.html#tailrefch10.html" >prev-tail</a>] [<a 
+href="refch11.html" >front</a>] [<a 
+href="ref.html#refse55.html" >up</a>] </p></div>
+<!--l. 6216--><p class="noindent" ><a 
+ id="tailrefch11.html"></a>  
+</body></html> 

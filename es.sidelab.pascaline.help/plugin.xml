@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.help.toc">
+      <toc
+            file="crt.xml">
+      </toc>
+      <toc
+      		file="ref.xml">
+      </toc>
+      <toc
+            file="pascalhelp.xml"
+            primary="true">
+      </toc>
+   </extension>
+
+</plugin>

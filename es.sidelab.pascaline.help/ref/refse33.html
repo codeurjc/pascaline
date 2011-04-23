@@ -1,0 +1,369 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Properties</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 3385--><div class="crosslinks"><p class="noindent">[<a 
+href="refse32.html" >prev</a>] [<a 
+href="refse32.html#tailrefse32.html" >prev-tail</a>] [<a 
+href="refsu27.html#tailrefse33.html">tail</a>] [<a 
+href="refse31.html#refse34.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">6.4   </span> <a 
+href="#x75-830006.4" id="x75-830006.4">Properties</a></h3>
+<a 
+ id="dx75-83001"></a>
+<!--l. 3386--><p class="noindent" ><a name="keyword:property"></a> Classes can contain properties as part of their fields list. A property acts like a normal field, i.e. its
+value can be retrieved or set, but it allows to redirect the access of the field through
+functions and procedures. They provide a means to associate an action with an assignment
+of or a reading from a class &#8217;field&#8217;. This allows for e.g. checking that a value is valid
+when assigning, or, when reading, it allows to construct the value on the fly. Moreover,
+properties can be read-only or write only. The prototype declaration of a property is as
+follows:<a 
+ id="dx75-83002"></a>
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<span 
+class="cmbx-10">Properties</span> <BR/><img 
+src="ref83x.png" alt=" --property definition- property -identifier--|----------------
+                                    -property interface--
+----property specifiers hintdirective ------------------------------------
+     " ><BR/>
+     <BR/><img 
+src="ref84x.png" alt=" --property interface -|---------------------:-type identifier-
+                  -property parameter list
+---|--------------------------------------------------------------
+   -index -integerconstant--
+     " ><BR/>
+     <BR/><img 
+src="ref85x.png" alt="--property parameter list [--|parameter declaration--] ------------------
+                        ---------;---------
+     " ><BR/>
+     <BR/><img 
+src="ref86x.png" alt=" --property specifiers------------------------------------
+                   -read specifier-| |---write specifier----|
+                                 -implements specifier--
+---|---------------|---------------|-----------------------------
+   -default specifier-- -stored specifier- -defaultarraypropertyspecifier--
+     " ><BR/>
+     <BR/><img 
+src="ref87x.png" alt="--read specifier- read -field or method-------------------------------
+     " ><BR/>
+     <BR/><img 
+src="ref88x.png" alt="--           -     -            --------------------------------
+  write specifier write  field or method
+     " ><BR/>
+     <BR/><img 
+src="ref89x.png" alt="--                -          -       ---------------------------
+  implements specifier implements  identifier
+     " ><BR/>
+     <BR/><img 
+src="ref90x.png" alt="--default specifier--default--|---------------------------------------
+                ------   -constant---|
+                      nodefault
+     " ><BR/>
+     <BR/><img 
+src="ref91x.png" alt="--stored specifier-stored-|-constant----------------------------------
+                      -identifier -
+     " ><BR/>
+     <BR/><img 
+src="ref92x.png" alt="--field or method--|-field identifier ------------------------------------
+                -method identifier--
+     " ><BR/>
+     <BR/><img 
+src="ref93x.png" alt="--defaultarraypropertyspecifier- ;- default -------------------------------
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 3397--><p class="noindent" >A <span 
+class="cmtt-10">read specifier</span> <a 
+ id="dx75-83003"></a>is either the name of a field that contains the property, or the name of a
+method function that has the same return type as the property type. In the case of a simple type,
+this function must not accept an argument. In case of an array property, the function must accept
+a single argument of the same type as the index. In case of an indexed property, it must accept a
+integer as an argument.
+<!--l. 3404--><p class="noindent" >A <span 
+class="cmtt-10">read specifier </span>is optional, making the property write-only. Note that class methods cannot be
+used as read specifiers.
+<!--l. 3407--><p class="noindent" >A <span 
+class="cmtt-10">write specifier</span> <a 
+ id="dx75-83004"></a>is optional: If there is no <span 
+class="cmtt-10">write specifier</span>, the property is read-only. A write
+specifier is either the name of a field, or the name of a method procedure that accepts as a sole
+argument a variable of the same type as the property. In case of an array property, the procedure
+must accept 2 arguments: the first argument must have the same type as the index, the second
+argument must be of the same type as the property. Similarly, in case of an indexed property, the
+first parameter must be an integer.
+<!--l. 3415--><p class="noindent" >The section <a 
+ id="dx75-83005"></a><a 
+ id="dx75-83006"></a> (<span 
+class="cmtt-10">private</span>, <span 
+class="cmtt-10">published</span>) in which the specified function or procedure resides is
+irrelevant. Usually, however, this will be a protected or private method.
+<!--l. 3419--><p class="noindent" >For example, given the following declaration:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;MyClass&#x00A0;=&#x00A0;Class
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Private
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Field1&#x00A0;:&#x00A0;Longint;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Field2&#x00A0;:&#x00A0;Longint;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Field3&#x00A0;:&#x00A0;Longint;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Procedure&#x00A0;&#x00A0;Sety&#x00A0;(value&#x00A0;:&#x00A0;Longint);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Function&#x00A0;Gety&#x00A0;:&#x00A0;Longint;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Function&#x00A0;Getz&#x00A0;:&#x00A0;Longint;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Public
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Property&#x00A0;X&#x00A0;:&#x00A0;Longint&#x00A0;Read&#x00A0;Field1&#x00A0;write&#x00A0;Field2;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Property&#x00A0;Y&#x00A0;:&#x00A0;Longint&#x00A0;Read&#x00A0;GetY&#x00A0;Write&#x00A0;Sety;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Property&#x00A0;Z&#x00A0;:&#x00A0;Longint&#x00A0;Read&#x00A0;GetZ;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;MyClass&#x00A0;:&#x00A0;TMyClass;
+</div>
+</td></tr></table>
+<!--l. 3438--><p class="nopar" >The following are valid statements:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+WriteLn&#x00A0;(&#8217;X&#x00A0;:&#x00A0;&#8217;,MyClass.X);
+&#x00A0;<br />WriteLn&#x00A0;(&#8217;Y&#x00A0;:&#x00A0;&#8217;,MyClass.Y);
+&#x00A0;<br />WriteLn&#x00A0;(&#8217;Z&#x00A0;:&#x00A0;&#8217;,MyClass.Z);
+&#x00A0;<br />MyClass.X&#x00A0;:=&#x00A0;0;
+&#x00A0;<br />MyClass.Y&#x00A0;:=&#x00A0;0;
+</div>
+</td></tr></table>
+<!--l. 3446--><p class="nopar" >But the following would generate an error:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+MyClass.Z&#x00A0;:=&#x00A0;0;
+</div>
+</td></tr></table>
+<!--l. 3450--><p class="nopar" >because Z is a read-only property.
+<!--l. 3453--><p class="noindent" >What happens in the above statements is that when a value needs to be read, the compiler inserts
+a call to the various <span 
+class="cmtt-10">getNNN </span>methods of the object, and the result of this call is used. When an
+assignment is made, the compiler passes the value that must be assigned as a paramater to the
+various <span 
+class="cmtt-10">setNNN </span>methods.
+<!--l. 3459--><p class="noindent" >Because of this mechanism, properties cannot be passed as var arguments to a function or
+procedure, since there is no known address of the property (at least, not always).<a 
+ id="dx75-83007"></a>
+<a 
+ id="dx75-83008"></a>
+<!--l. 3463--><p class="noindent" ><a name="keyword:index"></a> If the property definition contains an index, <a 
+ id="dx75-83009"></a>then the read and write specifiers must be a function
+and a procedure. Moreover, these functions require an additional parameter : An integer
+parameter. This allows to read or write several properties with the same function. For this, the
+properties must have the same type. The following is an example of a property with an
+index:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+{$mode&#x00A0;objfpc}
+&#x00A0;<br />Type
+&#x00A0;<br />&#x00A0;&#x00A0;TPoint&#x00A0;=&#x00A0;Class(TObject)
+&#x00A0;<br />&#x00A0;&#x00A0;Private
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;FX,FY&#x00A0;:&#x00A0;Longint;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Function&#x00A0;GetCoord&#x00A0;(Index&#x00A0;:&#x00A0;Integer):&#x00A0;Longint;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Procedure&#x00A0;SetCoord&#x00A0;(Index&#x00A0;:&#x00A0;Integer;&#x00A0;Value&#x00A0;:&#x00A0;longint);
+&#x00A0;<br />&#x00A0;&#x00A0;Public
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Property&#x00A0;X&#x00A0;:&#x00A0;Longint&#x00A0;index&#x00A0;1&#x00A0;read&#x00A0;GetCoord&#x00A0;Write&#x00A0;SetCoord;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Property&#x00A0;Y&#x00A0;:&#x00A0;Longint&#x00A0;index&#x00A0;2&#x00A0;read&#x00A0;GetCoord&#x00A0;Write&#x00A0;SetCoord;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Property&#x00A0;Coords[Index&#x00A0;:&#x00A0;Integer]:Longint&#x00A0;Read&#x00A0;GetCoord;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />Procedure&#x00A0;TPoint.SetCoord&#x00A0;(Index&#x00A0;:&#x00A0;Integer;&#x00A0;Value&#x00A0;:&#x00A0;Longint);
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Case&#x00A0;Index&#x00A0;of
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;1&#x00A0;:&#x00A0;FX&#x00A0;:=&#x00A0;Value;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;2&#x00A0;:&#x00A0;FY&#x00A0;:=&#x00A0;Value;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />Function&#x00A0;TPoint.GetCoord&#x00A0;(INdex&#x00A0;:&#x00A0;Integer)&#x00A0;:&#x00A0;Longint;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Case&#x00A0;Index&#x00A0;of
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;1&#x00A0;:&#x00A0;Result&#x00A0;:=&#x00A0;FX;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;2&#x00A0;:&#x00A0;Result&#x00A0;:=&#x00A0;FY;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;P&#x00A0;:&#x00A0;TPoint;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;P&#x00A0;:=&#x00A0;TPoint.create;
+&#x00A0;<br />&#x00A0;&#x00A0;P.X&#x00A0;:=&#x00A0;2;
+&#x00A0;<br />&#x00A0;&#x00A0;P.Y&#x00A0;:=&#x00A0;3;
+&#x00A0;<br />&#x00A0;&#x00A0;With&#x00A0;P&#x00A0;do
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;WriteLn&#x00A0;(&#8217;X=&#8217;,X,&#8217;&#x00A0;Y=&#8217;,Y);
+&#x00A0;<br />end.
+</div>
+</td></tr></table>
+<!--l. 3510--><p class="nopar" >When the compiler encounters an assignment to <span 
+class="cmtt-10">X</span>, then <span 
+class="cmtt-10">SetCoord </span>is called with as first parameter
+the index (1 in the above case) and with as a second parameter the value to be set. Conversely,
+when reading the value of <span 
+class="cmtt-10">X</span>, the compiler calls <span 
+class="cmtt-10">GetCoord </span>and passes it index 1. Indexes can only be
+integer values.
+<!--l. 3518--><p class="noindent" >Array properties also exist.<a 
+ id="dx75-83010"></a> These are properties that accept an index, just as an array does. Only
+now the index doesn&#8217;t have to be an ordinal type, but can be any type.
+<!--l. 3522--><p class="noindent" >A <span 
+class="cmtt-10">read specifier </span>for an array property is the name method function that has the same return
+type as the property type. The function must accept as a sole arguent a variable of the
+                                                                            
+
+                                                                            
+same type as the index type. For an array property, one cannot specify fields as <span 
+class="cmtt-10">read</span>
+<span 
+class="cmtt-10">specifiers</span>.
+<!--l. 3528--><p class="noindent" >A <span 
+class="cmtt-10">write specifier </span>for an array property is the name of a method procedure that accepts two
+arguments: The first argument has the same type as the index, and the second argument is a
+parameter of the same type as the property type. As an example, see the following
+declaration:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;TIntList&#x00A0;=&#x00A0;Class
+&#x00A0;<br />&#x00A0;&#x00A0;Private
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Function&#x00A0;GetInt&#x00A0;(I&#x00A0;:&#x00A0;Longint)&#x00A0;:&#x00A0;longint;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Function&#x00A0;GetAsString&#x00A0;(A&#x00A0;:&#x00A0;String)&#x00A0;:&#x00A0;String;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Procedure&#x00A0;SetInt&#x00A0;(I&#x00A0;:&#x00A0;Longint;&#x00A0;Value&#x00A0;:&#x00A0;Longint;);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Procedure&#x00A0;SetAsString&#x00A0;(A&#x00A0;:&#x00A0;String;&#x00A0;Value&#x00A0;:&#x00A0;String);
+&#x00A0;<br />&#x00A0;&#x00A0;Public
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Property&#x00A0;Items&#x00A0;[i&#x00A0;:&#x00A0;Longint]&#x00A0;:&#x00A0;Longint&#x00A0;Read&#x00A0;GetInt
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Write&#x00A0;SetInt;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Property&#x00A0;StrItems&#x00A0;[S&#x00A0;:&#x00A0;String]&#x00A0;:&#x00A0;String&#x00A0;Read&#x00A0;GetAsString
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Write&#x00A0;SetAsstring;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;AIntList&#x00A0;:&#x00A0;TIntList;
+</div>
+</td></tr></table>
+<!--l. 3550--><p class="nopar" >Then the following statements would be valid:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+AIntList.Items[26]&#x00A0;:=&#x00A0;1;
+&#x00A0;<br />AIntList.StrItems[&#8217;twenty-five&#8217;]&#x00A0;:=&#x00A0;&#8217;zero&#8217;;
+&#x00A0;<br />WriteLn&#x00A0;(&#8217;Item&#x00A0;26&#x00A0;:&#x00A0;&#8217;,AIntList.Items[26]);
+&#x00A0;<br />WriteLn&#x00A0;(&#8217;Item&#x00A0;25&#x00A0;:&#x00A0;&#8217;,AIntList.StrItems[&#8217;twenty-five&#8217;]);
+</div>
+</td></tr></table>
+<!--l. 3557--><p class="nopar" >While the following statements would generate errors:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+AIntList.Items[&#8217;twenty-five&#8217;]&#x00A0;:=&#x00A0;1;
+&#x00A0;<br />AIntList.StrItems[26]&#x00A0;:=&#x00A0;&#8217;zero&#8217;;
+</div>
+</td></tr></table>
+<!--l. 3562--><p class="nopar" >Because the index types are wrong.
+<!--l. 3565--><p class="noindent" >Array properties can be declared as <span 
+class="cmtt-10">default </span>properties. This means that it is not necessary to
+specify the property name when assigning or reading it. In the previous example, if the definition
+of the items property would have been
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+&#x00A0;Property&#x00A0;Items[i&#x00A0;:&#x00A0;Longint]:&#x00A0;Longint&#x00A0;Read&#x00A0;GetInt
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Write&#x00A0;SetInt;&#x00A0;Default;
+</div>
+</td></tr></table>
+<!--l. 3572--><p class="nopar" >Then the assignment
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+AIntList.Items[26]&#x00A0;:=&#x00A0;1;
+</div>
+</td></tr></table>
+<!--l. 3576--><p class="nopar" >Would be equivalent to the following abbreviation.
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+AIntList[26]&#x00A0;:=&#x00A0;1;
+</div>
+</td></tr></table>
+<!--l. 3580--><p class="nopar" >Only one default property per class is allowed, and descendent classes cannot redeclare the default
+property.
+<!--l. 3584--><p class="noindent" >The <span 
+class="cmti-10">stored specifier </span>should be either a boolean constant, a boolean field of the class, or a
+parameterless function which returns a boolean result. This specifier has no result on the class
+behaviour. It is an aid for the streaming system: the stored specifier is specified in the RTTI
+generated for a class (it can only be streamed if RTTI is generated), and is used to determine
+whether a property should be streamed or not: it saves space in a stream. It is not possible to
+specify the &#8217;Stored&#8217; directive for array properties.
+<!--l. 3593--><p class="noindent" >The <span 
+class="cmti-10">default specifier </span>can be specified for ordinal types and sets. It serves the same purpose as the
+<span 
+class="cmti-10">stored specifier</span>: Properties that have as value their default value, will not be written to the stream
+by the streaming system. The default value is stored in the RTTI that is generated for the class.
+Note that
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x75-83012x1">When the class is instantiated, the default value is not automatically applied to the
+     property, it is the responsability of the programmer to do this in the constructor of the
+     class.
+     </li>
+     <li 
+  class="enumerate" id="x75-83014x2">The value 2147483648 cannot be used as a default value, as it is used internally to
+     denote &#8217;nodefault&#8217;.
+     </li>
+     <li 
+  class="enumerate" id="x75-83016x3">It is not possible to specify a default for array properties.</li></ol>
+                                                                            
+
+                                                                            
+<!--l. 3611--><div class="crosslinks"><p class="noindent">[<a 
+href="refse32.html" >prev</a>] [<a 
+href="refse32.html#tailrefse32.html" >prev-tail</a>] [<a 
+href="refse33.html" >front</a>] [<a 
+href="refse31.html#refse34.html" >up</a>] </p></div>
+<!--l. 3611--><p class="noindent" ><a 
+ id="tailrefse33.html"></a>  
+</body></html> 

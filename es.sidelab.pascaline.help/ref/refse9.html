@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Ordinary constants</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 496--><div class="crosslinks"><p class="noindent">[<a 
+href="refse10.html" >next</a>] [<a 
+href="#tailrefse9.html">tail</a>] [<a 
+href="refch2.html#refse9.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">2.1   </span> <a 
+href="ref.html#QQ2-21-20" id="x21-200002.1">Ordinary constants</a></h3>
+<a 
+ id="dx21-20001"></a>
+<!--l. 498--><p class="noindent" >Ordinary constants declarations are not different from the Turbo Pascal or Delphi implementation.
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<span 
+class="cmbx-10">Constant declaration</span><BR/><img 
+src="ref25x.png" alt="--                --       -   -         -          -  ----------
+  constant declaration -identifier--=---expression--hintdirectives--;-|
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 501--><p class="noindent" >The compiler must be able to evaluate the expression in a constant declaration at compile time.
+This means that most of the functions in the Run-Time library cannot be used in a constant
+declaration.<a 
+ id="dx21-20002"></a> Operators such as <span 
+class="cmtt-10">+, -, *, /, not, and, or, div, mod, ord, chr, sizeof,</span>
+<span 
+class="cmtt-10">pi, int, trunc, round, frac, odd </span>can be used, however. For more information on
+expressions, see chapter <a 
+href="refch9.html#x88-950009">9<!--tex4ht:ref: ch:Expressions --></a>, page <a 
+href="refch9.html#x88-950009">309<!--tex4ht:ref: ch:Expressions --></a>. Only constants of the following types can be declared:
+<span 
+class="cmtt-10">Ordinal types</span>, <span 
+class="cmtt-10">Real types</span>, <span 
+class="cmtt-10">Char</span>, and <span 
+class="cmtt-10">String</span>.<a 
+ id="dx21-20003"></a> The following are all valid constant
+declarations:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Const
+&#x00A0;<br />&#x00A0;&#x00A0;e&#x00A0;=&#x00A0;2.7182818;&#x00A0;&#x00A0;{&#x00A0;Real&#x00A0;type&#x00A0;constant.&#x00A0;}
+&#x00A0;<br />&#x00A0;&#x00A0;a&#x00A0;=&#x00A0;2;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;{&#x00A0;Ordinal&#x00A0;(Integer)&#x00A0;type&#x00A0;constant.&#x00A0;}
+&#x00A0;<br />&#x00A0;&#x00A0;c&#x00A0;=&#x00A0;&#8217;4&#8217;;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;{&#x00A0;Character&#x00A0;type&#x00A0;constant.&#x00A0;}
+&#x00A0;<br />&#x00A0;&#x00A0;s&#x00A0;=&#x00A0;&#8217;This&#x00A0;is&#x00A0;a&#x00A0;constant&#x00A0;string&#8217;;&#x00A0;{String&#x00A0;type&#x00A0;constant.}
+&#x00A0;<br />&#x00A0;&#x00A0;s&#x00A0;=&#x00A0;chr(32)
+&#x00A0;<br />&#x00A0;&#x00A0;ls&#x00A0;=&#x00A0;SizeOf(Longint);
+</div>
+</td></tr></table>
+<!--l. 519--><p class="nopar" >Assigning a value to an ordinary constant is not permitted. Thus, given the previous declaration,
+the following will result in a compiler error:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+&#x00A0;&#x00A0;s&#x00A0;:=&#x00A0;&#8217;some&#x00A0;other&#x00A0;string&#8217;;
+</div>
+</td></tr></table>
+<!--l. 525--><p class="nopar" >
+<!--l. 527--><p class="noindent" >Prior to version 1.9, Free Pascal did not correctly support 64-bit constants. As of version 1.9,
+64-bits constants can be specified.
+                                                                            
+
+                                                                            
+<!--l. 532--><div class="crosslinks"><p class="noindent">[<a 
+href="refse10.html" >next</a>] [<a 
+href="refse9.html" >front</a>] [<a 
+href="refch2.html#refse9.html" >up</a>] </p></div>
+<!--l. 532--><p class="noindent" ><a 
+ id="tailrefse9.html"></a>  
+</body></html> 

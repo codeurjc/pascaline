@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>WideStrings</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 1139--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu12.html" >next</a>] [<a 
+href="refsu10.html" >prev</a>] [<a 
+href="refsu10.html#tailrefsu10.html" >prev-tail</a>] [<a 
+href="#tailrefsu11.html">tail</a>] [<a 
+href="refse13.html#refsu11.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">3.2.5   </span> <a 
+href="ref.html#QQ2-33-40" id="x33-360003.2.5">WideStrings</a></h4>
+<a 
+ id="dx33-36001"></a>
+<a 
+ id="dx33-36002"></a>
+<a 
+ id="dx33-36003"></a>
+<!--l. 1141--><p class="noindent" >Widestrings (used to represent unicode character strings) are implemented in much the same way
+as ansistrings: reference counted, null-terminated arrays, only they are implemented as arrays of
+<span 
+class="cmtt-10">WideChars </span>instead of regular <span 
+class="cmtt-10">Chars</span>. A <span 
+class="cmtt-10">WideChar </span>is a two-byte character (an element of a
+DBCS: Double Byte Character Set). Mostly the same rules apply for <span 
+class="cmtt-10">WideStrings </span>as for
+<span 
+class="cmtt-10">AnsiStrings</span>. The compiler transparantly converts WideStrings to AnsiStrings and vice versa.
+<a 
+ id="dx33-36004"></a>
+<!--l. 1149--><p class="noindent" >Similarly to the typecast<a 
+ id="dx33-36005"></a> of an Ansistring to a <span 
+class="cmtt-10">PChar </span>null-terminated <a 
+ id="dx33-36006"></a><a 
+ id="dx33-36007"></a>array of characters, a
+WideString can be converted to a <span 
+class="cmtt-10">PWideChar </span>null-terminated array of characters. Note that the
+<span 
+class="cmtt-10">PWideChar </span>array is terminated by 2 null bytes instead of 1, so a typecast to a pchar is not
+automatic.
+<!--l. 1156--><p class="noindent" >The compiler itself provides no support for any conversion from Unicode to ansistrings or vice
+versa. The <span 
+class="cmss-10">system </span>unit has a widestring manager record, which can be initialized with
+some OS-specific unicode handling routines. For more information, see the <span 
+class="cmss-10">system </span>unit
+reference.
+                                                                            
+
+                                                                            
+<!--l. 1162--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu12.html" >next</a>] [<a 
+href="refsu10.html" >prev</a>] [<a 
+href="refsu10.html#tailrefsu10.html" >prev-tail</a>] [<a 
+href="refsu11.html" >front</a>] [<a 
+href="refse13.html#refsu11.html" >up</a>] </p></div>
+<!--l. 1162--><p class="noindent" ><a 
+ id="tailrefsu11.html"></a>  
+</body></html> 

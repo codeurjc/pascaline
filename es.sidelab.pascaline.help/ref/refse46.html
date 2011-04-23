@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Value typecasts</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 4320--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu29.html" >next</a>] [<a 
+href="refse45.html" >prev</a>] [<a 
+href="refse45.html#tailrefse45.html" >prev-tail</a>] [<a 
+href="refse43.html#tailrefse46.html">tail</a>] [<a 
+href="refse45.html#refse49.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">9.4   </span> <a 
+href="#x92-990009.4" id="x92-990009.4">Value typecasts</a></h3>
+<a 
+ id="dx92-99001"></a>
+<a 
+ id="dx92-99002"></a>
+<!--l. 4322--><p class="noindent" >Sometimes it is necessary to change the type of an expression, or a part of the expression, to be
+able to be assignment compatible. This is done through a value typecast. The syntax diagram for a
+value typecast is as follows:
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<span 
+class="cmbx-10">Typecasts</span><BR/><img 
+src="ref113x.png" alt="--value typecast type identifier (- expression -) -----------------------
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 4326--><p class="noindent" >Value typecasts cannot be used on the left side of assignments, as variable typecasts. Here are some
+valid typecasts:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Byte(&#8217;A&#8217;)
+&#x00A0;<br />Char(48)
+&#x00A0;<br />boolean(1)
+&#x00A0;<br />longint(@Buffer)
+</div>
+</td></tr></table>
+<!--l. 4334--><p class="nopar" >In general, the type size of the expression and the size of the type cast must be the same.
+However, for ordinal types (byte, char, word, boolean, enumerateds) this is not so, they can
+be used interchangeably. That is, the following will work, although the sizes do not
+match.
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Integer(&#8217;A&#8217;);
+&#x00A0;<br />Char(4875);
+&#x00A0;<br />boolean(100);
+&#x00A0;<br />Word(@Buffer);
+</div>
+</td></tr></table>
+<!--l. 4344--><p class="nopar" >This is compatible with Delphior Turbo Pascal behaviour.
+                                                                            
+
+                                                                            
+<!--l. 4349--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu29.html" >next</a>] [<a 
+href="refse45.html" >prev</a>] [<a 
+href="refse45.html#tailrefse45.html" >prev-tail</a>] [<a 
+href="refse46.html" >front</a>] [<a 
+href="refse45.html#refse49.html" >up</a>] </p></div>
+<!--l. 4349--><p class="noindent" ><a 
+ id="tailrefse46.html"></a>  
+</body></html> 

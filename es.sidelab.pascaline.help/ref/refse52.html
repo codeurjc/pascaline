@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Assembler statements</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 5215--><div class="crosslinks"><p class="noindent">[<a 
+href="refse51.html" >prev</a>] [<a 
+href="refse51.html#tailrefse51.html" >prev-tail</a>] [<a 
+href="refsu44.html#tailrefse52.html">tail</a>] [<a 
+href="refsu37.html#refse54.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">10.3   </span> <a 
+href="#x117-12400010.3" id="x117-12400010.3">Assembler statements</a></h3>
+<a 
+ id="dx117-124001"></a>
+<a 
+ id="dx117-124002"></a>
+<a 
+ id="dx117-124003"></a>
+<!--l. 5217--><p class="noindent" >An assembler statement allows to insert assembler code right in the pascal code.
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<span 
+class="cmbx-10">Assembler statements</span> <BR/><img 
+src="ref135x.png" alt="--asm statement -asm -assembler code-end--|-------------------------
+                                       -registerlist--
+     " ><BR/>
+     <BR/><img 
+src="ref136x.png" alt="--registerlist- [--|stringconstant---]----------------------------------
+               ------,------
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 5220--><p class="noindent" >More information about assembler blocks can be found in the <a 
+href="../prog/prog.html" >Programmers guide</a>. The register list
+is used to indicate the registers that are modified by an assembler statement in the assembler
+block. The compiler stores certain results in the registers. If the registers are modified in an
+assembler statement, the compiler should, sometimes, be told about it. The registers are denoted
+with their Intel names for the I386 processor, i.e., <span 
+class="cmtt-10">&#8217;EAX&#8217;</span>, <span 
+class="cmtt-10">&#8217;ESI&#8217; </span>etc... As an example, consider the
+following assembler code:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+asm
+&#x00A0;<br />&#x00A0;&#x00A0;Movl&#x00A0;$1,%ebx
+&#x00A0;<br />&#x00A0;&#x00A0;Movl&#x00A0;$0,%eax
+&#x00A0;<br />&#x00A0;&#x00A0;addl&#x00A0;%eax,%ebx
+&#x00A0;<br />end;&#x00A0;[&#8217;EAX&#8217;,&#8217;EBX&#8217;];
+</div>
+</td></tr></table>
+<!--l. 5233--><p class="nopar" >This will tell the compiler that it should save and restore the contents of the <span 
+class="cmtt-10">EAX </span>and <span 
+class="cmtt-10">EBX </span>registers
+when it encounters this asm statement.
+<!--l. 5237--><p class="noindent" >Free Pascal supports various styles of assembler syntax. By default, <span 
+class="cmtt-10">AT&amp;T </span>syntax is assumed for the
+80386 and compatibles platform. The default assembler style can be changed with the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$asmmode</span>
+<span 
+class="cmtt-10">xxx</span><span 
+class="cmsy-10">} </span>switch in the code, or the <span 
+class="cmtt-10">-R </span>command-line option. More about this can be found in the
+<a 
+href="../prog/prog.html" >Programmers guide</a>.
+                                                                            
+
+                                                                            
+<!--l. 5247--><div class="crosslinks"><p class="noindent">[<a 
+href="refse51.html" >prev</a>] [<a 
+href="refse51.html#tailrefse51.html" >prev-tail</a>] [<a 
+href="refse52.html" >front</a>] [<a 
+href="refsu37.html#refse54.html" >up</a>] </p></div>
+<!--l. 5247--><p class="noindent" ><a 
+ id="tailrefse52.html"></a>  
+</body></html> 

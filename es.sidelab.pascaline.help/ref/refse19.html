@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Definition</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 2192--><div class="crosslinks"><p class="noindent">[<a 
+href="refse21.html" >next</a>] [<a 
+href="refch4.html#tailrefse19.html">tail</a>] [<a 
+href="refse19.html#refse20.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">4.1   </span> <a 
+href="#x50-560004.1" id="x50-560004.1">Definition</a></h3>
+<!--l. 2193--><p class="noindent" >Variables are explicitly named memory locations with a certain type. When assigning values to
+variables, the Free Pascal compiler generates machine code to move the value to the memory
+location reserved for this variable. Where this variable is stored depends on where it is
+declared:
+     <ul class="itemize1">
+     <li class="itemize">Global variables are variables declared in a unit or program, but not inside a procedure
+     or function. They are stored in fixed memory locations, and are available during the
+     whole execution time of the program.
+     </li>
+     <li class="itemize">Local variables are declared inside a procedure or function. Their value is stored on
+     the program stack, i.e. not at fixed locations.</li></ul>
+<!--l. 2206--><p class="noindent" >The Free Pascal compiler handles the allocation of these memory locations transparantly, although
+this location can be influenced in the declaration.
+<!--l. 2209--><p class="noindent" >The Free Pascal compiler also handles reading values from or writing values to the variables
+transparantly. But even this can be explicitly handled by the programmer when using
+properties.
+<!--l. 2213--><p class="noindent" >Variables must be explicitly declared when they are needed. No memory is allocated unless a
+variable is declared. Using an variable identifier (for instance, a loop variable) which is not declared
+first, is an error which will be reported by the compiler.
+                                                                            
+
+                                                                            
+<!--l. 2218--><div class="crosslinks"><p class="noindent">[<a 
+href="refse21.html" >next</a>] [<a 
+href="refse19.html" >front</a>] [<a 
+href="refse19.html#refse20.html" >up</a>] </p></div>
+<!--l. 2218--><p class="noindent" ><a 
+ id="tailrefse19.html"></a>  
+</body></html> 

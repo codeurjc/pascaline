@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Typed constants</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 532--><div class="crosslinks"><p class="noindent">[<a 
+href="refse11.html" >next</a>] [<a 
+href="refse9.html" >prev</a>] [<a 
+href="refse9.html#tailrefse9.html" >prev-tail</a>] [<a 
+href="#tailrefse10.html">tail</a>] [<a 
+href="refch2.html#refse10.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">2.2   </span> <a 
+href="ref.html#QQ2-22-21" id="x22-210002.2">Typed constants</a></h3>
+<a 
+ id="dx22-21001"></a>
+<a 
+ id="dx22-21002"></a>
+<!--l. 534--><p class="noindent" >Typed constants serve to provide a program with initialised variables. Contrary to ordinary
+constants, they may be assigned to at run-time. The difference with normal variables is that their
+value is initialised when the program starts, whereas normal variables must be initialised
+explicitly.<a 
+ id="dx22-21003"></a>
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<span 
+class="cmbx-10">Typed constant declaration</span> <BR/><img 
+src="ref26x.png" alt=" typed constant declaration-|identifier- :-type- = -typed constant -hintdirective -;---
+-----------------------------------------------------------------------
+     " ><BR/>
+     <BR/><img 
+src="ref27x.png" alt="--typed constant -------constant-------------------------------------
+               ---address constant---|
+               ---array constant ---|
+               |--record constant--|
+               -procedural constant-
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 540--><p class="noindent" >Given the declaration:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Const
+&#x00A0;<br />&#x00A0;&#x00A0;S&#x00A0;:&#x00A0;String&#x00A0;=&#x00A0;&#8217;This&#x00A0;is&#x00A0;a&#x00A0;typed&#x00A0;constant&#x00A0;string&#8217;;
+</div>
+</td></tr></table>
+<!--l. 544--><p class="nopar" >The following is a valid assignment:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+&#x00A0;S&#x00A0;:=&#x00A0;&#8217;Result&#x00A0;:&#x00A0;&#8217;+Func;
+</div>
+</td></tr></table>
+<!--l. 548--><p class="nopar" >Where <span 
+class="cmtt-10">Func </span>is a function that returns a <span 
+class="cmtt-10">String</span>. Typed constants are often used to initialize arrays
+and records. For arrays, the initial elements must be specified, surrounded by round brackets, and
+separated by commas. The number of elements must be exactly the same as the number of
+elements in the declaration of the type. As an example:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Const
+&#x00A0;<br />&#x00A0;&#x00A0;tt&#x00A0;:&#x00A0;array&#x00A0;[1..3]&#x00A0;of&#x00A0;string[20]&#x00A0;=&#x00A0;(&#8217;ikke&#8217;,&#x00A0;&#8217;gij&#8217;,&#x00A0;&#8217;hij&#8217;);
+&#x00A0;<br />&#x00A0;&#x00A0;ti&#x00A0;:&#x00A0;array&#x00A0;[1..3]&#x00A0;of&#x00A0;Longint&#x00A0;=&#x00A0;(1,2,3);
+</div>
+</td></tr></table>
+<!--l. 559--><p class="nopar" >For constant records, each element of the record should be specified, in the form <span 
+class="cmtt-10">Field: Value</span>,
+separated by semicolons, and surrounded by round brackets.<a 
+ id="dx22-21004"></a> As an example:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;Point&#x00A0;=&#x00A0;record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;X,Y&#x00A0;:&#x00A0;Real
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+&#x00A0;<br />Const
+&#x00A0;<br />&#x00A0;&#x00A0;Origin&#x00A0;:&#x00A0;Point&#x00A0;=&#x00A0;(X:0.0;&#x00A0;Y:0.0);
+</div>
+</td></tr></table>
+<!--l. 571--><p class="nopar" >The order of the fields in a constant record needs to be the same as in the type declaration,
+otherwise a compile-time error will occur.
+<!--l. 575--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> It should be stressed that typed constants are initialized at program start. This is also true for
+<span 
+class="cmti-10">local </span>typed constants. Local typed constants are also initialized at program start. If their value was
+changed during previous invocations of the function, they will retain their changed value, i.e. they
+are not initialized each time the function is invoked.
+<!--l. 583--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> Support for typed constants is controlled by the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$J</span><span 
+class="cmsy-10">} </span>directive: it can be switched off. Initialized
+variables are always allowed.
+                                                                            
+
+                                                                            
+<!--l. 592--><div class="crosslinks"><p class="noindent">[<a 
+href="refse11.html" >next</a>] [<a 
+href="refse9.html" >prev</a>] [<a 
+href="refse9.html#tailrefse9.html" >prev-tail</a>] [<a 
+href="refse10.html" >front</a>] [<a 
+href="refch2.html#refse10.html" >up</a>] </p></div>
+<!--l. 592--><p class="noindent" ><a 
+ id="tailrefse10.html"></a>  
+</body></html> 

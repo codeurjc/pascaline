@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Operator declarations</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 6234--><div class="crosslinks"><p class="noindent">[<a 
+href="refch13.html" >next</a>] [<a 
+href="refse63.html" >prev</a>] [<a 
+href="refse63.html#tailrefse63.html" >prev-tail</a>] [<a 
+href="refse62.html#tailrefse64.html">tail</a>] [<a 
+href="refse65.html#refse67.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">12.2   </span> <a 
+href="#x153-16000012.2" id="x153-16000012.2">Operator declarations</a></h3>
+<a 
+ id="dx153-160001"></a>
+<!--l. 6236--><p class="noindent" >To define the action of an operator is much like defining a function:
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<span 
+class="cmbx-10">Operator definitions</span> <BR/><img 
+src="ref153x.png" alt=" --operator definition operator--|assignment operator definition--
+                            | arithmetic operator definition-|
+                            -comparision operator definition
+---|result identifier --: -result type-;- subroutine block------------------
+   --------------
+     " ><BR/>
+     <BR/><img 
+src="ref154x.png" alt="--assignment operator definition-:= - (- value parameter-)----------------
+     " ><BR/>
+     <BR/><img 
+src="ref155x.png" alt="--arithmetic operator definition|+ ---( -parameter list )----------------
+                          |----|
+                          | *--|
+                          | /--|
+                          -** --
+     " ><BR/>
+     <BR/><img 
+src="ref156x.png" alt="--comparision operator definition|-= --( -parameter list-)---------------
+                           |-&#x003C; -|
+                           | &#x003C;=-|
+                           |-&#x003E; -|
+                           - &#x003E;=-
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 6238--><p class="noindent" >The parameter list for a comparision operator or an arithmetic operator must always contain 2
+parameters. The result type of the comparision operator must be <span 
+class="cmtt-10">Boolean</span>.
+<!--l. 6242--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> When compiling in <span 
+class="cmtt-10">Delphi </span>mode or <span 
+class="cmtt-10">Objfpc </span>mode, the result identifier may be dropped. The result
+can then be accessed through the standard <span 
+class="cmtt-10">Result </span>symbol.
+<!--l. 6247--><p class="noindent" >If the result identifier is dropped and the compiler is not in one of these modes, a syntax error will
+occur.
+                                                                            
+
+                                                                            
+<!--l. 6251--><p class="noindent" >The statement block contains the necessary statements to determine the result of the operation. It
+can contain arbitrary large pieces of code; it is executed whenever the operation is encountered in
+some expression. The result of the statement block must always be defined; error conditions are not
+checked by the compiler, and the code must take care of all possible cases, throwing a run-time
+error if some error condition is encountered.
+<!--l. 6258--><p class="noindent" >In the following, the three types of operator definitions will be examined. As an example,
+throughout this chapter the following type will be used to define overloaded operators on
+:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+type
+&#x00A0;<br />&#x00A0;&#x00A0;complex&#x00A0;=&#x00A0;record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;re&#x00A0;:&#x00A0;real;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;im&#x00A0;:&#x00A0;real;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+</div>
+</td></tr></table>
+<!--l. 6267--><p class="nopar" >This type will be used in all examples.
+<!--l. 6270--><p class="noindent" >The sources of the Run-Time Library contain 2 units that heavily use operator overloading:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">ucomplex</span> </dt><dd 
+class="description">This unit contains a complete calculus for complex numbers.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">matrix</span> </dt><dd 
+class="description">This unit contains a complete calculus for matrices.</dd></dl>
+                                                                            
+
+                                                                            
+<!--l. 6277--><div class="crosslinks"><p class="noindent">[<a 
+href="refch13.html" >next</a>] [<a 
+href="refse63.html" >prev</a>] [<a 
+href="refse63.html#tailrefse63.html" >prev-tail</a>] [<a 
+href="refse64.html" >front</a>] [<a 
+href="refse65.html#refse67.html" >up</a>] </p></div>
+<!--l. 6277--><p class="noindent" ><a 
+ id="tailrefse64.html"></a>  
+</body></html> 

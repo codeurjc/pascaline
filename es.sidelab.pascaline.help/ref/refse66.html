@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Arithmetic operators</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 6396--><div class="crosslinks"><p class="noindent">[<a 
+href="refse69.html" >next</a>] [<a 
+href="refse65.html" >prev</a>] [<a 
+href="refse65.html#tailrefse65.html" >prev-tail</a>] [<a 
+href="refse63.html#tailrefse66.html">tail</a>] [<a 
+href="refse65.html#refse68.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">12.4   </span> <a 
+href="#x155-16200012.4" id="x155-16200012.4">Arithmetic operators</a></h3>
+<a 
+ id="dx155-162001"></a>
+<a 
+ id="dx155-162002"></a>
+<!--l. 6398--><p class="noindent" >Arithmetic operators define the action of a binary operator. Possible operations are:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">multiplication</span> </dt><dd 
+class="description">To multiply two types, the <span 
+class="cmtt-10">* </span>multiplication operator must be overloaded.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">division</span> </dt><dd 
+class="description">To divide two types, the <span 
+class="cmtt-10">/ </span>division operator must be overloaded.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">addition</span> </dt><dd 
+class="description">To add two types, the <span 
+class="cmtt-10">+ </span>addition operator must be overloaded.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">substraction</span> </dt><dd 
+class="description">To substract two types, the <span 
+class="cmtt-10">- </span>substraction operator must be overloaded.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">exponentiation</span> </dt><dd 
+class="description">To  exponentiate  two  types,  the  <span 
+class="cmtt-10">** </span>exponentiation  operator  must  be
+     overloaded.</dd></dl>
+<!--l. 6413--><p class="noindent" >The definition of an arithmetic operator takes two parameters. The first parameter must be of the
+type that occurs at the left of the operator, the second parameter must be of the type that is at the
+right of the arithmetic operator. The result type must match the type that results after the
+arithmetic operation.
+<!--l. 6419--><p class="noindent" >To compile an expression as
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+var
+&#x00A0;<br />&#x00A0;&#x00A0;R&#x00A0;:&#x00A0;real;
+&#x00A0;<br />&#x00A0;&#x00A0;C,Z&#x00A0;:&#x00A0;complex;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;C:=R*Z;
+&#x00A0;<br />end;
+</div>
+</td></tr></table>
+<!--l. 6428--><p class="nopar" >One needs a definition of the multiplication operator as:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Operator&#x00A0;*&#x00A0;(r&#x00A0;:&#x00A0;real;&#x00A0;z1&#x00A0;:&#x00A0;complex)&#x00A0;z&#x00A0;:&#x00A0;complex;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;z.re&#x00A0;:=&#x00A0;z1.re&#x00A0;*&#x00A0;r;
+&#x00A0;<br />&#x00A0;&#x00A0;z.im&#x00A0;:=&#x00A0;z1.im&#x00A0;*&#x00A0;r;
+&#x00A0;<br />end;
+</div>
+</td></tr></table>
+<!--l. 6437--><p class="nopar" >As can be seen, the first operator is a real, and the second is a complex. The result type is
+complex.
+<!--l. 6441--><p class="noindent" >Multiplication and addition of reals and complexes are commutative operations. The compiler,
+however, has no notion of this fact so even if a multiplication between a real and a complex is
+defined, the compiler will not use that definition when it encounters a complex and a real (in that
+order). It is necessary to define both operations.
+<!--l. 6447--><p class="noindent" >So, given the above definition of the multiplication, the compiler will not accept the following
+statement:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+var
+&#x00A0;<br />&#x00A0;&#x00A0;R&#x00A0;:&#x00A0;real;
+&#x00A0;<br />&#x00A0;&#x00A0;C,Z&#x00A0;:&#x00A0;complex;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;C:=Z*R;
+&#x00A0;<br />end;
+</div>
+</td></tr></table>
+<!--l. 6457--><p class="nopar" >Since the types of <span 
+class="cmtt-10">Z </span>and <span 
+class="cmtt-10">R </span>don&#8217;t match the types in the operator definition.
+<!--l. 6461--><p class="noindent" >The reason for this behaviour is that it is possible that a multiplication is not always commutative.
+e.g. the multiplication of a <span 
+class="cmtt-10">(n,m) </span>with a <span 
+class="cmtt-10">(m,n) </span>matrix will result in a <span 
+class="cmtt-10">(n,n) </span>matrix, while the
+mutiplication of a <span 
+class="cmtt-10">(m,n) </span>with a <span 
+class="cmtt-10">(n,m) </span>matrix is a <span 
+class="cmtt-10">(m,m) </span>matrix, which needn&#8217;t be the same in all
+cases.
+                                                                            
+
+                                                                            
+<!--l. 6467--><div class="crosslinks"><p class="noindent">[<a 
+href="refse69.html" >next</a>] [<a 
+href="refse65.html" >prev</a>] [<a 
+href="refse65.html#tailrefse65.html" >prev-tail</a>] [<a 
+href="refse66.html" >front</a>] [<a 
+href="refse65.html#refse68.html" >up</a>] </p></div>
+<!--l. 6467--><p class="noindent" ><a 
+ id="tailrefse66.html"></a>  
+</body></html> 

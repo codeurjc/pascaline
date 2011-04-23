@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Constant parameters</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 5481--><div class="crosslinks"><p class="noindent">[<a 
+href="refse58.html" >next</a>] [<a 
+href="refsu49.html" >prev</a>] [<a 
+href="refsu49.html#tailrefsu49.html" >prev-tail</a>] [<a 
+href="refsu47.html#tailrefsu50.html">tail</a>] [<a 
+href="refsu49.html#refse57.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">11.4.4   </span> <a 
+href="#x126-13300011.4.4" id="x126-13300011.4.4">Constant parameters</a></h4>
+<a 
+ id="dx126-133001"></a>
+<!--l. 5482--><p class="noindent" >In addition to variable parameters and value parameters Free Pascal also supports Constant
+parameters. A constant parameter as can be specified as follows:
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<span 
+class="cmbx-10">Constant parameters</span><BR/><img 
+src="ref148x.png" alt=" constant parameter const------identifier list-|---------------------------------
+                        |              -: -|----------- type identifier-    |
+                        -       -  -       -array -of --               --|
+-------------------------identifier--:-type identifier-=--default parameter value
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 5485--><p class="noindent" >A constant argument is passed by reference if its size is larger than a pointer. It is passed by value
+if the size is equal or is less then the size of a native pointer. This means that the function or
+procedure receives a pointer to the passed argument, but it cannot be assigned to, this
+will result in a compiler error. Furthermore a const parameter cannot be passed on to
+another function that requires a variable parameter. The main use for this is reducing the
+stack size, hence improving performance, and still retaining the semantics of passing by
+value...
+<!--l. 5495--><p class="noindent" >Constant parameters can also be untyped. See section <a 
+href="refsu48.html#x124-13100011.4.2">11.4.2<!--tex4ht:ref: se:varparams --></a>, page <a 
+href="refsu48.html#x124-13100011.4.2">436<!--tex4ht:ref: se:varparams --></a> for more information about
+untyped parameters.
+<!--l. 5498--><p class="noindent" >As for value parameters, constant parameters can get default values.
+<!--l. 5500--><p class="noindent" >Open arrays can be passed as constant parameters. See section <a 
+href="refsu51.html#x127-13400011.4.5">11.4.5<!--tex4ht:ref: se:openarray --></a>, page <a 
+href="refsu51.html#x127-13400011.4.5">441<!--tex4ht:ref: se:openarray --></a> for more
+information on using open arrays.
+                                                                            
+
+                                                                            
+<!--l. 5503--><div class="crosslinks"><p class="noindent">[<a 
+href="refse58.html" >next</a>] [<a 
+href="refsu49.html" >prev</a>] [<a 
+href="refsu49.html#tailrefsu49.html" >prev-tail</a>] [<a 
+href="refsu50.html" >front</a>] [<a 
+href="refsu49.html#refse57.html" >up</a>] </p></div>
+<!--l. 5503--><p class="noindent" ><a 
+ id="tailrefsu50.html"></a>  
+</body></html> 

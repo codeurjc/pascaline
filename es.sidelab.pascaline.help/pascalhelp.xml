@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="Pascal Help" topic="html/book.html">
+	<topic label="CRT" href="crt/index.html">
+		<link toc="crt.xml" />
+	</topic>
+	<topic label="reference guide" href="ref/ref.html">
+		<link toc="ref.xml" />
+	</topic>
+</toc>

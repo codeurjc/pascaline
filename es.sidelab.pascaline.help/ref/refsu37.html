@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Procedure statements</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 4779--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu40.html" >next</a>] [<a 
+href="refsu36.html" >prev</a>] [<a 
+href="refsu36.html#tailrefsu36.html" >prev-tail</a>] [<a 
+href="refch10.html#tailrefsu37.html">tail</a>] [<a 
+href="refsu38.html#refsu39.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">10.1.2   </span> <a 
+href="#x106-11300010.1.2" id="x106-11300010.1.2">Procedure statements</a></h4>
+<a 
+ id="dx106-113001"></a>
+<!--l. 4781--><p class="noindent" >Procedure statements are calls to subroutines. There are different possibilities for procedure
+calls:
+     <ul class="itemize1">
+     <li class="itemize">A normal procedure call.
+     </li>
+     <li class="itemize">An object method call (fully qualified or not).
+     </li>
+     <li class="itemize">Or even a call to a procedural type variable.</li></ul>
+<!--l. 4788--><p class="noindent" >All types are present in the following diagram:
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<span 
+class="cmbx-10">Procedure statements</span><BR/><img 
+src="ref118x.png" alt="--procedure statement-|---procedure identifier----|--------------------
+                   |----method identifier----||-actual parameter list-|
+                   |-qualified method identifier|
+                    ----variable reference-----
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 4790--><p class="noindent" >The Free Pascal compiler will look for a procedure with the same name as given in the procedure
+statement, and with a declared parameter list that matches the actual parameter list. The
+following are valid procedure statements:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Usage;
+&#x00A0;<br />WriteLn(&#8217;Pascal&#x00A0;is&#x00A0;an&#x00A0;easy&#x00A0;language&#x00A0;!&#8217;);
+&#x00A0;<br />Doit();
+</div>
+</td></tr></table>
+<!--l. 4798--><p class="nopar" >
+<!--l. 4799--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> When looking for a function that matches the parameter list of the call, the parameter types
+should be assignment-compatible for value and const parameters, and should match exactly for
+parameters that are passed by reference.
+                                                                            
+
+                                                                            
+<!--l. 4806--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu40.html" >next</a>] [<a 
+href="refsu36.html" >prev</a>] [<a 
+href="refsu36.html#tailrefsu36.html" >prev-tail</a>] [<a 
+href="refsu37.html" >front</a>] [<a 
+href="refsu38.html#refsu39.html" >up</a>] </p></div>
+<!--l. 4806--><p class="noindent" ><a 
+ id="tailrefsu37.html"></a>  
+</body></html> 

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="ref" href="ref/ref.html">
+	<topic label="Contents" href="ref/refli1.html"/>
+	<topic label="List of Tables" href="ref/refli2.html"/>
+	<topic label="About this guide" href="ref/refli3.html"/>
+	<topic label="Notations" href="ref/refli4.html"/>
+	<topic label="Syntax diagrams" href="ref/refli5.html"/>
+	<topic label="Pascal Tokens" href="ref/refch1.html">
+		<topic label="Symbols" href="ref/refse1.html"/>
+		<topic label="Comments" href="ref/refse2.html"/>
+		<topic label="Reserved words" href="ref/refse3.html">
+			<topic label="Turbo Pascal reserved words" href="ref/refsu1.html"/>
+			<topic label="Delphi reserved words" href="ref/refsu2.html"/>
+			<topic label="Free Pascal reserved words" href="ref/refsu3.html"/>
+			<topic label="Modifiers" href="ref/refsu4.html"/>
+		</topic>
+		<topic label="Identifiers" href="ref/refse4.html"/>
+		<topic label="Hint directives" href="ref/refse5.html"/>
+		<topic label="Numbers" href="ref/refse6.html"/>
+		<topic label="Labels" href="ref/refse7.html"/>
+		<topic label="Character strings" href="ref/refse8.html"/>
+	</topic>
+	<topic label="Constants" href="ref/refch2.html">
+		<topic label="Ordinary constants" href="ref/refse9.html"/>
+		<topic label="Typed constants" href="ref/refse10.html"/>
+		<topic label="Resource strings" href="ref/refse11.html"/>
+	</topic>
+	<topic label="Types" href="ref/refch3.html">
+		<topic label="Base types" href="ref/refse12.html">
+			<topic label="Ordinal types" href="ref/refsu5.html"/>
+			<topic label="Real types" href="ref/refsu6.html"/>
+		</topic>
+		<topic label="Character types" href="ref/refse13.html">
+			<topic label="Char" href="ref/refsu7.html"/>
+			<topic label="Strings" href="ref/refsu8.html"/>
+			<topic label="Short strings" href="ref/refsu9.html"/>
+			<topic label="Ansistrings" href="ref/refsu10.html"/>
+			<topic label="Widestrings" href="ref/refsu11.html"/>
+			<topic label="Constant strings" href="ref/refsu12.html"/>
+			<topic label="Pchar-Null terminated strings" href="ref/refsu13.html"/>
+		</topic>
+		<topic label="Structured types" href="ref/refse14.html">
+			<topic label="Arrays" href="ref/refsu14.html"/>
+			<topic label="Record types" href="ref/refsu15.html"/>
+			<topic label="Set types" href="ref/refsu16.html"/>
+			<topic label="File types" href="ref/refsu17.html"/>
+		</topic>
+		<topic label="Pointers" href="ref/refse15.html"/>
+		<topic label="Forward type declarations" href="ref/refse16.html"/>
+		<topic label="Procedural types" href="ref/refse17.html"/>
+		<topic label="Variant types" href="ref/refse18.html">
+			<topic label="Definition" href="ref/refsu18.html"/>
+			<topic label="Variants in assignments and expressions" href="ref/refsu19.html"/>
+			<topic label="Variants and interfaces" href="ref/refsu20.html"/>
+		</topic>
+	</topic>
+	<topic label="Variables" href="ref/refch4.html">
+		<topic label="Definition" href="ref/refse19.html"/>
+		<topic label="Declaration" href="ref/refse20.html"/>
+   		<topic label="Scope" href="ref/refse21.html"/>
+   		<topic label="Thread variables" href="ref/refse22.html"/>
+   		<topic label="Properties" href="ref/refse23.html"/>
+	</topic>
+	<topic label="Objects" href="ref/refch5.html">
+		<topic label="Declaration" href="ref/refse24.html"/>
+		<topic label="Fields" href="ref/refse25.html"/>
+		<topic label="Static fields" href="ref/refse26.html"/>
+   		<topic label="Constructors and destructors" href="ref/refse27.html"/>
+   		<topic label="Methods" href="ref/refse28.html">
+   			<topic label="Declaration" href="ref/refsu21.html"/>
+   			<topic label="Method invocation" href="ref/refsu22.html"/>
+   		</topic>
+   		<topic label="Visibility" href="ref/refse29.html"/>
+	</topic>
+	<topic label="Classes" href="ref/refch6.html">
+		<topic label="Class definitions" href="ref/refse30.html"/>
+		<topic label="Class instantiation" href="ref/refse31.html"/>
+   		<topic label="Methods" href="ref/refse32.html">
+   			<topic label="Declaration" href="ref/refsu23.html"/>
+   			<topic label="Invocation" href="ref/refsu24.html"/>
+   			<topic label="Virtual Methods" href="ref/refsu25.html"/>
+   			<topic label="Class Methods" href="ref/refsu26.html"/>
+   			<topic label="Message Methods" href="ref/refsu27.html"/>
+   			<topic label="Using inherited" href="ref/refsu28.html"/>
+   		</topic>
+   		<topic label="Properties" href="ref/refse33.html"/>
+	</topic>
+	<topic label="Interfaces" href="ref/refch7.html">
+		<topic label="Definition" href="ref/refse34.html"/>
+   		<topic label="Interface identification: A GUID" href="ref/refse35.html"/>
+   		<topic label="Interface implementations" href="ref/refse36.html"/>
+   		<topic label="Interfaces and COM" href="ref/refse37.html"/>
+   		<topic label="CORBA and other Interfaces" href="ref/refse38.html"/>
+	</topic>
+	<topic label="Generics" href="ref/refch8.html">
+		<topic label="Introduction" href="ref/refse39.html"/>
+   		<topic label="Generic class definition" href="ref/refse40.html"/>
+   		<topic label="Generic class specialization" href="ref/refse41.html"/>
+   		<topic label="A word about scope" href="ref/refse42.html"/>
+	</topic>
+	<topic label="Expressions" href="ref/refch9.html">
+		<topic label="Expression syntax" href="ref/refse43.html"/>
+   		<topic label="Function calls" href="ref/refse44.html"/>
+   		<topic label="Set constructors" href="ref/refse45.html"/>
+   		<topic label="Value typecasts" href="ref/refse46.html"/>
+   		<topic label="Variable typecasts" href="ref/refse47.html"/>
+   		<topic label="The @ operator" href="ref/refse48.html"/>
+   		<topic label="Operators" href="ref/refse49.html">
+   			<topic label="Arithmetic operators" href="ref/refsu29.html"/>
+   			<topic label="Logical operators" href="ref/refsu30.html"/>
+   			<topic label="Boolean operators" href="ref/refsu31.html"/>
+   			<topic label="String operators" href="ref/refsu32.html"/>
+   			<topic label="Set operators" href="ref/refsu33.html"/>
+   			<topic label="Relational operators" href="ref/refsu34.html"/>
+   			<topic label="Class operators" href="ref/refsu35.html"/>
+   		</topic>
+	</topic>
+	<topic label="Statements" href="ref/refch10.html">
+		<topic label="Simple statements" href="ref/refse50.html">
+			<topic label="Assignments" href="ref/refsu36.html"/>
+   			<topic label="Procedure statements" href="ref/refsu37.html"/>
+   			<topic label="Goto statements" href="ref/refsu38.html"/>
+		</topic>
+		<topic label="Structured statements" href="ref/refse51.html">
+			<topic label="Compound statements" href="ref/refsu39.html"/>
+   			<topic label="The Case statement" href="ref/refsu40.html"/>
+   			<topic label="The If..then..else statement" href="ref/refsu41.html"/>
+   			<topic label="The For..to/downto..do statement" href="ref/refsu42.html"/>
+   			<topic label="The Repeat..until statement" href="ref/refsu43.html"/>
+   			<topic label="The While..do statement" href="ref/refsu44.html"/>
+   			<topic label="The With statement" href="ref/refsu45.html"/>
+   			<topic label="Exception statements" href="ref/refsu46.html"/>
+		</topic>
+		<topic label="Assembler statements" href="ref/refse52.html"/>
+	</topic>
+	<topic label="Using functions and procedures" href="ref/refch11.html">
+		<topic label="Procedure declaration" href="ref/refse53.html"/>
+   		<topic label="Function declaration" href="ref/refse54.html"/>
+   		<topic label="Function results" href="ref/refse55.html"/>
+   		<topic label="Parameter lists" href="ref/refse56.html">
+   			<topic label="Value parameters" href="ref/refsu47.html"/>
+   			<topic label="Variable parameters" href="ref/refsu48.html"/>
+   			<topic label="Out parameters" href="ref/refsu49.html"/>
+   			<topic label="Constant parameters" href="ref/refsu50.html"/>
+   			<topic label="Open array parameters" href="ref/refsu51.html"/>
+   			<topic label="Array of const" href="ref/refsu52.html"/>
+   		</topic>
+   		<topic label="Function overloading" href="ref/refse57.html"/>
+   		<topic label="Forward defined functions" href="ref/refse58.html"/>
+   		<topic label="External functions" href="ref/refse59.html"/>
+   		<topic label="Assembler functions" href="ref/refse60.html"/>
+   		<topic label="Modifiers" href="ref/refse61.html">
+   			<topic label="alias" href="ref/refsu53.html"/>
+   			<topic label="cdecl" href="ref/refsu54.html"/>
+   			<topic label="export" href="ref/refsu55.html"/>
+   			<topic label="inline" href="ref/refsu56.html"/>
+   			<topic label="interrupt" href="ref/refsu57.html"/>
+   			<topic label="local" href="ref/refsu58.html"/>
+   			<topic label="nostackframe" href="ref/refsu59.html"/>
+   			<topic label="overload" href="ref/refsu60.html"/>
+   			<topic label="pascal" href="ref/refsu61.html"/>
+   			<topic label="public" href="ref/refsu62.html"/>
+   			<topic label="register" href="ref/refsu63.html"/>
+   			<topic label="safecall" href="ref/refsu64.html"/>
+   			<topic label="saveregisters" href="ref/refsu65.html"/>
+   			<topic label="softfloat" href="ref/refsu66.html"/>
+   			<topic label="stdcall" href="ref/refsu67.html"/>
+   			<topic label="varargs" href="ref/refsu68.html"/>
+   		</topic>
+   		<topic label="Unsupported Turbo Pascal modifiers" href="ref/refse62.html"/>
+	</topic>
+	<topic label="Operator overloading" href="ref/refch12.html">
+		<topic label="Introduction" href="ref/refse63.html"/>
+   		<topic label="Operator declarations" href="ref/refse64.html"/>
+   		<topic label="Assignments operators" href="ref/refse65.html"/>
+   		<topic label="Arithmetic operators" href="ref/refse66.html"/>
+   		<topic label="Comparision operator" href="ref/refse67.html"/>
+	</topic>
+	<topic label="Programs, units, blocks" href="ref/refch13.html">
+		<topic label="Programs" href="ref/refse68.html"/>
+   		<topic label="Units" href="ref/refse69.html"/>
+   		<topic label="Blocks" href="ref/refse70.html"/>
+   		<topic label="Scope" href="ref/refse71.html">
+   			<topic label="Block scope" href="ref/refsu69.html"/>
+   			<topic label="Record scope" href="ref/refsu70.html"/>
+   			<topic label="Class scope" href="ref/refsu71.html"/>
+   			<topic label="Unit scope" href="ref/refsu72.html"/>
+   		</topic>
+   		<topic label="Libraries" href="ref/refse72.html"/>
+	</topic>
+	<topic label="Exceptions" href="ref/refch14.html">
+		<topic label="The raise statement" href="ref/refse73.html"/>
+   		<topic label="The try..except statement" href="ref/refse74.html"/>
+   		<topic label="The try..finally statement" href="ref/refse75.html"/>
+   		<topic label="Exception handling nesting" href="ref/refse76.html"/>
+   		<topic label="Exception classes" href="ref/refse77.html"/>
+	</topic>
+	<topic label="Using assembler" href="ref/refch15.html">
+		<topic label="Assembler statements" href="ref/refse78.html"/>
+   		<topic label="Assembler procedures and functions" href="ref/refse79.html"/>
+   	</topic>
+</toc>

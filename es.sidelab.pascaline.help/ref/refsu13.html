@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>PChar - Null terminated strings</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 1185--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu12.html" >prev</a>] [<a 
+href="refsu12.html#tailrefsu12.html" >prev-tail</a>] [<a 
+href="#tailrefsu13.html">tail</a>] [<a 
+href="refse13.html#refsu13.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">3.2.7   </span> <a 
+href="ref.html#QQ2-35-42" id="x35-380003.2.7">PChar - Null terminated strings</a></h4>
+<a 
+ id="dx35-38001"></a>
+<a 
+ id="dx35-38002"></a>
+<!--l. 1187--><p class="noindent" >Free Pascal supports the Delphi implementation of the <span 
+class="cmtt-10">PChar </span>type. <span 
+class="cmtt-10">PChar </span>is defined as a pointer to
+a <span 
+class="cmtt-10">Char </span>type, but allows additional operations. The <span 
+class="cmtt-10">PChar </span>type can be understood best as the
+Pascal equivalent of a C-style null-terminated string, i.e. a variable of type <span 
+class="cmtt-10">PChar </span>is a pointer that
+points to an array of type <span 
+class="cmtt-10">Char</span>, which is ended by a null-character (<span 
+class="cmtt-10">#0</span>). Free Pascal supports
+initializing of <span 
+class="cmtt-10">PChar </span>typed constants, or a direct assignment. For example, the following pieces of
+code are equivalent:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+program&#x00A0;one;
+&#x00A0;<br />var&#x00A0;p&#x00A0;:&#x00A0;PChar;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;P&#x00A0;:=&#x00A0;&#8217;This&#x00A0;is&#x00A0;a&#x00A0;null-terminated&#x00A0;string.&#8217;;
+&#x00A0;<br />&#x00A0;&#x00A0;WriteLn&#x00A0;(P);
+&#x00A0;<br />end.
+</div>
+</td></tr></table>
+<!--l. 1203--><p class="nopar" >Results in the same as
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+program&#x00A0;two;
+&#x00A0;<br />const&#x00A0;P&#x00A0;:&#x00A0;PChar&#x00A0;=&#x00A0;&#8217;This&#x00A0;is&#x00A0;a&#x00A0;null-terminated&#x00A0;string.&#8217;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;WriteLn&#x00A0;(P);
+&#x00A0;<br />end.
+</div>
+</td></tr></table>
+<!--l. 1211--><p class="nopar" >These examples also show that it is possible to write <span 
+class="cmti-10">the contents </span>of the string to a file of type
+<span 
+class="cmtt-10">Text</span>. The <a 
+href="../strings/strings.html" >strings</a> unit contains procedures and functions that manipulate the <span 
+class="cmtt-10">PChar </span>type as in the
+standard C library. Since it is equivalent to a pointer to a type <span 
+class="cmtt-10">Char </span>variable, it is also possible to
+do the following:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Program&#x00A0;three;
+&#x00A0;<br />Var&#x00A0;S&#x00A0;:&#x00A0;String[30];
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;P&#x00A0;:&#x00A0;PChar;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;S&#x00A0;:=&#x00A0;&#8217;This&#x00A0;is&#x00A0;a&#x00A0;null-terminated&#x00A0;string.&#8217;#0;
+&#x00A0;<br />&#x00A0;&#x00A0;P&#x00A0;:=&#x00A0;@S[1];
+&#x00A0;<br />&#x00A0;&#x00A0;WriteLn&#x00A0;(P);
+&#x00A0;<br />end.
+</div>
+</td></tr></table>
+<!--l. 1227--><p class="nopar" >This will have the same result as the previous two examples. Null-terminated strings cannot be
+added as normal Pascal strings. If two <span 
+class="cmtt-10">PChar </span>strings must be concatenated; the functions from the
+unit <a 
+href="../strings/strings.html" >strings</a> must be used.
+<!--l. 1233--><p class="noindent" >However, it is possible to do some pointer arithmetic. The <a 
+ id="dx35-38003"></a>operators <span 
+class="cmtt-10">+ </span>and <span 
+class="cmtt-10">- </span>can be used to do
+operations on <span 
+class="cmtt-10">PChar </span>pointers. In table (<a 
+href="#x35-380045">3.5<!--tex4ht:ref: tab:PCharMath --></a>), <span 
+class="cmtt-10">P </span>and <span 
+class="cmtt-10">Q </span>are of type <span 
+class="cmtt-10">PChar</span>, and <span 
+class="cmtt-10">I </span>is of type <span 
+class="cmtt-10">Longint</span>.
+<div class="table">
+                                                                            
+
+                                                                            
+<!--l. 1237--><p class="noindent" ><a 
+ id="x35-380045"></a><hr class="float"><div class="float" 
+><table class="float"><tr class="float"><td class="float" 
+>
+                                                                            
+
+                                                                            
+ <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;3.5: </td><td  
+class="content"><span 
+class="cmtt-10">PChar </span>pointer arithmetic</td></tr></table><!--tex4ht:label?: x35-380045 -->
+<div class="center" 
+>
+<!--l. 1237--><p class="noindent" >
+<div class="tabular"> <table class="tabular" 
+cellspacing="0" cellpadding="0"  
+><colgroup id="TBL-6-1g"><col 
+id="TBL-6-1"><col 
+id="TBL-6-2"></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-6-1-"><td  style="white-space:nowrap; text-align:left;" id="TBL-6-1-1"  
+class="td11">Operation</td><td  style="white-space:nowrap; text-align:right;" id="TBL-6-1-2"  
+class="td11">                                          Result</td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-6-2-"><td  style="white-space:nowrap; text-align:left;" id="TBL-6-2-1"  
+class="td11"><span 
+class="cmtt-10">P + I    </span></td><td  style="white-space:nowrap; text-align:right;" id="TBL-6-2-2"  
+class="td11">               Adds <span 
+class="cmtt-10">I </span>to the address pointed to by <span 
+class="cmtt-10">P</span>.</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-6-3-"><td  style="white-space:nowrap; text-align:left;" id="TBL-6-3-1"  
+class="td11"><span 
+class="cmtt-10">I + P    </span></td><td  style="white-space:nowrap; text-align:right;" id="TBL-6-3-2"  
+class="td11">               Adds <span 
+class="cmtt-10">I </span>to the address pointed to by <span 
+class="cmtt-10">P</span>.</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-6-4-"><td  style="white-space:nowrap; text-align:left;" id="TBL-6-4-1"  
+class="td11"><span 
+class="cmtt-10">P - I    </span></td><td  style="white-space:nowrap; text-align:right;" id="TBL-6-4-2"  
+class="td11">        Substracts <span 
+class="cmtt-10">I </span>from the address pointed to by <span 
+class="cmtt-10">P</span>.</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-6-5-"><td  style="white-space:nowrap; text-align:left;" id="TBL-6-5-1"  
+class="td11"><span 
+class="cmtt-10">P - Q    </span></td><td  style="white-space:nowrap; text-align:right;" id="TBL-6-5-2"  
+class="td11">Returns, as an integer, the distance between 2 addresses</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-6-6-"><td  style="white-space:nowrap; text-align:left;" id="TBL-6-6-1"  
+class="td11">         </td><td  style="white-space:nowrap; text-align:right;" id="TBL-6-6-2"  
+class="td11">        (or the number of characters between <span 
+class="cmtt-10">P </span>and <span 
+class="cmtt-10">Q</span>)</td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-6-7-"><td  style="white-space:nowrap; text-align:left;" id="TBL-6-7-1"  
+class="td11">         </td>
+</tr></table></div></div>
+                                                                            
+
+                                                                            
+</td></tr></table></div><hr class="endfloat" />
+</div>
+                                                                            
+
+                                                                            
+<!--l. 1249--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu12.html" >prev</a>] [<a 
+href="refsu12.html#tailrefsu12.html" >prev-tail</a>] [<a 
+href="refsu13.html" >front</a>] [<a 
+href="refse13.html#refsu13.html" >up</a>] </p></div>
+<!--l. 1249--><p class="noindent" ><a 
+ id="tailrefsu13.html"></a>  
+</body></html> 

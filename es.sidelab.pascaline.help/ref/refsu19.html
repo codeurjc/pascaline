@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Variants in assignments and expressions</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 2110--><div class="crosslinks"><p class="noindent">[<a 
+href="refch4.html" >next</a>] [<a 
+href="refsu18.html" >prev</a>] [<a 
+href="refsu18.html#tailrefsu18.html" >prev-tail</a>] [<a 
+href="refsu18.html#tailrefsu19.html">tail</a>] [<a 
+href="refsu18.html#refsu20.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">3.7.2   </span> <a 
+href="#x47-530003.7.2" id="x47-530003.7.2">Variants in assignments and expressions</a></h4>
+<!--l. 2111--><p class="noindent" >As can be seen from the definition above, most simple types can be assigned to a variant. Likewise,
+a variant can be assigned to a simple type: If possible, the value of the variant will be converted to
+the type that is being assigned to. This may fail: Assigning a variant containing a string to an
+integer will fail unless the string represents a valid integer. In the following example, the first
+assignment will work, the second will fail:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+program&#x00A0;testv3;
+&#x00A0;<br />
+&#x00A0;<br />uses&#x00A0;Variants;
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;V&#x00A0;:&#x00A0;Variant;
+&#x00A0;<br />&#x00A0;&#x00A0;I&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;V:=&#8217;100&#8217;;
+&#x00A0;<br />&#x00A0;&#x00A0;I:=V;
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;I&#x00A0;:&#x00A0;&#8217;,I);
+&#x00A0;<br />&#x00A0;&#x00A0;V:=&#8217;Something&#x00A0;else&#8217;;
+&#x00A0;<br />&#x00A0;&#x00A0;I:=V;
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;I&#x00A0;:&#x00A0;&#8217;,I);
+&#x00A0;<br />end.
+</div>
+</td></tr></table>
+<!--l. 2134--><p class="nopar" >The first assignment will work, but the second will not, as <span 
+class="cmtt-10">Something else </span>cannot be converted to
+a valid integer value. An <span 
+class="cmtt-10">EConvertError </span>exception will be the result.
+<!--l. 2139--><p class="noindent" >The result of an expression involving a variant will be of type variant again, but this can be
+assigned to a variable of a different type - if the result can be converted to a variable of this
+type.
+<!--l. 2143--><p class="noindent" >Note that expressions involving variants take more time to be evaluated, and should therefore be
+used with caution. If a lot of calculations need to be made, it is best to avoid the use of
+variants.
+<!--l. 2147--><p class="noindent" >When considering implicit type conversions (e.g. byte to integer, integer to double, char
+to string) the compiler will ignore variants unless a variant appears explicitly in the
+expression.
+                                                                            
+
+                                                                            
+<!--l. 2151--><div class="crosslinks"><p class="noindent">[<a 
+href="refch4.html" >next</a>] [<a 
+href="refsu18.html" >prev</a>] [<a 
+href="refsu18.html#tailrefsu18.html" >prev-tail</a>] [<a 
+href="refsu19.html" >front</a>] [<a 
+href="refsu18.html#refsu20.html" >up</a>] </p></div>
+<!--l. 2151--><p class="noindent" ><a 
+ id="tailrefsu19.html"></a>  
+</body></html> 

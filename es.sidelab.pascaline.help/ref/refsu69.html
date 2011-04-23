@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Block scope</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 6692--><div class="crosslinks"><p class="noindent">[<a 
+href="refse72.html" >next</a>] [<a 
+href="refse69.html#tailrefsu69.html">tail</a>] [<a 
+href="refsu71.html#refsu72.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">13.4.1   </span> <a 
+href="#x162-16900013.4.1" id="x162-16900013.4.1">Block scope</a></h4>
+<a 
+ id="dx162-169001"></a>
+<!--l. 6694--><p class="noindent" >The <span 
+class="cmti-10">scope </span>of a variable declared in the declaration part of a block, is valid from the point
+of declaration until the end of the block. If a block contains a second block, in which
+the identfier is redeclared, then inside this block, the second declaration will be valid.
+Upon leaving the inner block, the first declaration is valid again. Consider the following
+example:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Program&#x00A0;Demo;
+&#x00A0;<br />Var&#x00A0;X&#x00A0;:&#x00A0;Real;
+&#x00A0;<br />{&#x00A0;X&#x00A0;is&#x00A0;real&#x00A0;variable&#x00A0;}
+&#x00A0;<br />Procedure&#x00A0;NewDeclaration
+&#x00A0;<br />Var&#x00A0;X&#x00A0;:&#x00A0;Integer;&#x00A0;&#x00A0;{&#x00A0;Redeclare&#x00A0;X&#x00A0;as&#x00A0;integer}
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;//&#x00A0;X&#x00A0;:=&#x00A0;1.234;&#x00A0;{would&#x00A0;give&#x00A0;an&#x00A0;error&#x00A0;when&#x00A0;trying&#x00A0;to&#x00A0;compile}
+&#x00A0;<br />&#x00A0;X&#x00A0;:=&#x00A0;10;&#x00A0;{&#x00A0;Correct&#x00A0;assigment}
+&#x00A0;<br />end;
+&#x00A0;<br />{&#x00A0;From&#x00A0;here&#x00A0;on,&#x00A0;X&#x00A0;is&#x00A0;Real&#x00A0;again}
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;X&#x00A0;:=&#x00A0;2.468;
+&#x00A0;<br />end.
+</div>
+</td></tr></table>
+<!--l. 6714--><p class="nopar" >In this example, inside the procedure, <span 
+class="cmtt-10">X </span>denotes an integer variable. It has its own storage space,
+independent of the variable <span 
+class="cmtt-10">X </span>outside the procedure.
+                                                                            
+
+                                                                            
+<!--l. 6719--><div class="crosslinks"><p class="noindent">[<a 
+href="refse72.html" >next</a>] [<a 
+href="refsu69.html" >front</a>] [<a 
+href="refsu71.html#refsu72.html" >up</a>] </p></div>
+<!--l. 6719--><p class="noindent" ><a 
+ id="tailrefsu69.html"></a>  
+</body></html> 

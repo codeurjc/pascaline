@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Array of const</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 5562--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu51.html" >prev</a>] [<a 
+href="refsu51.html#tailrefsu51.html" >prev-tail</a>] [<a 
+href="refsu49.html#tailrefsu52.html">tail</a>] [<a 
+href="refsu49.html#refse59.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">11.4.6   </span> <a 
+href="#x128-13500011.4.6" id="x128-13500011.4.6">Array of const</a></h4>
+<a 
+ id="dx128-135001"></a>
+<a 
+ id="dx128-135002"></a>
+<a 
+ id="dx128-135003"></a>
+<!--l. 5564--><p class="noindent" >In Object Pascal or Delphi mode, Free Pascal supports the <span 
+class="cmtt-10">Array of Const </span>construction to pass
+parameters to a subroutine.
+<!--l. 5567--><p class="noindent" >This is a special case of the <span 
+class="cmtt-10">Open array </span>construction, where it is allowed to pass any expression in
+an array to a function or procedure. The expression must have a simple result type: structures
+cannot be passed as an argument. This means that all ordinal, float or string types can be passed,
+as well as pointers, classes and interfaces.
+<!--l. 5573--><p class="noindent" >The elements of the array of const are converted to a a special variant record:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;PVarRec&#x00A0;=&#x00A0;^TVarRec;
+&#x00A0;<br />&#x00A0;&#x00A0;TVarRec&#x00A0;=&#x00A0;record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;case&#x00A0;VType&#x00A0;:&#x00A0;Ptrint&#x00A0;of
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;vtInteger&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;(VInteger:&#x00A0;Longint);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;vtBoolean&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;(VBoolean:&#x00A0;Boolean);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;vtChar&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;(VChar:&#x00A0;Char);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;vtWideChar&#x00A0;&#x00A0;&#x00A0;:&#x00A0;(VWideChar:&#x00A0;WideChar);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;vtExtended&#x00A0;&#x00A0;&#x00A0;:&#x00A0;(VExtended:&#x00A0;PExtended);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;vtString&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;(VString:&#x00A0;PShortString);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;vtPointer&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;(VPointer:&#x00A0;Pointer);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;vtPChar&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;(VPChar:&#x00A0;PChar);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;vtObject&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;(VObject:&#x00A0;TObject);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;vtClass&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;(VClass:&#x00A0;TClass);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;vtPWideChar&#x00A0;&#x00A0;:&#x00A0;(VPWideChar:&#x00A0;PWideChar);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;vtAnsiString&#x00A0;:&#x00A0;(VAnsiString:&#x00A0;Pointer);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;vtCurrency&#x00A0;&#x00A0;&#x00A0;:&#x00A0;(VCurrency:&#x00A0;PCurrency);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;vtVariant&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;(VVariant:&#x00A0;PVariant);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;vtInterface&#x00A0;&#x00A0;:&#x00A0;(VInterface:&#x00A0;Pointer);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;vtWideString&#x00A0;:&#x00A0;(VWideString:&#x00A0;Pointer);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;vtInt64&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;(VInt64:&#x00A0;PInt64);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;vtQWord&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;(VQWord:&#x00A0;PQWord);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;end;
+</div>
+</td></tr></table>
+<!--l. 5598--><p class="nopar" >Therefor, inside the procedure body, the <span 
+class="cmtt-10">array of const </span>argument is equivalent to an open array
+of <span 
+class="cmtt-10">TVarRec</span>:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Procedure&#x00A0;Testit&#x00A0;(Args:&#x00A0;Array&#x00A0;of&#x00A0;const);
+&#x00A0;<br />
+&#x00A0;<br />Var&#x00A0;I&#x00A0;:&#x00A0;longint;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;If&#x00A0;High(Args)&#x003C;0&#x00A0;then
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;begin
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Writeln&#x00A0;(&#8217;No&#x00A0;aguments&#8217;);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;exit;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln&#x00A0;(&#8217;Got&#x00A0;&#8217;,High(Args)+1,&#8217;&#x00A0;arguments&#x00A0;:&#8217;);
+&#x00A0;<br />&#x00A0;&#x00A0;For&#x00A0;i:=0&#x00A0;to&#x00A0;High(Args)&#x00A0;do
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;begin
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;write&#x00A0;(&#8217;Argument&#x00A0;&#8217;,i,&#8217;&#x00A0;has&#x00A0;type&#x00A0;&#8217;);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;case&#x00A0;Args[i].vtype&#x00A0;of
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;vtinteger&#x00A0;&#x00A0;&#x00A0;&#x00A0;:
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Writeln&#x00A0;(&#8217;Integer,&#x00A0;Value&#x00A0;:&#8217;,args[i].vinteger);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;vtboolean&#x00A0;&#x00A0;&#x00A0;&#x00A0;:
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Writeln&#x00A0;(&#8217;Boolean,&#x00A0;Value&#x00A0;:&#8217;,args[i].vboolean);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;vtchar&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Writeln&#x00A0;(&#8217;Char,&#x00A0;value&#x00A0;:&#x00A0;&#8217;,args[i].vchar);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;vtextended&#x00A0;&#x00A0;&#x00A0;:
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Writeln&#x00A0;(&#8217;Extended,&#x00A0;value&#x00A0;:&#x00A0;&#8217;,args[i].VExtended^);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;vtString&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Writeln&#x00A0;(&#8217;ShortString,&#x00A0;value&#x00A0;:&#8217;,args[i].VString^);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;vtPointer&#x00A0;&#x00A0;&#x00A0;&#x00A0;:
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Writeln&#x00A0;(&#8217;Pointer,&#x00A0;value&#x00A0;:&#x00A0;&#8217;,Longint(Args[i].VPointer));
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;vtPChar&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Writeln&#x00A0;(&#8217;PCHar,&#x00A0;value&#x00A0;:&#x00A0;&#8217;,Args[i].VPChar);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;vtObject&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Writeln&#x00A0;(&#8217;Object,&#x00A0;name&#x00A0;:&#x00A0;&#8217;,Args[i].VObject.Classname);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;vtClass&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Writeln&#x00A0;(&#8217;Class&#x00A0;reference,&#x00A0;name&#x00A0;:&#8217;,Args[i].VClass.Classname);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;vtAnsiString&#x00A0;:
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Writeln&#x00A0;(&#8217;AnsiString,&#x00A0;value&#x00A0;:&#8217;,AnsiString(Args[I].VAnsiStr
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;else
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Writeln&#x00A0;(&#8217;(Unknown)&#x00A0;:&#x00A0;&#8217;,args[i].vtype);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+&#x00A0;<br />end;
+</div>
+</td></tr></table>
+<!--l. 5642--><p class="nopar" >In code, it is possible to pass an arbitrary array of elements to this procedure:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+&#x00A0;&#x00A0;S:=&#8217;Ansistring&#x00A0;1&#8217;;
+&#x00A0;<br />&#x00A0;&#x00A0;T:=&#8217;AnsiString&#x00A0;2&#8217;;
+&#x00A0;<br />&#x00A0;&#x00A0;Testit&#x00A0;([]);
+&#x00A0;<br />&#x00A0;&#x00A0;Testit&#x00A0;([1,2]);
+&#x00A0;<br />&#x00A0;&#x00A0;Testit&#x00A0;([&#8217;A&#8217;,&#8217;B&#8217;]);
+&#x00A0;<br />&#x00A0;&#x00A0;Testit&#x00A0;([TRUE,FALSE,TRUE]);
+&#x00A0;<br />&#x00A0;&#x00A0;Testit&#x00A0;([&#8217;String&#8217;,&#8217;Another&#x00A0;string&#8217;]);
+&#x00A0;<br />&#x00A0;&#x00A0;Testit&#x00A0;([S,T])&#x00A0;&#x00A0;;
+&#x00A0;<br />&#x00A0;&#x00A0;Testit&#x00A0;([P1,P2]);
+&#x00A0;<br />&#x00A0;&#x00A0;Testit&#x00A0;([@testit,Nil]);
+&#x00A0;<br />&#x00A0;&#x00A0;Testit&#x00A0;([ObjA,ObjB]);
+&#x00A0;<br />&#x00A0;&#x00A0;Testit&#x00A0;([1.234,1.234]);
+&#x00A0;<br />&#x00A0;&#x00A0;TestIt&#x00A0;([AClass]);
+</div>
+</td></tr></table>
+<!--l. 5659--><p class="nopar" >
+<!--l. 5661--><p class="noindent" >If the procedure is declared with the <span 
+class="cmtt-10">cdecl </span>modifier, then the compiler will pass the array as a C
+compiler would pass it. This, in effect, emulates the C construct of a variable number of arguments,
+as the following example will show:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+program&#x00A0;testaocc;
+&#x00A0;<br />{$mode&#x00A0;objfpc}
+&#x00A0;<br />
+&#x00A0;<br />Const
+&#x00A0;<br />&#x00A0;&#x00A0;P&#x00A0;:&#x00A0;Pchar&#x00A0;=&#x00A0;&#8217;example&#8217;;
+&#x00A0;<br />&#x00A0;&#x00A0;Fmt&#x00A0;:&#x00A0;PChar&#x00A0;=
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#8217;This&#x00A0;%s&#x00A0;uses&#x00A0;printf&#x00A0;to&#x00A0;print&#x00A0;numbers&#x00A0;(%d)&#x00A0;and&#x00A0;strings.&#8217;#10;
+&#x00A0;<br />
+&#x00A0;<br />//&#x00A0;Declaration&#x00A0;of&#x00A0;standard&#x00A0;C&#x00A0;function&#x00A0;printf:
+&#x00A0;<br />procedure&#x00A0;printf&#x00A0;(fm&#x00A0;:&#x00A0;pchar;&#x00A0;args&#x00A0;:&#x00A0;array&#x00A0;of&#x00A0;const);cdecl;&#x00A0;external&#x00A0;&#8217;c&#8217;;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;printf(Fmt,[P,123]);
+&#x00A0;<br />end.
+</div>
+</td></tr></table>
+<!--l. 5680--><p class="nopar" >Remark that this is not true for Delphi, so code relying on this feature will not be portable.
+                                                                            
+
+                                                                            
+<!--l. 5686--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu51.html" >prev</a>] [<a 
+href="refsu51.html#tailrefsu51.html" >prev-tail</a>] [<a 
+href="refsu52.html" >front</a>] [<a 
+href="refsu49.html#refse59.html" >up</a>] </p></div>
+<!--l. 5686--><p class="noindent" ><a 
+ id="tailrefsu52.html"></a>  
+</body></html> 

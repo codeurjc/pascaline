@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Out parameters</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 5420--><div class="crosslinks"><p class="noindent">[<a 
+href="refse57.html" >next</a>] [<a 
+href="refsu48.html" >prev</a>] [<a 
+href="refsu48.html#tailrefsu48.html" >prev-tail</a>] [<a 
+href="refse56.html#tailrefsu49.html">tail</a>] [<a 
+href="refsu49.html#refsu52.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">11.4.3   </span> <a 
+href="#x125-13200011.4.3" id="x125-13200011.4.3">Out parameters</a></h4>
+<a 
+ id="dx125-132001"></a>
+<!--l. 5422--><p class="noindent" >Out parameters (output parameters) are declared as follows:
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<span 
+class="cmbx-10">Out parameters</span><BR/><img 
+src="ref147x.png" alt="--out parameter out-identifier list-|---------------------------------
+                               -:--|-----------type identifier-
+                                   -array- of--
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 5424--><p class="noindent" >The purpose of an <span 
+class="cmtt-10">out </span>parameter is to pass values back to the calling routine: The variable is
+passed by reference. The initial value of the parameter on function entry is discarded, and should
+not be used.
+<!--l. 5428--><p class="noindent" >If a variable must be used to pass a value to a function and retrieve data from the function, then a
+variable parameter must be used. If only a value must be retrieved, a <span 
+class="cmtt-10">out </span>parameter can be
+used.
+<!--l. 5432--><p class="noindent" >Needless to say, default values are not supported for <span 
+class="cmtt-10">out </span>parameters.
+<!--l. 5434--><p class="noindent" >The difference of out parameters and parameters by reference is very small: the former gives the
+compiler more information about what happens to the arguments when passed to the procedure: It
+knows that the variable does not have to be initialized prior to the call. The following example
+illustrates this:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Procedure&#x00A0;DoA(Var&#x00A0;A&#x00A0;:&#x00A0;Integer);
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;A:=2;
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;A&#x00A0;is&#x00A0;&#8217;,A);
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />Procedure&#x00A0;DoB(Out&#x00A0;B&#x00A0;:&#x00A0;Integer);
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;B:=2;
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;B&#x00A0;is&#x00A0;&#8217;,B);
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;C,D&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;DoA(C);
+&#x00A0;<br />&#x00A0;&#x00A0;DoB(D);
+&#x00A0;<br />end.
+</div>
+</td></tr></table>
+<!--l. 5461--><p class="nopar" >Both procedures <span 
+class="cmtt-10">DoA </span>and <span 
+class="cmtt-10">DoB </span>do practically the same. But <span 
+class="cmtt-10">DoB</span>&#8217;s declaration gives more
+information to the compiler, allowing it to detect that <span 
+class="cmtt-10">D </span>does not have to initialized before <span 
+class="cmtt-10">DoB </span>is
+called. Since the parameter <span 
+class="cmtt-10">A </span>in <span 
+class="cmtt-10">DoA </span>can receive a value as well as return one, the compiler notices
+that <span 
+class="cmtt-10">C </span>was not initialized prior to the call to <span 
+class="cmtt-10">DoA</span>:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+home:&#x00A0;&#x003E;fpc&#x00A0;-S2&#x00A0;-vwhn&#x00A0;testo.pp
+&#x00A0;<br />testo.pp(19,8)&#x00A0;Hint:&#x00A0;Variable&#x00A0;"C"&#x00A0;does&#x00A0;not&#x00A0;seem&#x00A0;to&#x00A0;be&#x00A0;initialized
+</div>
+</td></tr></table>
+<!--l. 5471--><p class="nopar" >This shows that it is better to use <span 
+class="cmtt-10">out </span>parameters when the parameter is used only to return a
+value.
+<!--l. 5475--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> Out parameters are only supported in Delphi and ObjFPC mode. For the other modes, <span 
+class="cmtt-10">out </span>is a
+valid identifier.
+                                                                            
+
+                                                                            
+<!--l. 5481--><div class="crosslinks"><p class="noindent">[<a 
+href="refse57.html" >next</a>] [<a 
+href="refsu48.html" >prev</a>] [<a 
+href="refsu48.html#tailrefsu48.html" >prev-tail</a>] [<a 
+href="refsu49.html" >front</a>] [<a 
+href="refsu49.html#refsu52.html" >up</a>] </p></div>
+<!--l. 5481--><p class="noindent" ><a 
+ id="tailrefsu49.html"></a>  
+</body></html> 

@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Short strings</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 956--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu10.html" >next</a>] [<a 
+href="refsu8.html" >prev</a>] [<a 
+href="refsu8.html#tailrefsu8.html" >prev-tail</a>] [<a 
+href="#tailrefsu9.html">tail</a>] [<a 
+href="refse13.html#refsu9.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">3.2.3   </span> <a 
+href="ref.html#QQ2-31-38" id="x31-340003.2.3">Short strings</a></h4>
+<a 
+ id="dx31-34001"></a>
+<!--l. 958--><p class="noindent" >A string declaration declares a short string in the following cases:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x31-34003x1">If  the  switch  is  off:  <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$H-</span><span 
+class="cmsy-10">}</span>,  the  string  declaration  will  always  be  a  short  string
+     declaration.
+     </li>
+     <li 
+  class="enumerate" id="x31-34005x2">If the switch is on <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$H+</span><span 
+class="cmsy-10">}</span>, and there is a maximum length (the size) specifier, the
+     declaration is a short string declaration.</li></ol>
+<!--l. 965--><p class="noindent" >The predefined type <span 
+class="cmtt-10">ShortString </span>is defined as a string of size 255:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+&#x00A0;ShortString&#x00A0;=&#x00A0;String[255];
+</div>
+</td></tr></table>
+<!--l. 968--><p class="nopar" >If the size of the string is not specified, <span 
+class="cmtt-10">255 </span>is taken as a default. The actual length of
+the string can be obtained with the <span 
+class="cmtt-10">Length </span>standard runtime routine. For example
+in
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+{$H-}
+&#x00A0;<br />
+&#x00A0;<br />Type
+&#x00A0;<br />&#x00A0;&#x00A0;NameString&#x00A0;=&#x00A0;String[10];
+&#x00A0;<br />&#x00A0;&#x00A0;StreetString&#x00A0;=&#x00A0;String;
+</div>
+</td></tr></table>
+<!--l. 979--><p class="nopar" ><span 
+class="cmtt-10">NameString </span>can contain a maximum of 10 characters. While <span 
+class="cmtt-10">StreetString </span>can contain up to 255
+characters.
+<!--l. 983--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> Short strings have a maximum length of 255 characters: when specifying a maximum length, the
+maximum length may not exceed 255. If a length larger than 255 is attempted, then the compiler
+will give an error message:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Error:&#x00A0;string&#x00A0;length&#x00A0;must&#x00A0;be&#x00A0;a&#x00A0;value&#x00A0;from&#x00A0;1&#x00A0;to&#x00A0;255
+</div>
+</td></tr></table>
+<!--l. 989--><p class="nopar" >
+<!--l. 991--><p class="noindent" >For short strings, the length is stored in the character at index 0. Old Turbo Pascal code relies on
+this, and it is implemented similarly in Free Pascal. For Ansistrings this is not correct, and the
+compiler will give a warning if it detects this construct. For ansistrings, the length must be
+retrieved with the <span 
+class="cmtt-10">Length </span>function or set with the <span 
+class="cmtt-10">SetLength </span>function. Both functions work on
+shortstrings as well, and should be used for code that must compile in both Object Pascal as old
+Turbo Pascal mode.
+                                                                            
+
+                                                                            
+<!--l. 1000--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu10.html" >next</a>] [<a 
+href="refsu8.html" >prev</a>] [<a 
+href="refsu8.html#tailrefsu8.html" >prev-tail</a>] [<a 
+href="refsu9.html" >front</a>] [<a 
+href="refse13.html#refsu9.html" >up</a>] </p></div>
+<!--l. 1000--><p class="noindent" ><a 
+ id="tailrefsu9.html"></a>  
+</body></html> 

@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>The With statement</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 5112--><div class="crosslinks"><p class="noindent">[<a 
+href="refse53.html" >next</a>] [<a 
+href="refsu44.html" >prev</a>] [<a 
+href="refsu44.html#tailrefsu44.html" >prev-tail</a>] [<a 
+href="refsu42.html#tailrefsu45.html">tail</a>] [<a 
+href="refsu41.html#refch11.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">10.2.7   </span> <a 
+href="#x115-12200010.2.7" id="x115-12200010.2.7">The <span 
+class="cmtt-10">With </span>statement</a></h4>
+<a 
+ id="dx115-122001"></a>
+<a 
+ id="dx115-122002"></a>
+<!--l. 5114--><p class="noindent" >The <span 
+class="cmtt-10">with </span>statement serves to access the elements of a record or object or class, without having to
+specify the name of the each time. The syntax for a <span 
+class="cmtt-10">with </span>statement is
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<span 
+class="cmbx-10">With statement</span><BR/><img 
+src="ref134x.png" alt="--with statement -|-variable reference---do- statement -------------------
+                -------,--------
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 5118--><p class="noindent" >The variable reference must be a variable of a record, object or class type. In the <span 
+class="cmtt-10">with </span>statement,
+any variable reference, or method reference is checked to see if it is a field or method of the record
+or object or class. If so, then that field is accessed, or that method is called. Given the
+declaration:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;Passenger&#x00A0;=&#x00A0;Record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Name&#x00A0;:&#x00A0;String[30];
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Flight&#x00A0;:&#x00A0;String[10];
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;TheCustomer&#x00A0;:&#x00A0;Passenger;
+</div>
+</td></tr></table>
+<!--l. 5132--><p class="nopar" >The following statements are completely equivalent:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+TheCustomer.Name&#x00A0;:=&#x00A0;&#8217;Michael&#8217;;
+&#x00A0;<br />TheCustomer.Flight&#x00A0;:=&#x00A0;&#8217;PS901&#8217;;
+</div>
+</td></tr></table>
+<!--l. 5137--><p class="nopar" >and
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+With&#x00A0;TheCustomer&#x00A0;do
+&#x00A0;<br />&#x00A0;&#x00A0;begin
+&#x00A0;<br />&#x00A0;&#x00A0;Name&#x00A0;:=&#x00A0;&#8217;Michael&#8217;;
+&#x00A0;<br />&#x00A0;&#x00A0;Flight&#x00A0;:=&#x00A0;&#8217;PS901&#8217;;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+</div>
+</td></tr></table>
+<!--l. 5145--><p class="nopar" >The statement
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+With&#x00A0;A,B,C,D&#x00A0;do&#x00A0;Statement;
+</div>
+</td></tr></table>
+<!--l. 5149--><p class="nopar" >is equivalent to
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+With&#x00A0;A&#x00A0;do
+&#x00A0;<br />&#x00A0;With&#x00A0;B&#x00A0;do
+&#x00A0;<br />&#x00A0;&#x00A0;With&#x00A0;C&#x00A0;do
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;With&#x00A0;D&#x00A0;do&#x00A0;Statement;
+</div>
+</td></tr></table>
+<!--l. 5156--><p class="nopar" >This also is a clear example of the fact that the variables are tried <span 
+class="cmti-10">last to first</span>, i.e., when the
+compiler encounters a variable reference, it will first check if it is a field or method of the last
+variable. If not, then it will check the last-but-one, and so on. The following example shows
+this;
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Program&#x00A0;testw;
+&#x00A0;<br />Type&#x00A0;AR&#x00A0;=&#x00A0;record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;X,Y&#x00A0;:&#x00A0;Longint;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;PAR&#x00A0;=&#x00A0;Record;
+&#x00A0;<br />
+&#x00A0;<br />Var&#x00A0;S,T&#x00A0;:&#x00A0;Ar;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;S.X&#x00A0;:=&#x00A0;1;S.Y&#x00A0;:=&#x00A0;1;
+&#x00A0;<br />&#x00A0;&#x00A0;T.X&#x00A0;:=&#x00A0;2;T.Y&#x00A0;:=&#x00A0;2;
+&#x00A0;<br />&#x00A0;&#x00A0;With&#x00A0;S,T&#x00A0;do
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;WriteLn&#x00A0;(X,&#8217;&#x00A0;&#8217;,Y);
+&#x00A0;<br />end.
+</div>
+</td></tr></table>
+<!--l. 5176--><p class="nopar" >The output of this program is
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+2&#x00A0;2
+</div>
+</td></tr></table>
+<!--l. 5180--><p class="nopar" >Showing thus that the <span 
+class="cmtt-10">X,Y </span>in the <span 
+class="cmtt-10">WriteLn </span>statement match the <span 
+class="cmtt-10">T </span>record variable.
+<!--l. 5184--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> When using a <span 
+class="cmtt-10">With </span>statement with a pointer, or a class, it is not permitted to change the pointer
+or the class in the <span 
+class="cmtt-10">With </span>block. With the definitions of the previous example, the following
+illustrates what it is about:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+&#x00A0;<br />Var&#x00A0;p&#x00A0;:&#x00A0;PAR;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;With&#x00A0;P^&#x00A0;do
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;begin
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;//&#x00A0;Do&#x00A0;some&#x00A0;operations
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;P:=OtherP;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;X:=0.0;&#x00A0;&#x00A0;//&#x00A0;Wrong&#x00A0;X&#x00A0;will&#x00A0;be&#x00A0;used&#x00A0;!!
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;end;
+</div>
+</td></tr></table>
+<!--l. 5200--><p class="nopar" >The reason the pointer cannot be changed is that the address is stored by the compiler in a
+temporary register. Changing the pointer won&#8217;t change the temporary address. The same is true
+for classes.
+                                                                            
+
+                                                                            
+<!--l. 5206--><div class="crosslinks"><p class="noindent">[<a 
+href="refse53.html" >next</a>] [<a 
+href="refsu44.html" >prev</a>] [<a 
+href="refsu44.html#tailrefsu44.html" >prev-tail</a>] [<a 
+href="refsu45.html" >front</a>] [<a 
+href="refsu41.html#refch11.html" >up</a>] </p></div>
+<!--l. 5206--><p class="noindent" ><a 
+ id="tailrefsu45.html"></a>  
+</body></html> 

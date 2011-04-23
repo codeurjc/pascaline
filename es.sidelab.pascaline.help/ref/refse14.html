@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Structured Types</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 1249--><div class="crosslinks"><p class="noindent">[<a 
+href="refse16.html" >next</a>] [<a 
+href="refse13.html" >prev</a>] [<a 
+href="refse13.html#tailrefse13.html" >prev-tail</a>] [<a 
+href="#tailrefse14.html">tail</a>] [<a 
+href="refch3.html#refse14.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">3.3   </span> <a 
+href="ref.html#QQ2-36-44" id="x36-390003.3">Structured Types</a></h3>
+<a 
+ id="dx36-39001"></a>
+<!--l. 1251--><p class="noindent" >A structured type is a type that can hold multiple values in one variable. Stuctured types can be
+nested to unlimited levels.
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<span 
+class="cmbx-10">Structured Types</span><BR/><img 
+src="ref37x.png" alt="--structured type-|---array type-----------------------------------
+                ----record type ----|
+                ----object type----|
+                -   class type   -|
+                -classintreefrferaecencetyptyepe--|
+                -----set type------|
+                -----file type------|
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 1254--><p class="noindent" >Unlike Delphi, Free Pascal does not support the keyword <span 
+class="cmtt-10">Packed </span>for all structured types. In the
+following sections each of the possible structured types is discussed. It will be mentioned when a
+type supports the <span 
+class="cmtt-10">packed </span>keyword.
+<div class="subsubsectionTOCS">
+&#x00A0;&#x00A0;&#x00A0;<span class="subsubsectionToc" ><a 
+href="#x36-400003.3" id="QQ2-36-45">Packed structured types</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >3.3.1 <a 
+href="refsu14.html#x37-410003.3.1">Arrays</a></span>
+<br />&#x00A0;&#x00A0;&#x00A0;<span class="subsubsectionToc" ><a 
+href="refsu14.html#x37-420003.3.1" id="QQ2-37-47">Static arrays</a></span>
+<br />&#x00A0;&#x00A0;&#x00A0;<span class="subsubsectionToc" ><a 
+href="refsu14.html#x37-430003.3.1" id="QQ2-37-48">Dynamic arrays</a></span>
+<br />&#x00A0;&#x00A0;&#x00A0;<span class="subsubsectionToc" ><a 
+href="refsu14.html#x37-440003.3.1" id="QQ2-37-49">Packing and unpacking an array</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >3.3.2 <a 
+href="refsu15.html#x38-450003.3.2">Record types</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >3.3.3 <a 
+href="refsu16.html#x40-460003.3.3">Set types</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >3.3.4 <a 
+href="refsu17.html#x41-470003.3.4">File types</a></span>
+</div>
+<h5 class="subsubsectionHead"><a 
+href="#QQ2-36-45" id="x36-400003.3">Packed structured types</a></h5>
+<!--l. 1261--><p class="noindent" >When a structured type is declared, no assumptions should be made about the internal position of
+the elements in the type. The compiler will lay out the elements of the structure in memory as it
+                                                                            
+
+                                                                            
+thinks will be most suitable. That is, the order of the elements will be kept, but the location of the
+elements is not guaranteed, and is partially governed by the <span 
+class="cmtt-10">$PACKRECORDS </span>directive (this directive
+is explained in the <a 
+href="../prog/prog.html" >Programmers guide</a>).
+<!--l. 1268--><p class="noindent" >However, Free Pascal allows controlling the layout with the <span 
+class="cmtt-10">Packed </span>and <span 
+class="cmtt-10">Bitpacked </span>keywords. The
+meaning of these words depends on the context:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">Bitpacked</span> </dt><dd 
+class="description">In this case, the compiler will attempt to align ordinal types on bit boundaries,
+     as explained below.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Packed</span> </dt><dd 
+class="description">The meaning of the <span 
+class="cmtt-10">Packed </span>keyword depends on the situation:
+         <ol  class="enumerate1" >
+         <li 
+  class="enumerate" id="x36-40002x1">In <span 
+class="cmtt-10">MACPAS </span>mode, it is equivalent to the <span 
+class="cmtt-10">Bitpacked </span>keyword.
+         </li>
+         <li 
+  class="enumerate" id="x36-40004x2">In other modes, with the <span 
+class="cmtt-10">$BITPACKING </span>directive set to <span 
+class="cmtt-10">ON</span>, it is also equivalent to
+         the <span 
+class="cmtt-10">Bitpacked </span>keyword.
+         </li>
+         <li 
+  class="enumerate" id="x36-40006x3">In other modes, with the <span 
+class="cmtt-10">$BITPACKING </span>directive set to <span 
+class="cmtt-10">OFF</span>, it signifies normal
+         packing on byte boundaries.</li></ol>
+     <!--l. 1282--><p class="noindent" >Packing on byte boundaries means that each new element of a structured type starts on a
+     byte boundary.</dd></dl>
+<!--l. 1286--><p class="noindent" >The byte packing mechanism is simple: the compiler aligns each element of the structure on the
+first available byte boundary, even if size of the previous element (small enumerated types,
+subrange types) is less than a byte.
+<!--l. 1291--><p class="noindent" >When using the bit packing mechanism, the compiler calculates for each ordinal type how many
+bits are needed to store it. The next ordinal type is then stored on the next free bit. Non-ordinal
+types - which include but are not limited to - sets, floats, strings, (bitpacked) records, (bitpacked)
+arrays, pointers, classes, objects, and procedural variables, are stored on the first available byte
+boundary.
+<!--l. 1298--><p class="noindent" >Note that the internals of the bitpacking are opaque: they can change at any time in the future.
+What is more: the internal packing depends on the endianness of the platform for which the
+compilation is done, and no conversion between platforms is possible. This makes bitpacked
+structures unsuitable for storing on disk or transport over networks. The format is however the
+same as the one used by the GNU Pascal Compiler, and the Free Pascal team aims to retain this
+compatibility in the future.
+<!--l. 1306--><p class="noindent" >There are some more restrictions to elements of bitpacked structures:
+     <ul class="itemize1">
+     <li class="itemize">The address cannot be retrieved, unless the bit size is a multiple of 8 and the element
+     happens to be stored on a byte boundary.
+     </li>
+     <li class="itemize">An element of a bitpacked structure cannot be used as a var parameter, unless the bit
+     size is a multiple of 8 and the element happens to be stored on a byte boundary.</li></ul>
+<!--l. 1315--><p class="noindent" >To determine the size of an element in a bitpacked structure, there is the <span 
+class="cmtt-10">BitSizeOf </span>function. It
+returns the size - in bits - of the element. For other types or elements of structures which are not
+bitpacked, this will simply return the size in bytes multiplied by 8, i.e., the return value is then the
+same as <span 
+class="cmtt-10">8*SizeOf</span>.
+<!--l. 1321--><p class="noindent" >The size of bitpacked records and arrays is limited:
+                                                                            
+
+                                                                            
+     <ul class="itemize1">
+     <li class="itemize">On 32 bit systems the maximal size is 2<sup><span 
+class="cmr-7">29</span></sup> bytes (512 MB).
+     </li>
+     <li class="itemize">On 32 bit systems the maximal size is 2<sup><span 
+class="cmr-7">61</span></sup> bytes.</li></ul>
+<!--l. 1326--><p class="noindent" >The reason is that the offset of an element must be calculated with the maximum integer size of
+the system.
+<!--l. 1330--><p class="noindent" >
+
+
+
+                                                                            
+
+                                                                            
+<!--l. 1822--><div class="crosslinks"><p class="noindent">[<a 
+href="refse16.html" >next</a>] [<a 
+href="refse13.html" >prev</a>] [<a 
+href="refse13.html#tailrefse13.html" >prev-tail</a>] [<a 
+href="refse14.html" >front</a>] [<a 
+href="refch3.html#refse14.html" >up</a>] </p></div>
+<!--l. 1822--><p class="noindent" ><a 
+ id="tailrefse14.html"></a>  
+</body></html> 

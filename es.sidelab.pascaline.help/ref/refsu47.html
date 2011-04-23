@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Value parameters</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 5345--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu51.html" >next</a>] [<a 
+href="refse54.html#tailrefsu47.html">tail</a>] [<a 
+href="refsu49.html#refsu50.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">11.4.1   </span> <a 
+href="#x123-13000011.4.1" id="x123-13000011.4.1">Value parameters</a></h4>
+<!--l. 5346--><p class="noindent" >Value parameters are declared as follows:<a 
+ id="dx123-130001"></a>
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<span 
+class="cmbx-10">Value parameters</span><BR/><img 
+src="ref145x.png" alt="value parameter ------identifier list-:--|-----------parameter type------
+              |                  -array -of--                  |
+              -identifier- :- type identifier = -default parameter value
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 5348--><p class="noindent" >When parameters are declared as value parameters, the procedure gets <span 
+class="cmti-10">a copy </span>of the parameters
+that the calling statement passes. Any modifications to these parameters are purely local to the
+procedure&#8217;s block, and do not propagate back to the calling block.
+<!--l. 5353--><p class="noindent" >A block that wishes to call a procedure with value parameters must pass assignment compatible
+parameters to the procedure. This means that the types should not match exactly, but can be
+converted to the actual parameter types. This conversion code is inserted by the compiler
+itself.
+<!--l. 5358--><p class="noindent" >Care must be taken when using value parameters: Value parameters makes heavy use of the stack,
+especially when using large parameters. The total size of all parameters in the formal
+parameter list should be below 32K for portability&#8217;s sake (the Intel version limits this to
+64K).
+<!--l. 5363--><p class="noindent" >Open arrays can be passed as value parameters. See section <a 
+href="refsu51.html#x127-13400011.4.5">11.4.5<!--tex4ht:ref: se:openarray --></a>, page <a 
+href="refsu51.html#x127-13400011.4.5">441<!--tex4ht:ref: se:openarray --></a> for more information
+on using open arrays.
+<!--l. 5366--><p class="noindent" >For a parameter of a simple type (i.e. not a structured type), a default value can be
+specified. This can be an untyped constant. If the function call omits the parameter,
+the default value will be passed on to the function. For dynamic arrays or other types
+that can be considered as equivalent to a pointer, the only possible default value is
+<span 
+class="cmtt-10">Nil</span>.
+<!--l. 5372--><p class="noindent" >The following example will print 20 on the screen:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+program&#x00A0;testp;
+&#x00A0;<br />
+&#x00A0;<br />Const
+&#x00A0;<br />&#x00A0;&#x00A0;MyConst&#x00A0;=&#x00A0;20;
+&#x00A0;<br />
+&#x00A0;<br />Procedure&#x00A0;MyRealFunc(I&#x00A0;:&#x00A0;Integer&#x00A0;=&#x00A0;MyConst);
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;Function&#x00A0;received&#x00A0;:&#x00A0;&#8217;,I);
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;MyRealFunc;
+&#x00A0;<br />end.
+</div>
+</td></tr></table>
+<!--l. 5388--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 5390--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu51.html" >next</a>] [<a 
+href="refsu47.html" >front</a>] [<a 
+href="refsu49.html#refsu50.html" >up</a>] </p></div>
+<!--l. 5390--><p class="noindent" ><a 
+ id="tailrefsu47.html"></a>  
+</body></html> 

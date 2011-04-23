@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Constructors and destructors </title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 2573--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu22.html" >next</a>] [<a 
+href="refse26.html" >prev</a>] [<a 
+href="refse26.html#tailrefse26.html" >prev-tail</a>] [<a 
+href="refse26.html#tailrefse27.html">tail</a>] [<a 
+href="refse24.html#refse28.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">5.4   </span> <a 
+href="#x59-650005.4" id="x59-650005.4">Constructors and destructors </a></h3>
+<a 
+ id="dx59-65001"></a>
+<a 
+ id="dx59-65002"></a>
+<a 
+ id="dx59-65003"></a>
+<!--l. 2577--><p class="noindent" >As can be seen in the syntax diagram for an object declaration, Free Pascal supports constructors
+and destructors. The programmer is responsible for calling the constructor and the destructor
+explicitly when using objects.
+<!--l. 2581--><p class="noindent" >The declaration of a constructor or destructor is as follows:
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<span 
+class="cmbx-10">Constructors and destructors</span> <BR/><img 
+src="ref67x.png" alt="--constructor declaration-constructor header ;-subroutine block-------------
+     " ><BR/>
+     <BR/><img 
+src="ref68x.png" alt="--destructor declaration-destructor header-;- subroutine block-------------
+     " ><BR/>
+     <BR/><img 
+src="ref69x.png" alt=" --constructor header constructor----------identifier --------
+                              -qualified method identifier|
+----formal parameter list--------------------------------------------
+     " ><BR/>
+     <BR/><img 
+src="ref70x.png" alt=" --destructor header-destructor ---------identifier---------
+                            -qualified method identifier|
+----formal parameter list--------------------------------------------
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 2583--><p class="noindent" >A constructor/destructor pair is <span 
+class="cmti-10">required </span>if the object uses virtual methods.<a 
+ id="dx59-65004"></a> The reason is that for an
+object with virtual methods, some internal housekeeping must be done: this housekeeping is done by the
+constructor<span class="footnote-mark"><a 
+href="ref60.html#fn1x6"><sup class="textsuperscript">1</sup></a></span><a 
+ id="x59-65005f1"></a> .
+<!--l. 2588--><p class="noindent" >In the declaration of the object type, a simple identifier should be used for the name of the
+constuctor or destructor. When the constructor or destructor is implemented, A qualified method
+identifier should be used, i.e. an identifier of the form <span 
+class="cmtt-10">objectidentifier.methodidentifier</span>.
+                                                                            
+
+                                                                            
+<!--l. 2593--><p class="noindent" >Free Pascal supports also the extended syntax of the <span 
+class="cmtt-10">New </span>and <span 
+class="cmtt-10">Dispose </span>procedures. In case a
+dynamic variable of an object type must be allocated the constructor&#8217;s name can be specified in
+the call to <span 
+class="cmtt-10">New</span>. The <span 
+class="cmtt-10">New </span>is implemented as a function which returns a pointer to the instantiated
+object. Consider the following declarations:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;TObj&#x00A0;=&#x00A0;object;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;Constructor&#x00A0;init;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;...
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;end;
+&#x00A0;<br />&#x00A0;&#x00A0;Pobj&#x00A0;=&#x00A0;^TObj;
+&#x00A0;<br />Var&#x00A0;PP&#x00A0;:&#x00A0;Pobj;
+</div>
+</td></tr></table>
+<!--l. 2606--><p class="nopar" >Then the following 3 calls are equivalent:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+&#x00A0;pp&#x00A0;:=&#x00A0;new&#x00A0;(Pobj,Init);
+</div>
+</td></tr></table>
+<!--l. 2610--><p class="nopar" >and
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+&#x00A0;&#x00A0;new(pp,init);
+</div>
+</td></tr></table>
+<!--l. 2614--><p class="nopar" >and also
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+&#x00A0;&#x00A0;new&#x00A0;(pp);
+&#x00A0;<br />&#x00A0;&#x00A0;pp^.init;
+</div>
+</td></tr></table>
+<!--l. 2619--><p class="nopar" >In the last case, the compiler will issue a warning that the extended syntax of <span 
+class="cmtt-10">new </span>and <span 
+class="cmtt-10">dispose</span>
+must be used to generate instances of an object. It is possible to ignore this warning, but it&#8217;s better
+programming practice to use the extended syntax to create instances of an object. Similarly, the
+<span 
+class="cmtt-10">Dispose </span>procedure accepts the name of a destructor. The destructor will then be called, before
+removing the object from the heap.
+<!--l. 2627--><p class="noindent" >In view of the compiler warning remark, the following chapter presents the Delphi approach to
+object-oriented programming, and may be considered a more natural way of object-oriented
+programming.
+                                                                            
+
+                                                                            
+<!--l. 2633--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu22.html" >next</a>] [<a 
+href="refse26.html" >prev</a>] [<a 
+href="refse26.html#tailrefse26.html" >prev-tail</a>] [<a 
+href="refse27.html" >front</a>] [<a 
+href="refse24.html#refse28.html" >up</a>] </p></div>
+<!--l. 2633--><p class="noindent" ><a 
+ id="tailrefse27.html"></a>  
+</body></html> 

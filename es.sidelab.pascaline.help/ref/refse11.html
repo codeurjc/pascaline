@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Resource strings</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 592--><div class="crosslinks"><p class="noindent">[<a 
+href="refse10.html" >prev</a>] [<a 
+href="refse10.html#tailrefse10.html" >prev-tail</a>] [<a 
+href="#tailrefse11.html">tail</a>] [<a 
+href="refch2.html#refse11.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">2.3   </span> <a 
+href="ref.html#QQ2-23-22" id="x23-220002.3">Resource strings</a></h3>
+<a 
+ id="dx23-22001"></a>
+<a 
+ id="dx23-22002"></a>
+<a 
+ id="dx23-22003"></a>
+<!--l. 593--><p class="noindent" ><a name="keyword:resourcestring"></a> A special kind of constant declaration part is the <span 
+class="cmtt-10">Resourestring </span>part. This part is like a <span 
+class="cmtt-10">Const</span>
+section, but it only allows to declare constant of type string. This part is only available in the
+<span 
+class="cmtt-10">Delphi </span>or <span 
+class="cmtt-10">Objfpc </span>modes.
+<!--l. 599--><p class="noindent" >The following is an example of a resourcestring definition:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Resourcestring
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;FileMenu&#x00A0;=&#x00A0;&#8217;&amp;File...&#8217;;
+&#x00A0;<br />&#x00A0;&#x00A0;EditMenu&#x00A0;=&#x00A0;&#8217;&amp;Edit...&#8217;;
+</div>
+</td></tr></table>
+<!--l. 605--><p class="nopar" >All string constants defined in the resourcestring section are stored in special tables, allowing to
+manipulate the values of the strings at runtime with some special mechanisms.
+<!--l. 610--><p class="noindent" >Semantically, the strings are like constants; Values can not be assigned to them, except through the
+special mechanisms in the objpas unit. However, they can be used in assignments or expressions as
+normal constants. The main use of the resourcestring section is to provide an easy means of
+internationalization.
+<!--l. 616--><p class="noindent" >More on the subject of resourcestrings can be found in the <a 
+href="../prog/prog.html" >Programmers guide</a>, and in the <span 
+class="cmss-10">objpas</span>
+unit reference.
+                                                                            
+
+                                                                            
+<!--l. 622--><div class="crosslinks"><p class="noindent">[<a 
+href="refse10.html" >prev</a>] [<a 
+href="refse10.html#tailrefse10.html" >prev-tail</a>] [<a 
+href="refse11.html" >front</a>] [<a 
+href="refch2.html#refse11.html" >up</a>] </p></div>
+<!--l. 622--><p class="noindent" ><a 
+ id="tailrefse11.html"></a>  
+</body></html> 

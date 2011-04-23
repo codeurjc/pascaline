@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Comparision operator</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 6467--><div class="crosslinks"><p class="noindent">[<a 
+href="refse66.html" >prev</a>] [<a 
+href="refse66.html#tailrefse66.html" >prev-tail</a>] [<a 
+href="refse64.html#tailrefse67.html">tail</a>] [<a 
+href="refse65.html#refse69.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">12.5   </span> <a 
+href="#x156-16300012.5" id="x156-16300012.5">Comparision operator</a></h3>
+<a 
+ id="dx156-163001"></a>
+<!--l. 6469--><p class="noindent" >The comparision operator can be overloaded to compare two different types or to compare two
+equal types that are not basic types. The result type of a comparision operator is always a
+boolean.
+<!--l. 6473--><p class="noindent" >The comparision operators that can be overloaded are:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">equal to</span> </dt><dd 
+class="description">(=) To determine if two variables are equal.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">less than</span> </dt><dd 
+class="description">(<span 
+class="cmmi-10">&#x003C;</span>) To determine if one variable is less than another.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">greater than</span> </dt><dd 
+class="description">(<span 
+class="cmmi-10">&#x003E;</span>) To determine if one variable is greater than another.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">greater than or equal to</span> </dt><dd 
+class="description">(<span 
+class="cmmi-10">&#x003E;</span>=) To determine if one variable is greater than or equal to
+     another.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">less than or equal to</span> </dt><dd 
+class="description">(<span 
+class="cmmi-10">&#x003C;</span>=)  To  determine  if  one  variable  is  greater  than  or  equal  to
+     another.</dd></dl>
+<!--l. 6483--><p class="noindent" >There is no separate operator for <span 
+class="cmti-10">unequal to </span>(<span 
+class="cmmi-10">&#x003C;&#x003E;</span>). To evaluate a statement that contans
+the <span 
+class="cmti-10">unequal to </span>operator, the compiler uses the <span 
+class="cmti-10">equal to </span>operator (=), and negates the
+result.
+<!--l. 6488--><p class="noindent" >As an example, the following opetrator allows to compare two complex numbers:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+operator&#x00A0;=&#x00A0;(z1,&#x00A0;z2&#x00A0;:&#x00A0;complex)&#x00A0;b&#x00A0;:&#x00A0;boolean;
+</div>
+</td></tr></table>
+<!--l. 6492--><p class="nopar" >the above definition allows comparisions of the following form:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Var
+&#x00A0;<br />&#x00A0;&#x00A0;C1,C2&#x00A0;:&#x00A0;Complex;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;If&#x00A0;C1=C2&#x00A0;then
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Writeln(&#8217;C1&#x00A0;and&#x00A0;C2&#x00A0;are&#x00A0;equal&#8217;);
+&#x00A0;<br />end;
+</div>
+</td></tr></table>
+<!--l. 6502--><p class="nopar" >
+<!--l. 6504--><p class="noindent" >The comparision operator definition needs 2 parameters, with the types that the operator is meant
+to compare. Here also, the compiler doesn&#8217;t apply commutativity: if the two types are different,
+then it is necessary to define 2 comparision operators.
+<!--l. 6509--><p class="noindent" >In the case of complex numbers, it is, for instance necessary to define 2 comparsions: one with the
+complex type first, and one with the real type first.
+<!--l. 6513--><p class="noindent" >Given the definitions
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+operator&#x00A0;=&#x00A0;(z1&#x00A0;:&#x00A0;complex;r&#x00A0;:&#x00A0;real)&#x00A0;b&#x00A0;:&#x00A0;boolean;
+&#x00A0;<br />operator&#x00A0;=&#x00A0;(r&#x00A0;:&#x00A0;real;&#x00A0;z1&#x00A0;:&#x00A0;complex)&#x00A0;b&#x00A0;:&#x00A0;boolean;
+</div>
+</td></tr></table>
+<!--l. 6517--><p class="nopar" >the following two comparisions are possible:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Var
+&#x00A0;<br />&#x00A0;&#x00A0;R,S&#x00A0;:&#x00A0;Real;
+&#x00A0;<br />&#x00A0;&#x00A0;C&#x00A0;:&#x00A0;Complex;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;If&#x00A0;(C=R)&#x00A0;or&#x00A0;(S=C)&#x00A0;then
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;Writeln&#x00A0;(&#8217;Ok&#8217;);
+&#x00A0;<br />end;
+</div>
+</td></tr></table>
+<!--l. 6528--><p class="nopar" >Note that the order of the real and complex type in the two comparisions is reversed.
+                                                                            
+
+                                                                            
+<!--l. 6536--><div class="crosslinks"><p class="noindent">[<a 
+href="refse66.html" >prev</a>] [<a 
+href="refse66.html#tailrefse66.html" >prev-tail</a>] [<a 
+href="refse67.html" >front</a>] [<a 
+href="refse65.html#refse69.html" >up</a>] </p></div>
+<!--l. 6536--><p class="noindent" ><a 
+ id="tailrefse67.html"></a>  
+</body></html> 

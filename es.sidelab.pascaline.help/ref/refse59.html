@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>External functions</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 5777--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu54.html" >next</a>] [<a 
+href="refse58.html" >prev</a>] [<a 
+href="refse58.html#tailrefse58.html" >prev-tail</a>] [<a 
+href="refsu52.html#tailrefse59.html">tail</a>] [<a 
+href="refse55.html#refsu53.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">11.7   </span> <a 
+href="#x131-13800011.7" id="x131-13800011.7">External functions</a></h3>
+<a 
+ id="dx131-138001"></a>
+<a 
+ id="dx131-138002"></a>
+<!--l. 5779--><p class="noindent" >The <span 
+class="cmtt-10">external </span>modifier can be used to declare a function that resides in an external object file. It
+allows to use the function in some code, and at linking time, the object file containing the
+implementation of the function or procedure must be linked in.
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<span 
+class="cmbx-10">External directive</span><BR/><img 
+src="ref149x.png" alt="--external directive-external--|--------------------------------------
+                         -string constant -|----------------------
+                                       |-name -string constant -|
+                                       -index- integer constant-
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 5784--><p class="noindent" >It replaces, in effect, the function or procedure code block. As an example:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+program&#x00A0;CmodDemo;
+&#x00A0;<br />{$Linklib&#x00A0;c}
+&#x00A0;<br />Const&#x00A0;P&#x00A0;:&#x00A0;PChar&#x00A0;=&#x00A0;&#8217;This&#x00A0;is&#x00A0;fun&#x00A0;!&#8217;;
+&#x00A0;<br />Function&#x00A0;strlen&#x00A0;(P&#x00A0;:&#x00A0;PChar)&#x00A0;:&#x00A0;Longint;&#x00A0;cdecl;&#x00A0;external;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;WriteLn&#x00A0;(&#8217;Length&#x00A0;of&#x00A0;(&#8217;,p,&#8217;)&#x00A0;:&#x00A0;&#8217;,strlen(p))
+&#x00A0;<br />end.
+</div>
+</td></tr></table>
+<!--l. 5794--><p class="nopar" >
+<!--l. 5795--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> The parameters in the declaration of the <span 
+class="cmtt-10">external </span>function should match exactly the ones in the
+declaration in the object file.
+<!--l. 5799--><p class="noindent" >If the <span 
+class="cmtt-10">external </span>modifier is followed by a string constant:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+external&#x00A0;&#8217;lname&#8217;;
+</div>
+</td></tr></table>
+<!--l. 5802--><p class="nopar" >Then this tells the compiler that the function resides in library &#8217;lname&#8217;. The compiler will then
+automatically link this library to the program.
+<!--l. 5807--><p class="noindent" >The name that the function has in the library can also be specified:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+external&#x00A0;&#8217;lname&#8217;&#x00A0;name&#x00A0;&#8217;Fname&#8217;;
+</div>
+</td></tr></table>
+<!--l. 5810--><p class="nopar" ><a 
+ id="dx131-138003"></a>This tells the compiler that the function resides in library &#8217;lname&#8217;, but with name &#8217;Fname&#8217;.The
+compiler will then automatically link this library to the program, and use the correct name for the
+function. Under <span 
+class="cmcsc-10">W<span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">w</span><span 
+class="small-caps">s</span> </span>and <span 
+class="cmcsc-10"><span 
+class="small-caps">o</span><span 
+class="small-caps">s</span>/2</span>, the following form can also be used:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+external&#x00A0;&#8217;lname&#8217;&#x00A0;Index&#x00A0;Ind;
+</div>
+</td></tr></table>
+<!--l. 5817--><p class="nopar" ><a 
+ id="dx131-138004"></a>This tells the compiler that the function resides in library &#8217;lname&#8217;, but with index <span 
+class="cmtt-10">Ind</span>. The
+compiler will then automatically link this library to the program, and use the correct index for the
+function.
+<!--l. 5823--><p class="noindent" >Finally, the external directive can be used to specify the external name of the function
+:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+external&#x00A0;name&#x00A0;&#8217;Fname&#8217;;
+&#x00A0;<br />{$L&#x00A0;myfunc.o}
+</div>
+</td></tr></table>
+<!--l. 5828--><p class="nopar" ><a 
+ id="dx131-138005"></a>This tells the compiler that the function has the name &#8217;Fname&#8217;. The correct library or object file
+(in this case myfunc.o) must still be linked, ensuring that the function &#8217;Fname&#8217; is indeed included
+in the linking stage.
+                                                                            
+
+                                                                            
+<!--l. 5836--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu54.html" >next</a>] [<a 
+href="refse58.html" >prev</a>] [<a 
+href="refse58.html#tailrefse58.html" >prev-tail</a>] [<a 
+href="refse59.html" >front</a>] [<a 
+href="refse55.html#refsu53.html" >up</a>] </p></div>
+<!--l. 5836--><p class="noindent" ><a 
+ id="tailrefse59.html"></a>  
+</body></html> 

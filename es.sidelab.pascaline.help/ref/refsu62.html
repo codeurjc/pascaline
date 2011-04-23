@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>public</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 6095--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu66.html" >next</a>] [<a 
+href="refsu61.html" >prev</a>] [<a 
+href="refsu61.html#tailrefsu61.html" >prev-tail</a>] [<a 
+href="refsu59.html#tailrefsu62.html">tail</a>] [<a 
+href="refsu55.html#refsu65.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">11.9.10   </span> <a 
+href="#x143-15000011.9.10" id="x143-15000011.9.10">public</a></h4>
+<a 
+ id="dx143-150001"></a>
+<a 
+ id="dx143-150002"></a>
+<!--l. 6097--><p class="noindent" >The <span 
+class="cmtt-10">Public </span>keyword is used to declare a function globally in a unit. This is useful if the
+function should not be accessible from the unit file (i.e. another unit/program using
+the unit doesn&#8217;t see the function), but must be accessible from the object file. as an
+example:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Unit&#x00A0;someunit;
+&#x00A0;<br />interface
+&#x00A0;<br />Function&#x00A0;First&#x00A0;:&#x00A0;Real;
+&#x00A0;<br />Implementation
+&#x00A0;<br />Function&#x00A0;First&#x00A0;:&#x00A0;Real;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;First&#x00A0;:=&#x00A0;0;
+&#x00A0;<br />end;
+&#x00A0;<br />Function&#x00A0;Second&#x00A0;:&#x00A0;Real;&#x00A0;[Public];
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Second&#x00A0;:=&#x00A0;1;
+&#x00A0;<br />end;
+&#x00A0;<br />end.
+</div>
+</td></tr></table>
+<!--l. 6115--><p class="nopar" >If another program or unit uses this unit, it will not be able to use the function <span 
+class="cmtt-10">Second</span>, since it
+isn&#8217;t declared in the interface part. However, it will be possible to access the function
+<span 
+class="cmtt-10">Second </span>at the assembly-language level, by using its mangled name (see the <a 
+href="../prog/prog.html" >Programmers
+guide</a>).
+<!--l. 6121--><p class="noindent" >The <span 
+class="cmtt-10">public </span>modifier can also be followed by a <span 
+class="cmtt-10">name </span>directive to specify the assembler name, as
+follows:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Unit&#x00A0;someunit;
+&#x00A0;<br />interface
+&#x00A0;<br />Function&#x00A0;First&#x00A0;:&#x00A0;Real;
+&#x00A0;<br />Implementation
+&#x00A0;<br />Function&#x00A0;First&#x00A0;:&#x00A0;Real;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;First&#x00A0;:=&#x00A0;0;
+&#x00A0;<br />end;
+&#x00A0;<br />Function&#x00A0;Second&#x00A0;:&#x00A0;Real;&#x00A0;Public&#x00A0;name&#x00A0;&#8217;second&#8217;;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Second&#x00A0;:=&#x00A0;1;
+&#x00A0;<br />end;
+&#x00A0;<br />end.
+</div>
+</td></tr></table>
+<!--l. 6137--><p class="nopar" >The assembler symbol as specified by the &#8217;public name&#8217; directive will be &#8217;second&#8217;, in all lowercase
+letters.
+                                                                            
+
+                                                                            
+<!--l. 6141--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu66.html" >next</a>] [<a 
+href="refsu61.html" >prev</a>] [<a 
+href="refsu61.html#tailrefsu61.html" >prev-tail</a>] [<a 
+href="refsu62.html" >front</a>] [<a 
+href="refsu55.html#refsu65.html" >up</a>] </p></div>
+<!--l. 6141--><p class="noindent" ><a 
+ id="tailrefsu62.html"></a>  
+</body></html> 

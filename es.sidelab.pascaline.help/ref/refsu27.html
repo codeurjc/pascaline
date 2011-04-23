@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Message methods</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 3224--><div class="crosslinks"><p class="noindent">[<a 
+href="refch7.html" >next</a>] [<a 
+href="refsu26.html" >prev</a>] [<a 
+href="refsu26.html#tailrefsu26.html" >prev-tail</a>] [<a 
+href="refsu25.html#tailrefsu27.html">tail</a>] [<a 
+href="refsu24.html#refse33.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">6.3.5   </span> <a 
+href="#x73-810006.3.5" id="x73-810006.3.5">Message methods</a></h4>
+<a 
+ id="dx73-81001"></a>
+<!--l. 3226--><p class="noindent" >New in classes are <span 
+class="cmtt-10">message </span>methods. Pointers to message methods are stored in a special table,
+together with the integer or string cnstant that they were declared with. They are primarily
+intended to ease programming of callback functions in several <span 
+class="cmtt-10">GUI </span>toolkits, such as <span 
+class="cmtt-10">Win32 </span>or <span 
+class="cmtt-10">GTK</span>.
+In difference with Delphi, Free Pascal also accepts strings as message identifiers. Message methods
+are always virtual. <a 
+ id="dx73-81002"></a><a 
+ id="dx73-81003"></a>
+<!--l. 3234--><p class="noindent" >As can be seen in the class declaration diagram, message methods are declared with a <span 
+class="cmtt-10">Message</span>
+keyword, followed by an integer constant expression.
+<!--l. 3238--><p class="noindent" >Additionally, they can take only one var argument (typed or not):<a 
+ id="dx73-81004"></a>
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+&#x00A0;Procedure&#x00A0;TMyObject.MyHandler(Var&#x00A0;Msg);&#x00A0;Message&#x00A0;1;
+</div>
+</td></tr></table>
+<!--l. 3241--><p class="nopar" >The method implementation of a message function is not different from an ordinary method. It is
+also possible to call a message method directly, but this should not be done. Instead, the
+<span 
+class="cmtt-10">TObject.Dispatch </span>method should be used.<a 
+ id="dx73-81005"></a> Message methods are automatically virtual, i.e. they
+can be overridden in descendent classes.
+<!--l. 3248--><p class="noindent" >The <span 
+class="cmtt-10">TOBject.Dispatch </span>method can be used to call a <span 
+class="cmtt-10">message</span><a 
+ id="dx73-81006"></a> handler. It is declared in the <span 
+class="cmss-10">system</span>
+unit and will accept a var parameter which must have at the first position a cardinal with the
+message ID that should be called. For example:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;TMsg&#x00A0;=&#x00A0;Record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;MSGID&#x00A0;:&#x00A0;Cardinal
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Data&#x00A0;:&#x00A0;Pointer;
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;Msg&#x00A0;:&#x00A0;TMSg;
+&#x00A0;<br />
+&#x00A0;<br />MyObject.Dispatch&#x00A0;(Msg);
+</div>
+</td></tr></table>
+<!--l. 3262--><p class="nopar" >In this example, the <span 
+class="cmtt-10">Dispatch </span>method will look at the object and all its ancestors (starting at the
+object, and searching up the inheritance class tree), to see if a message method with message
+<span 
+class="cmtt-10">MSGID </span>has been declared. If such a method is found, it is called, and passed the <span 
+class="cmtt-10">Msg</span>
+parameter.
+<!--l. 3269--><p class="noindent" >If no such method is found, <span 
+class="cmtt-10">DefaultHandler </span>is called. <span 
+class="cmtt-10">DefaultHandler </span>is a virtual method of
+<span 
+class="cmtt-10">TObject </span>that doesn&#8217;t do anything, but which can be overridden to provide any processing that
+might be needed. <span 
+class="cmtt-10">DefaultHandler </span>is declared as follows:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;defaulthandler(var&#x00A0;message);virtual;
+</div>
+</td></tr></table>
+<!--l. 3275--><p class="nopar" >
+<!--l. 3277--><p class="noindent" >In addition to the message method with a <span 
+class="cmtt-10">Integer </span>identifier, Free Pascal also supports a message
+method with a string identifier:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+&#x00A0;Procedure&#x00A0;TMyObject.MyStrHandler(Var&#x00A0;Msg);&#x00A0;Message&#x00A0;&#8217;OnClick&#8217;;
+</div>
+</td></tr></table>
+<!--l. 3281--><p class="nopar" >The working of the string message handler is the same as the ordinary integer message
+handler:
+<!--l. 3285--><p class="noindent" >The <span 
+class="cmtt-10">TOBject.DispatchStr</span> <a 
+ id="dx73-81007"></a>method can be used to call a <span 
+class="cmtt-10">message </span>handler. It is declared in the
+system unit and will accept one parameter which must have at the first position a short string with
+the message ID that should be called. For example:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;TMsg&#x00A0;=&#x00A0;Record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;MsgStr&#x00A0;:&#x00A0;String[10];&#x00A0;//&#x00A0;Arbitrary&#x00A0;length&#x00A0;up&#x00A0;to&#x00A0;255&#x00A0;characters.
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Data&#x00A0;:&#x00A0;Pointer;
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;Msg&#x00A0;:&#x00A0;TMSg;
+&#x00A0;<br />
+&#x00A0;<br />MyObject.DispatchStr&#x00A0;(Msg);
+</div>
+</td></tr></table>
+<!--l. 3298--><p class="nopar" >In this example, the <span 
+class="cmtt-10">DispatchStr </span>method will look at the object and all its ancestors (starting at
+the object, and searching up the inheritance class tree), to see if a message method with message
+<span 
+class="cmtt-10">MsgStr </span>has been declared. If such a method is found, it is called, and passed the <span 
+class="cmtt-10">Msg</span>
+parameter.
+<!--l. 3305--><p class="noindent" >If no such method is found, <span 
+class="cmtt-10">DefaultHandlerStr </span>is called. <span 
+class="cmtt-10">DefaultHandlerStr </span>is a virtual method
+of <span 
+class="cmtt-10">TObject </span>that doesn&#8217;t do anything, but which can be overridden to provide any processing that
+might be needed. <span 
+class="cmtt-10">DefaultHandlerStr </span>is declared as follows:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;DefaultHandlerStr(var&#x00A0;message);virtual;
+</div>
+</td></tr></table>
+<!--l. 3311--><p class="nopar" >In addition to this mechanism, a string message method accepts a <span 
+class="cmtt-10">self </span>parameter:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Procedure&#x00A0;StrMsgHandler(Data:&#x00A0;Pointer;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Self:&#x00A0;TMyObject);&#x00A0;Message&#x00A0;&#8217;OnClick&#8217;;
+</div>
+</td></tr></table>
+<!--l. 3317--><p class="nopar" >When encountering such a method, the compiler will generate code that loads the <span 
+class="cmtt-10">Self </span>parameter
+into the object instance pointer. The result of this is that it is possible to pass <span 
+class="cmtt-10">Self </span>as a parameter
+to such a method.
+<!--l. 3323--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> The type of the <span 
+class="cmtt-10">Self</span> <a 
+ id="dx73-81008"></a>parameter must be of the same class as the class the method is defined
+in.
+                                                                            
+
+                                                                            
+<!--l. 3328--><div class="crosslinks"><p class="noindent">[<a 
+href="refch7.html" >next</a>] [<a 
+href="refsu26.html" >prev</a>] [<a 
+href="refsu26.html#tailrefsu26.html" >prev-tail</a>] [<a 
+href="refsu27.html" >front</a>] [<a 
+href="refsu24.html#refse33.html" >up</a>] </p></div>
+<!--l. 3328--><p class="noindent" ><a 
+ id="tailrefsu27.html"></a>  
+</body></html> 

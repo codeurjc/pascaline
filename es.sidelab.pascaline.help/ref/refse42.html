@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>A word about scope</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 3970--><div class="crosslinks"><p class="noindent">[<a 
+href="refse41.html" >prev</a>] [<a 
+href="refse41.html#tailrefse41.html" >prev-tail</a>] [<a 
+href="refse39.html#tailrefse42.html">tail</a>] [<a 
+href="refse41.html#refse44.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">8.4   </span> <a 
+href="#x87-940008.4" id="x87-940008.4">A word about scope</a></h3>
+<!--l. 3971--><p class="noindent" >It should be stressed that all identifiers other than the template placeholders should be known
+when the generic class is declared. This works in 2 ways. First, all types must be known, that is,
+a type identifier with the same name must exist. The following unit will produce an
+error:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+unit&#x00A0;myunit;
+&#x00A0;<br />
+&#x00A0;<br />interface
+&#x00A0;<br />
+&#x00A0;<br />type
+&#x00A0;<br />&#x00A0;&#x00A0;Generic&#x00A0;TMyClass&#x003C;T&#x003E;&#x00A0;=&#x00A0;Class(TObject)
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Procedure&#x00A0;DoSomething(A&#x00A0;:&#x00A0;T;&#x00A0;B&#x00A0;:&#x00A0;TSomeType);
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />Type
+&#x00A0;<br />&#x00A0;&#x00A0;TSomeType&#x00A0;=&#x00A0;Integer;
+&#x00A0;<br />&#x00A0;&#x00A0;TSomeTypeClass&#x00A0;=&#x00A0;specialize&#x00A0;TMyClass&#x003C;TSomeType&#x003E;;
+&#x00A0;<br />
+&#x00A0;<br />Implementation
+&#x00A0;<br />
+&#x00A0;<br />Procedure&#x00A0;TMyClass.DoSomething(A&#x00A0;:&#x00A0;T;&#x00A0;B&#x00A0;:&#x00A0;TSomeType);
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;Some&#x00A0;code.
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />end.
+</div>
+</td></tr></table>
+<!--l. 3998--><p class="nopar" >The above code will result in an error, because the type <span 
+class="cmtt-10">TSomeType </span>is not known when the
+declaration is parsed:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+home:&#x00A0;&#x003E;fpc&#x00A0;myunit.pp
+&#x00A0;<br />myunit.pp(8,47)&#x00A0;Error:&#x00A0;Identifier&#x00A0;not&#x00A0;found&#x00A0;"TSomeType"
+&#x00A0;<br />myunit.pp(11,1)&#x00A0;Fatal:&#x00A0;There&#x00A0;were&#x00A0;1&#x00A0;errors&#x00A0;compiling&#x00A0;module,&#x00A0;stopping
+</div>
+</td></tr></table>
+<!--l. 4005--><p class="nopar" >
+<!--l. 4007--><p class="noindent" >The second way in which this is visible, is the following. Assume a unit
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+unit&#x00A0;mya;
+&#x00A0;<br />
+&#x00A0;<br />interface
+&#x00A0;<br />
+&#x00A0;<br />type
+&#x00A0;<br />&#x00A0;&#x00A0;Generic&#x00A0;TMyClass&#x003C;T&#x003E;&#x00A0;=&#x00A0;Class(TObject)
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Procedure&#x00A0;DoSomething(A&#x00A0;:&#x00A0;T);
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />
+&#x00A0;<br />Implementation
+&#x00A0;<br />
+&#x00A0;<br />Procedure&#x00A0;DoLocalThings;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;mya.DoLocalThings&#8217;);
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />
+&#x00A0;<br />Procedure&#x00A0;TMyClass.DoSomething(A&#x00A0;:&#x00A0;T);
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;DoLocalThings;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />end.
+</div>
+</td></tr></table>
+<!--l. 4035--><p class="nopar" >and a program
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+program&#x00A0;myb;
+&#x00A0;<br />
+&#x00A0;<br />uses&#x00A0;mya;
+&#x00A0;<br />
+&#x00A0;<br />procedure&#x00A0;DoLocalThings;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;myb.DoLocalThings&#8217;);
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />Type
+&#x00A0;<br />&#x00A0;&#x00A0;TB&#x00A0;=&#x00A0;specialize&#x00A0;TMyClass&#x003C;Integer&#x003E;;
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;B&#x00A0;:&#x00A0;TB;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;B:=TB.Create;
+&#x00A0;<br />&#x00A0;&#x00A0;B.DoSomething(1);
+&#x00A0;<br />end.
+</div>
+</td></tr></table>
+<!--l. 4058--><p class="nopar" >Despite the fact that generics act as a macro which is replayed at specialization time, the reference
+to <span 
+class="cmtt-10">DoLocalThings </span>is resolved when <span 
+class="cmtt-10">TMyClass </span>is defined, not when TB is defined. This means that
+the output of the program is:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+home:&#x00A0;&#x003E;fpc&#x00A0;-S2&#x00A0;myb.pp
+&#x00A0;<br />home:&#x00A0;&#x003E;myb
+&#x00A0;<br />mya.DoLocalThings
+</div>
+</td></tr></table>
+<!--l. 4067--><p class="nopar" >This is dictated by safety and necessity:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x87-94002x1">A programmer specializing a class has no way of knowing which local procedures are
+     used, so he cannot accidentally &#8217;override&#8217; it.
+     </li>
+     <li 
+  class="enumerate" id="x87-94004x2">A programmer specializing a class has no way of knowing which local procedures are
+     used, so he cannot implement it either, since he does not know the parameters.
+     </li>
+     <li 
+  class="enumerate" id="x87-94006x3">If  implementation  procedures  are  used  as  in  the  example  above,  they  cannot  be
+     referenced from outside the unit. They could be in another unit altogether, and the
+     programmer has no way of knowing he should include them before specializing his class.</li></ol>
+                                                                            
+
+                                                                            
+<!--l. 4135--><div class="crosslinks"><p class="noindent">[<a 
+href="refse41.html" >prev</a>] [<a 
+href="refse41.html#tailrefse41.html" >prev-tail</a>] [<a 
+href="refse42.html" >front</a>] [<a 
+href="refse41.html#refse44.html" >up</a>] </p></div>
+<!--l. 4135--><p class="noindent" ><a 
+ id="tailrefse42.html"></a>  
+</body></html> 

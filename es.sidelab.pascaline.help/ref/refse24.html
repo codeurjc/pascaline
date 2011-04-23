@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Declaration</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 2433--><div class="crosslinks"><p class="noindent">[<a 
+href="refse26.html" >next</a>] [<a 
+href="refch5.html#tailrefse24.html">tail</a>] [<a 
+href="refse24.html#refse25.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">5.1   </span> <a 
+href="#x56-620005.1" id="x56-620005.1">Declaration</a></h3>
+<!--l. 2434--><p class="noindent" >Free Pascal supports object oriented programming. In fact, most of the compiler is written using
+objects. Here we present some technical questions regarding object oriented programming in Free
+Pascal.
+<!--l. 2438--><p class="noindent" >Objects should be treated as a special kind of record. The record contains all the fields that are
+declared in the objects definition, and pointers to the methods that are associated to the objects&#8217;
+type.
+<!--l. 2442--><p class="noindent" >An object is declared just as a record would be declared; except that now, procedures and
+functions can be declared as if they were part of the record. Objects can &#8221;inherit&#8221; fields and
+methods from &#8221;parent&#8221; objects. This means that these fields and methods can be used as if they
+were included in the objects declared as a &#8221;child&#8221; object.
+<!--l. 2448--><p class="noindent" >Furthermore, a concept of visibility <a 
+ id="dx56-62001"></a>is introduced: fields, procedures and functions can be declared
+as <span 
+class="cmtt-10">public</span>, <span 
+class="cmtt-10">protected </span>or <span 
+class="cmtt-10">private</span>. By default, fields and methods are <span 
+class="cmtt-10">public</span>, and are exported
+outside the current unit. <a 
+ id="dx56-62002"></a><a 
+ id="dx56-62003"></a>
+<!--l. 2455--><p class="noindent" >Fields or methods that are declared <span 
+class="cmtt-10">private </span>are only accessible in the current unit: their scope is
+limited to the implementation of the current unit.<a 
+ id="dx56-62004"></a>
+<!--l. 2459--><p class="noindent" >The prototype declaration of an object is as follows: <a 
+ id="dx56-62005"></a><a name="keyword:object"></a>
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<span 
+class="cmbx-10">object types</span> <BR/><img 
+src="ref62x.png" alt="------------      -----------            --    ------------------
+  -       -|object  -     | -component list-|end
+   packed           heritage
+                                                                            
+
+                                                                            
+     " ><BR/>
+     <BR/><img 
+src="ref63x.png" alt="--       - -                 -  --------------------------------
+  heritage  (  object type identifier )
+     " ><BR/>
+     <BR/><img 
+src="ref64x.png" alt=" --            -----------------------|-----------------
+   component list -                  --||--           ---|
+                 object visibility specifier   -field-definition--|
+------------------------------------------------------------------
+   --method definition---|
+    ----------------|
+     " ><BR/>
+     <BR/><img 
+src="ref65x.png" alt="--           -          -  -    -  -----------------------------
+  field definition  identifier list  :  type  ;  -     --|
+                                      static;
+     " ><BR/>
+     <BR/><img 
+src="ref66x.png" alt="--object visibility specifier-|-private-----------------------------------
+                      -protected--|
+                        public
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 2462--><p class="noindent" >As can be seen, as many <span 
+class="cmtt-10">private </span>and <span 
+class="cmtt-10">public </span>blocks as needed can be declared.<a 
+ id="dx56-62006"></a><a 
+ id="dx56-62007"></a>
+<!--l. 2466--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span><a 
+ id="dx56-62008"></a> Free Pascal also supports the packed object. This is the same as an object, only the elements
+(fields) of the object are byte-aligned, just as in the packed record. The declaration of a packed
+object is similar to the declaration of a packed record :
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;TObj&#x00A0;=&#x00A0;packed&#x00A0;object;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;Constructor&#x00A0;init;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;...
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;end;
+&#x00A0;<br />&#x00A0;&#x00A0;Pobj&#x00A0;=&#x00A0;^TObj;
+&#x00A0;<br />Var&#x00A0;PP&#x00A0;:&#x00A0;Pobj;
+</div>
+</td></tr></table>
+<!--l. 2480--><p class="nopar" >Similarly, the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$PackRecords </span><span 
+class="cmsy-10">} </span>directive acts on objects as well.
+                                                                            
+
+                                                                            
+<!--l. 2485--><div class="crosslinks"><p class="noindent">[<a 
+href="refse26.html" >next</a>] [<a 
+href="refse24.html" >front</a>] [<a 
+href="refse24.html#refse25.html" >up</a>] </p></div>
+<!--l. 2485--><p class="noindent" ><a 
+ id="tailrefse24.html"></a>  
+</body></html> 

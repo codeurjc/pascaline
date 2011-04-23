@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Generic class definition</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 3820--><div class="crosslinks"><p class="noindent">[<a 
+href="refse43.html" >next</a>] [<a 
+href="refse39.html" >prev</a>] [<a 
+href="refse39.html#tailrefse39.html" >prev-tail</a>] [<a 
+href="refse38.html#tailrefse40.html">tail</a>] [<a 
+href="refse41.html#refch9.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">8.2   </span> <a 
+href="#x85-920008.2" id="x85-920008.2">Generic class definition</a></h3>
+<!--l. 3821--><p class="noindent" >A generic class definition is much like a class definition, with the exception that it contains a list of
+placeholders for types, and can contain a series of local variable blocks or local type blocks, as can
+be seen in the following syntax diagram:
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<span 
+class="cmbx-10">Generic class types</span> <BR/><img 
+src="ref97x.png" alt="-generic type-generic -identifier- &#x003C; template list &#x003E; = - generic class -;---
+     " ><BR/>
+     <BR/><img 
+src="ref98x.png" alt="--template list-|identifier ------------------------------------------
+              ----,----
+     " ><BR/>
+     <BR/><img 
+src="ref99x.png" alt="--generic class-|---------class--|-------|--------------------------
+              -packed --       heritage- -|-|-local type block-----
+                                       | |local variable block||
+                                       | |-component list--||
+                                       |-------------------|
+     " ><BR/>
+     <BR/><img 
+src="ref100x.png" alt="--local type block type --|visibility specifier--|type declaration- ;----------
+                      ---------------- ------------------
+     " ><BR/>
+     <BR/><img 
+src="ref101x.png" alt="--local variable block-var-|visibility specifier---|variable declaration ;-----
+                       ---------------- ---------------------
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 3826--><p class="noindent" >The generic class declaration should be followed by a class implementation. It is the same as a
+normal class implementation with a single exception, namely that any identifier with the same
+name as one of the template identifiers must be a type identifier.
+<!--l. 3831--><p class="noindent" >The generic class declaration is much like a normal class declaration, except for the local variable
+and local type block. The local type block defines types that are type placeholders: they are not
+actualized until the class is specialized.
+                                                                            
+
+                                                                            
+<!--l. 3836--><p class="noindent" >The local variable block is just an alternate syntax for ordinary class fields. The reason for
+introducing is the introduction of the <span 
+class="cmtt-10">Type </span>block: just as in a unit or function declaration, a class
+declaration can now have a local type and variable block definition.
+<!--l. 3841--><p class="noindent" >The following is a valid generic class definition:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;generic&#x00A0;TList&#x003C;_T&#x003E;=class(TObject)
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;type&#x00A0;public
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;TCompareFunc&#x00A0;=&#x00A0;function(const&#x00A0;Item1,&#x00A0;Item2:&#x00A0;_T):&#x00A0;Integer;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;var&#x00A0;public
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;data&#x00A0;:&#x00A0;_T;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;Add(item:&#x00A0;_T);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;Sort(compare:&#x00A0;TCompareFunc);
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+</div>
+</td></tr></table>
+<!--l. 3852--><p class="nopar" >This class could be followed by an implementation as follows:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+procedure&#x00A0;TList.Add(item:&#x00A0;_T);
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;data:=item;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />procedure&#x00A0;TList.Sort(compare:&#x00A0;TCompareFunc);
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;if&#x00A0;compare(data,&#x00A0;20)&#x00A0;&#x003C;=&#x00A0;0&#x00A0;then
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;halt(1);
+&#x00A0;<br />end;
+</div>
+</td></tr></table>
+<!--l. 3865--><p class="nopar" >There are some noteworthy things about this declaration and implementation:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x85-92002x1">There is a single placeholder <span 
+class="cmtt-10">_T</span>. It will be substituted by a type identifier when the generic
+     class is specialized. The identifier <span 
+class="cmtt-10">_T </span>may not be used for anything else than a placehoder.
+     This means that the following would be invalid:
+                                                                            
+
+                                                                            
+     <table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+     procedure&#x00A0;TList.Sort(compare:&#x00A0;TCompareFunc);
+     &#x00A0;<br />
+     &#x00A0;<br />Var
+     &#x00A0;<br />&#x00A0;&#x00A0;_t&#x00A0;:&#x00A0;integer;
+     &#x00A0;<br />
+     &#x00A0;<br />begin
+     &#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;do&#x00A0;something.
+     &#x00A0;<br />end;
+</div>
+     </td></tr></table>
+     <!--l. 3881--><p class="nopar" >
+     </li>
+     <li 
+  class="enumerate" id="x85-92004x2">The local type block contains a single type <span 
+class="cmtt-10">TCompareFunc</span>. Note that the actual type is not
+     yet known inside the generic class definition: the definition contains a reference to the
+     placeholder <span 
+class="cmtt-10">_T</span>. All other identifier references must be known when the generic class is
+     defined, <span 
+class="cmti-10">not </span>when the generic class is specialized.
+     </li>
+     <li 
+  class="enumerate" id="x85-92006x3">The local variable block is equivalent to the following:
+                                                                            
+
+                                                                            
+     <table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+     &#x00A0;&#x00A0;generic&#x00A0;TList&#x003C;_T&#x003E;=class(TObject)
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;type&#x00A0;public
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;TCompareFunc&#x00A0;=&#x00A0;function(const&#x00A0;Item1,&#x00A0;Item2:&#x00A0;_T):&#x00A0;Integer;
+     &#x00A0;<br />&#x00A0;&#x00A0;Public
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;data&#x00A0;:&#x00A0;_T;
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;Add(item:&#x00A0;_T);
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;Sort(compare:&#x00A0;TCompareFunc);
+     &#x00A0;<br />&#x00A0;&#x00A0;end;
+</div>
+     </td></tr></table>
+     <!--l. 3897--><p class="nopar" >
+     </li>
+     <li 
+  class="enumerate" id="x85-92008x4">Both the local variable block and local type block have a visibility specifier. This is optional;
+     if it is omitted, the current visibility is used.</li></ol>
+                                                                            
+
+                                                                            
+<!--l. 3903--><div class="crosslinks"><p class="noindent">[<a 
+href="refse43.html" >next</a>] [<a 
+href="refse39.html" >prev</a>] [<a 
+href="refse39.html#tailrefse39.html" >prev-tail</a>] [<a 
+href="refse40.html" >front</a>] [<a 
+href="refse41.html#refch9.html" >up</a>] </p></div>
+<!--l. 3903--><p class="noindent" ><a 
+ id="tailrefse40.html"></a>  
+</body></html> 

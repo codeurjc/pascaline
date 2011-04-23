@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>The raise statement</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 6835--><div class="crosslinks"><p class="noindent">[<a 
+href="refse77.html" >next</a>] [<a 
+href="refsu72.html#tailrefse73.html">tail</a>] [<a 
+href="refse75.html#refse76.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">14.1   </span> <a 
+href="#x168-17500014.1" id="x168-17500014.1">The raise statement</a></h3>
+<a 
+ id="dx168-175001"></a>
+<a 
+ id="dx168-175002"></a>
+<!--l. 6837--><p class="noindent" >The <span 
+class="cmtt-10">raise </span>statement is as follows:
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<span 
+class="cmbx-10">Raise statement</span><BR/><img 
+src="ref183x.png" alt="--raise statement-raise--------------------------------------------
+                     - exception instance-----------------------|
+                                      -at -address expression|
+     " ><BR/>
+     ___________________________________________________________________</div>
+                                                                            
+
+                                                                            
+<!--l. 6839--><p class="noindent" >This statement will raise an exception. If it is specified, the exception instance must be an
+initialized instance of any class, which is the raise type. The exception address is optional. If it is
+not specified, the compiler will provide the address by itself. If the exception instance is omitted,
+then the current exception is re-raised. This construct can only be used in an exception handling
+block (see further).
+<!--l. 6846--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> Control <span 
+class="cmti-10">never </span>returns after an exception block. The control is transferred to the first
+<span 
+class="cmtt-10">try...finally </span>or <span 
+class="cmtt-10">try...except </span>statement that is encountered when unwinding the stack. If no
+such statement is found, the Free Pascal Run-Time Library will generate a run-time error 217 (see
+also section <a 
+href="refse77.html#x172-17900014.5">14.5<!--tex4ht:ref: se:exceptclasses --></a>, page <a 
+href="refse77.html#x172-17900014.5">555<!--tex4ht:ref: se:exceptclasses --></a>). The exception address will be printed by the default exception
+handling routines.
+<!--l. 6854--><p class="noindent" >As an example: The following division checks whether the denominator is zero, and if so, raises an
+exception of type <span 
+class="cmtt-10">EDivException</span>
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Type&#x00A0;EDivException&#x00A0;=&#x00A0;Class(Exception);
+&#x00A0;<br />Function&#x00A0;DoDiv&#x00A0;(X,Y&#x00A0;:&#x00A0;Longint)&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;If&#x00A0;Y=0&#x00A0;then
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Raise&#x00A0;EDivException.Create&#x00A0;(&#8217;Division&#x00A0;by&#x00A0;Zero&#x00A0;would&#x00A0;occur&#8217;);
+&#x00A0;<br />&#x00A0;&#x00A0;Result&#x00A0;:=&#x00A0;X&#x00A0;Div&#x00A0;Y;
+&#x00A0;<br />end;
+</div>
+</td></tr></table>
+<!--l. 6864--><p class="nopar" >The class <span 
+class="cmtt-10">Exception </span>is defined in the <span 
+class="cmss-10">Sysutils </span>unit of the rtl. (section <a 
+href="refse77.html#x172-17900014.5">14.5<!--tex4ht:ref: se:exceptclasses --></a>, page <a 
+href="refse77.html#x172-17900014.5">555<!--tex4ht:ref: se:exceptclasses --></a>)
+<!--l. 6868--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> Although the <span 
+class="cmtt-10">Exception </span>class is used as the base class for exceptions throughout the code, this is
+just an unwritten agreement: the class can be of any type, and need not be a descendent of the
+<span 
+class="cmtt-10">Exception </span>class.
+<!--l. 6873--><p class="noindent" >Of course, most code depends on the unwritten agreement that an exception class descends from
+<span 
+class="cmtt-10">Exception</span>.
+                                                                            
+
+                                                                            
+<!--l. 6879--><div class="crosslinks"><p class="noindent">[<a 
+href="refse77.html" >next</a>] [<a 
+href="refse73.html" >front</a>] [<a 
+href="refse75.html#refse76.html" >up</a>] </p></div>
+<!--l. 6879--><p class="noindent" ><a 
+ id="tailrefse73.html"></a>  
+</body></html> 

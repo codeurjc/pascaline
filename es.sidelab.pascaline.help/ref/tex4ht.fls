@@ -1,0 +1,39 @@
+ /usr/share/texmf/fonts/tfm/public/cm
+cmbx10.tfm
+cmcsc10.tfm
+cmmi10.tfm
+cmr10.tfm
+cmr12.tfm
+cmr7.tfm
+cmr8.tfm
+cmr9.tfm
+cmss10.tfm
+cmss12.tfm
+cmss9.tfm
+cmssbx10.tfm
+cmsy10.tfm
+cmti10.tfm
+cmtt10.tfm
+cmtt9.tfm
+ /usr/share/texmf/fonts/tfm/public/latex-fonts
+line10.tfm
+ /usr/share/texmf/tex/generic/tex4ht/ht-fonts/alias/cm
+cmbx.htf
+cmcsc.htf
+cmss.htf
+cmtt.htf
+ /usr/share/texmf/tex/generic/tex4ht/ht-fonts/alias/lm/lm-rep-cmrm
+cmr.htf
+ /usr/share/texmf/tex/generic/tex4ht/ht-fonts/iso8859/1/charset
+unicode.4hf
+ /usr/share/texmf/tex/generic/tex4ht/ht-fonts/unicode/cm
+cmmi.htf
+cmsy.htf
+cmti.htf
+ /usr/share/texmf/tex/generic/tex4ht/ht-fonts/unicode/concrete
+cccsc.htf
+ /usr/share/texmf/tex/generic/tex4ht/ht-fonts/unicode/latex
+line.htf
+ /usr/share/texmf/tex/generic/tex4ht/ht-fonts/unicode/lm
+lm-rep-cmrm.htf
+lm-rep-cmtt.htf

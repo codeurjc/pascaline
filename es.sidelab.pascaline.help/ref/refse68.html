@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Programs</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 6545--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu69.html" >next</a>] [<a 
+href="refse66.html#tailrefse68.html">tail</a>] [<a 
+href="refse70.html#refse71.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">13.1   </span> <a 
+href="#x158-16500013.1" id="x158-16500013.1">Programs</a></h3>
+<a 
+ id="dx158-165001"></a>
+<a 
+ id="dx158-165002"></a>
+<!--l. 6547--><p class="noindent" >A pascal program consists of the program header, followed possibly by a &#8217;uses&#8217; clause, and a
+block.
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<span 
+class="cmbx-10">Programs</span> <BR/><img 
+src="ref157x.png" alt="--       -            -  --------------     - ------------------
+  program  program header  ;  -         -|block  .
+                            uses clause
+     " ><BR/>
+     <BR/><img 
+src="ref158x.png" alt="--program header- program -identifier--|------------------------------
+                                 -( -program parameters- )--
+     " ><BR/>
+     <BR/><img 
+src="ref159x.png" alt="--program parameters- identifier list-----------------------------------
+     " ><BR/>
+                                                                            
+
+                                                                            
+     <BR/><img 
+src="ref160x.png" alt="--         -    ---       --- -----------------------------------
+  uses clause  uses  -ident,ifier-| ;
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 6550--><p class="noindent" >The program header is provided for backwards compatibility, and is ignored by the
+compiler.
+<!--l. 6553--><p class="noindent" >The uses clause serves to identify all units that are needed by the program. The system unit
+doesn&#8217;t have to be in this list, since it is always loaded by the compiler.
+<!--l. 6557--><p class="noindent" >The order in which the units appear is significant, it determines in which order they are
+initialized. Units are initialized in the same order as they appear in the uses clause.
+Identifiers are searched in the opposite order, i.e. when the compiler searches for an
+identifier, then it looks first in the last unit in the uses clause, then the last but one,
+and so on. This is important in case two units declare different types with the same
+identifier.
+<!--l. 6565--><p class="noindent" >When the compiler looks for unit files, it adds the extension <span 
+class="cmss-10">.ppu </span>to the name of the unit. On
+<span 
+class="cmcsc-10"><span 
+class="small-caps">l</span><span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span><span 
+class="small-caps">x</span> </span>and in operating systems where filenames are case sensitive when looking for a unit, the
+following mechanism is used:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x158-165004x1">The unit is first looked for in the original case.
+     </li>
+     <li 
+  class="enumerate" id="x158-165006x2">The unit is looked for in all-lowercase letters.
+     </li>
+     <li 
+  class="enumerate" id="x158-165008x3">The unit is looked for in all-uppercase letters.</li></ol>
+<!--l. 6574--><p class="noindent" >Additionally, If a unit name is longer than 8 characters, the compiler will first look for a unit name
+with this length, and then it will truncate the name to 8 characters and look for it
+again. For compatibility reasons, this is also true on platforms that support long file
+names.
+<!--l. 6580--><p class="noindent" >Note that the above search is performed in each directory in the search path.
+                                                                            
+
+                                                                            
+<!--l. 6585--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu69.html" >next</a>] [<a 
+href="refse68.html" >front</a>] [<a 
+href="refse70.html#refse71.html" >up</a>] </p></div>
+<!--l. 6585--><p class="noindent" ><a 
+ id="tailrefse68.html"></a>  
+</body></html> 

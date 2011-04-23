@@ -1,0 +1,330 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Record types</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 1553--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu17.html" >next</a>] [<a 
+href="refsu14.html" >prev</a>] [<a 
+href="refsu14.html#tailrefsu14.html" >prev-tail</a>] [<a 
+href="#tailrefsu15.html">tail</a>] [<a 
+href="refse14.html#refsu15.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">3.3.2   </span> <a 
+href="ref.html#QQ2-38-50" id="x38-450003.3.2">Record types</a></h4>
+<a 
+ id="dx38-45001"></a>
+<a 
+ id="dx38-45002"></a>
+<a 
+ id="dx38-45003"></a>
+<!--l. 1554--><p class="noindent" ><a name="keyword:record"></a> Free Pascal supports fixed records and records with variant parts. The syntax diagram for a record
+type is
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<span 
+class="cmbx-10">Record types</span> <BR/><img 
+src="ref39x.png" alt="--record type-|-----------record--|---------end -------------------
+             |-packed --|        -field list -
+             -bitpacked --
+     " ><BR/>
+     <BR/><img 
+src="ref40x.png" alt="--field list -|--------fixed fields-----------|-------------------------
+          --|-------------variant part-- -;--
+            -fixed fields-; --
+     " ><BR/>
+     <BR/><img 
+src="ref41x.png" alt="--fixed fields-|identifier list :-type----------------------------------
+            --------- ;----------
+     " ><BR/>
+     <BR/><img 
+src="ref42x.png" alt="--variant part case----------------ordinal type identifier of--variant----
+                  -identifier- :-|                       ---;----|
+     " ><BR/>
+     <BR/><img 
+src="ref43x.png" alt="--      -|-      -  --- -  ------------ ------------------------
+  variant |-constant--,-| :  (  -field list--|)
+     " ><BR/>
+     ___________________________________________________________________</div>
+<a 
+ id="dx38-45004"></a>
+<!--l. 1558--><p class="noindent" >So the following are valid record types declarations:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;Point&#x00A0;=&#x00A0;Record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;X,Y,Z&#x00A0;:&#x00A0;Real;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+&#x00A0;<br />&#x00A0;&#x00A0;RPoint&#x00A0;=&#x00A0;Record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Case&#x00A0;Boolean&#x00A0;of
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;False&#x00A0;:&#x00A0;(X,Y,Z&#x00A0;:&#x00A0;Real);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;True&#x00A0;:&#x00A0;(R,theta,phi&#x00A0;:&#x00A0;Real);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+&#x00A0;<br />&#x00A0;&#x00A0;BetterRPoint&#x00A0;=&#x00A0;Record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Case&#x00A0;UsePolar&#x00A0;:&#x00A0;Boolean&#x00A0;of
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;False&#x00A0;:&#x00A0;(X,Y,Z&#x00A0;:&#x00A0;Real);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;True&#x00A0;:&#x00A0;(R,theta,phi&#x00A0;:&#x00A0;Real);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+</div>
+</td></tr></table>
+<!--l. 1574--><p class="nopar" >The variant part must be last in the record. The optional identifier in the case
+statement serves to access the tag field value, which otherwise would be invisible
+to the programmer. It can be used to see which variant is active at a certain
+time<span class="footnote-mark"><a 
+href="ref39.html#fn1x4"><sup class="textsuperscript">1</sup></a></span><a 
+ id="x38-45005f1"></a> .
+In effect, it introduces a new field in the record.
+<!--l. 1580--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> It is possible to nest variant parts, as in:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;MyRec&#x00A0;=&#x00A0;Record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;X&#x00A0;:&#x00A0;Longint;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Case&#x00A0;byte&#x00A0;of
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;2&#x00A0;:&#x00A0;(Y&#x00A0;:&#x00A0;Longint;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;case&#x00A0;byte&#x00A0;of
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;3&#x00A0;:&#x00A0;(Z&#x00A0;:&#x00A0;Longint);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+</div>
+</td></tr></table>
+<!--l. 1592--><p class="nopar" >
+<!--l. 1594--><p class="noindent" >By default the size of a record is the sum of the sizes of its fields, each size of a field is rounded up
+to a power of two. If the record contains a variant part, the size of the variant part is
+the size of the biggest variant, plus the size of the tag field type <span 
+class="cmti-10">if an identifier was</span>
+<span 
+class="cmti-10">declared for it</span>. Here also, the size of each part is first rounded up to two. So in the above
+example:
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmtt-10">SizeOf </span>would return 24 for <span 
+class="cmtt-10">Point</span>,
+     </li>
+     <li class="itemize">It would result in 24 for <span 
+class="cmtt-10">RPoint</span>
+     </li>
+     <li class="itemize">Finally, 26 would be the size of <span 
+class="cmtt-10">BetterRPoint</span>.
+     </li>
+     <li class="itemize">For <span 
+class="cmtt-10">MyRec</span>, the value would be 12.</li></ul>
+<!--l. 1606--><p class="noindent" >If a typed file with records, produced by a Turbo Pascal program, must be read, then
+chances are that attempting to read that file correctly will fail. The reason for this is
+that by default, elements of a record are aligned at 2-byte boundaries, for performance
+reasons.
+<!--l. 1611--><p class="noindent" >This default behaviour can be changed with the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$PACKRECORDS N</span><span 
+class="cmsy-10">} </span>switch. Possible values for <span 
+class="cmtt-10">N</span>
+are 1, 2, 4, 16 or <span 
+class="cmtt-10">Default</span>.<a 
+ id="dx38-45006"></a> This switch tells the compiler to align elements of a record or object or
+class that have size larger than <span 
+class="cmtt-10">n </span>on <span 
+class="cmtt-10">n </span>byte boundaries.
+<!--l. 1616--><p class="noindent" >Elements that have size smaller or equal than <span 
+class="cmtt-10">n </span>are aligned on natural boundaries, i.e. to the first
+power of two that is larger than or equal to the size of the record element.
+<!--l. 1620--><p class="noindent" >The keyword <span 
+class="cmtt-10">Default </span>selects the default value for the platform that the code is compiled for
+(currently, this is 2 on all platforms) Take a look at the following program:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Program&#x00A0;PackRecordsDemo;
+&#x00A0;<br />type
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;{$PackRecords&#x00A0;2}
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Trec1&#x00A0;=&#x00A0;Record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;A&#x00A0;:&#x00A0;byte;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;B&#x00A0;:&#x00A0;Word;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;{$PackRecords&#x00A0;1}
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Trec2&#x00A0;=&#x00A0;Record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;A&#x00A0;:&#x00A0;Byte;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;B&#x00A0;:&#x00A0;Word;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;{$PackRecords&#x00A0;2}
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Trec3&#x00A0;=&#x00A0;Record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;A,B&#x00A0;:&#x00A0;byte;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;{$PackRecords&#x00A0;1}
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Trec4&#x00A0;=&#x00A0;Record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;A,B&#x00A0;:&#x00A0;Byte;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;{$PackRecords&#x00A0;4}
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Trec5&#x00A0;=&#x00A0;Record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;A&#x00A0;:&#x00A0;Byte;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;B&#x00A0;:&#x00A0;Array[1..3]&#x00A0;of&#x00A0;byte;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;C&#x00A0;:&#x00A0;byte;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;{$PackRecords&#x00A0;8}
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Trec6&#x00A0;=&#x00A0;Record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;A&#x00A0;:&#x00A0;Byte;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;B&#x00A0;:&#x00A0;Array[1..3]&#x00A0;of&#x00A0;byte;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;C&#x00A0;:&#x00A0;byte;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;{$PackRecords&#x00A0;4}
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Trec7&#x00A0;=&#x00A0;Record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;A&#x00A0;:&#x00A0;Byte;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;B&#x00A0;:&#x00A0;Array[1..7]&#x00A0;of&#x00A0;byte;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;C&#x00A0;:&#x00A0;byte;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;{$PackRecords&#x00A0;8}
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Trec8&#x00A0;=&#x00A0;Record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;A&#x00A0;:&#x00A0;Byte;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;B&#x00A0;:&#x00A0;Array[1..7]&#x00A0;of&#x00A0;byte;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;C&#x00A0;:&#x00A0;byte;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+&#x00A0;<br />Var&#x00A0;rec1&#x00A0;:&#x00A0;Trec1;
+                                                                            
+
+                                                                            
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;rec2&#x00A0;:&#x00A0;Trec2;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;rec3&#x00A0;:&#x00A0;TRec3;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;rec4&#x00A0;:&#x00A0;TRec4;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;rec5&#x00A0;:&#x00A0;Trec5;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;rec6&#x00A0;:&#x00A0;TRec6;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;rec7&#x00A0;:&#x00A0;TRec7;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;rec8&#x00A0;:&#x00A0;TRec8;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Write&#x00A0;(&#8217;Size&#x00A0;Trec1&#x00A0;:&#x00A0;&#8217;,SizeOf(Trec1));
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln&#x00A0;(&#8217;&#x00A0;Offset&#x00A0;B&#x00A0;:&#x00A0;&#8217;,Longint(@rec1.B)-Longint(@rec1));
+&#x00A0;<br />&#x00A0;&#x00A0;Write&#x00A0;(&#8217;Size&#x00A0;Trec2&#x00A0;:&#x00A0;&#8217;,SizeOf(Trec2));
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln&#x00A0;(&#8217;&#x00A0;Offset&#x00A0;B&#x00A0;:&#x00A0;&#8217;,Longint(@rec2.B)-Longint(@rec2));
+&#x00A0;<br />&#x00A0;&#x00A0;Write&#x00A0;(&#8217;Size&#x00A0;Trec3&#x00A0;:&#x00A0;&#8217;,SizeOf(Trec3));
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln&#x00A0;(&#8217;&#x00A0;Offset&#x00A0;B&#x00A0;:&#x00A0;&#8217;,Longint(@rec3.B)-Longint(@rec3));
+&#x00A0;<br />&#x00A0;&#x00A0;Write&#x00A0;(&#8217;Size&#x00A0;Trec4&#x00A0;:&#x00A0;&#8217;,SizeOf(Trec4));
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln&#x00A0;(&#8217;&#x00A0;Offset&#x00A0;B&#x00A0;:&#x00A0;&#8217;,Longint(@rec4.B)-Longint(@rec4));
+&#x00A0;<br />&#x00A0;&#x00A0;Write&#x00A0;(&#8217;Size&#x00A0;Trec5&#x00A0;:&#x00A0;&#8217;,SizeOf(Trec5));
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln&#x00A0;(&#8217;&#x00A0;Offset&#x00A0;B&#x00A0;:&#x00A0;&#8217;,Longint(@rec5.B)-Longint(@rec5),
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#8217;&#x00A0;Offset&#x00A0;C&#x00A0;:&#x00A0;&#8217;,Longint(@rec5.C)-Longint(@rec5));
+&#x00A0;<br />&#x00A0;&#x00A0;Write&#x00A0;(&#8217;Size&#x00A0;Trec6&#x00A0;:&#x00A0;&#8217;,SizeOf(Trec6));
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln&#x00A0;(&#8217;&#x00A0;Offset&#x00A0;B&#x00A0;:&#x00A0;&#8217;,Longint(@rec6.B)-Longint(@rec6),
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#8217;&#x00A0;Offset&#x00A0;C&#x00A0;:&#x00A0;&#8217;,Longint(@rec6.C)-Longint(@rec6));
+&#x00A0;<br />&#x00A0;&#x00A0;Write&#x00A0;(&#8217;Size&#x00A0;Trec7&#x00A0;:&#x00A0;&#8217;,SizeOf(Trec7));
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln&#x00A0;(&#8217;&#x00A0;Offset&#x00A0;B&#x00A0;:&#x00A0;&#8217;,Longint(@rec7.B)-Longint(@rec7),
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#8217;&#x00A0;Offset&#x00A0;C&#x00A0;:&#x00A0;&#8217;,Longint(@rec7.C)-Longint(@rec7));
+&#x00A0;<br />&#x00A0;&#x00A0;Write&#x00A0;(&#8217;Size&#x00A0;Trec8&#x00A0;:&#x00A0;&#8217;,SizeOf(Trec8));
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln&#x00A0;(&#8217;&#x00A0;Offset&#x00A0;B&#x00A0;:&#x00A0;&#8217;,Longint(@rec8.B)-Longint(@rec8),
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#8217;&#x00A0;Offset&#x00A0;C&#x00A0;:&#x00A0;&#8217;,Longint(@rec8.C)-Longint(@rec8));
+&#x00A0;<br />end.
+</div>
+</td></tr></table>
+<!--l. 1703--><p class="nopar" >The output of this program will be :
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Size&#x00A0;Trec1&#x00A0;:&#x00A0;4&#x00A0;Offset&#x00A0;B&#x00A0;:&#x00A0;2
+&#x00A0;<br />Size&#x00A0;Trec2&#x00A0;:&#x00A0;3&#x00A0;Offset&#x00A0;B&#x00A0;:&#x00A0;1
+&#x00A0;<br />Size&#x00A0;Trec3&#x00A0;:&#x00A0;2&#x00A0;Offset&#x00A0;B&#x00A0;:&#x00A0;1
+&#x00A0;<br />Size&#x00A0;Trec4&#x00A0;:&#x00A0;2&#x00A0;Offset&#x00A0;B&#x00A0;:&#x00A0;1
+&#x00A0;<br />Size&#x00A0;Trec5&#x00A0;:&#x00A0;8&#x00A0;Offset&#x00A0;B&#x00A0;:&#x00A0;4&#x00A0;Offset&#x00A0;C&#x00A0;:&#x00A0;7
+&#x00A0;<br />Size&#x00A0;Trec6&#x00A0;:&#x00A0;8&#x00A0;Offset&#x00A0;B&#x00A0;:&#x00A0;4&#x00A0;Offset&#x00A0;C&#x00A0;:&#x00A0;7
+&#x00A0;<br />Size&#x00A0;Trec7&#x00A0;:&#x00A0;12&#x00A0;Offset&#x00A0;B&#x00A0;:&#x00A0;4&#x00A0;Offset&#x00A0;C&#x00A0;:&#x00A0;11
+&#x00A0;<br />Size&#x00A0;Trec8&#x00A0;:&#x00A0;16&#x00A0;Offset&#x00A0;B&#x00A0;:&#x00A0;8&#x00A0;Offset&#x00A0;C&#x00A0;:&#x00A0;15
+</div>
+</td></tr></table>
+<!--l. 1714--><p class="nopar" >And this is as expected:
+     <ul class="itemize1">
+     <li class="itemize">In <span 
+class="cmtt-10">Trec1</span>, since <span 
+class="cmtt-10">B </span>has size 2, it is aligned on a 2 byte boundary, thus leaving an empty
+     byte between <span 
+class="cmtt-10">A </span>and <span 
+class="cmtt-10">B</span>, and making the total size 4. In <span 
+class="cmtt-10">Trec2</span>, <span 
+class="cmtt-10">B </span>is aligned on a 1-byte
+     boundary, right after <span 
+class="cmtt-10">A</span>, hence, the total size of the record is 3.
+     </li>
+     <li class="itemize">For <span 
+class="cmtt-10">Trec3</span>, the sizes of <span 
+class="cmtt-10">A,B </span>are 1, and hence they are aligned on 1 byte boundaries.
+     The same is true for <span 
+class="cmtt-10">Trec4</span>.
+     </li>
+     <li class="itemize">For <span 
+class="cmtt-10">Trec5</span>, since the size of B &#8211; 3 &#8211; is smaller than 4, <span 
+class="cmtt-10">B </span>will be on a 4-byte boundary,
+     as this is the first power of two that is larger than its size. The same holds for <span 
+class="cmtt-10">Trec6</span>.
+     </li>
+     <li class="itemize">For <span 
+class="cmtt-10">Trec7</span>, <span 
+class="cmtt-10">B </span>is aligned on a 4 byte boundary, since its size &#8211; 7 &#8211; is larger than 4.
+     However, in <span 
+class="cmtt-10">Trec8</span>, it is aligned on a 8-byte boundary, since 8 is the first power of two
+     that is greater than 7, thus making the total size of the record 16.</li></ul>
+<!--l. 1732--><p class="noindent" >Free Pascal supports also the &#8217;packed record&#8217;, this is a record where all the elements are
+byte-aligned. Thus the two following declarations are equivalent:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;{$PackRecords&#x00A0;1}
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Trec2&#x00A0;=&#x00A0;Record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;A&#x00A0;:&#x00A0;Byte;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;B&#x00A0;:&#x00A0;Word;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;{$PackRecords&#x00A0;2}
+</div>
+</td></tr></table>
+<!--l. 1741--><p class="nopar" >and
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Trec2&#x00A0;=&#x00A0;Packed&#x00A0;Record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;A&#x00A0;:&#x00A0;Byte;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;B&#x00A0;:&#x00A0;Word;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+</div>
+</td></tr></table>
+<!--l. 1748--><p class="nopar" >Note the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$PackRecords 2</span><span 
+class="cmsy-10">} </span>after the first declaration !
+                                                                            
+
+                                                                            
+<!--l. 1751--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu17.html" >next</a>] [<a 
+href="refsu14.html" >prev</a>] [<a 
+href="refsu14.html#tailrefsu14.html" >prev-tail</a>] [<a 
+href="refsu15.html" >front</a>] [<a 
+href="refse14.html#refsu15.html" >up</a>] </p></div>
+<!--l. 1751--><p class="noindent" ><a 
+ id="tailrefsu15.html"></a>  
+</body></html> 

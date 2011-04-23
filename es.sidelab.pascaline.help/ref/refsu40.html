@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>The Case statement</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 4859--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu44.html" >next</a>] [<a 
+href="refsu39.html" >prev</a>] [<a 
+href="refsu39.html#tailrefsu39.html" >prev-tail</a>] [<a 
+href="refsu38.html#tailrefsu40.html">tail</a>] [<a 
+href="refsu41.html#refsu43.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">10.2.2   </span> <a 
+href="#x110-11700010.2.2" id="x110-11700010.2.2">The <span 
+class="cmtt-10">Case </span>statement</a></h4>
+<a 
+ id="dx110-117001"></a>
+<a 
+ id="dx110-117002"></a>
+<!--l. 4860--><p class="noindent" ><a name="keyword:case"></a> Free Pascal supports the <span 
+class="cmtt-10">case </span>statement. Its syntax diagram is
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<span 
+class="cmbx-10">Case statement</span> <BR/><img 
+src="ref124x.png" alt="--case statement -case- expression -of--|case--|----------|----end-----
+                                  - ;-- -else part- -;--
+     " ><BR/>
+     <BR/><img 
+src="ref125x.png" alt="--case -|-constant--|-------------- :-statement----------------------
+       |         -..-constant-- |
+        ---------- ,-----------
+     " ><BR/>
+     <BR/><img 
+src="ref126x.png" alt="--else part-|--else -----statementlist -------------------------------
+           -otherwise --
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 4863--><p class="noindent" >The constants appearing in the various case parts must be known at compile-time, and can be of
+the following types : enumeration types, Ordinal types (except boolean), and chars. The case
+expression must be also of this type, or a compiler error will occur. All case constants must have
+the same type.
+<!--l. 4869--><p class="noindent" >The compiler will evaluate the case expression. If one of the case constants&#8217; value matches the
+value of the expression, the statement that follows this constant is executed. After that, the
+program continues after the final <span 
+class="cmtt-10">end</span>.
+<!--l. 4874--><p class="noindent" >If none of the case constants match the expression value, the statement list after the <span 
+class="cmtt-10">else</span> <a 
+ id="dx110-117003"></a>or
+<span 
+class="cmtt-10">otherwise</span><a 
+ id="dx110-117004"></a> keyword is executed. This can be an empty statement list. If no else part is present, and
+no case constant matches the expression value, program flow continues after the final
+<span 
+class="cmtt-10">end</span>.
+<!--l. 4880--><p class="noindent" >The case statements can be compound statements (i.e. a <span 
+class="cmtt-10">Begin..End </span>block).
+<!--l. 4882--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> Contrary to Turbo Pascal, duplicate case labels are not allowed in Free Pascal, so the following
+code will generate an error when compiling:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Var&#x00A0;i&#x00A0;:&#x00A0;integer;
+&#x00A0;<br />...
+&#x00A0;<br />Case&#x00A0;i&#x00A0;of
+&#x00A0;<br />&#x00A0;3&#x00A0;:&#x00A0;DoSomething;
+&#x00A0;<br />&#x00A0;1..5&#x00A0;:&#x00A0;DoSomethingElse;
+&#x00A0;<br />end;
+</div>
+</td></tr></table>
+<!--l. 4893--><p class="nopar" >The compiler will generate a <span 
+class="cmtt-10">Duplicate case label </span>error when compiling this, because the 3 also
+appears (implicitly) in the range <span 
+class="cmtt-10">1..5</span>. This is similar to Delphi syntax.
+<!--l. 4898--><p class="noindent" >The following are valid case statements:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Case&#x00A0;C&#x00A0;of
+&#x00A0;<br />&#x00A0;&#8217;a&#8217;&#x00A0;:&#x00A0;WriteLn&#x00A0;(&#8217;A&#x00A0;pressed&#8217;);
+&#x00A0;<br />&#x00A0;&#8217;b&#8217;&#x00A0;:&#x00A0;WriteLn&#x00A0;(&#8217;B&#x00A0;pressed&#8217;);
+&#x00A0;<br />&#x00A0;&#8217;c&#8217;&#x00A0;:&#x00A0;WriteLn&#x00A0;(&#8217;C&#x00A0;pressed&#8217;);
+&#x00A0;<br />else
+&#x00A0;<br />&#x00A0;&#x00A0;WriteLn&#x00A0;(&#8217;unknown&#x00A0;letter&#x00A0;pressed&#x00A0;:&#x00A0;&#8217;,C);
+&#x00A0;<br />end;
+</div>
+</td></tr></table>
+<!--l. 4907--><p class="nopar" >Or
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Case&#x00A0;C&#x00A0;of
+&#x00A0;<br />&#x00A0;&#8217;a&#8217;,&#8217;e&#8217;,&#8217;i&#8217;,&#8217;o&#8217;,&#8217;u&#8217;&#x00A0;:&#x00A0;WriteLn&#x00A0;(&#8217;vowel&#x00A0;pressed&#8217;);
+&#x00A0;<br />&#x00A0;&#8217;y&#8217;&#x00A0;:&#x00A0;WriteLn&#x00A0;(&#8217;This&#x00A0;one&#x00A0;depends&#x00A0;on&#x00A0;the&#x00A0;language&#8217;);
+&#x00A0;<br />else
+&#x00A0;<br />&#x00A0;&#x00A0;WriteLn&#x00A0;(&#8217;Consonant&#x00A0;pressed&#8217;);
+&#x00A0;<br />end;
+</div>
+</td></tr></table>
+<!--l. 4916--><p class="nopar" >
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Case&#x00A0;Number&#x00A0;of
+&#x00A0;<br />&#x00A0;1..10&#x00A0;&#x00A0;&#x00A0;:&#x00A0;WriteLn&#x00A0;(&#8217;Small&#x00A0;number&#8217;);
+&#x00A0;<br />&#x00A0;11..100&#x00A0;:&#x00A0;WriteLn&#x00A0;(&#8217;Normal,&#x00A0;medium&#x00A0;number&#8217;);
+&#x00A0;<br />else
+&#x00A0;<br />&#x00A0;WriteLn&#x00A0;(&#8217;HUGE&#x00A0;number&#8217;);
+&#x00A0;<br />end;
+</div>
+</td></tr></table>
+<!--l. 4924--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 4926--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu44.html" >next</a>] [<a 
+href="refsu39.html" >prev</a>] [<a 
+href="refsu39.html#tailrefsu39.html" >prev-tail</a>] [<a 
+href="refsu40.html" >front</a>] [<a 
+href="refsu41.html#refsu43.html" >up</a>] </p></div>
+<!--l. 4926--><p class="noindent" ><a 
+ id="tailrefsu40.html"></a>  
+</body></html> 

@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<title>AssignCrt</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../crt/index.html">Overview</a>][<a href="../crt/index-2.html">Constants</a>][<a href="../crt/index-3.html">Types</a>][<a href="../crt/index-5.html">Procedures and functions</a>][<a href="../crt/index-6.html">Variables</a>][<a href="../crt/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Crt' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>AssignCrt</h1>
+<p>Assign file to CRT.</p>
+<h2>Declaration</h2>
+<p>Source position: crth.inc line 70</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">procedure</span> AssignCrt<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>F<span class="sym">: </span>Text</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>AssignCrt</var> Assigns a file <var>F</var> to the console. Everything written to the file <var>F</var> goes to the console instead. If the console contains a window, everything is written to the window instead. </p>
+<h2>Errors</h2>
+<p>None. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../crt/window.html">Window</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Create new window on screen.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example1<span class="sym">;</span>
+<span class="kw">uses</span> Crt<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the AssignCrt function. }</span>
+
+<span class="kw">var</span>
+  F <span class="sym">:</span> Text<span class="sym">;</span>
+<span class="kw">begin</span>
+  AssignCrt<span class="sym">(</span>F<span class="sym">)</span><span class="sym">;</span>
+  Rewrite<span class="sym">(</span>F<span class="sym">)</span><span class="sym">;</span> <span class="cmt">{ Don't forget to open for output! }</span>
+  WriteLn<span class="sym">(</span>F<span class="sym">,</span><span class="str">'This is written to the Assigned File'</span><span class="sym">)</span><span class="sym">;</span>
+  Close<span class="sym">(</span>F<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+<span class="footer">Documentation generated on: Aug 23 2008</span>
+</body>
+</html>

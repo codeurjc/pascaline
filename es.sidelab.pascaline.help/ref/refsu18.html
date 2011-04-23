@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Definition</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 2038--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu20.html" >next</a>] [<a 
+href="refse18.html#tailrefsu18.html">tail</a>] [<a 
+href="refsu18.html#refsu19.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">3.7.1   </span> <a 
+href="#x46-520003.7.1" id="x46-520003.7.1">Definition</a></h4>
+<!--l. 2039--><p class="noindent" >As of version 1.1, FPC has support for variants. For maximum variant support it is recommended
+to add the <span 
+class="cmss-10">variants </span>unit to the uses clause of every unit that uses variants in some way: the variants
+unit contains support for examining and transforming variants other than the default support
+offered by the <span 
+class="cmss-10">System </span>or <span 
+class="cmtt-10">ObjPas </span>units.
+<!--l. 2045--><p class="noindent" >The type of a value stored in a variant is only determined at runtime: it depends what has been
+assigned to the to the variant. Almost any simple type can be assigned to variants: ordinal types,
+string types, int64 types.
+<!--l. 2049--><p class="noindent" >Structured types such as sets, records, arrays, files, objects and classes are not assignment-compatible
+with a variant, as well as pointers. Interfaces and COM or CORBA objects can be assigned to a
+variant (basically because they are simply a pointer).<a 
+ id="dx46-52001"></a><a 
+ id="dx46-52002"></a><a 
+ id="dx46-52003"></a>
+<!--l. 2054--><p class="noindent" >This means that the following assignments are valid:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;TMyEnum&#x00A0;=&#x00A0;(One,Two,Three);
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;V&#x00A0;:&#x00A0;Variant;
+&#x00A0;<br />&#x00A0;&#x00A0;I&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />&#x00A0;&#x00A0;B&#x00A0;:&#x00A0;Byte;
+&#x00A0;<br />&#x00A0;&#x00A0;W&#x00A0;:&#x00A0;Word;
+&#x00A0;<br />&#x00A0;&#x00A0;Q&#x00A0;:&#x00A0;Int64;
+&#x00A0;<br />&#x00A0;&#x00A0;E&#x00A0;:&#x00A0;Extended;
+&#x00A0;<br />&#x00A0;&#x00A0;D&#x00A0;:&#x00A0;Double;
+&#x00A0;<br />&#x00A0;&#x00A0;En&#x00A0;:&#x00A0;TMyEnum;
+&#x00A0;<br />&#x00A0;&#x00A0;AS&#x00A0;:&#x00A0;AnsiString;
+&#x00A0;<br />&#x00A0;&#x00A0;WS&#x00A0;:&#x00A0;WideString;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;V:=I;
+&#x00A0;<br />&#x00A0;&#x00A0;V:=B;
+&#x00A0;<br />&#x00A0;&#x00A0;V:=W;
+&#x00A0;<br />&#x00A0;&#x00A0;V:=Q;
+&#x00A0;<br />&#x00A0;&#x00A0;V:=E;
+&#x00A0;<br />&#x00A0;&#x00A0;V:=En;
+&#x00A0;<br />&#x00A0;&#x00A0;V:=D:
+&#x00A0;<br />&#x00A0;&#x00A0;V:=AS;
+&#x00A0;<br />&#x00A0;&#x00A0;V:=WS;
+&#x00A0;<br />end;
+</div>
+</td></tr></table>
+<!--l. 2082--><p class="nopar" >And of course vice-versa as well.
+<!--l. 2085--><p class="noindent" >A variant can hold an an array of values: All elements in the array have the<a 
+ id="dx46-52004"></a> same type
+(but can be of type &#8217;variant&#8217;). For a variant that contains an array, the variant can be
+indexed:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Program&#x00A0;testv;
+&#x00A0;<br />
+&#x00A0;<br />uses&#x00A0;variants;
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;A&#x00A0;:&#x00A0;Variant;
+&#x00A0;<br />&#x00A0;&#x00A0;I&#x00A0;:&#x00A0;integer;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;A:=VarArrayCreate([1,10],varInteger);
+&#x00A0;<br />&#x00A0;&#x00A0;For&#x00A0;I:=1&#x00A0;to&#x00A0;10&#x00A0;do
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;A[I]:=I;
+&#x00A0;<br />end.
+</div>
+</td></tr></table>
+<!--l. 2102--><p class="nopar" >For the explanation of <span 
+class="cmtt-10">VarArrayCreate</span>, see <a 
+href="../units/units.html" >Unit reference</a>.
+<!--l. 2105--><p class="noindent" >Note that when the array contains a string, this is not considered an &#8217;array of characters&#8217;, and
+so the variant cannot be indexed to retrieve a character at a certain position in the
+string.
+                                                                            
+
+                                                                            
+<!--l. 2110--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu20.html" >next</a>] [<a 
+href="refsu18.html" >front</a>] [<a 
+href="refsu18.html#refsu19.html" >up</a>] </p></div>
+<!--l. 2110--><p class="noindent" ><a 
+ id="tailrefsu18.html"></a>  
+</body></html> 

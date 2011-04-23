@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Method invocation</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 2665--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu21.html" >prev</a>] [<a 
+href="refsu21.html#tailrefsu21.html" >prev-tail</a>] [<a 
+href="refse28.html#tailrefsu22.html">tail</a>] [<a 
+href="refsu22.html#refch6.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">5.5.2   </span> <a 
+href="#x63-680005.5.2" id="x63-680005.5.2">Method invocation</a></h4>
+<!--l. 2666--><p class="noindent" >Methods are called just as normal procedures are called, only they have an object instance
+identifier prepended to them (see also chapter <a 
+href="refch10.html#x103-11000010">10<!--tex4ht:ref: ch:Statements --></a>, page <a 
+href="refch10.html#x103-11000010">378<!--tex4ht:ref: ch:Statements --></a>). To determine which method is called,
+it is necessary to know the type of the method. We treat the different types in what
+follows.
+<!--l. 2671--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+href="#x63-690005.5.2" id="x63-690005.5.2">Static methods</a></h5>
+<a 
+ id="dx63-69001"></a>
+<!--l. 2673--><p class="noindent" >Static methods are methods that have been declared without a <span 
+class="cmtt-10">abstract </span>or <span 
+class="cmtt-10">virtual </span>keyword.
+When calling a static method, the declared (i.e. compile time) method of the object is used. For
+example, consider the following declarations:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;TParent&#x00A0;=&#x00A0;Object
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;...
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;Doit;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;...
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+&#x00A0;<br />&#x00A0;&#x00A0;PParent&#x00A0;=&#x00A0;^TParent;
+&#x00A0;<br />&#x00A0;&#x00A0;TChild&#x00A0;=&#x00A0;Object(TParent)
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;...
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;Doit;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;...
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+&#x00A0;<br />&#x00A0;&#x00A0;PChild&#x00A0;=&#x00A0;^TChild;
+</div>
+</td></tr></table>
+<!--l. 2691--><p class="nopar" >As it is visible, both the parent and child objects have a method called <span 
+class="cmtt-10">Doit</span>. Consider now the
+following declarations and calls:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Var
+&#x00A0;<br />&#x00A0;&#x00A0;ParentA,ParentB&#x00A0;:&#x00A0;PParent;
+&#x00A0;<br />&#x00A0;&#x00A0;Child&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;PChild;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;ParentA&#x00A0;:=&#x00A0;New(PParent,Init);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;ParentB&#x00A0;:=&#x00A0;New(PChild,Init);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;Child&#x00A0;:=&#x00A0;New(PChild,Init);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;ParentA^.Doit;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;ParentB^.Doit;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;Child^.Doit;
+</div>
+</td></tr></table>
+<!--l. 2706--><p class="nopar" >Of the three invocations of <span 
+class="cmtt-10">Doit</span>, only the last one will call <span 
+class="cmtt-10">TChild.Doit</span>, the other two calls will
+call <span 
+class="cmtt-10">TParent.Doit</span>. This is because for static methods, the compiler determines at compile time
+which method should be called. Since <span 
+class="cmtt-10">ParentB </span>is of type <span 
+class="cmtt-10">TParent</span>, the compiler decides that it
+must be called with <span 
+class="cmtt-10">TParent.Doit</span>, even though it will be created as a <span 
+class="cmtt-10">TChild</span>. There may be
+times when the method that is actually called should depend on the actual type of the
+object at run-time. If so, the method cannot be a static method, but must be a virtual
+method.
+<!--l. 2717--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+href="#x63-700005.5.2" id="x63-700005.5.2">Virtual methods</a></h5>
+<a 
+ id="dx63-70001"></a>
+<a 
+ id="dx63-70002"></a>
+<!--l. 2718--><p class="noindent" ><a name="keyword:virtual"></a> To remedy the situation in the previous section, <span 
+class="cmtt-10">virtual </span>methods are created. This is simply done
+by appending the method declaration with the <span 
+class="cmtt-10">virtual </span>modifier. The descendent object can then
+override the method with a new implementation by re-declaring the method (with the same
+parameter list) using the <span 
+class="cmtt-10">virtual </span>keyword.
+<!--l. 2725--><p class="noindent" >Going back to the previous example, consider the following alternative declaration:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;TParent&#x00A0;=&#x00A0;Object
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;...
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;Doit;virtual;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;...
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+&#x00A0;<br />&#x00A0;&#x00A0;PParent&#x00A0;=&#x00A0;^TParent;
+&#x00A0;<br />&#x00A0;&#x00A0;TChild&#x00A0;=&#x00A0;Object(TParent)
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;...
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;Doit;virtual;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;...
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+&#x00A0;<br />&#x00A0;&#x00A0;PChild&#x00A0;=&#x00A0;^TChild;
+</div>
+</td></tr></table>
+<!--l. 2741--><p class="nopar" >As it is visible, both the parent and child objects have a method called <span 
+class="cmtt-10">Doit</span>. Consider now the
+following declarations and calls :
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Var
+&#x00A0;<br />&#x00A0;&#x00A0;ParentA,ParentB&#x00A0;:&#x00A0;PParent;
+&#x00A0;<br />&#x00A0;&#x00A0;Child&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;PChild;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;ParentA&#x00A0;:=&#x00A0;New(PParent,Init);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;ParentB&#x00A0;:=&#x00A0;New(PChild,Init);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;Child&#x00A0;:=&#x00A0;New(PChild,Init);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;ParentA^.Doit;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;ParentB^.Doit;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;Child^.Doit;
+</div>
+</td></tr></table>
+<!--l. 2756--><p class="nopar" >Now, different methods will be called, depending on the actual run-time type of the object. For
+<span 
+class="cmtt-10">ParentA</span>, nothing changes, since it is created as a <span 
+class="cmtt-10">TParent </span>instance. For <span 
+class="cmtt-10">Child</span>, the situation also
+doesn&#8217;t change: it is again created as an instance of <span 
+class="cmtt-10">TChild</span>.
+<!--l. 2762--><p class="noindent" >For <span 
+class="cmtt-10">ParentB </span>however, the situation does change: Even though it was declared as a <span 
+class="cmtt-10">TParent</span>, it is
+created as an instance of <span 
+class="cmtt-10">TChild</span>. Now, when the program runs, before calling <span 
+class="cmtt-10">Doit</span>, the program
+checks what the actual type of <span 
+class="cmtt-10">ParentB </span>is, and only then decides which method must be called.
+Seeing that <span 
+class="cmtt-10">ParentB </span>is of type <span 
+class="cmtt-10">TChild</span>, <span 
+class="cmtt-10">TChild.Doit </span>will be called. The code for this
+run-time checking of the actual type of an object is inserted by the compiler at compile
+time.
+<!--l. 2770--><p class="noindent" >The <span 
+class="cmtt-10">TChild.Doit </span>is said to <span 
+class="cmti-10">override </span>the <span 
+class="cmtt-10">TParent.Doit</span>.<a 
+ id="dx63-70003"></a> It is possible to acces the <span 
+class="cmtt-10">TParent.Doit</span>
+from within the varTChild.Doit, with the <span 
+class="cmtt-10">inherited </span>keyword:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Procedure&#x00A0;TChild.Doit;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;inherited&#x00A0;Doit;
+&#x00A0;<br />&#x00A0;&#x00A0;...
+&#x00A0;<br />end;
+</div>
+</td></tr></table>
+<!--l. 2780--><p class="nopar" >In the above example, when <span 
+class="cmtt-10">TChild.Doit </span>is called, the first thing it does is call <span 
+class="cmtt-10">TParent.Doit</span>.
+The inherited keyword cannot be used in static methods, only on virtual methods.
+<!--l. 2785--><p class="noindent" >To be able to do this, the compiler keeps - per object type - a table with virtual methods: the
+VMT (Virtual Method Table). This is simply a table with pointers to each of the virtual methods:
+each virtual method has its fixed location in this table (an index). The compiler uses this table to
+look up the actual method that must be used. When a descendent object overrides a method, the
+entry of the parent method is overwritten in the VMT. More information about the VMT can be
+found in <a 
+href="../prog/prog.html" >Programmers guide</a>.
+<!--l. 2793--><p class="noindent" >As remarked earlier, objects that have a VMT must be initialized with a constructor: the object
+variable must be initialized with a pointer to the VMT of the actual type that it was created
+with.
+<!--l. 2798--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+href="#x63-710005.5.2" id="x63-710005.5.2">Abstract methods</a></h5>
+<a 
+ id="dx63-71001"></a>
+<a 
+ id="dx63-71002"></a>
+<a 
+ id="dx63-71003"></a>
+<!--l. 2799--><p class="noindent" ><a name="keyword:abstract"></a> An abstract method is a special kind of virtual method. A method that is declared <span 
+class="cmtt-10">abstract </span>does
+not have an implementation for this method. It is up to inherited objects to override and
+implement this method.
+<!--l. 2804--><p class="noindent" >From this it follows that a method can not be abstract if it is not virtual (this can be seen from the
+syntax diagram). A second consequence is that an instance of an object that has an abstract
+method cannot be created directly.
+<!--l. 2809--><p class="noindent" >The reason is obvious: there is no method where the compiler could jump to ! A method that is
+declared <span 
+class="cmtt-10">abstract </span>does not have an implementation for this method. It is up to inherited
+objects to override and implement this method. Continuing our example, take a look at
+this:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;TParent&#x00A0;=&#x00A0;Object
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;...
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;Doit;virtual;abstract;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;...
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+&#x00A0;<br />&#x00A0;&#x00A0;PParent=^TParent;
+&#x00A0;<br />&#x00A0;&#x00A0;TChild&#x00A0;=&#x00A0;Object(TParent)
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;...
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;Doit;virtual;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;...
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+&#x00A0;<br />&#x00A0;&#x00A0;PChild&#x00A0;=&#x00A0;^TChild;
+</div>
+</td></tr></table>
+<!--l. 2827--><p class="nopar" >As it is visible, both the parent and child objects have a method called <span 
+class="cmtt-10">Doit</span>. Consider now the
+following declarations and calls :
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Var
+&#x00A0;<br />&#x00A0;&#x00A0;ParentA,ParentB&#x00A0;:&#x00A0;PParent;
+&#x00A0;<br />&#x00A0;&#x00A0;Child&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;PChild;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;ParentA&#x00A0;:=&#x00A0;New(PParent,Init);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;ParentB&#x00A0;:=&#x00A0;New(PChild,Init);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;Child&#x00A0;:=&#x00A0;New(PChild,Init);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;ParentA^.Doit;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;ParentB^.Doit;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;Child^.Doit;
+</div>
+</td></tr></table>
+<!--l. 2842--><p class="nopar" >First of all, Line 3 will generate a compiler error, stating that one cannot generate instances of
+objects with abstract methods: The compiler has detected that <span 
+class="cmtt-10">PParent </span>points to an
+object which has an abstract method. Commenting line 3 would allow compilation of the
+program.
+<!--l. 2847--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> If an abstract method is overridden, The parent method cannot be called with <span 
+class="cmtt-10">inherited</span>, since
+there is no parent method; The compiler will detect this, and complain about it, like
+this:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+testo.pp(32,3)&#x00A0;Error:&#x00A0;Abstract&#x00A0;methods&#x00A0;can&#8217;t&#x00A0;be&#x00A0;called&#x00A0;directly
+</div>
+</td></tr></table>
+<!--l. 2853--><p class="nopar" >If, through some mechanism, an abstract method is called at run-time, then a run-time error will
+occur. (run-time error 211, to be precise)
+                                                                            
+
+                                                                            
+<!--l. 2860--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu21.html" >prev</a>] [<a 
+href="refsu21.html#tailrefsu21.html" >prev-tail</a>] [<a 
+href="refsu22.html" >front</a>] [<a 
+href="refsu22.html#refch6.html" >up</a>] </p></div>
+<!--l. 2860--><p class="noindent" ><a 
+ id="tailrefsu22.html"></a>  
+</body></html> 

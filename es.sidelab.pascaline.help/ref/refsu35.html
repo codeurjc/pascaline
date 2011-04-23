@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Class operators</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 4644--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu34.html" >prev</a>] [<a 
+href="refsu34.html#tailrefsu34.html" >prev-tail</a>] [<a 
+href="refsu32.html#tailrefsu35.html">tail</a>] [<a 
+href="refsu31.html#refsu36.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">9.7.7   </span> <a 
+href="#x102-1090009.7.7" id="x102-1090009.7.7">Class operators</a></h4>
+<!--l. 4645--><p class="noindent" >Class operators are slightly different from the operators above in the sense that they can only be
+used in class expressions which return a class. There are only 2 class operators, as can be seen in
+table (<a 
+href="#x102-1090018">9.8<!--tex4ht:ref: tab:classoperators --></a>). <div class="table">
+                                                                            
+
+                                                                            
+<!--l. 4648--><p class="noindent" ><a 
+ id="x102-1090018"></a><hr class="float"><div class="float" 
+><table class="float"><tr class="float"><td class="float" 
+>
+                                                                            
+
+                                                                            
+ <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;9.8: </td><td  
+class="content">Class operators</td></tr></table><!--tex4ht:label?: x102-1090018 -->
+<div class="center" 
+>
+<!--l. 4648--><p class="noindent" >
+<div class="tabular"> <table class="tabular" 
+cellspacing="0" cellpadding="0"  
+><colgroup id="TBL-15-1g"><col 
+id="TBL-15-1"><col 
+id="TBL-15-2"></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-15-1-"><td  style="white-space:nowrap; text-align:left;" id="TBL-15-1-1"  
+class="td11">Operator</td><td  style="white-space:nowrap; text-align:left;" id="TBL-15-1-2"  
+class="td11">Action                   </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-15-2-"><td  style="white-space:nowrap; text-align:left;" id="TBL-15-2-1"  
+class="td11"><span 
+class="cmtt-10">is      </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-15-2-2"  
+class="td11">Checks class type    </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-15-3-"><td  style="white-space:nowrap; text-align:left;" id="TBL-15-3-1"  
+class="td11"><span 
+class="cmtt-10">as      </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-15-3-2"  
+class="td11">Conditional typecast</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-15-4-"><td  style="white-space:nowrap; text-align:left;" id="TBL-15-4-1"  
+class="td11">        </td>
+</tr></table></div></div>
+                                                                            
+
+                                                                            
+</td></tr></table></div><hr class="endfloat" />
+</div>
+<!--l. 4653--><p class="noindent" >An expression containing the <span 
+class="cmtt-10">is </span>operator results in a boolean type. The <span 
+class="cmtt-10">is </span>operator can
+only be used with a class reference or a class instance. The usage of this operator is as
+follows:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+&#x00A0;Object&#x00A0;is&#x00A0;Class
+</div>
+</td></tr></table>
+<!--l. 4658--><p class="nopar" >This expression is completely equivalent to
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+&#x00A0;Object.InheritsFrom(Class)
+</div>
+</td></tr></table>
+<!--l. 4662--><p class="nopar" >If <span 
+class="cmtt-10">Object </span>is <span 
+class="cmtt-10">Nil</span>, <span 
+class="cmtt-10">False </span>will be returned.
+<!--l. 4665--><p class="noindent" >The following are examples:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Var
+&#x00A0;<br />&#x00A0;&#x00A0;A&#x00A0;:&#x00A0;TObject;
+&#x00A0;<br />&#x00A0;&#x00A0;B&#x00A0;:&#x00A0;TClass;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;if&#x00A0;A&#x00A0;is&#x00A0;TComponent&#x00A0;then&#x00A0;;
+&#x00A0;<br />&#x00A0;&#x00A0;If&#x00A0;A&#x00A0;is&#x00A0;B&#x00A0;then;
+&#x00A0;<br />end;
+</div>
+</td></tr></table>
+<!--l. 4675--><p class="nopar" >
+<!--l. 4677--><p class="noindent" >The <span 
+class="cmtt-10">as </span>operator performs a conditional typecast. It results in an expression that has the type of
+the class:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+&#x00A0;&#x00A0;Object&#x00A0;as&#x00A0;Class
+</div>
+</td></tr></table>
+<!--l. 4681--><p class="nopar" >This is equivalent to the following statements:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+&#x00A0;&#x00A0;If&#x00A0;Object=Nil&#x00A0;then
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Result:=Nil
+&#x00A0;<br />&#x00A0;&#x00A0;else&#x00A0;if&#x00A0;Object&#x00A0;is&#x00A0;Class&#x00A0;then
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Result:=Class(Object)
+&#x00A0;<br />&#x00A0;&#x00A0;else
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Raise&#x00A0;Exception.Create(SErrInvalidTypeCast);
+</div>
+</td></tr></table>
+<!--l. 4690--><p class="nopar" >Note that if the object is <span 
+class="cmtt-10">nil</span>, the <span 
+class="cmtt-10">as </span>operator does not generate an exception.
+<!--l. 4694--><p class="noindent" >The following are some examples of the use of the <span 
+class="cmtt-10">as </span>operator:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Var
+&#x00A0;<br />&#x00A0;&#x00A0;C&#x00A0;:&#x00A0;TComponent;
+&#x00A0;<br />&#x00A0;&#x00A0;O&#x00A0;:&#x00A0;TObject;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;(C&#x00A0;as&#x00A0;TEdit).Text:=&#8217;Some&#x00A0;text&#8217;;
+&#x00A0;<br />&#x00A0;&#x00A0;C:=O&#x00A0;as&#x00A0;TComponent;
+&#x00A0;<br />end;
+</div>
+</td></tr></table>
+<!--l. 4704--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 4709--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu34.html" >prev</a>] [<a 
+href="refsu34.html#tailrefsu34.html" >prev-tail</a>] [<a 
+href="refsu35.html" >front</a>] [<a 
+href="refsu31.html#refsu36.html" >up</a>] </p></div>
+<!--l. 4709--><p class="noindent" ><a 
+ id="tailrefsu35.html"></a>  
+</body></html> 

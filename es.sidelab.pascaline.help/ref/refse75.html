@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>The try...finally statement</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 6938--><div class="crosslinks"><p class="noindent">[<a 
+href="refse78.html" >next</a>] [<a 
+href="refse74.html" >prev</a>] [<a 
+href="refse74.html#tailrefse74.html" >prev-tail</a>] [<a 
+href="refch14.html#tailrefse75.html">tail</a>] [<a 
+href="refse75.html#refch15.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">14.3   </span> <a 
+href="#x170-17700014.3" id="x170-17700014.3">The try...finally statement</a></h3>
+<a 
+ id="dx170-177001"></a>
+<a 
+ id="dx170-177002"></a>
+<a 
+ id="dx170-177003"></a>
+<!--l. 6940--><p class="noindent" >A <span 
+class="cmtt-10">Try..Finally </span>statement has the following form:
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<span 
+class="cmbx-10">Try...finally statement</span> <BR/><img 
+src="ref188x.png" alt="--trystatement- try- statement list-finally- finally statements- end---------
+     " ><BR/>
+     <BR/><img 
+src="ref189x.png" alt="--finally statements-statementlist--------------------------------------
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 6942--><p class="noindent" >If no exception occurs inside the <span 
+class="cmtt-10">statement List</span>, then the program runs as if the <span 
+class="cmtt-10">Try</span>, <span 
+class="cmtt-10">Finally</span>
+and <span 
+class="cmtt-10">End </span>keywords were not present.
+<!--l. 6946--><p class="noindent" >If, however, an exception occurs, the program flow is immediatly transferred from the point where
+the excepion was raised to the first statement of the <span 
+class="cmtt-10">Finally statements</span>.
+<!--l. 6950--><p class="noindent" >All statements after the finally keyword will be executed, and then the exception will be
+automatically re-raised. Any statements between the place where the exception was raised and the
+first statement of the <span 
+class="cmtt-10">Finally Statements </span>are skipped.
+<!--l. 6955--><p class="noindent" >As an example consider the following routine:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Procedure&#x00A0;Doit&#x00A0;(Name&#x00A0;:&#x00A0;string);
+&#x00A0;<br />Var&#x00A0;F&#x00A0;:&#x00A0;Text;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Try
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Assign&#x00A0;(F,Name);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Rewrite&#x00A0;(name);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;...&#x00A0;File&#x00A0;handling&#x00A0;...
+&#x00A0;<br />&#x00A0;&#x00A0;Finally
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Close(F);
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+</div>
+</td></tr></table>
+<!--l. 6967--><p class="nopar" >If during the execution of the file handling an execption occurs, then program flow will continue at
+the <span 
+class="cmtt-10">close(F) </span>statement, skipping any file operations that might follow between the place where
+the exception was raised, and the <span 
+class="cmtt-10">Close </span>statement. If no exception occurred, all file operations will
+be executed, and the file will be closed at the end.
+                                                                            
+
+                                                                            
+<!--l. 6978--><div class="crosslinks"><p class="noindent">[<a 
+href="refse78.html" >next</a>] [<a 
+href="refse74.html" >prev</a>] [<a 
+href="refse74.html#tailrefse74.html" >prev-tail</a>] [<a 
+href="refse75.html" >front</a>] [<a 
+href="refse75.html#refch15.html" >up</a>] </p></div>
+<!--l. 6978--><p class="noindent" ><a 
+ id="tailrefse75.html"></a>  
+</body></html> 

@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Variable parameters</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 5390--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu52.html" >next</a>] [<a 
+href="refsu47.html" >prev</a>] [<a 
+href="refsu47.html#tailrefsu47.html" >prev-tail</a>] [<a 
+href="refse55.html#tailrefsu48.html">tail</a>] [<a 
+href="refsu49.html#refsu51.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">11.4.2   </span> <a 
+href="#x124-13100011.4.2" id="x124-13100011.4.2">Variable parameters</a></h4>
+<a 
+ id="dx124-131001"></a>
+<!--l. 5392--><p class="noindent" >Variable parameters are declared as follows:
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<span 
+class="cmbx-10">Variable parameters</span><BR/><img 
+src="ref146x.png" alt="--variable parameter-var- identifier list-|------------------------------
+                                 -: -|----------- type identifier-
+                                     -array - of --
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 5394--><p class="noindent" >When parameters are declared as variable parameters, the procedure or function accesses
+immediatly the variable that the calling block passed in its parameter list. The procedure gets a
+pointer to the variable that was passed, and uses this pointer to access the variable&#8217;s value. From
+this, it follows that any changes made to the parameter, will propagate back to the calling block.
+This mechanism can be used to pass values back in procedures. Because of this, the calling block
+must pass a parameter of <span 
+class="cmti-10">exactly </span>the same type as the declared parameter&#8217;s type. If it does not, the
+compiler will generate an error.
+<!--l. 5405--><p class="noindent" >Variable and constant parameters can be untyped. In that case the variable has no type, and hence
+is incompatible with all other types. However, the address operator can be used on it, or it
+can be can passed to a function that has also an untyped parameter. If an untyped
+parameter is used in an assigment, or a value must be assigned to it, a typecast must be
+used.
+<!--l. 5411--><p class="noindent" >File type variables must always be passed as variable parameters.
+<!--l. 5413--><p class="noindent" >Open arrays can be passed as variable parameters. See section <a 
+href="refsu51.html#x127-13400011.4.5">11.4.5<!--tex4ht:ref: se:openarray --></a>, page <a 
+href="refsu51.html#x127-13400011.4.5">441<!--tex4ht:ref: se:openarray --></a> for more
+information on using open arrays.
+<!--l. 5416--><p class="noindent" >Note that default values are not supported for variable parameters. This would make little sense
+since it defeats the purpose of being able to pass a value back to the caller.
+                                                                            
+
+                                                                            
+<!--l. 5420--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu52.html" >next</a>] [<a 
+href="refsu47.html" >prev</a>] [<a 
+href="refsu47.html#tailrefsu47.html" >prev-tail</a>] [<a 
+href="refsu48.html" >front</a>] [<a 
+href="refsu49.html#refsu51.html" >up</a>] </p></div>
+<!--l. 5420--><p class="noindent" ><a 
+ id="tailrefsu48.html"></a>  
+</body></html> 

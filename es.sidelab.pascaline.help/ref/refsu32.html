@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>String operators</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 4549--><div class="crosslinks"><p class="noindent">[<a 
+href="refch10.html" >next</a>] [<a 
+href="refsu31.html" >prev</a>] [<a 
+href="refsu31.html#tailrefsu31.html" >prev-tail</a>] [<a 
+href="refsu29.html#tailrefsu32.html">tail</a>] [<a 
+href="refsu31.html#refsu35.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">9.7.4   </span> <a 
+href="#x99-1060009.7.4" id="x99-1060009.7.4">String operators</a></h4>
+<a 
+ id="dx99-106001"></a>
+<!--l. 4551--><p class="noindent" >There is only one string operator: <span 
+class="cmtt-10">+</span>. Its action is to concatenate the contents of the two strings (or
+characters) it acts on. One cannot use <span 
+class="cmtt-10">+ </span>to concatenate null-terminated (<span 
+class="cmtt-10">PChar</span>) strings. The
+following are valid string operations:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+&#x00A0;&#x00A0;&#8217;This&#x00A0;is&#x00A0;&#8217;&#x00A0;+&#x00A0;&#8217;VERY&#x00A0;&#8217;&#x00A0;+&#x00A0;&#8217;easy&#x00A0;!&#8217;
+&#x00A0;<br />&#x00A0;&#x00A0;Dirname+&#8217;\&#8217;
+</div>
+</td></tr></table>
+<!--l. 4558--><p class="nopar" >The following is not:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Var
+&#x00A0;<br />&#x00A0;&#x00A0;Dirname&#x00A0;=&#x00A0;Pchar;
+&#x00A0;<br />...
+&#x00A0;<br />&#x00A0;&#x00A0;Dirname&#x00A0;:=&#x00A0;Dirname+&#8217;\&#8217;;
+</div>
+</td></tr></table>
+<!--l. 4565--><p class="nopar" >Because <span 
+class="cmtt-10">Dirname </span>is a null-terminated string.
+<!--l. 4568--><p class="noindent" >Note that if all strings in a string expressions are short strings, the resulting string is
+also a short string. Thus, a truncation may occur: there is no automatic upscaling to
+ansistring.
+<!--l. 4572--><p class="noindent" >If all strings in a string expression are ansistrings, then the result is an ansistring.
+<!--l. 4575--><p class="noindent" >If the expression contains a mix of ansistrings and shortstrings, the result is an ansistring.
+<!--l. 4578--><p class="noindent" >The value of the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$H</span><span 
+class="cmsy-10">} </span>switch can be used to control the type of constant strings; By default, they
+are short strings (and thus limited to 255 characters).
+                                                                            
+
+                                                                            
+<!--l. 4583--><div class="crosslinks"><p class="noindent">[<a 
+href="refch10.html" >next</a>] [<a 
+href="refsu31.html" >prev</a>] [<a 
+href="refsu31.html#tailrefsu31.html" >prev-tail</a>] [<a 
+href="refsu32.html" >front</a>] [<a 
+href="refsu31.html#refsu35.html" >up</a>] </p></div>
+<!--l. 4583--><p class="noindent" ><a 
+ id="tailrefsu32.html"></a>  
+</body></html> 

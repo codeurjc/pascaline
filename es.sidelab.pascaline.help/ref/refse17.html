@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Procedural types</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 1976--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu18.html" >next</a>] [<a 
+href="refse16.html" >prev</a>] [<a 
+href="refse16.html#tailrefse16.html" >prev-tail</a>] [<a 
+href="refse16.html#tailrefse17.html">tail</a>] [<a 
+href="refch3.html#refse18.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">3.6   </span> <a 
+href="#x44-500003.6" id="x44-500003.6">Procedural types</a></h3>
+<a 
+ id="dx44-50001"></a>
+<a 
+ id="dx44-50002"></a>
+<a 
+ id="dx44-50003"></a>
+<!--l. 1978--><p class="noindent" >Free Pascal has support for procedural types, although it differs a little from the Turbo Pascal or
+Delphiimplementation of them. The type declaration remains the same, as can be seen in the
+following syntax diagram:
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<span 
+class="cmbx-10">Procedural types</span> <BR/><img 
+src="ref47x.png" alt="--procedural type-|-function header----|------------|-----------------
+                -procedure header- -of- object-- -; -call modifiers-
+     " ><BR/>
+     <BR/><img 
+src="ref48x.png" alt="--function header- function -formal parameter list :-result type----------
+     " ><BR/>
+     <BR/><img 
+src="ref49x.png" alt="--procedure header procedure- formal parameter list--------------------
+     " ><BR/>
+     <BR/><img 
+src="ref50x.png" alt="--call modifiers--register ------------------------------------------
+              --cdecl--|
+              --pascal--|
+              |-stdcall--|
+              |safecall-|
+              --inline --
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 1982--><p class="noindent" >For a description of formal parameter lists, see chapter <a 
+href="refch11.html#x118-12500011">11<!--tex4ht:ref: ch:Procedures --></a>, page <a 
+href="refch11.html#x118-12500011">425<!--tex4ht:ref: ch:Procedures --></a>. The two following examples
+are valid type declarations:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Type&#x00A0;TOneArg&#x00A0;=&#x00A0;Procedure&#x00A0;(Var&#x00A0;X&#x00A0;:&#x00A0;integer);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;TNoArg&#x00A0;=&#x00A0;Function&#x00A0;:&#x00A0;Real;
+&#x00A0;<br />var&#x00A0;proc&#x00A0;:&#x00A0;TOneArg;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;func&#x00A0;:&#x00A0;TNoArg;
+</div>
+</td></tr></table>
+<!--l. 1989--><p class="nopar" >One can assign the following values to a procedural type variable:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x44-50005x1"><span 
+class="cmtt-10">Nil</span>, for both normal procedure pointers and method pointers.
+     </li>
+     <li 
+  class="enumerate" id="x44-50007x2">A variable reference of a procedural type, i.e. another variable of the same type.
+     </li>
+     <li 
+  class="enumerate" id="x44-50009x3">A global procedure or function address, with matching function or procedure header
+     and calling convention.
+     </li>
+     <li 
+  class="enumerate" id="x44-50011x4">A method address.</li></ol>
+<!--l. 1999--><p class="noindent" >Given these declarations, the following assignments are valid:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Procedure&#x00A0;printit&#x00A0;(Var&#x00A0;X&#x00A0;:&#x00A0;Integer);
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;WriteLn&#x00A0;(x);
+&#x00A0;<br />end;
+&#x00A0;<br />...
+&#x00A0;<br />Proc&#x00A0;:=&#x00A0;@printit;
+&#x00A0;<br />Func&#x00A0;:=&#x00A0;@Pi;
+</div>
+</td></tr></table>
+<!--l. 2008--><p class="nopar" >From this example, the difference with Turbo Pascal is clear: In Turbo Pascal it isn&#8217;t necessary to
+use the address operator (<span 
+class="cmtt-10">@</span>) when assigning a procedural type variable, whereas in Free Pascal it is
+required. In case the <span 
+class="cmtt-10">-MDelphi </span>or <span 
+class="cmtt-10">-MTP </span>switches are used, the address operator can be
+dropped.
+<!--l. 2014--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> The modifiers concerning the calling conventions must be the same as the declaration; i.e. the
+following code would give an error:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Type&#x00A0;TOneArgCcall&#x00A0;=&#x00A0;Procedure&#x00A0;(Var&#x00A0;X&#x00A0;:&#x00A0;integer);cdecl;
+&#x00A0;<br />var&#x00A0;proc&#x00A0;:&#x00A0;TOneArgCcall;
+&#x00A0;<br />Procedure&#x00A0;printit&#x00A0;(Var&#x00A0;X&#x00A0;:&#x00A0;Integer);
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;WriteLn&#x00A0;(x);
+&#x00A0;<br />end;
+&#x00A0;<br />begin
+&#x00A0;<br />Proc&#x00A0;:=&#x00A0;@printit;
+&#x00A0;<br />end.
+</div>
+</td></tr></table>
+<!--l. 2027--><p class="nopar" >Because the <span 
+class="cmtt-10">TOneArgCcall </span>type is a procedure that uses the cdecl calling convention.
+                                                                            
+
+                                                                            
+<!--l. 2034--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu18.html" >next</a>] [<a 
+href="refse16.html" >prev</a>] [<a 
+href="refse16.html#tailrefse16.html" >prev-tail</a>] [<a 
+href="refse17.html" >front</a>] [<a 
+href="refch3.html#refse18.html" >up</a>] </p></div>
+<!--l. 2034--><p class="noindent" ><a 
+ id="tailrefse17.html"></a>  
+</body></html> 

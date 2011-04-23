@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Real types</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 887--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu5.html" >prev</a>] [<a 
+href="refsu5.html#tailrefsu5.html" >prev-tail</a>] [<a 
+href="#tailrefsu6.html">tail</a>] [<a 
+href="refse12.html#refsu6.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">3.1.2   </span> <a 
+href="ref.html#QQ2-27-33" id="x27-300003.1.2">Real types</a></h4>
+<a 
+ id="dx27-30001"></a>
+<!--l. 889--><p class="noindent" >Free Pascal uses the math coprocessor (or emulation) for all its floating-point calculations. The
+Real native type is processor dependent, but it is either Single or Double. Only the
+IEEE floating point types are supported, and these depend on the target processor and
+emulation options. The true Turbo Pascal compatible types are listed in table (<a 
+href="#x27-300084">3.4<!--tex4ht:ref: tab:Reals --></a>).<a 
+ id="dx27-30002"></a><a 
+ id="dx27-30003"></a><a 
+ id="dx27-30004"></a><a 
+ id="dx27-30005"></a><a 
+ id="dx27-30006"></a><a 
+ id="dx27-30007"></a>
+<div class="table">
+                                                                            
+
+                                                                            
+<!--l. 895--><p class="noindent" ><a 
+ id="x27-300084"></a><hr class="float"><div class="float" 
+><table class="float"><tr class="float"><td class="float" 
+>
+                                                                            
+
+                                                                            
+ <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;3.4: </td><td  
+class="content">Supported Real types</td></tr></table><!--tex4ht:label?: x27-300084 -->
+<div class="center" 
+>
+<!--l. 895--><p class="noindent" >
+<div class="tabular"> <table class="tabular" 
+cellspacing="0" cellpadding="0"  
+><colgroup id="TBL-5-1g"><col 
+id="TBL-5-1"><col 
+id="TBL-5-2"><col 
+id="TBL-5-3"><col 
+id="TBL-5-4"></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-5-1-"><td  style="white-space:nowrap; text-align:left;" id="TBL-5-1-1"  
+class="td11">Type     </td><td  style="white-space:nowrap; text-align:center;" id="TBL-5-1-2"  
+class="td11">       Range           </td><td  style="white-space:nowrap; text-align:center;" id="TBL-5-1-3"  
+class="td11">  Significant digits    </td><td  style="white-space:nowrap; text-align:right;" id="TBL-5-1-4"  
+class="td11">  Size</td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-5-2-"><td  style="white-space:nowrap; text-align:left;" id="TBL-5-2-1"  
+class="td11">Real       </td><td  style="white-space:nowrap; text-align:center;" id="TBL-5-2-2"  
+class="td11"> platform dependant  </td><td  style="white-space:nowrap; text-align:center;" id="TBL-5-2-3"  
+class="td11">        ???             </td><td  style="white-space:nowrap; text-align:right;" id="TBL-5-2-4"  
+class="td11">4 or 8</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-5-3-"><td  style="white-space:nowrap; text-align:left;" id="TBL-5-3-1"  
+class="td11">Single     </td><td  style="white-space:nowrap; text-align:center;" id="TBL-5-3-2"  
+class="td11">   1.5E-45 .. 3.4E38    </td><td  style="white-space:nowrap; text-align:center;" id="TBL-5-3-3"  
+class="td11">        7-8             </td><td  style="white-space:nowrap; text-align:right;" id="TBL-5-3-4"  
+class="td11">    4</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-5-4-"><td  style="white-space:nowrap; text-align:left;" id="TBL-5-4-1"  
+class="td11">Double   </td><td  style="white-space:nowrap; text-align:center;" id="TBL-5-4-2"  
+class="td11">  5.0E-324 .. 1.7E308  </td><td  style="white-space:nowrap; text-align:center;" id="TBL-5-4-3"  
+class="td11">       15-16           </td><td  style="white-space:nowrap; text-align:right;" id="TBL-5-4-4"  
+class="td11">    8</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-5-5-"><td  style="white-space:nowrap; text-align:left;" id="TBL-5-5-1"  
+class="td11">Extended</td><td  style="white-space:nowrap; text-align:center;" id="TBL-5-5-2"  
+class="td11"> 1.9E-4932 .. 1.1E4932 </td><td  style="white-space:nowrap; text-align:center;" id="TBL-5-5-3"  
+class="td11">       19-20           </td><td  style="white-space:nowrap; text-align:right;" id="TBL-5-5-4"  
+class="td11">   10</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-5-6-"><td  style="white-space:nowrap; text-align:left;" id="TBL-5-6-1"  
+class="td11">Comp     </td><td  style="white-space:nowrap; text-align:center;" id="TBL-5-6-2"  
+class="td11">  -2E64+1 .. 2E63-1   </td><td  style="white-space:nowrap; text-align:center;" id="TBL-5-6-3"  
+class="td11">       19-20           </td><td  style="white-space:nowrap; text-align:right;" id="TBL-5-6-4"  
+class="td11">    8</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-5-7-"><td  style="white-space:nowrap; text-align:left;" id="TBL-5-7-1"  
+class="td11">Currency</td><td  style="white-space:nowrap; text-align:center;" id="TBL-5-7-2"  
+class="td11">-922337203685477.5808</td><td  style="white-space:nowrap; text-align:center;" id="TBL-5-7-3"  
+class="td11">922337203685477.5807</td><td  style="white-space:nowrap; text-align:right;" id="TBL-5-7-4"  
+class="td11">    8</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-5-8-"><td  style="white-space:nowrap; text-align:left;" id="TBL-5-8-1"  
+class="td11">        </td>
+</tr></table></div></div>
+                                                                            
+
+                                                                            
+</td></tr></table></div><hr class="endfloat" />
+</div>
+<!--l. 904--><p class="noindent" >The <span 
+class="cmtt-10">Comp </span>type is, in effect, a 64-bit integer and is not available on all target platforms. To get
+more information on the supported types for each platform, refer to the <a 
+href="../prog/prog.html" >Programmers
+guide</a>.
+<!--l. 908--><p class="noindent" >The currency type is a fixed-point real data type which is internally used as an 64-bit integer type
+(automatically scaled with a factor 10000), this minimalizes rounding errors.
+                                                                            
+
+                                                                            
+<!--l. 914--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu5.html" >prev</a>] [<a 
+href="refsu5.html#tailrefsu5.html" >prev-tail</a>] [<a 
+href="refsu6.html" >front</a>] [<a 
+href="refse12.html#refsu6.html" >up</a>] </p></div>
+<!--l. 914--><p class="noindent" ><a 
+ id="tailrefsu6.html"></a>  
+</body></html> 

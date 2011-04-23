@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Declaration</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 2644--><div class="crosslinks"><p class="noindent">[<a 
+href="refch6.html" >next</a>] [<a 
+href="#tailrefsu21.html">tail</a>] [<a 
+href="refsu22.html#refse29.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">5.5.1   </span> <a 
+href="#x62-670005.5.1" id="x62-670005.5.1">Declaration</a></h4>
+<!--l. 2645--><p class="noindent" >The declaration of a method is much like a normal function or procedure declaration, with some
+additional specifiers, as can be seen from the following diagram, which is part of the object
+declaration:
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<span 
+class="cmbx-10">methods</span> <BR/><img 
+src="ref71x.png" alt="--              ----            ---- -              -------------
+  method definition --pfuronccetidounre hehaeadderer-| ; method directives
+                 -constructor header|
+                 --desctuctor header-|
+     " ><BR/>
+     <BR/><img 
+src="ref72x.png" alt="--              -------------------------------------------------
+  method directives - virtual- ;---------------| -call modifiers ;-|
+                             -abstract -;--|
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 2649--><p class="noindent" >from the point of view of declarations, <span 
+class="cmtt-10">Method definitions </span>are normal function or procedure
+declarations. Contrary to TP and Delphi, fields can be declared after methods in the same block,
+i.e. the following will generate an error when compiling with Delphi or Turbo Pascal, but not with
+FPC:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;MyObj&#x00A0;=&#x00A0;Object
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Procedure&#x00A0;Doit;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Field&#x00A0;:&#x00A0;Longint;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+</div>
+</td></tr></table>
+<!--l. 2660--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 2665--><div class="crosslinks"><p class="noindent">[<a 
+href="refch6.html" >next</a>] [<a 
+href="refsu21.html" >front</a>] [<a 
+href="refsu22.html#refse29.html" >up</a>] </p></div>
+<!--l. 2665--><p class="noindent" ><a 
+ id="tailrefsu21.html"></a>  
+</body></html> 

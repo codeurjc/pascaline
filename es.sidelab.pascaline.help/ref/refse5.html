@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Hint directives</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 366--><div class="crosslinks"><p class="noindent">[<a 
+href="refse6.html" >next</a>] [<a 
+href="refse4.html" >prev</a>] [<a 
+href="refse4.html#tailrefse4.html" >prev-tail</a>] [<a 
+href="#tailrefse5.html">tail</a>] [<a 
+href="refch1.html#refse5.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">1.5   </span> <a 
+href="ref.html#QQ2-16-15" id="x16-150001.5">Hint directives</a></h3>
+<a 
+ id="dx16-15001"></a>
+<a 
+ id="dx16-15002"></a>
+<!--l. 368--><p class="noindent" >Most identifiers (constants, variables, functions or methods, properties) can have a hint directive
+prepended to their definition:
+<!--l. 1--><p class="noindent" >
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<span 
+class="cmbx-10">Hint directives</span><BR/><img 
+src="ref9x.png" alt="--hintdirective -|--------------------------------------------------
+             |---Deprecated----|
+             |--Experimental---|
+             |----Platform -----|
+              -Uninmplemented--
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 372--><p class="noindent" >Whenever an identifier marked with a hint directive is used in the rest of the source code, then a
+warning will be displayed, corresponding to the hint that was specified.
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">deprecated</span> </dt><dd 
+class="description">The use of this identifier is deprecated, use an alternative instead.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">experimental</span> </dt><dd 
+class="description">The use of this identifier is experimental: this can be used to flag new features
+     that should be used with caution.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">platform</span> </dt><dd 
+class="description">This is a platform-dependent identifier: it may not be defined on all platforms.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Uninmplemented</span> </dt><dd 
+class="description">This should be used on functions and procedures only. It should be used
+     to signal that a particular feature has not yet been implemented.</dd></dl>
+<!--l. 386--><p class="noindent" >The following are examples:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Const
+&#x00A0;<br />&#x00A0;&#x00A0;AConst&#x00A0;=&#x00A0;12&#x00A0;deprecated;
+&#x00A0;<br />
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;&#x00A0;p&#x00A0;:&#x00A0;integer&#x00A0;platform;
+&#x00A0;<br />
+&#x00A0;<br />Function&#x00A0;Something&#x00A0;:&#x00A0;Integer;&#x00A0;experimental;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Something:=P+AConst;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Something;
+&#x00A0;<br />end.
+</div>
+</td></tr></table>
+<!--l. 403--><p class="nopar" >This would result in the following output:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+testhd.pp(11,15)&#x00A0;Warning:&#x00A0;Symbol&#x00A0;"p"&#x00A0;is&#x00A0;not&#x00A0;portable
+&#x00A0;<br />testhd.pp(11,22)&#x00A0;Warning:&#x00A0;Symbol&#x00A0;"AConst"&#x00A0;is&#x00A0;deprecated
+&#x00A0;<br />testhd.pp(15,3)&#x00A0;Warning:&#x00A0;Symbol&#x00A0;"Something"&#x00A0;is&#x00A0;experimental
+</div>
+</td></tr></table>
+<!--l. 409--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 413--><div class="crosslinks"><p class="noindent">[<a 
+href="refse6.html" >next</a>] [<a 
+href="refse4.html" >prev</a>] [<a 
+href="refse4.html#tailrefse4.html" >prev-tail</a>] [<a 
+href="refse5.html" >front</a>] [<a 
+href="refch1.html#refse5.html" >up</a>] </p></div>
+<!--l. 413--><p class="noindent" ><a 
+ id="tailrefse5.html"></a>  
+</body></html> 

@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Units</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 6585--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu70.html" >next</a>] [<a 
+href="refse68.html" >prev</a>] [<a 
+href="refse68.html#tailrefse68.html" >prev-tail</a>] [<a 
+href="refse67.html#tailrefse69.html">tail</a>] [<a 
+href="refse70.html#refsu69.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">13.2   </span> <a 
+href="#x159-16600013.2" id="x159-16600013.2">Units</a></h3>
+<a 
+ id="dx159-166001"></a>
+<!--l. 6587--><p class="noindent" >A unit contains a set of declarations, procedures and functions that can be used by a program or
+another unit. The syntax for a unit is as follows:
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<span 
+class="cmbx-10">Units</span> <BR/><img 
+src="ref161x.png" alt=" --unit -unit header-interface part-implementation part
+---|--------------------------------end -.-----------------------
+   -initialization part--|---------------|
+   -------     --- -finalization part--|
+          begin   -statement-|
+                     ;
+     " ><BR/>
+     <BR/><img 
+src="ref162x.png" alt="--unit header- unit- unit identifier ;----------------------------------
+     " ><BR/>
+     <BR/><img 
+src="ref163x.png" alt="--interface part-interface--|-------------|--------------------------
+                       -uses clause- ||constant declaration part-||
+                                    |---type declaration part--||
+                                    ---procedure headers part--|
+     " ><BR/>
+     <BR/><img 
+src="ref164x.png" alt="--procedure headers part|procedure header--;--|----------------------
+                     --function header-    -call modifiers-;--
+     " ><BR/>
+     <BR/><img 
+src="ref165x.png" alt="--implementation part-implementation --|-----------declaration part------
+                                  -uses clause-
+     " ><BR/>
+     <BR/><img 
+src="ref166x.png" alt="--initialization part- initialization ---statement --------------------------
+                             ----;-----|
+     " ><BR/>
+                                                                            
+
+                                                                            
+     <BR/><img 
+src="ref167x.png" alt="--            -          ---        ----------------------------
+  finalization part  finalization   -statem;ent--|
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 6591--><p class="noindent" >The interface part declares all identifiers that must be exported from the unit. This can be
+constant, type or variable identifiers, and also procedure or function identifier declarations.
+Declarations inside the implementation part are <span 
+class="cmti-10">not </span>accessible outside the unit. The
+implementation must contain a function declaration for each function or procedure that is declared
+in the interface part. If a function is declared in the interface part, but no declaration
+of that function is present in the implementation part, then the compiler will give an
+error.
+<!--l. 6600--><p class="noindent" >When a program uses a unit (say <span 
+class="cmss-10">unitA</span>) and this units uses a second unit, say <span 
+class="cmss-10">unitB</span>, then the
+program depends indirectly also on <span 
+class="cmtt-10">unitB</span>. This means that the compiler must have access to <span 
+class="cmss-10">unitB</span>
+when trying to compile the program. If the unit is not present at compile time, an error
+occurs.
+<!--l. 6606--><p class="noindent" >Note that the identifiers from a unit on which a program depends indirectly, are not accessible to
+the program. To have access to the identifiers of a unit, the unit must be in the uses clause of the
+program or unit where the identifiers are needed.
+<!--l. 6611--><p class="noindent" >Units can be mutually dependent, that is, they can reference each other in their uses
+clauses. This is allowed, on the condition that at least one of the references is in the
+implementation section of the unit. This also holds for indirect mutually dependent
+units.
+<!--l. 6616--><p class="noindent" >If it is possible to start from one interface uses clause of a unit, and to return there via uses clauses
+of interfaces only, then there is circular unit dependence, and the compiler will generate an error.
+For example, the following is not allowed:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Unit&#x00A0;UnitA;
+&#x00A0;<br />interface
+&#x00A0;<br />Uses&#x00A0;UnitB;
+&#x00A0;<br />implementation
+&#x00A0;<br />end.
+&#x00A0;<br />
+&#x00A0;<br />Unit&#x00A0;UnitB
+&#x00A0;<br />interface
+&#x00A0;<br />Uses&#x00A0;UnitA;
+&#x00A0;<br />implementation
+&#x00A0;<br />end.
+</div>
+</td></tr></table>
+<!--l. 6632--><p class="nopar" >But this is allowed :
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Unit&#x00A0;UnitA;
+&#x00A0;<br />interface
+&#x00A0;<br />Uses&#x00A0;UnitB;
+&#x00A0;<br />implementation
+&#x00A0;<br />end.
+&#x00A0;<br />Unit&#x00A0;UnitB
+&#x00A0;<br />implementation
+&#x00A0;<br />Uses&#x00A0;UnitA;
+&#x00A0;<br />end.
+</div>
+</td></tr></table>
+<!--l. 6644--><p class="nopar" >Because <span 
+class="cmss-10">UnitB </span>uses <span 
+class="cmss-10">UnitA </span>only in its implentation section.
+<!--l. 6647--><p class="noindent" >In general, it is a bad idea to have unit interdependencies, even if it is only in implementation
+sections.
+                                                                            
+
+                                                                            
+<!--l. 6652--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu70.html" >next</a>] [<a 
+href="refse68.html" >prev</a>] [<a 
+href="refse68.html#tailrefse68.html" >prev-tail</a>] [<a 
+href="refse69.html" >front</a>] [<a 
+href="refse70.html#refsu69.html" >up</a>] </p></div>
+<!--l. 6652--><p class="noindent" ><a 
+ id="tailrefse69.html"></a>  
+</body></html> 

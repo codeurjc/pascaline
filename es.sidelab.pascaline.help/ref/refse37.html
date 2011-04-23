@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Interfaces and COM</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 3766--><div class="crosslinks"><p class="noindent">[<a 
+href="refse40.html" >next</a>] [<a 
+href="refse36.html" >prev</a>] [<a 
+href="refse36.html#tailrefse36.html" >prev-tail</a>] [<a 
+href="#tailrefse37.html">tail</a>] [<a 
+href="refse35.html#refse39.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">7.4   </span> <a 
+href="#x81-880007.4" id="x81-880007.4">Interfaces and COM</a></h3>
+<a 
+ id="dx81-88001"></a>
+<a 
+ id="dx81-88002"></a>
+<!--l. 3768--><p class="noindent" >When using interfaces on Windows which should be available to the COM subsystem, the calling
+convention should be <span 
+class="cmtt-10">stdcall </span>- this is not the default Free Pascal calling convention, so it should
+be specified explicitly.
+<!--l. 3772--><p class="noindent" >COM does not know properties. It only knows methods. So when specifying property definitions as
+part of an interface definition, be aware that the properties will only be known in the Free
+Pascal compiled program: other Windows programs will not be aware of the property
+definitions.
+                                                                            
+
+                                                                            
+<!--l. 3777--><div class="crosslinks"><p class="noindent">[<a 
+href="refse40.html" >next</a>] [<a 
+href="refse36.html" >prev</a>] [<a 
+href="refse36.html#tailrefse36.html" >prev-tail</a>] [<a 
+href="refse37.html" >front</a>] [<a 
+href="refse35.html#refse39.html" >up</a>] </p></div>
+<!--l. 3777--><p class="noindent" ><a 
+ id="tailrefse37.html"></a>  
+</body></html> 

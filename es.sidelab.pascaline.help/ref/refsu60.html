@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>overload</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 6014--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu64.html" >next</a>] [<a 
+href="refsu59.html" >prev</a>] [<a 
+href="refsu59.html#tailrefsu59.html" >prev-tail</a>] [<a 
+href="refsu57.html#tailrefsu60.html">tail</a>] [<a 
+href="refsu55.html#refsu63.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">11.9.8   </span> <a 
+href="#x141-14800011.9.8" id="x141-14800011.9.8">overload</a></h4>
+<a 
+ id="dx141-148001"></a>
+<a 
+ id="dx141-148002"></a>
+<!--l. 6016--><p class="noindent" >The <span 
+class="cmtt-10">overload </span>modifier tells the compiler that this function is overloaded. It is mainly for
+Delphicompatibility, as in Free Pascal, all functions and procedures can be overloaded without this
+modifier.
+<!--l. 6020--><p class="noindent" >There is only one case where the <span 
+class="cmtt-10">overload </span>modifier is mandatory: if a function must be overloaded
+that resides in another unit. Both functions must be declared with the <span 
+class="cmtt-10">overload </span>modifier: the
+<span 
+class="cmtt-10">overload </span>modifier tells the compiler that it should continue looking for overloaded versions in
+other units.
+<!--l. 6026--><p class="noindent" >The following example illustrates this. Take the first unit:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+unit&#x00A0;ua;
+&#x00A0;<br />
+&#x00A0;<br />interface
+&#x00A0;<br />
+&#x00A0;<br />procedure&#x00A0;DoIt(A&#x00A0;:&#x00A0;String);&#x00A0;overload;
+&#x00A0;<br />
+&#x00A0;<br />implementation
+&#x00A0;<br />
+&#x00A0;<br />procedure&#x00A0;DoIt(A&#x00A0;:&#x00A0;String);
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;ua.DoIt&#x00A0;received&#x00A0;&#8217;,A)
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />end.
+</div>
+</td></tr></table>
+<!--l. 6043--><p class="nopar" >And a second unit, which contains an overloaded version:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+unit&#x00A0;ub;
+&#x00A0;<br />
+&#x00A0;<br />interface
+&#x00A0;<br />
+&#x00A0;<br />procedure&#x00A0;DoIt(A&#x00A0;:&#x00A0;Integer);&#x00A0;overload;
+&#x00A0;<br />
+&#x00A0;<br />implementation
+&#x00A0;<br />
+&#x00A0;<br />procedure&#x00A0;DoIt(A&#x00A0;:&#x00A0;integer);
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;ub.DoIt&#x00A0;received&#x00A0;&#8217;,A)
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />end.
+</div>
+</td></tr></table>
+<!--l. 6061--><p class="nopar" >And the following program, which uses both units:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+program&#x00A0;uab;
+&#x00A0;<br />
+&#x00A0;<br />uses&#x00A0;ua,ub;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;DoIt(&#8217;Some&#x00A0;string&#8217;);
+&#x00A0;<br />end.
+</div>
+</td></tr></table>
+<!--l. 6071--><p class="nopar" >When the compiler starts looking for the declaration of <span 
+class="cmtt-10">DoIt</span>, it will find one in the <span 
+class="cmss-10">ub</span>
+unit. Without the <span 
+class="cmtt-10">overload </span>directive, the compiler would give an argument mismatch
+error:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+home:&#x00A0;&#x003E;fpc&#x00A0;uab.pp
+&#x00A0;<br />uab.pp(6,21)&#x00A0;Error:&#x00A0;Incompatible&#x00A0;type&#x00A0;for&#x00A0;arg&#x00A0;no.&#x00A0;1:
+&#x00A0;<br />Got&#x00A0;"Constant&#x00A0;String",&#x00A0;expected&#x00A0;"SmallInt"
+</div>
+</td></tr></table>
+<!--l. 6079--><p class="nopar" >With the <span 
+class="cmtt-10">overload </span>directive in place at both locations, the compiler knows it must continue
+searching for an overloaded version with matching parameter list. Note that <span 
+class="cmti-10">both </span>declarations must
+have the <span 
+class="cmtt-10">overload </span>modifier specified; It is not enough to have the modifier in unit <span 
+class="cmss-10">ub</span>. This is to
+prevent unwanted overloading: The programmer who implemented the <span 
+class="cmtt-10">ua </span>unit must mark the
+procedure as fit for overloading.
+                                                                            
+
+                                                                            
+<!--l. 6089--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu64.html" >next</a>] [<a 
+href="refsu59.html" >prev</a>] [<a 
+href="refsu59.html#tailrefsu59.html" >prev-tail</a>] [<a 
+href="refsu60.html" >front</a>] [<a 
+href="refsu55.html#refsu63.html" >up</a>] </p></div>
+<!--l. 6089--><p class="noindent" ><a 
+ id="tailrefsu60.html"></a>  
+</body></html> 

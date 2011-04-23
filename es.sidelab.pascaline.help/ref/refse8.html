@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Character strings</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 466--><div class="crosslinks"><p class="noindent">[<a 
+href="refse7.html" >prev</a>] [<a 
+href="refse7.html#tailrefse7.html" >prev-tail</a>] [<a 
+href="#tailrefse8.html">tail</a>] [<a 
+href="refch1.html#refse8.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">1.8   </span> <a 
+href="ref.html#QQ2-19-18" id="x19-180001.8">Character strings</a></h3>
+<a 
+ id="dx19-18001"></a>
+<a 
+ id="dx19-18002"></a>
+<a 
+ id="dx19-18003"></a>
+<!--l. 468--><p class="noindent" >A character string (or string for short) is a sequence of zero or more characters (byte sized),
+enclosed in single quotes, and on 1 line of the program source. A character set with nothing
+between the quotes (<span 
+class="cmtt-10">&#8217;&#8217;</span>) is an empty string.
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<span 
+class="cmbx-10">Character strings</span> <BR/><img 
+src="ref21x.png" alt="--character string--|quoted string ------------------------------------
+                |-control string--|
+                ----------------
+     " ><BR/>
+     <BR/><img 
+src="ref22x.png" alt="--quoted string- &#8217;--|string character---&#8217;-------------------------------
+                 ---------------
+     " ><BR/>
+     <BR/><img 
+src="ref23x.png" alt="--string character--- Any character except &#8217; or CR----------------------
+                ------------&#8221;-------------|
+     " ><BR/>
+     <BR/><img 
+src="ref24x.png" alt="--control string--#  -unsigned integer-------------------------------
+              -------------------|
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 473--><p class="noindent" >The string consists of standard, 8-bit ASCII characters. The <span 
+class="cmtt-10">control string </span>can be used to
+specify characters which cannot be typed on a keyboard, such as <span 
+class="cmtt-10">#27 </span>for the escape
+character.
+<!--l. 477--><p class="noindent" >The single quote character can be embedded in the string by typing it twice. The C
+construct of escaping characters in the string (using a backslash) is not supported in
+Pascal.
+<!--l. 481--><p class="noindent" >It is possible to use other character sets in strings: in that case the codepage of the source file must
+be specified with the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$CODEPAGE XXX</span><span 
+class="cmsy-10">} </span>directive or with the <span 
+class="cmtt-10">-Fc </span>command line option for the
+compiler. In that case the characters in a string will be interpreted as characters from the specified
+                                                                            
+
+                                                                            
+codepage.
+                                                                            
+
+                                                                            
+<!--l. 490--><div class="crosslinks"><p class="noindent">[<a 
+href="refse7.html" >prev</a>] [<a 
+href="refse7.html#tailrefse7.html" >prev-tail</a>] [<a 
+href="refse8.html" >front</a>] [<a 
+href="refch1.html#refse8.html" >up</a>] </p></div>
+<!--l. 490--><p class="noindent" ><a 
+ id="tailrefse8.html"></a>  
+</body></html> 

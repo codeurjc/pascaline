@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Function overloading</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 5686--><div class="crosslinks"><p class="noindent">[<a 
+href="refse61.html" >next</a>] [<a 
+href="refse56.html" >prev</a>] [<a 
+href="refse56.html#tailrefse56.html" >prev-tail</a>] [<a 
+href="refsu50.html#tailrefse57.html">tail</a>] [<a 
+href="refse55.html#refse60.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">11.5   </span> <a 
+href="#x129-13600011.5" id="x129-13600011.5">Function overloading</a></h3>
+<a 
+ id="dx129-136001"></a>
+<!--l. 5688--><p class="noindent" >Function overloading simply means that the same function is defined more than once, but each
+time with a different formal parameter list. The parameter lists must differ at least in one of its
+elements type. When the compiler encounters a function call, it will look at the function
+parameters to decide which one of the defined functions it should call. This can be useful when the
+same function must be defined for different types. For example, in the RTL, the <span 
+class="cmtt-10">Dec </span>procedure
+could be defined as:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+...
+&#x00A0;<br />Dec(Var&#x00A0;I&#x00A0;:&#x00A0;Longint;decrement&#x00A0;:&#x00A0;Longint);
+&#x00A0;<br />Dec(Var&#x00A0;I&#x00A0;:&#x00A0;Longint);
+&#x00A0;<br />Dec(Var&#x00A0;I&#x00A0;:&#x00A0;Byte;decrement&#x00A0;:&#x00A0;Longint);
+&#x00A0;<br />Dec(Var&#x00A0;I&#x00A0;:&#x00A0;Byte);
+&#x00A0;<br />...
+</div>
+</td></tr></table>
+<!--l. 5703--><p class="nopar" >When the compiler encounters a call to the <span 
+class="cmtt-10">Dec </span>function, it will first search which function it
+should use. It therefore checks the parameters in a function call, and looks if there is a
+function definition which matches the specified parameter list. If the compiler finds such a
+function, a call is inserted to that function. If no such function is found, a compiler error is
+generated.
+<!--l. 5711--><p class="noindent" >functions that have a <span 
+class="cmtt-10">cdecl </span>modifier cannot be overloaded. (Technically, because this modifier
+prevents the mangling of the function name by the compiler).
+<!--l. 5715--><p class="noindent" >Prior to version 1.9 of the compiler, the overloaded functions needed to be in the same unit. Now
+the compiler will continue searching in other units if it doesn&#8217;t find a matching version of an
+overloaded function in one unit.
+<!--l. 5719--><p class="noindent" >The compiler accepts the presence of the <span 
+class="cmtt-10">overload </span>modifier as in Delphi, but it is not required,
+unless in Delphi mode.<a 
+ id="dx129-136002"></a>
+                                                                            
+
+                                                                            
+<!--l. 5724--><div class="crosslinks"><p class="noindent">[<a 
+href="refse61.html" >next</a>] [<a 
+href="refse56.html" >prev</a>] [<a 
+href="refse56.html#tailrefse56.html" >prev-tail</a>] [<a 
+href="refse57.html" >front</a>] [<a 
+href="refse55.html#refse60.html" >up</a>] </p></div>
+<!--l. 5724--><p class="noindent" ><a 
+ id="tailrefse57.html"></a>  
+</body></html> 

@@ -1,0 +1,472 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Free Pascal : Reference guide.</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<div class="maketitle">
+                                                                            
+
+                                                                            
+<h2 class="titleHead">Free
+Pascal
+:<br />
+Reference
+guide.</h2><br />
+_____________________________________________________________________<br 
+class="newline" /><span 
+class="cmr-12">Reference guide for Free Pascal, version 2.2</span>
+<br />                     <span 
+class="cmr-12">Document version 2.0</span>
+<br />                              <div class="date" ><span 
+class="cmr-12">August 2008</span></div>
+                                                                            <br />
+<div class="author" ><span 
+class="cmss-12">Micha</span><span 
+class="cmss-12">ël Van Canneyt</span></div> <br 
+class="newline" />____________________________________________________________________________
+                                                                            
+
+                                                                            
+</div>
+                                                                            
+
+                                                                            
+<div class="tableofcontents">
+<span class="likechapterToc" ><a 
+href="refli1.html#x2-1000" id="QQ2-2-1">Contents</a></span>
+<br /><span class="likechapterToc" ><a 
+href="refli2.html#x3-2000" id="QQ2-3-2">List of Tables</a></span>
+<br />&#x00A0;<span class="likesectionToc" ><a 
+href="refli3.html#x4-3000" id="QQ2-4-3">About this guide</a></span>
+<br />&#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="refli4.html#x5-4000" id="QQ2-5-4">Notations</a></span>
+<br />&#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="refli5.html#x6-5000" id="QQ2-6-5">Syntax diagrams</a></span>
+<br /><span class="chapterToc" >1 <a 
+href="refch1.html#x7-60001" id="QQ2-7-6">Pascal Tokens</a></span>
+<br />&#x00A0;<span class="sectionToc" >1.1 <a 
+href="refse1.html#x8-70001.1" id="QQ2-8-7">Symbols</a></span>
+<br />&#x00A0;<span class="sectionToc" >1.2 <a 
+href="refse2.html#x9-80001.2" id="QQ2-9-8">Comments</a></span>
+<br />&#x00A0;<span class="sectionToc" >1.3 <a 
+href="refse3.html#x10-90001.3" id="QQ2-10-9">Reserved words</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >1.3.1 <a 
+href="refsu1.html#x11-100001.3.1" id="QQ2-11-10">Turbo Pascal reserved words</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >1.3.2 <a 
+href="refsu2.html#x12-110001.3.2" id="QQ2-12-11">Delphi reserved words</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >1.3.3 <a 
+href="refsu3.html#x13-120001.3.3" id="QQ2-13-12">Free Pascal reserved words</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >1.3.4 <a 
+href="refsu4.html#x14-130001.3.4" id="QQ2-14-13">Modifiers</a></span>
+<br />&#x00A0;<span class="sectionToc" >1.4 <a 
+href="refse4.html#x15-140001.4" id="QQ2-15-14">Identifiers</a></span>
+<br />&#x00A0;<span class="sectionToc" >1.5 <a 
+href="refse5.html#x16-150001.5" id="QQ2-16-15">Hint directives</a></span>
+<br />&#x00A0;<span class="sectionToc" >1.6 <a 
+href="refse6.html#x17-160001.6" id="QQ2-17-16">Numbers</a></span>
+<br />&#x00A0;<span class="sectionToc" >1.7 <a 
+href="refse7.html#x18-170001.7" id="QQ2-18-17">Labels</a></span>
+<br />&#x00A0;<span class="sectionToc" >1.8 <a 
+href="refse8.html#x19-180001.8" id="QQ2-19-18">Character strings</a></span>
+<br /><span class="chapterToc" >2 <a 
+href="refch2.html#x20-190002" id="QQ2-20-19">Constants</a></span>
+<br />&#x00A0;<span class="sectionToc" >2.1 <a 
+href="refse9.html#x21-200002.1" id="QQ2-21-20">Ordinary constants</a></span>
+<br />&#x00A0;<span class="sectionToc" >2.2 <a 
+href="refse10.html#x22-210002.2" id="QQ2-22-21">Typed constants</a></span>
+<br />&#x00A0;<span class="sectionToc" >2.3 <a 
+href="refse11.html#x23-220002.3" id="QQ2-23-22">Resource strings</a></span>
+<br /><span class="chapterToc" >3 <a 
+href="refch3.html#x24-230003" id="QQ2-24-23">Types</a></span>
+<br />&#x00A0;<span class="sectionToc" >3.1 <a 
+href="refse12.html#x25-240003.1" id="QQ2-25-24">Base types</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >3.1.1 <a 
+href="refsu5.html#x26-250003.1.1" id="QQ2-26-25">Ordinal types</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >3.1.2 <a 
+href="refsu6.html#x27-300003.1.2" id="QQ2-27-33">Real types</a></span>
+<br />&#x00A0;<span class="sectionToc" >3.2 <a 
+href="refse13.html#x28-310003.2" id="QQ2-28-35">Character types</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >3.2.1 <a 
+href="refsu7.html#x29-320003.2.1" id="QQ2-29-36">Char</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >3.2.2 <a 
+href="refsu8.html#x30-330003.2.2" id="QQ2-30-37">Strings</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >3.2.3 <a 
+href="refsu9.html#x31-340003.2.3" id="QQ2-31-38">Short strings</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >3.2.4 <a 
+href="refsu10.html#x32-350003.2.4" id="QQ2-32-39">Ansistrings</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >3.2.5 <a 
+href="refsu11.html#x33-360003.2.5" id="QQ2-33-40">WideStrings</a></span>
+                                                                            
+
+                                                                            
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >3.2.6 <a 
+href="refsu12.html#x34-370003.2.6" id="QQ2-34-41">Constant strings</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >3.2.7 <a 
+href="refsu13.html#x35-380003.2.7" id="QQ2-35-42">PChar - Null terminated strings</a></span>
+<br />&#x00A0;<span class="sectionToc" >3.3 <a 
+href="refse14.html#x36-390003.3" id="QQ2-36-44">Structured Types</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >3.3.1 <a 
+href="refsu14.html#x37-410003.3.1" id="QQ2-37-46">Arrays</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >3.3.2 <a 
+href="refsu15.html#x38-450003.3.2" id="QQ2-38-50">Record types</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >3.3.3 <a 
+href="refsu16.html#x40-460003.3.3" id="QQ2-40-51">Set types</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >3.3.4 <a 
+href="refsu17.html#x41-470003.3.4" id="QQ2-41-53">File types</a></span>
+<br />&#x00A0;<span class="sectionToc" >3.4 <a 
+href="refse15.html#x42-480003.4" id="QQ2-42-54">Pointers</a></span>
+<br />&#x00A0;<span class="sectionToc" >3.5 <a 
+href="refse16.html#x43-490003.5" id="QQ2-43-55">Forward type declarations</a></span>
+<br />&#x00A0;<span class="sectionToc" >3.6 <a 
+href="refse17.html#x44-500003.6" id="QQ2-44-56">Procedural types</a></span>
+<br />&#x00A0;<span class="sectionToc" >3.7 <a 
+href="refse18.html#x45-510003.7" id="QQ2-45-57">Variant types</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >3.7.1 <a 
+href="refsu18.html#x46-520003.7.1" id="QQ2-46-58">Definition</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >3.7.2 <a 
+href="refsu19.html#x47-530003.7.2" id="QQ2-47-59">Variants in assignments and expressions</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >3.7.3 <a 
+href="refsu20.html#x48-540003.7.3" id="QQ2-48-60">Variants and interfaces</a></span>
+<br /><span class="chapterToc" >4 <a 
+href="refch4.html#x49-550004" id="QQ2-49-61">Variables</a></span>
+<br />&#x00A0;<span class="sectionToc" >4.1 <a 
+href="refse19.html#x50-560004.1" id="QQ2-50-62">Definition</a></span>
+<br />&#x00A0;<span class="sectionToc" >4.2 <a 
+href="refse20.html#x51-570004.2" id="QQ2-51-63">Declaration</a></span>
+<br />&#x00A0;<span class="sectionToc" >4.3 <a 
+href="refse21.html#x52-580004.3" id="QQ2-52-64">Scope</a></span>
+<br />&#x00A0;<span class="sectionToc" >4.4 <a 
+href="refse22.html#x53-590004.4" id="QQ2-53-65">Thread Variables</a></span>
+<br />&#x00A0;<span class="sectionToc" >4.5 <a 
+href="refse23.html#x54-600004.5" id="QQ2-54-66">Properties</a></span>
+<br /><span class="chapterToc" >5 <a 
+href="refch5.html#x55-610005" id="QQ2-55-67">Objects</a></span>
+<br />&#x00A0;<span class="sectionToc" >5.1 <a 
+href="refse24.html#x56-620005.1" id="QQ2-56-68">Declaration</a></span>
+<br />&#x00A0;<span class="sectionToc" >5.2 <a 
+href="refse25.html#x57-630005.2" id="QQ2-57-69">Fields</a></span>
+<br />&#x00A0;<span class="sectionToc" >5.3 <a 
+href="refse26.html#x58-640005.3" id="QQ2-58-70">Static fields</a></span>
+<br />&#x00A0;<span class="sectionToc" >5.4 <a 
+href="refse27.html#x59-650005.4" id="QQ2-59-71">Constructors and destructors </a></span>
+<br />&#x00A0;<span class="sectionToc" >5.5 <a 
+href="refse28.html#x61-660005.5" id="QQ2-61-72">Methods</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.5.1 <a 
+href="refsu21.html#x62-670005.5.1" id="QQ2-62-73">Declaration</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.5.2 <a 
+href="refsu22.html#x63-680005.5.2" id="QQ2-63-74">Method invocation</a></span>
+<br />&#x00A0;<span class="sectionToc" >5.6 <a 
+href="refse29.html#x64-720005.6" id="QQ2-64-78">Visibility</a></span>
+<br /><span class="chapterToc" >6 <a 
+href="refch6.html#x65-730006" id="QQ2-65-79">Classes</a></span>
+<br />&#x00A0;<span class="sectionToc" >6.1 <a 
+href="refse30.html#x66-740006.1" id="QQ2-66-80">Class definitions</a></span>
+<br />&#x00A0;<span class="sectionToc" >6.2 <a 
+href="refse31.html#x67-750006.2" id="QQ2-67-81">Class instantiation</a></span>
+<br />&#x00A0;<span class="sectionToc" >6.3 <a 
+href="refse32.html#x68-760006.3" id="QQ2-68-82">Methods</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.3.1 <a 
+href="refsu23.html#x69-770006.3.1" id="QQ2-69-83">Declaration</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.3.2 <a 
+href="refsu24.html#x70-780006.3.2" id="QQ2-70-84">invocation</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.3.3 <a 
+href="refsu25.html#x71-790006.3.3" id="QQ2-71-85">Virtual methods</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.3.4 <a 
+href="refsu26.html#x72-800006.3.4" id="QQ2-72-86">Class methods</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.3.5 <a 
+href="refsu27.html#x73-810006.3.5" id="QQ2-73-87">Message methods</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.3.6 <a 
+href="refsu28.html#x74-820006.3.6" id="QQ2-74-88">Using inherited</a></span>
+<br />&#x00A0;<span class="sectionToc" >6.4 <a 
+href="refse33.html#x75-830006.4" id="QQ2-75-89">Properties</a></span>
+                                                                            
+
+                                                                            
+<br /><span class="chapterToc" >7 <a 
+href="refch7.html#x76-840007" id="QQ2-76-90">Interfaces</a></span>
+<br />&#x00A0;<span class="sectionToc" >7.1 <a 
+href="refse34.html#x77-850007.1" id="QQ2-77-91">Definition</a></span>
+<br />&#x00A0;<span class="sectionToc" >7.2 <a 
+href="refse35.html#x79-860007.2" id="QQ2-79-92">Interface identification: A GUID</a></span>
+<br />&#x00A0;<span class="sectionToc" >7.3 <a 
+href="refse36.html#x80-870007.3" id="QQ2-80-93">Interface implementations</a></span>
+<br />&#x00A0;<span class="sectionToc" >7.4 <a 
+href="refse37.html#x81-880007.4" id="QQ2-81-94">Interfaces and COM</a></span>
+<br />&#x00A0;<span class="sectionToc" >7.5 <a 
+href="refse38.html#x82-890007.5" id="QQ2-82-95">CORBA and other Interfaces</a></span>
+<br /><span class="chapterToc" >8 <a 
+href="refch8.html#x83-900008" id="QQ2-83-96">Generics</a></span>
+<br />&#x00A0;<span class="sectionToc" >8.1 <a 
+href="refse39.html#x84-910008.1" id="QQ2-84-97">Introduction</a></span>
+<br />&#x00A0;<span class="sectionToc" >8.2 <a 
+href="refse40.html#x85-920008.2" id="QQ2-85-98">Generic class definition</a></span>
+<br />&#x00A0;<span class="sectionToc" >8.3 <a 
+href="refse41.html#x86-930008.3" id="QQ2-86-99">Generic class specialization</a></span>
+<br />&#x00A0;<span class="sectionToc" >8.4 <a 
+href="refse42.html#x87-940008.4" id="QQ2-87-100">A word about scope</a></span>
+<br /><span class="chapterToc" >9 <a 
+href="refch9.html#x88-950009" id="QQ2-88-101">Expressions</a></span>
+<br />&#x00A0;<span class="sectionToc" >9.1 <a 
+href="refse43.html#x89-960009.1" id="QQ2-89-103">Expression syntax</a></span>
+<br />&#x00A0;<span class="sectionToc" >9.2 <a 
+href="refse44.html#x90-970009.2" id="QQ2-90-104">Function calls</a></span>
+<br />&#x00A0;<span class="sectionToc" >9.3 <a 
+href="refse45.html#x91-980009.3" id="QQ2-91-105">Set constructors</a></span>
+<br />&#x00A0;<span class="sectionToc" >9.4 <a 
+href="refse46.html#x92-990009.4" id="QQ2-92-106">Value typecasts</a></span>
+<br />&#x00A0;<span class="sectionToc" >9.5 <a 
+href="refse47.html#x93-1000009.5" id="QQ2-93-107">Variable typecasts</a></span>
+<br />&#x00A0;<span class="sectionToc" >9.6 <a 
+href="refse48.html#x94-1010009.6" id="QQ2-94-108">The @ operator</a></span>
+<br />&#x00A0;<span class="sectionToc" >9.7 <a 
+href="refse49.html#x95-1020009.7" id="QQ2-95-109">Operators</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >9.7.1 <a 
+href="refsu29.html#x96-1030009.7.1" id="QQ2-96-110">Arithmetic operators</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >9.7.2 <a 
+href="refsu30.html#x97-1040009.7.2" id="QQ2-97-113">Logical operators</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >9.7.3 <a 
+href="refsu31.html#x98-1050009.7.3" id="QQ2-98-115">Boolean operators</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >9.7.4 <a 
+href="refsu32.html#x99-1060009.7.4" id="QQ2-99-117">String operators</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >9.7.5 <a 
+href="refsu33.html#x100-1070009.7.5" id="QQ2-100-118">Set operators</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >9.7.6 <a 
+href="refsu34.html#x101-1080009.7.6" id="QQ2-101-120">Relational operators</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >9.7.7 <a 
+href="refsu35.html#x102-1090009.7.7" id="QQ2-102-122">Class operators</a></span>
+<br /><span class="chapterToc" >10 <a 
+href="refch10.html#x103-11000010" id="QQ2-103-124">Statements</a></span>
+<br />&#x00A0;<span class="sectionToc" >10.1 <a 
+href="refse50.html#x104-11100010.1" id="QQ2-104-125">Simple statements</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >10.1.1 <a 
+href="refsu36.html#x105-11200010.1.1" id="QQ2-105-126">Assignments</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >10.1.2 <a 
+href="refsu37.html#x106-11300010.1.2" id="QQ2-106-128">Procedure statements</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >10.1.3 <a 
+href="refsu38.html#x107-11400010.1.3" id="QQ2-107-129">Goto statements</a></span>
+<br />&#x00A0;<span class="sectionToc" >10.2 <a 
+href="refse51.html#x108-11500010.2" id="QQ2-108-130">Structured statements</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >10.2.1 <a 
+href="refsu39.html#x109-11600010.2.1" id="QQ2-109-131">Compound statements</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >10.2.2 <a 
+href="refsu40.html#x110-11700010.2.2" id="QQ2-110-132">The <span 
+class="cmtt-10">Case </span>statement</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >10.2.3 <a 
+href="refsu41.html#x111-11800010.2.3" id="QQ2-111-133">The <span 
+class="cmtt-10">If..then..else </span>statement</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >10.2.4 <a 
+href="refsu42.html#x112-11900010.2.4" id="QQ2-112-134">The <span 
+class="cmtt-10">For..to/downto..do </span>statement</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >10.2.5 <a 
+href="refsu43.html#x113-12000010.2.5" id="QQ2-113-135">The <span 
+class="cmtt-10">Repeat..until </span>statement</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >10.2.6 <a 
+href="refsu44.html#x114-12100010.2.6" id="QQ2-114-136">The <span 
+class="cmtt-10">While..do </span>statement</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >10.2.7 <a 
+href="refsu45.html#x115-12200010.2.7" id="QQ2-115-137">The <span 
+class="cmtt-10">With </span>statement</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >10.2.8 <a 
+href="refsu46.html#x116-12300010.2.8" id="QQ2-116-138">Exception Statements</a></span>
+                                                                            
+
+                                                                            
+<br />&#x00A0;<span class="sectionToc" >10.3 <a 
+href="refse52.html#x117-12400010.3" id="QQ2-117-139">Assembler statements</a></span>
+<br /><span class="chapterToc" >11 <a 
+href="refch11.html#x118-12500011" id="QQ2-118-140">Using functions and procedures</a></span>
+<br />&#x00A0;<span class="sectionToc" >.1<a 
+href="refse53.html#x119-12600011.1" id="QQ2-119-141">Procedure declaration</a></span>
+<br />&#x00A0;<span class="sectionToc" >.2<a 
+href="refse54.html#x120-12700011.2" id="QQ2-120-142">Function declaration</a></span>
+<br />&#x00A0;<span class="sectionToc" >.3<a 
+href="refse55.html#x121-12800011.3" id="QQ2-121-143">Function results</a></span>
+<br />&#x00A0;<span class="sectionToc" >.4<a 
+href="refse56.html#x122-12900011.4" id="QQ2-122-144">Parameter lists</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.4.1<a 
+href="refsu47.html#x123-13000011.4.1" id="QQ2-123-145">Value parameters</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.4.2<a 
+href="refsu48.html#x124-13100011.4.2" id="QQ2-124-146">Variable parameters</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.4.3<a 
+href="refsu49.html#x125-13200011.4.3" id="QQ2-125-147">Out parameters</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.4.4<a 
+href="refsu50.html#x126-13300011.4.4" id="QQ2-126-148">Constant parameters</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.4.5<a 
+href="refsu51.html#x127-13400011.4.5" id="QQ2-127-149">Open array parameters</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.4.6<a 
+href="refsu52.html#x128-13500011.4.6" id="QQ2-128-150">Array of const</a></span>
+<br />&#x00A0;<span class="sectionToc" >.5<a 
+href="refse57.html#x129-13600011.5" id="QQ2-129-151">Function overloading</a></span>
+<br />&#x00A0;<span class="sectionToc" >.6<a 
+href="refse58.html#x130-13700011.6" id="QQ2-130-152">Forward defined functions</a></span>
+<br />&#x00A0;<span class="sectionToc" >.7<a 
+href="refse59.html#x131-13800011.7" id="QQ2-131-153">External functions</a></span>
+<br />&#x00A0;<span class="sectionToc" >.8<a 
+href="refse60.html#x132-13900011.8" id="QQ2-132-154">Assembler functions</a></span>
+<br />&#x00A0;<span class="sectionToc" >.9<a 
+href="refse61.html#x133-14000011.9" id="QQ2-133-155">Modifiers</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.9.1<a 
+href="refsu53.html#x134-14100011.9.1" id="QQ2-134-156">alias</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.9.2<a 
+href="refsu54.html#x135-14200011.9.2" id="QQ2-135-157">cdecl</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.9.3<a 
+href="refsu55.html#x136-14300011.9.3" id="QQ2-136-158">export</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.9.4<a 
+href="refsu56.html#x137-14400011.9.4" id="QQ2-137-159">inline</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.9.5<a 
+href="refsu57.html#x138-14500011.9.5" id="QQ2-138-160">interrupt</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.9.6<a 
+href="refsu58.html#x139-14600011.9.6" id="QQ2-139-161">local</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.9.7<a 
+href="refsu59.html#x140-14700011.9.7" id="QQ2-140-162">nostackframe</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.9.8<a 
+href="refsu60.html#x141-14800011.9.8" id="QQ2-141-163">overload</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.9.9<a 
+href="refsu61.html#x142-14900011.9.9" id="QQ2-142-164">pascal</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.9.10<a 
+href="refsu62.html#x143-15000011.9.10" id="QQ2-143-165">public</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.9.11<a 
+href="refsu63.html#x144-15100011.9.11" id="QQ2-144-166">register</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.9.12<a 
+href="refsu64.html#x145-15200011.9.12" id="QQ2-145-167">safecall</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.9.13<a 
+href="refsu65.html#x146-15300011.9.13" id="QQ2-146-168">saveregisters</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.9.14<a 
+href="refsu66.html#x147-15400011.9.14" id="QQ2-147-169">softfloat</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.9.15<a 
+href="refsu67.html#x148-15500011.9.15" id="QQ2-148-170">stdcall</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >.9.16<a 
+href="refsu68.html#x149-15600011.9.16" id="QQ2-149-171">varargs</a></span>
+<br />&#x00A0;<span class="sectionToc" >.10<a 
+href="refse62.html#x150-15700011.10" id="QQ2-150-172">Unsupported Turbo Pascal modifiers</a></span>
+<br /><span class="chapterToc" >12 <a 
+href="refch12.html#x151-15800012" id="QQ2-151-174">Operator overloading</a></span>
+<br />&#x00A0;<span class="sectionToc" >12.1 <a 
+href="refse63.html#x152-15900012.1" id="QQ2-152-175">Introduction</a></span>
+<br />&#x00A0;<span class="sectionToc" >12.2 <a 
+href="refse64.html#x153-16000012.2" id="QQ2-153-176">Operator declarations</a></span>
+<br />&#x00A0;<span class="sectionToc" >12.3 <a 
+href="refse65.html#x154-16100012.3" id="QQ2-154-177">Assignment operators</a></span>
+<br />&#x00A0;<span class="sectionToc" >12.4 <a 
+href="refse66.html#x155-16200012.4" id="QQ2-155-178">Arithmetic operators</a></span>
+<br />&#x00A0;<span class="sectionToc" >12.5 <a 
+href="refse67.html#x156-16300012.5" id="QQ2-156-179">Comparision operator</a></span>
+                                                                            
+
+                                                                            
+<br /><span class="chapterToc" >13 <a 
+href="refch13.html#x157-16400013" id="QQ2-157-180">Programs, units, blocks</a></span>
+<br />&#x00A0;<span class="sectionToc" >13.1 <a 
+href="refse68.html#x158-16500013.1" id="QQ2-158-181">Programs</a></span>
+<br />&#x00A0;<span class="sectionToc" >13.2 <a 
+href="refse69.html#x159-16600013.2" id="QQ2-159-182">Units</a></span>
+<br />&#x00A0;<span class="sectionToc" >13.3 <a 
+href="refse70.html#x160-16700013.3" id="QQ2-160-183">Blocks</a></span>
+<br />&#x00A0;<span class="sectionToc" >13.4 <a 
+href="refse71.html#x161-16800013.4" id="QQ2-161-184">Scope</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >13.4.1 <a 
+href="refsu69.html#x162-16900013.4.1" id="QQ2-162-185">Block scope</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >13.4.2 <a 
+href="refsu70.html#x163-17000013.4.2" id="QQ2-163-186">Record scope</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >13.4.3 <a 
+href="refsu71.html#x164-17100013.4.3" id="QQ2-164-187">Class scope</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >13.4.4 <a 
+href="refsu72.html#x165-17200013.4.4" id="QQ2-165-188">Unit scope</a></span>
+<br />&#x00A0;<span class="sectionToc" >13.5 <a 
+href="refse72.html#x166-17300013.5" id="QQ2-166-189">Libraries</a></span>
+<br /><span class="chapterToc" >14 <a 
+href="refch14.html#x167-17400014" id="QQ2-167-190">Exceptions</a></span>
+<br />&#x00A0;<span class="sectionToc" >14.1 <a 
+href="refse73.html#x168-17500014.1" id="QQ2-168-191">The raise statement</a></span>
+<br />&#x00A0;<span class="sectionToc" >14.2 <a 
+href="refse74.html#x169-17600014.2" id="QQ2-169-192">The try...except statement</a></span>
+<br />&#x00A0;<span class="sectionToc" >14.3 <a 
+href="refse75.html#x170-17700014.3" id="QQ2-170-193">The try...finally statement</a></span>
+<br />&#x00A0;<span class="sectionToc" >14.4 <a 
+href="refse76.html#x171-17800014.4" id="QQ2-171-194">Exception handling nesting</a></span>
+<br />&#x00A0;<span class="sectionToc" >14.5 <a 
+href="refse77.html#x172-17900014.5" id="QQ2-172-195">Exception classes</a></span>
+<br /><span class="chapterToc" >15 <a 
+href="refch15.html#x173-18000015" id="QQ2-173-196">Using assembler</a></span>
+<br />&#x00A0;<span class="sectionToc" >15.1 <a 
+href="refse78.html#x174-18100015.1" id="QQ2-174-197">Assembler statements </a></span>
+<br />&#x00A0;<span class="sectionToc" >15.2 <a 
+href="refse79.html#x175-18200015.2" id="QQ2-175-198">Assembler procedures and functions</a></span>
+</div>
+                                                                            
+
+                                                                            
+
+                                                                            
+
+                                                                            
+
+                                                                            
+
+                                                                            
+
+                                                                            
+
+                                                                            
+
+                                                                            
+
+                                                                            
+
+                                                                            
+
+                                                                            
+
+                                                                            
+
+                                                                            
+
+                                                                            
+
+                                                                            
+
+                                                                            
+
+                                                                            
+
+                                                                            
+
+                                                                            
+
+                                                                            
+
+                                                                            
+
+                                                                            
+
+                                                                            
+
+                                                                            
+
+                                                                            
+
+                                                                            
+
+                                                                            
+
+                                                                            
+
+                                                                            
+
+                                                                            
+
+                                                                            
+ 
+</body></html> 
+
+                                                                            
+
+

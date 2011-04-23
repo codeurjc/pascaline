@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<title>Reference for unit 'Crt'</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[Overview][<a href="../crt/index-2.html">Constants</a>][<a href="../crt/index-3.html">Types</a>][<a href="../crt/index-5.html">Procedures and functions</a>][<a href="../crt/index-6.html">Variables</a>][<a href="../crt/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Crt' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>Reference for unit 'Crt'</h1>
+<p>CRT - Turbo Pascal screen and keyboard handling unit</p>
+<h2>Overview</h2>
+<p>This chapter describes the <var>CRT</var> unit for Free Pascal, both under dos linux and Windows. The unit was first written for dos by Florian klaempfl. The unit was ported to linux by Mark May and enhanced by Michael Van Canneyt and Peter Vreman. It works on the linux console, and in xterm and rxvt windows under X-Windows. The functionality for both is the same, except that under linux the use of an early implementation (versions 0.9.1 and earlier of the compiler) the crt unit automatically cleared the screen at program startup. </p>
+<p>There are some caveats when using the CRT unit: </p>
+<ul>
+<li>Programs using the CRT unit will <em>not</em> be usable when input/output is being redirected on the command-line. </li>
+<li>For similar reasons they are not usable as CGI-scripts for use with a webserver. </li>
+<li>The use of the CRT unit and the graph unit may not always be supported. </li>
+<li>On linux or other unix OSes , executing other programs that expect special terminal behaviour (using one of the special functions in the linux unit) will not work. The terminal is set in RAW mode, which will destroy most terminal emulation settings. </li>
+</ul>
+<hr>
+<span class="footer">Documentation generated on: Aug 23 2008</span>
+</body>
+</html>

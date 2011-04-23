@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>The While..do statement</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 5077--><div class="crosslinks"><p class="noindent">[<a 
+href="refch11.html" >next</a>] [<a 
+href="refsu43.html" >prev</a>] [<a 
+href="refsu43.html#tailrefsu43.html" >prev-tail</a>] [<a 
+href="refsu41.html#tailrefsu44.html">tail</a>] [<a 
+href="refsu41.html#refse52.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">10.2.6   </span> <a 
+href="#x114-12100010.2.6" id="x114-12100010.2.6">The <span 
+class="cmtt-10">While..do </span>statement</a></h4>
+<a 
+ id="dx114-121001"></a>
+<a 
+ id="dx114-121002"></a>
+<a 
+ id="dx114-121003"></a>
+<!--l. 5079--><p class="noindent" >A <span 
+class="cmtt-10">while </span>statement is used to execute a statement as long as a certain condition holds. In difference
+with the <span 
+class="cmtt-10">repeat </span>loop, this may imply that the statement is never executed.
+<!--l. 5083--><p class="noindent" >The prototype syntax of the <span 
+class="cmtt-10">While..do </span>statement is
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<span 
+class="cmbx-10">While statements</span><BR/><img 
+src="ref133x.png" alt="--while statement while- expression - do - statement---------------------
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 5085--><p class="noindent" >This will execute <span 
+class="cmtt-10">Statement </span>as long as <span 
+class="cmtt-10">Expression </span>evaluates to<a 
+ id="dx114-121004"></a><span 
+class="cmtt-10">True</span>. Since <span 
+class="cmtt-10">Expression </span>is
+evaluated <span 
+class="cmti-10">before </span>the execution of <span 
+class="cmtt-10">Statement</span>, it is possible that <span 
+class="cmtt-10">Statement </span>isn&#8217;t executed at all.
+<span 
+class="cmtt-10">Statement </span>can be a compound statement.
+<!--l. 5090--><p class="noindent" >Be aware of the fact that the boolean expression <span 
+class="cmtt-10">Expression </span>will be short-cut evaluated by
+default, meaning that the evaluation will be stopped at the point where the outcome is known with
+certainty.
+<!--l. 5094--><p class="noindent" >The following are valid <span 
+class="cmtt-10">while </span>statements:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+I&#x00A0;:=&#x00A0;I+2;
+&#x00A0;<br />while&#x00A0;i&#x003C;=100&#x00A0;do
+&#x00A0;<br />&#x00A0;&#x00A0;begin
+&#x00A0;<br />&#x00A0;&#x00A0;WriteLn&#x00A0;(&#8217;I&#x00A0;=&#8217;,i);
+&#x00A0;<br />&#x00A0;&#x00A0;I&#x00A0;:=&#x00A0;I+2;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />X&#x00A0;:=&#x00A0;X/2;
+&#x00A0;<br />while&#x00A0;x&#x003E;=10e-3&#x00A0;do
+&#x00A0;<br />&#x00A0;&#x00A0;X&#x00A0;:=&#x00A0;X/2;
+</div>
+</td></tr></table>
+<!--l. 5105--><p class="nopar" >They correspond to the example loops for the <span 
+class="cmtt-10">repeat </span>statements.
+<!--l. 5108--><p class="noindent" >If the statement is a compound statement, then the <span 
+class="cmtt-10">Break </span>and <span 
+class="cmtt-10">Continue </span>reserved words can be
+used to jump to the end or just after the end of the <span 
+class="cmtt-10">While </span>statement.
+                                                                            
+
+                                                                            
+<!--l. 5112--><div class="crosslinks"><p class="noindent">[<a 
+href="refch11.html" >next</a>] [<a 
+href="refsu43.html" >prev</a>] [<a 
+href="refsu43.html#tailrefsu43.html" >prev-tail</a>] [<a 
+href="refsu44.html" >front</a>] [<a 
+href="refsu41.html#refse52.html" >up</a>] </p></div>
+<!--l. 5112--><p class="noindent" ><a 
+ id="tailrefsu44.html"></a>  
+</body></html> 

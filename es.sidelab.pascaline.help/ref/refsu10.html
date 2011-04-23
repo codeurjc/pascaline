@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Ansistrings</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 1000--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu11.html" >next</a>] [<a 
+href="refsu9.html" >prev</a>] [<a 
+href="refsu9.html#tailrefsu9.html" >prev-tail</a>] [<a 
+href="#tailrefsu10.html">tail</a>] [<a 
+href="refse13.html#refsu10.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">3.2.4   </span> <a 
+href="ref.html#QQ2-32-39" id="x32-350003.2.4">Ansistrings</a></h4>
+<a 
+ id="dx32-35001"></a>
+<a 
+ id="dx32-35002"></a>
+<a 
+ id="dx32-35003"></a>
+<!--l. 1002--><p class="noindent" >Ansistrings are strings that have no length limit. They are reference counted and are guaranteed to
+be null terminated. Internally, an ansistring is treated as a pointer: the actual content of the
+string is stored on the heap, as much memory as needed to store the string content is
+allocated.
+<!--l. 1007--><p class="noindent" >This is all handled transparantly, i.e. they can be manipulated as a normal short string. Ansistrings
+can be defined using the predefined <span 
+class="cmtt-10">AnsiString </span>type.
+<!--l. 1011--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> The null-termination does not mean that null characters (char(0) or #0) cannot be used: the
+null-termination is not used internally, but is there for convenience when dealing with external
+routines that expect a null-terminated string (as most C routines do).
+<!--l. 1018--><p class="noindent" >If the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$H</span><span 
+class="cmsy-10">} </span>switch is on, then a string definition using the regular <span 
+class="cmtt-10">String </span>keyword and that doesn&#8217;t
+contain a length specifier, will be regarded as an ansistring as well. If a length specifier is present, a
+short string will be used, regardless of the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$H</span><span 
+class="cmsy-10">} </span>setting.
+<!--l. 1023--><p class="noindent" >If the string is empty (<span 
+class="cmtt-10">&#8217;&#8217;</span>), then the internal pointer representation of the string pointer is <span 
+class="cmtt-10">Nil</span>. If
+the string is not empty, then the pointer points to a structure in heap memory.
+<!--l. 1027--><p class="noindent" >The internal representation as a pointer, and the automatic null-termination make it possible to
+typecast<a 
+ id="dx32-35004"></a> an ansistring to a pchar. If the string is empty (so the pointer is <span 
+class="cmtt-10">Nil</span>) then the compiler
+makes sure that the typecasted pchar will point to a null byte.
+<!--l. 1032--><p class="noindent" >Assigning one ansistring to another doesn&#8217;t involve moving the actual string. A statement
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+&#x00A0;&#x00A0;S2:=S1;
+</div>
+</td></tr></table>
+<!--l. 1036--><p class="nopar" >results in the reference count of <span 
+class="cmtt-10">S2 </span>being decreased with 1, The reference count of <span 
+class="cmtt-10">S1 </span>is increased
+by 1, and finally <span 
+class="cmtt-10">S1 </span>(as a pointer) is copied to <span 
+class="cmtt-10">S2</span>. This is a significant speed-up in the
+code.
+<!--l. 1042--><p class="noindent" >If the reference count of a string reaches zero, then the memory occupied by the string is
+deallocated automatically, and the pointer is set to <span 
+class="cmtt-10">Nil</span>, so no memory leaks arise.
+<!--l. 1046--><p class="noindent" >When an ansistring is declared, the Free Pascal compiler initially allocates just memory for a
+pointer, not more. This pointer is guaranteed to be <span 
+class="cmtt-10">Nil</span>, meaning that the string is initially empty.
+This is true for local and global ansistrings or anstrings that are part of a structure (arrays, records
+or objects).
+<!--l. 1052--><p class="noindent" >This does introduce an overhead. For instance, declaring
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Var
+&#x00A0;<br />&#x00A0;&#x00A0;A&#x00A0;:&#x00A0;Array[1..100000]&#x00A0;of&#x00A0;string;
+</div>
+</td></tr></table>
+<!--l. 1056--><p class="nopar" >Will copy the value <span 
+class="cmtt-10">Nil </span>100,000 times into <span 
+class="cmtt-10">A</span>. When <span 
+class="cmtt-10">A </span>goes out of scope<a 
+ id="dx32-35005"></a>, then the reference
+count of the 100,000 strings will be decreased by 1 for each of these strings. All this
+happens invisible to the programmer, but when considering performance issues, this is
+important.
+<!--l. 1063--><p class="noindent" >Memory for the string content will be allocated only when the string is assigned a value. If the
+string goes out of scope, then its reference count is automatically decreased by 1. If the reference
+count reaches zero, the memory reserved for the string is released.
+<!--l. 1068--><p class="noindent" >If a value is assigned to a character of a string that has a reference count greater than 1, such as in
+the following statements:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+&#x00A0;&#x00A0;S:=T;&#x00A0;&#x00A0;{&#x00A0;reference&#x00A0;count&#x00A0;for&#x00A0;S&#x00A0;and&#x00A0;T&#x00A0;is&#x00A0;now&#x00A0;2&#x00A0;}
+&#x00A0;<br />&#x00A0;&#x00A0;S[I]:=&#8217;@&#8217;;
+</div>
+</td></tr></table>
+<!--l. 1074--><p class="nopar" >then a copy of the string is created before the assignment. This is known as <span 
+class="cmti-10">copy-on-write</span>
+semantics. It is possible to force a string to have reference count equal to 1 with the <span 
+class="cmtt-10">UniqueString</span>
+call:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+&#x00A0;&#x00A0;S:=T;
+&#x00A0;<br />&#x00A0;&#x00A0;R:=T;&#x00A0;//&#x00A0;Reference&#x00A0;count&#x00A0;of&#x00A0;T&#x00A0;is&#x00A0;at&#x00A0;least&#x00A0;3
+&#x00A0;<br />&#x00A0;&#x00A0;UniqueString(T);
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;Reference&#x00A0;count&#x00A0;of&#x00A0;T&#x00A0;is&#x00A0;quaranteed&#x00A0;1
+</div>
+</td></tr></table>
+<!--l. 1083--><p class="nopar" >It&#8217;s recommended to do this e.g. when typecasting an ansistring to a PChar var and passing it to a
+C routine that modifies the string.
+<!--l. 1087--><p class="noindent" >The <span 
+class="cmtt-10">Length </span>function must be used to get the length of an ansistring: the lentgth is not stored at
+character 0 of the ansistring. The construct
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+&#x00A0;L:=ord(S[0]);
+</div>
+</td></tr></table>
+<!--l. 1092--><p class="nopar" >which was valid for Turbo Pascal shortstrings, is no longer correct for Ansistrings. The compiler
+will warn if such a construct is encountered.
+<!--l. 1096--><p class="noindent" >To set the length of an ansistring, the <span 
+class="cmtt-10">SetLength </span>function must be used. Constant ansistrings have
+a reference count of -1 and are treated specially, The same remark as for <span 
+class="cmtt-10">Length </span>must be given:
+The construct
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+&#x00A0;&#x00A0;L:=12;
+&#x00A0;<br />&#x00A0;&#x00A0;S[0]:=Char(L);
+</div>
+</td></tr></table>
+<!--l. 1102--><p class="nopar" >which was valid for Turbo Pascal shortstrings, is no longer correct for Ansistrings. The compiler
+will warn if such a construct is encountered.
+<!--l. 1106--><p class="noindent" >Ansistrings are converted to short strings by the compiler if needed, this means that the use of
+ansistrings and short strings can be mixed without problems.
+<!--l. 1110--><p class="noindent" >Ansistrings can be typecasted<a 
+ id="dx32-35006"></a> to <span 
+class="cmtt-10">PChar </span>or <span 
+class="cmtt-10">Pointer </span>types: <a 
+ id="dx32-35007"></a><a 
+ id="dx32-35008"></a>
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Var&#x00A0;P&#x00A0;:&#x00A0;Pointer;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;PC&#x00A0;:&#x00A0;PChar;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;S&#x00A0;:&#x00A0;AnsiString;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;S&#x00A0;:=&#8217;This&#x00A0;is&#x00A0;an&#x00A0;ansistring&#8217;;
+&#x00A0;<br />&#x00A0;&#x00A0;PC:=Pchar(S);
+&#x00A0;<br />&#x00A0;&#x00A0;P&#x00A0;:=Pointer(S);
+</div>
+</td></tr></table>
+<!--l. 1121--><p class="nopar" >There is a difference between the two typecasts. When an empty ansistring is typecasted to a
+pointer, the pointer wil be <span 
+class="cmtt-10">Nil</span>. If an empty ansistring is typecasted to a <span 
+class="cmtt-10">PChar</span>, then the result will
+be a pointer to a zero byte (an empty string).
+<!--l. 1127--><p class="noindent" >The result of such a typecast must be used with care. In general, it is best to consider the result of
+such a typecast as read-only, i.e. only suitable for passing to a procedure that needs a constant
+pchar argument.
+<!--l. 1131--><p class="noindent" >It is therefore <span 
+class="cmti-10">not </span>advisable to typecast one of the following:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x32-35010x1">Expressions.
+     </li>
+     <li 
+  class="enumerate" id="x32-35012x2">Strings  that  have  reference  count  larger  than  1.  In  this  case  you  should  call
+     <span 
+class="cmtt-10">Uniquestring </span>to ensure the string has reference count 1.</li></ol>
+                                                                            
+
+                                                                            
+<!--l. 1139--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu11.html" >next</a>] [<a 
+href="refsu9.html" >prev</a>] [<a 
+href="refsu9.html#tailrefsu9.html" >prev-tail</a>] [<a 
+href="refsu10.html" >front</a>] [<a 
+href="refse13.html#refsu10.html" >up</a>] </p></div>
+<!--l. 1139--><p class="noindent" ><a 
+ id="tailrefsu10.html"></a>  
+</body></html> 

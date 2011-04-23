@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Pointers</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 1822--><div class="crosslinks"><p class="noindent">[<a 
+href="refse17.html" >next</a>] [<a 
+href="refse14.html" >prev</a>] [<a 
+href="refse14.html#tailrefse14.html" >prev-tail</a>] [<a 
+href="refsu17.html#tailrefse15.html">tail</a>] [<a 
+href="refch3.html#refse16.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">3.4   </span> <a 
+href="#x42-480003.4" id="x42-480003.4">Pointers</a></h3>
+<a 
+ id="dx42-48001"></a>
+<a 
+ id="dx42-48002"></a>
+<!--l. 1823--><p class="noindent" ><a name="keyword:pointer"></a> Free Pascal supports the use of pointers. A variable of the pointer type contains an address in
+memory, where the data of another variable may be stored. A pointer type can be defined as
+follows:
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<span 
+class="cmbx-10">Pointer types</span><BR/><img 
+src="ref46x.png" alt="--pointer type-&#x02C6; -type identifier-------------------------------------
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 1828--><p class="noindent" >As can be seen from this diagram, pointers are typed, which means that they point to a particular
+kind of data. The type of this data must be known at compile time.
+<!--l. 1832--><p class="noindent" >Dereferencing the pointer (denoted by adding <span 
+class="cmtt-10">^ </span>after the variable name) behaves then like a
+variable. This variable has the type declared in the pointer declaration, and the variable is
+stored in the address that is pointed to by the pointer variable. Consider the following
+example:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Program&#x00A0;pointers;
+&#x00A0;<br />type
+&#x00A0;<br />&#x00A0;&#x00A0;Buffer&#x00A0;=&#x00A0;String[255];
+&#x00A0;<br />&#x00A0;&#x00A0;BufPtr&#x00A0;=&#x00A0;^Buffer;
+&#x00A0;<br />Var&#x00A0;B&#x00A0;&#x00A0;:&#x00A0;Buffer;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;BP&#x00A0;:&#x00A0;BufPtr;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;PP&#x00A0;:&#x00A0;Pointer;
+&#x00A0;<br />etc..
+</div>
+</td></tr></table>
+<!--l. 1846--><p class="nopar" >In this example, <span 
+class="cmtt-10">BP </span><span 
+class="cmti-10">is a pointer to </span>a <span 
+class="cmtt-10">Buffer </span>type; while <span 
+class="cmtt-10">B </span><span 
+class="cmti-10">is </span>a variable of type <span 
+class="cmtt-10">Buffer</span>. <span 
+class="cmtt-10">B </span>takes 256
+bytes memory, and <span 
+class="cmtt-10">BP </span>only takes 4 (or 8) bytes of memory: enough memory to store an
+address.
+<!--l. 1852--><p class="noindent" >The expression
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+&#x00A0;BP^
+</div>
+</td></tr></table>
+<!--l. 1855--><p class="nopar" >is known as the dereferencing of <span 
+class="cmtt-10">BP</span>. The result is of type <span 
+class="cmtt-10">Buffer</span>, so
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+&#x00A0;BP^[23]
+</div>
+</td></tr></table>
+<!--l. 1859--><p class="nopar" >Denotes the 23-rd character in the string pointed to by <span 
+class="cmtt-10">BP</span>.
+<!--l. 1861--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> Free Pascal treats pointers much the same way as C does. This means that a pointer to some type
+can be treated as being an array of this type.
+<!--l. 1864--><p class="noindent" >From this point of view, the pointer then points to the zeroeth element of this array. Thus the
+following pointer declaration
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Var&#x00A0;p&#x00A0;:&#x00A0;^Longint;
+</div>
+</td></tr></table>
+<!--l. 1868--><p class="nopar" >can be considered equivalent to the following array declaration:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Var&#x00A0;p&#x00A0;:&#x00A0;array[0..Infinity]&#x00A0;of&#x00A0;Longint;
+</div>
+</td></tr></table>
+<!--l. 1872--><p class="nopar" >The difference is that the former declaration allocates memory for the pointer only (not for
+the array), and the second declaration allocates memory for the entire array. If the
+former is used, the memory must be allocated manually, using the <span 
+class="cmtt-10">Getmem </span>function. The
+reference <span 
+class="cmtt-10">P^ </span>is then the same as <span 
+class="cmtt-10">p[0]</span>. The following program illustrates this maybe more
+clear:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+program&#x00A0;PointerArray;
+&#x00A0;<br />var&#x00A0;i&#x00A0;:&#x00A0;Longint;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;p&#x00A0;:&#x00A0;^Longint;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;pp&#x00A0;:&#x00A0;array[0..100]&#x00A0;of&#x00A0;Longint;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;for&#x00A0;i&#x00A0;:=&#x00A0;0&#x00A0;to&#x00A0;100&#x00A0;do&#x00A0;pp[i]&#x00A0;:=&#x00A0;i;&#x00A0;{&#x00A0;Fill&#x00A0;array&#x00A0;}
+&#x00A0;<br />&#x00A0;&#x00A0;p&#x00A0;:=&#x00A0;@pp[0];&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;{&#x00A0;Let&#x00A0;p&#x00A0;point&#x00A0;to&#x00A0;pp&#x00A0;}
+&#x00A0;<br />&#x00A0;&#x00A0;for&#x00A0;i&#x00A0;:=&#x00A0;0&#x00A0;to&#x00A0;100&#x00A0;do
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;if&#x00A0;p[i]&#x003C;&#x003E;pp[i]&#x00A0;then
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;WriteLn&#x00A0;(&#8217;Ohoh,&#x00A0;problem&#x00A0;!&#8217;)
+&#x00A0;<br />end.
+</div>
+</td></tr></table>
+<!--l. 1891--><p class="nopar" >
+<!--l. 1893--><p class="noindent" >Free Pascal supports pointer arithmetic as C does. This means that, if <span 
+class="cmtt-10">P </span>is a typed pointer, the
+instructions
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Inc(P);
+&#x00A0;<br />Dec(P);
+</div>
+</td></tr></table>
+<!--l. 1898--><p class="nopar" >Will increase, respectively decrease the address the pointer points to with the size of the type <span 
+class="cmtt-10">P </span>is a
+pointer to. For example
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Var&#x00A0;P&#x00A0;:&#x00A0;^Longint;
+&#x00A0;<br />...
+&#x00A0;<br />&#x00A0;Inc&#x00A0;(p);
+</div>
+</td></tr></table>
+<!--l. 1905--><p class="nopar" >will increase <span 
+class="cmtt-10">P </span>with 4, because 4 is the size of a longint.
+<!--l. 1908--><p class="noindent" >Normal arithmetic operators <a 
+ id="dx42-48003"></a>on pointers can also be used, that is, the following are valid pointer
+arithmetic operations:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+var&#x00A0;&#x00A0;p1,p2&#x00A0;:&#x00A0;^Longint;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;L&#x00A0;:&#x00A0;Longint;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;P1&#x00A0;:=&#x00A0;@P2;
+&#x00A0;<br />&#x00A0;&#x00A0;P2&#x00A0;:=&#x00A0;@L;
+&#x00A0;<br />&#x00A0;&#x00A0;L&#x00A0;:=&#x00A0;P1-P2;
+&#x00A0;<br />&#x00A0;&#x00A0;P1&#x00A0;:=&#x00A0;P1-4;
+&#x00A0;<br />&#x00A0;&#x00A0;P2&#x00A0;:=&#x00A0;P2+4;
+&#x00A0;<br />end.
+</div>
+</td></tr></table>
+<!--l. 1920--><p class="nopar" >Here, the value that is added or substracted <span 
+class="cmti-10">is  </span>multiplied by the size of the type the pointer points
+to. In the previous example <span 
+class="cmtt-10">P1 </span>will be decremented by 16 bytes, and <span 
+class="cmtt-10">P2 </span>will be incremented by
+16.
+                                                                            
+
+                                                                            
+<!--l. 1928--><div class="crosslinks"><p class="noindent">[<a 
+href="refse17.html" >next</a>] [<a 
+href="refse14.html" >prev</a>] [<a 
+href="refse14.html#tailrefse14.html" >prev-tail</a>] [<a 
+href="refse15.html" >front</a>] [<a 
+href="refch3.html#refse16.html" >up</a>] </p></div>
+<!--l. 1928--><p class="noindent" ><a 
+ id="tailrefse15.html"></a>  
+</body></html> 

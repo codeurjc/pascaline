@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Exception handling nesting</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 6978--><div class="crosslinks"><p class="noindent">[<a 
+href="refse79.html" >next</a>] [<a 
+href="refse75.html" >prev</a>] [<a 
+href="refse75.html#tailrefse75.html" >prev-tail</a>] [<a 
+href="refse73.html#tailrefse76.html">tail</a>] [<a 
+href="refse75.html#refse78.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">14.4   </span> <a 
+href="#x171-17800014.4" id="x171-17800014.4">Exception handling nesting</a></h3>
+<a 
+ id="dx171-178001"></a>
+<a 
+ id="dx171-178002"></a>
+<a 
+ id="dx171-178003"></a>
+<a 
+ id="dx171-178004"></a>
+<!--l. 6980--><p class="noindent" >It is possible to nest <span 
+class="cmtt-10">Try...Except </span>blocks with <span 
+class="cmtt-10">Try...Finally </span>blocks. Program flow will be
+done according to a <span 
+class="cmtt-10">lifo </span>(last in, first out) principle: The code of the last encountered
+<span 
+class="cmtt-10">Try...Except </span>or <span 
+class="cmtt-10">Try...Finally </span>block will be executed first. If the exception is not caught, or it
+was a finally statement, program flow will be transferred to the last-but-one block, <span 
+class="cmti-10">ad</span>
+<span 
+class="cmti-10">infinitum</span>.
+<!--l. 6987--><p class="noindent" >If an exception occurs, and there is no exception handler present which handles this
+exception, then a run-time error 217 will be generated. When using the <span 
+class="cmss-10">SysUtils </span>unit,
+a default handler is installed which will show the exception object message, and the
+address where the exception occurred, after which the program will exit with a <span 
+class="cmtt-10">Halt</span>
+instruction.
+                                                                            
+
+                                                                            
+<!--l. 6996--><div class="crosslinks"><p class="noindent">[<a 
+href="refse79.html" >next</a>] [<a 
+href="refse75.html" >prev</a>] [<a 
+href="refse75.html#tailrefse75.html" >prev-tail</a>] [<a 
+href="refse76.html" >front</a>] [<a 
+href="refse75.html#refse78.html" >up</a>] </p></div>
+<!--l. 6996--><p class="noindent" ><a 
+ id="tailrefse76.html"></a>  
+</body></html> 

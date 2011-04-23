@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Virtual methods</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 3115--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu28.html" >next</a>] [<a 
+href="refsu24.html" >prev</a>] [<a 
+href="refsu24.html#tailrefsu24.html" >prev-tail</a>] [<a 
+href="refsu23.html#tailrefsu25.html">tail</a>] [<a 
+href="refsu24.html#refsu27.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">6.3.3   </span> <a 
+href="#x71-790006.3.3" id="x71-790006.3.3">Virtual methods</a></h4>
+<a 
+ id="dx71-79001"></a>
+<a 
+ id="dx71-79002"></a>
+<!--l. 3117--><p class="noindent" >Classes have virtual methods, just as objects do. There is however a difference between the two.
+For objects, it is sufficient to redeclare the same method in a descendent object with the keyword
+<span 
+class="cmtt-10">virtual </span>to override it. For classes, the situation is different: virtual methods <span 
+class="cmti-10">must </span>be overridden
+with the <span 
+class="cmtt-10">override </span>keyword. Failing to do so, will start a <span 
+class="cmti-10">new </span>batch of virtual methods, hiding the
+previous one. The <span 
+class="cmtt-10">Inherited </span>keyword will not jump to the inherited method, if <span 
+class="cmtt-10">Virtual </span>was
+used.
+<!--l. 3126--><p class="noindent" >The following code is <span 
+class="cmti-10">wrong</span>:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;ObjParent&#x00A0;=&#x00A0;Class
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Procedure&#x00A0;MyProc;&#x00A0;virtual;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />&#x00A0;&#x00A0;ObjChild&#x00A0;&#x00A0;=&#x00A0;Class(ObjPArent)
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Procedure&#x00A0;MyProc;&#x00A0;virtual;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+</div>
+</td></tr></table>
+<!--l. 3135--><p class="nopar" >The compiler will produce a warning:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Warning:&#x00A0;An&#x00A0;inherited&#x00A0;method&#x00A0;is&#x00A0;hidden&#x00A0;by&#x00A0;OBJCHILD.MYPROC
+</div>
+</td></tr></table>
+<!--l. 3139--><p class="nopar" >The compiler will compile it, but using <span 
+class="cmtt-10">Inherited </span>can<a 
+ id="dx71-79003"></a> produce strange effects.
+<!--l. 3143--><p class="noindent" >The correct declaration is as follows:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;ObjParent&#x00A0;=&#x00A0;Class
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Procedure&#x00A0;MyProc;&#x00A0;virtual;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />&#x00A0;&#x00A0;ObjChild&#x00A0;&#x00A0;=&#x00A0;Class(ObjPArent)
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Procedure&#x00A0;MyProc;&#x00A0;override;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+</div>
+</td></tr></table>
+<!--l. 3152--><p class="nopar" >This will compile and run without warnings or errors.<a 
+ id="dx71-79004"></a>
+<!--l. 3155--><p class="noindent" >If the virtual method should really be replaced with a method with the same name, then the
+<span 
+class="cmtt-10">reintroduce </span>keyword can be used:<a 
+ id="dx71-79005"></a>
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;ObjParent&#x00A0;=&#x00A0;Class
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Procedure&#x00A0;MyProc;&#x00A0;virtual;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />&#x00A0;&#x00A0;ObjChild&#x00A0;&#x00A0;=&#x00A0;Class(ObjPArent)
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Procedure&#x00A0;MyProc;&#x00A0;reintroduce;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+</div>
+</td></tr></table>
+<!--l. 3165--><p class="nopar" >This new method is no longer virtual.
+<!--l. 3168--><p class="noindent" >To be able to do this, the compiler keeps - per class type - a table with virtual methods: the VMT
+(Virtual Method Table). This is simply a table with pointers to each of the virtual methods: each
+virtual method has its fixed location in this table (an index). The compiler uses this table to look
+up the actual method that must be used at runtime. When a descendent object overrides a
+method, the entry of the parent method is overwritten in the VMT. More information about the
+VMT can be found in <a 
+href="../prog/prog.html" >Programmers guide</a>.
+                                                                            
+
+                                                                            
+<!--l. 3177--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu28.html" >next</a>] [<a 
+href="refsu24.html" >prev</a>] [<a 
+href="refsu24.html#tailrefsu24.html" >prev-tail</a>] [<a 
+href="refsu25.html" >front</a>] [<a 
+href="refsu24.html#refsu27.html" >up</a>] </p></div>
+<!--l. 3177--><p class="noindent" ><a 
+ id="tailrefsu25.html"></a>  
+</body></html> 

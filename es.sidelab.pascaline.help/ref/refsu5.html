@@ -1,0 +1,533 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Ordinal types</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 647--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu6.html" >next</a>] [<a 
+href="#tailrefsu5.html">tail</a>] [<a 
+href="refse12.html#refsu5.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">3.1.1   </span> <a 
+href="ref.html#QQ2-26-25" id="x26-250003.1.1">Ordinal types</a></h4>
+<a 
+ id="dx26-25001"></a>
+<!--l. 649--><p class="noindent" >With the exception of <span 
+class="cmtt-10">int64</span>, <span 
+class="cmtt-10">qword </span>and Real types, all base types are ordinal types. Ordinal types
+have the following characteristics:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x26-25003x1">Ordinal types are countable and ordered, i.e. it is, in principle, possible to start counting
+     them one bye one, in a specified order. This property allows the operation of functions
+     as <span 
+class="cmtt-10">Inc</span>, <span 
+class="cmtt-10">Ord</span>, <span 
+class="cmtt-10">Dec </span>on ordinal types to be defined.
+     </li>
+     <li 
+  class="enumerate" id="x26-25005x2">Ordinal values have a smallest possible value. Trying to apply the <span 
+class="cmtt-10">Pred </span>function on the
+     smallest possible value will generate a range check error if range checking is enabled.
+     </li>
+     <li 
+  class="enumerate" id="x26-25007x3">Ordinal values have a largest possible value. Trying to apply the <span 
+class="cmtt-10">Succ </span>function on the
+     largest possible value will generate a range check error if range checking is enabled.</li></ol>
+<!--l. 665--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+href="refse12.html#QQ2-26-26" id="x26-260003.1.1">Integers</a></h5>
+<a 
+ id="dx26-26001"></a>
+<!--l. 667--><p class="noindent" >A list of pre-defined integer types is presented in table (<a 
+href="#x26-260021">3.1<!--tex4ht:ref: tab:integerstyp --></a>).
+<div class="table">
+                                                                            
+
+                                                                            
+<!--l. 671--><p class="noindent" ><a 
+ id="x26-260021"></a><hr class="float"><div class="float" 
+><table class="float"><tr class="float"><td class="float" 
+>
+                                                                            
+
+                                                                            
+ <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;3.1: </td><td  
+class="content">Predefined integer types</td></tr></table><!--tex4ht:label?: x26-260021 -->
+<div class="center" 
+>
+<!--l. 674--><p class="noindent" >
+<div class="tabular"> <table class="tabular" 
+cellspacing="0" cellpadding="0"  
+><colgroup id="TBL-2-1g"><col 
+id="TBL-2-1"></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-2-1-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-1-1"  
+class="td11">Name    </td>
+</tr><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-2-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-2-1"  
+class="td11">Integer    </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-3-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-3-1"  
+class="td11">Shortint  </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-4-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-4-1"  
+class="td11">SmallInt  </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-5-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-5-1"  
+class="td11">Longint   </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-6-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-6-1"  
+class="td11">Longword</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-7-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-7-1"  
+class="td11">Int64      </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-8-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-8-1"  
+class="td11">Byte       </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-9-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-9-1"  
+class="td11">Word      </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-10-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-10-1"  
+class="td11">Cardinal  </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-11-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-11-1"  
+class="td11">QWord   </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-12-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-12-1"  
+class="td11">Boolean  </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-13-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-13-1"  
+class="td11">ByteBool </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-14-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-14-1"  
+class="td11">LongBool</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-15-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-15-1"  
+class="td11">Char      </td>
+</tr><tr 
+class="hline"><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-16-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-16-1"  
+class="td11">        </td>
+</tr></table></div></div>
+                                                                            
+
+                                                                            
+</td></tr></table></div><hr class="endfloat" />
+</div>
+<!--l. 696--><p class="noindent" >The integer types, and their ranges and sizes, that are predefined in Free Pascal are listed in table
+(<a 
+href="#x26-260032">3.2<!--tex4ht:ref: tab:integersranges --></a>). Please note that the <span 
+class="cmtt-10">qword </span>and <span 
+class="cmtt-10">int64 </span>types are not true ordinals, so some Pascal constructs
+will not work with these two integer types.
+<div class="table">
+                                                                            
+
+                                                                            
+<!--l. 701--><p class="noindent" ><a 
+ id="x26-260032"></a><hr class="float"><div class="float" 
+><table class="float"><tr class="float"><td class="float" 
+>
+                                                                            
+
+                                                                            
+ <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;3.2: </td><td  
+class="content">Predefined integer types</td></tr></table><!--tex4ht:label?: x26-260032 -->
+<div class="center" 
+>
+<!--l. 701--><p class="noindent" >
+<div class="tabular"> <table class="tabular" 
+cellspacing="0" cellpadding="0"  
+><colgroup id="TBL-3-1g"><col 
+id="TBL-3-1"><col 
+id="TBL-3-2"><col 
+id="TBL-3-3"></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-3-1-"><td  style="white-space:nowrap; text-align:left;" id="TBL-3-1-1"  
+class="td11">Type     </td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-1-2"  
+class="td11">                 Range                           </td><td  style="white-space:nowrap; text-align:right;" id="TBL-3-1-3"  
+class="td11">Size in bytes</td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-2-"><td  style="white-space:nowrap; text-align:left;" id="TBL-3-2-1"  
+class="td11">Byte       </td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-2-2"  
+class="td11">                 0 .. 255                          </td><td  style="white-space:nowrap; text-align:right;" id="TBL-3-2-3"  
+class="td11">          1</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-3-"><td  style="white-space:nowrap; text-align:left;" id="TBL-3-3-1"  
+class="td11">Shortint  </td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-3-2"  
+class="td11">               -128 .. 127                        </td><td  style="white-space:nowrap; text-align:right;" id="TBL-3-3-3"  
+class="td11">          1</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-4-"><td  style="white-space:nowrap; text-align:left;" id="TBL-3-4-1"  
+class="td11">Smallint  </td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-4-2"  
+class="td11">             -32768 .. 32767                     </td><td  style="white-space:nowrap; text-align:right;" id="TBL-3-4-3"  
+class="td11">          2</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-5-"><td  style="white-space:nowrap; text-align:left;" id="TBL-3-5-1"  
+class="td11">Word      </td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-5-2"  
+class="td11">                0 .. 65535                         </td><td  style="white-space:nowrap; text-align:right;" id="TBL-3-5-3"  
+class="td11">          2</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-6-"><td  style="white-space:nowrap; text-align:left;" id="TBL-3-6-1"  
+class="td11">Integer    </td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-6-2"  
+class="td11">         either smallint or longint              </td><td  style="white-space:nowrap; text-align:right;" id="TBL-3-6-3"  
+class="td11">  size 2 or 4</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-7-"><td  style="white-space:nowrap; text-align:left;" id="TBL-3-7-1"  
+class="td11">Cardinal  </td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-7-2"  
+class="td11">                longword                         </td><td  style="white-space:nowrap; text-align:right;" id="TBL-3-7-3"  
+class="td11">          4</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-8-"><td  style="white-space:nowrap; text-align:left;" id="TBL-3-8-1"  
+class="td11">Longint   </td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-8-2"  
+class="td11">         -2147483648 .. 2147483647              </td><td  style="white-space:nowrap; text-align:right;" id="TBL-3-8-3"  
+class="td11">          4</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-9-"><td  style="white-space:nowrap; text-align:left;" id="TBL-3-9-1"  
+class="td11">Longword</td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-9-2"  
+class="td11">              0..4294967295                      </td><td  style="white-space:nowrap; text-align:right;" id="TBL-3-9-3"  
+class="td11">          4</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-10-"><td  style="white-space:nowrap; text-align:left;" id="TBL-3-10-1"  
+class="td11">Int64      </td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-10-2"  
+class="td11">-9223372036854775808 .. 9223372036854775807</td><td  style="white-space:nowrap; text-align:right;" id="TBL-3-10-3"  
+class="td11">          8</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-11-"><td  style="white-space:nowrap; text-align:left;" id="TBL-3-11-1"  
+class="td11">QWord   </td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-11-2"  
+class="td11">        0 .. 18446744073709551615             </td><td  style="white-space:nowrap; text-align:right;" id="TBL-3-11-3"  
+class="td11">          8</td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-12-"><td  style="white-space:nowrap; text-align:left;" id="TBL-3-12-1"  
+class="td11">        </td>
+</tr></table></div></div>
+                                                                            
+
+                                                                            
+</td></tr></table></div><hr class="endfloat" />
+</div>
+<!--l. 715--><p class="noindent" >The <span 
+class="cmtt-10">integer </span>type maps to the smallint type in the default<a name="keyword:integer"></a> Free Pascal mode. It maps to either a
+longint in either Delphi or ObjFPC mode. The <span 
+class="cmtt-10">cardinal </span>type is currently always mapped to the
+longword type.
+<!--l. 743--><p class="noindent" >Free Pascal does automatic type conversion in expressions where different kinds of integer types are
+used.
+<h5 class="subsubsectionHead"><a 
+href="refse12.html#QQ2-26-29" id="x26-270003.1.1">Boolean types</a></h5>
+<a 
+ id="dx26-27001"></a>
+<a 
+ id="dx26-27002"></a>
+<!--l. 749--><p class="noindent" >Free Pascal supports the <span 
+class="cmtt-10">Boolean </span>type, with its two pre-defined possible values <span 
+class="cmtt-10">True </span>and <span 
+class="cmtt-10">False</span>.
+These are the only two values that can be assigned to a <span 
+class="cmtt-10">Boolean </span>type. Of course, any
+expression that resolves to a <span 
+class="cmtt-10">boolean </span>value, can also be assigned to a boolean type.
+<div class="table">
+                                                                            
+
+                                                                            
+<!--l. 753--><p class="noindent" ><a 
+ id="x26-270033"></a><hr class="float"><div class="float" 
+><table class="float"><tr class="float"><td class="float" 
+>
+                                                                            
+
+                                                                            
+ <table class="caption" 
+><tr style="vertical-align:baseline;" class="caption"><td class="id">Table&#x00A0;3.3: </td><td  
+class="content">Boolean types</td></tr></table><!--tex4ht:label?: x26-270033 -->
+<div class="center" 
+>
+<!--l. 753--><p class="noindent" >
+<div class="tabular"> <table class="tabular" 
+cellspacing="0" cellpadding="0"  
+><colgroup id="TBL-4-1g"><col 
+id="TBL-4-1"><col 
+id="TBL-4-2"><col 
+id="TBL-4-3"></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-4-1-"><td  style="white-space:nowrap; text-align:left;" id="TBL-4-1-1"  
+class="td11">Name     </td><td  style="white-space:nowrap; text-align:left;" id="TBL-4-1-2"  
+class="td11">Size</td><td  style="white-space:nowrap; text-align:left;" id="TBL-4-1-3"  
+class="td11">Ord(True)           </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-4-2-"><td  style="white-space:nowrap; text-align:left;" id="TBL-4-2-1"  
+class="td11">Boolean   </td><td  style="white-space:nowrap; text-align:left;" id="TBL-4-2-2"  
+class="td11">1    </td><td  style="white-space:nowrap; text-align:left;" id="TBL-4-2-3"  
+class="td11">1                       </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-4-3-"><td  style="white-space:nowrap; text-align:left;" id="TBL-4-3-1"  
+class="td11">ByteBool </td><td  style="white-space:nowrap; text-align:left;" id="TBL-4-3-2"  
+class="td11">1    </td><td  style="white-space:nowrap; text-align:left;" id="TBL-4-3-3"  
+class="td11">Any nonzero value</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-4-4-"><td  style="white-space:nowrap; text-align:left;" id="TBL-4-4-1"  
+class="td11">WordBool</td><td  style="white-space:nowrap; text-align:left;" id="TBL-4-4-2"  
+class="td11">2    </td><td  style="white-space:nowrap; text-align:left;" id="TBL-4-4-3"  
+class="td11">Any nonzero value</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-4-5-"><td  style="white-space:nowrap; text-align:left;" id="TBL-4-5-1"  
+class="td11">LongBool </td><td  style="white-space:nowrap; text-align:left;" id="TBL-4-5-2"  
+class="td11">4    </td><td  style="white-space:nowrap; text-align:left;" id="TBL-4-5-3"  
+class="td11">Any nonzero value</td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-4-6-"><td  style="white-space:nowrap; text-align:left;" id="TBL-4-6-1"  
+class="td11">        </td>
+</tr></table></div></div>
+                                                                            
+
+                                                                            
+</td></tr></table></div><hr class="endfloat" />
+</div>
+<!--l. 760--><p class="noindent" >Free Pascal also supports the <span 
+class="cmtt-10">ByteBool</span>, <span 
+class="cmtt-10">WordBool </span>and <span 
+class="cmtt-10">LongBool </span>types. These are of type <span 
+class="cmtt-10">Byte</span>,
+<span 
+class="cmtt-10">Word </span>or <span 
+class="cmtt-10">Longint</span>, but are assignment compatible with a <span 
+class="cmtt-10">Boolean</span>: the value <span 
+class="cmtt-10">False </span>is equivalent to
+0 (zero) and any nonzero value is considered <span 
+class="cmtt-10">True </span>when converting to a boolean value.
+A boolean value of <span 
+class="cmtt-10">True </span>is converted to -1 in case it is assigned to a variable of type
+<span 
+class="cmtt-10">LongBool</span>.
+<!--l. 767--><p class="noindent" >Assuming <span 
+class="cmtt-10">B </span>to be of type <span 
+class="cmtt-10">Boolean</span>, the following are valid assignments:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+&#x00A0;B&#x00A0;:=&#x00A0;True;
+&#x00A0;<br />&#x00A0;B&#x00A0;:=&#x00A0;False;
+&#x00A0;<br />&#x00A0;B&#x00A0;:=&#x00A0;1&#x003C;&#x003E;2;&#x00A0;&#x00A0;{&#x00A0;Results&#x00A0;in&#x00A0;B&#x00A0;:=&#x00A0;True&#x00A0;}
+</div>
+</td></tr></table>
+<!--l. 773--><p class="nopar" >Boolean expressions are also used in conditions.
+<!--l. 776--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> In Free Pascal, boolean expressions are always evaluated in such a way that when the result is
+known, the rest of the expression will no longer be evaluated: this is called short-cut boolean
+evaluation.
+<!--l. 781--><p class="noindent" >In the following example, the function <span 
+class="cmtt-10">Func </span>will never be called, which may have strange
+side-effects.
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+&#x00A0;...
+&#x00A0;<br />&#x00A0;B&#x00A0;:=&#x00A0;False;
+&#x00A0;<br />&#x00A0;A&#x00A0;:=&#x00A0;B&#x00A0;and&#x00A0;Func;
+</div>
+</td></tr></table>
+<!--l. 787--><p class="nopar" >Here <span 
+class="cmtt-10">Func </span>is a function which returns a <span 
+class="cmtt-10">Boolean </span>type.
+<h5 class="subsubsectionHead"><a 
+href="refse12.html#QQ2-26-31" id="x26-280003.1.1">Enumeration types</a></h5>
+<a 
+ id="dx26-28001"></a>
+<!--l. 793--><p class="noindent" >Enumeration types are supported in Free Pascal. On top of the Turbo Pascal implementation, Free
+Pascal allows also a C-style extension of the enumeration type, where a value is assigned to a
+particular element of the enumeration list.
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<span 
+class="cmbx-10">Enumerated types</span> <BR/><img 
+src="ref32x.png" alt="--enumerated type (---|--identifier list-----) ----------------------
+                    |-assigned enum list-- |
+                    --------, ---------
+     " ><BR/>
+     <BR/><img 
+src="ref33x.png" alt="--identifier list-|identifier ------------------------------------------
+              ----,----
+     " ><BR/>
+     <BR/><img 
+src="ref34x.png" alt="--assigned enum list---identifier-:= - expression ------------------------
+                  -----------,-----------|
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 798--><p class="noindent" >(see chapter <a 
+href="refch9.html#x88-950009">9<!--tex4ht:ref: ch:Expressions --></a>, page <a 
+href="refch9.html#x88-950009">309<!--tex4ht:ref: ch:Expressions --></a> for how to use expressions) When using assigned enumerated types, the
+assigned elements must be in ascending numerical order in the list, or the compiler will complain.
+The expressions used in assigned enumerated elements must be known at compile time. So the
+following is a correct enumerated type declaration:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;Direction&#x00A0;=&#x00A0;(&#x00A0;North,&#x00A0;East,&#x00A0;South,&#x00A0;West&#x00A0;);
+</div>
+</td></tr></table>
+<!--l. 807--><p class="nopar" >A C-style enumeration type looks as follows:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;EnumType&#x00A0;=&#x00A0;(one,&#x00A0;two,&#x00A0;three,&#x00A0;forty&#x00A0;:=&#x00A0;40,fortyone);
+</div>
+</td></tr></table>
+<!--l. 812--><p class="nopar" >As a result, the ordinal number of <span 
+class="cmtt-10">forty </span>is <span 
+class="cmtt-10">40</span>, and not <span 
+class="cmtt-10">3</span>, as it would be when the
+<span 
+class="cmtt-10">&#8217;:= 40&#8217; </span>wasn&#8217;t present. The ordinal value of <span 
+class="cmtt-10">fortyone </span>is then 41, and not <span 
+class="cmtt-10">4</span>, as it
+would be when the assignment wasn&#8217;t present. After an assignment in an enumerated
+definition the compiler adds 1 to the assigned value to assign to the next enumerated
+value.
+<!--l. 820--><p class="noindent" >When specifying such an enumeration type, it is important to keep in mind that the
+enumerated elements should be kept in ascending order. The following will produce a compiler
+error:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;EnumType&#x00A0;=&#x00A0;(one,&#x00A0;two,&#x00A0;three,&#x00A0;forty&#x00A0;:=&#x00A0;40,&#x00A0;thirty&#x00A0;:=&#x00A0;30);
+</div>
+</td></tr></table>
+<!--l. 826--><p class="nopar" >It is necessary to keep <span 
+class="cmtt-10">forty </span>and <span 
+class="cmtt-10">thirty </span>in the correct order. When using enumeration types it is
+important to keep the following points in mind:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x26-28003x1">The <span 
+class="cmtt-10">Pred </span>and <span 
+class="cmtt-10">Succ </span>functions cannot be used on this kind of enumeration types. Trying
+     to do this anyhow will result in a compiler error.
+     </li>
+     <li 
+  class="enumerate" id="x26-28005x2">Enumeration types are stored using a default, independent of the actual number of values:
+     the compiler does not try to optimize for space. This behaviour can be changed with the
+     <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$PACKENUM n</span><span 
+class="cmsy-10">} </span>compiler directive, which tells the compiler the minimal number of bytes to
+     be used for enumeration types. For instance
+                                                                            
+
+                                                                            
+     <table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+     Type
+     &#x00A0;<br />{$PACKENUM&#x00A0;4}
+     &#x00A0;<br />&#x00A0;&#x00A0;LargeEnum&#x00A0;=&#x00A0;(&#x00A0;BigOne,&#x00A0;BigTwo,&#x00A0;BigThree&#x00A0;);
+     &#x00A0;<br />{$PACKENUM&#x00A0;1}
+     &#x00A0;<br />&#x00A0;&#x00A0;SmallEnum&#x00A0;=&#x00A0;(&#x00A0;one,&#x00A0;two,&#x00A0;three&#x00A0;);
+     &#x00A0;<br />Var&#x00A0;S&#x00A0;:&#x00A0;SmallEnum;
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;L&#x00A0;:&#x00A0;LargeEnum;
+     &#x00A0;<br />begin
+     &#x00A0;<br />&#x00A0;&#x00A0;WriteLn&#x00A0;(&#8217;Small&#x00A0;enum&#x00A0;:&#x00A0;&#8217;,SizeOf(S));
+     &#x00A0;<br />&#x00A0;&#x00A0;WriteLn&#x00A0;(&#8217;Large&#x00A0;enum&#x00A0;:&#x00A0;&#8217;,SizeOf(L));
+     &#x00A0;<br />end.
+</div>
+     </td></tr></table>
+     <!--l. 852--><p class="nopar" >will, when run, print the following:
+                                                                            
+
+                                                                            
+     <table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+     Small&#x00A0;enum&#x00A0;:&#x00A0;1
+     &#x00A0;<br />Large&#x00A0;enum&#x00A0;:&#x00A0;4
+</div>
+     </td></tr></table>
+     <!--l. 857--><p class="nopar" ></li></ol>
+<!--l. 859--><p class="noindent" >More information can be found in the <a 
+href="../prog/prog.html" >Programmers guide</a>, in the compiler directives
+section.
+<h5 class="subsubsectionHead"><a 
+href="refse12.html#QQ2-26-32" id="x26-290003.1.1">Subrange types</a></h5>
+<a 
+ id="dx26-29001"></a>
+<!--l. 865--><p class="noindent" >A subrange type is a range of values from an ordinal type (the <span 
+class="cmti-10">host </span>type). To define a
+subrange type, one must specify its limiting values: the highest and lowest value of the
+type.
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<span 
+class="cmbx-10">Subrange types</span><BR/><img 
+src="ref35x.png" alt="--subrange type-constant ..- constant--------------------------------
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 869--><p class="noindent" >Some of the predefined <span 
+class="cmtt-10">integer </span>types are defined as subrange types:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;Longint&#x00A0;&#x00A0;=&#x00A0;$80000000..$7fffffff;
+&#x00A0;<br />&#x00A0;&#x00A0;Integer&#x00A0;&#x00A0;=&#x00A0;-32768..32767;
+&#x00A0;<br />&#x00A0;&#x00A0;shortint&#x00A0;=&#x00A0;-128..127;
+&#x00A0;<br />&#x00A0;&#x00A0;byte&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;=&#x00A0;0..255;
+&#x00A0;<br />&#x00A0;&#x00A0;Word&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;=&#x00A0;0..65535;
+</div>
+</td></tr></table>
+<!--l. 877--><p class="nopar" >Subrange types of enumeration types can also be defined:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;Days&#x00A0;=&#x00A0;(monday,tuesday,wednesday,thursday,friday,
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;saturday,sunday);
+&#x00A0;<br />&#x00A0;&#x00A0;WorkDays&#x00A0;=&#x00A0;monday&#x00A0;..&#x00A0;friday;
+&#x00A0;<br />&#x00A0;&#x00A0;WeekEnd&#x00A0;=&#x00A0;Saturday&#x00A0;..&#x00A0;Sunday;
+</div>
+</td></tr></table>
+<!--l. 885--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 887--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu6.html" >next</a>] [<a 
+href="refsu5.html" >front</a>] [<a 
+href="refse12.html#refsu5.html" >up</a>] </p></div>
+<!--l. 887--><p class="noindent" ><a 
+ id="tailrefsu5.html"></a>  
+</body></html> 

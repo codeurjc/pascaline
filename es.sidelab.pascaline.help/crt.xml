@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="crt">
+	<topic label="Constants" href="crt/index-2.html">
+		<topic label="Black" href="crt/black.html"/>
+		<topic label="Blink" href="crt/blink.html"/>
+   		<topic label="Blue" href="crt/blue.html"/>
+   		<topic label="Brown" href="crt/brown.html"/>
+   		<topic label="BW40" href="crt/bw40.html"/>
+   		<topic label="BW80" href="crt/bw80.html"/>
+   		<topic label="C40" href="crt/c40.html"/>
+   		<topic label="C80" href="crt/c80.html"/>
+   		<topic label="CO40" href="crt/co40.html"/>
+   		<topic label="CO80" href="crt/co80.html"/>
+   		<topic label="ConsoleMaxX" href="crt/consolemaxx.html"/>
+   		<topic label="ConsoleMaxY" href="crt/consolemaxy.html"/>
+   		<topic label="Cyan" href="crt/cyan.html"/>
+   		<topic label="darkgray" href="crt/darkgray.html"/>
+   		<topic label="Font8x8" href="crt/font8x8.html"/>
+   		<topic label="Flushing" href="crt/flushing.html"/>
+   		<topic label="Green" href="crt/green.html"/>
+   		<topic label="LightBlue" href="crt/lightblue.html"/>
+   		<topic label="LightCyan" href="crt/lightcyan.html"/>
+   		<topic label="LightGray" href="crt/lightgray.html"/>
+   		<topic label="LightGreen" href="crt/lightgreen.html"/>
+   		<topic label="LightMagenta" href="crt/lightmagenta.html"/>
+   		<topic label="LightRed" href="crt/lightred.html"/>
+   		<topic label="Magenta" href="crt/magenta.html"/>
+   		<topic label="Mono" href="crt/mono.html"/>
+   		<topic label="Red" href="crt/red.html"/>
+   		<topic label="ScreenHeight" href="crt/screenheight.html"/>
+   		<topic label="ScreenWidth" href="crt/screenwidth.html"/>
+   		<topic label="White" href="crt/white.html"/>
+   		<topic label="Yellow" href="crt/yellow.html"/>
+   </topic>
+   <topic label="Types" href="crt/index-3.html">
+   		<topic label="PConsoleBuf" href="crt/pconsolebuf.html"/>
+   		<topic label="TCharAttr" href="crt/tcharattr.html"/>
+   		<topic label="TConsoleBuf" href="crt/tconsolebuf.html"/>
+   </topic>
+   <topic label="Procedures and functions" href="crt/index-5.html">
+   		<topic label="AssignCrt" href="crt/assigncrt.html"/>
+   		<topic label="ClrEol" href="crt/clreol.html"/>
+   		<topic label="ClrScr" href="crt/clrscr.html"/>
+   		<topic label="Cursorbig" href="crt/cursorbig.html"/>
+   		<topic label="Cursoroff" href="crt/cursoroff.html"/>
+   		<topic label="Cursoron" href="crt/cursoron.html"/>
+   		<topic label="Delay" href="crt/delay.html"/>
+   		<topic label="DelLine" href="crt/delline.html"/>
+   		<topic label="Gotoxy" href="crt/gotoxy.html"/>
+   		<topic label="HighVideo" href="crt/highvideo.html"/>
+   		<topic label="InsLine" href="crt/insline.html"/>
+   		<topic label="KeyPressed" href="crt/keypressed.html"/>
+   		<topic label="LowVideo" href="crt/lowvideo.html"/>
+   		<topic label="NormVideo" href="crt/normvideo.html"/>
+   		<topic label="NoSound" href="crt/nosound.html"/>
+   		<topic label="Readkey" href="crt/readkey.html"/>
+   		<topic label="Sound" href="crt/sound.html"/>
+   		<topic label="TextBackground" href="crt/textbackground.html"/>
+   		<topic label="TextColor" href="crt/textcolor.html"/>
+   		<topic label="TextMode" href="crt/textmode.html"/>
+   		<topic label="WhereX" href="crt/wherex.html"/>
+   		<topic label="WhereY" href="crt/wherey.html"/>
+   		<topic label="Window" href="crt/window.html"/>
+   </topic>
+   <topic label="Variables" href="crt/index-6.html">
+   		<topic label="CheckBreak" href="crt/checkbreak.html"/>
+   		<topic label="CheckEof" href="crt/checkeof.html"/>
+   		<topic label="CheckSnow" href="crt/checksnow.html"/>
+   		<topic label="ConsoleBuf" href="crt/consolebuf.html"/>
+   		<topic label="DirectVideo" href="crt/directvideo.html"/>
+   		<topic label="LastMode" href="crt/lastmode.html"/>
+   		<topic label="TextAttr" href="crt/textattr.html"/>
+   		<topic label="WindMax" href="crt/windmax.html"/>
+   		<topic label="WindMaxX" href="crt/windmaxx.html"/>
+   		<topic label="WindMaxY" href="crt/windmaxy.html"/>
+   		<topic label="WindMin" href="crt/windmin.html"/>
+   		<topic label="WindMinX" href="crt/windminx.html"/>
+   		<topic label="WindMinY" href="crt/windminy.html"/>
+   </topic>
+   <topic label="Index" href="crt/index-8.html"/>
+</toc>

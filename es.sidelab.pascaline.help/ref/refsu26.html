@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Class methods</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 3177--><div class="crosslinks"><p class="noindent">[<a 
+href="refse33.html" >next</a>] [<a 
+href="refsu25.html" >prev</a>] [<a 
+href="refsu25.html#tailrefsu25.html" >prev-tail</a>] [<a 
+href="refsu24.html#tailrefsu26.html">tail</a>] [<a 
+href="refsu24.html#refsu28.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">6.3.4   </span> <a 
+href="#x72-800006.3.4" id="x72-800006.3.4">Class methods</a></h4>
+<a 
+ id="dx72-80001"></a>
+<a 
+ id="dx72-80002"></a>
+<!--l. 3179--><p class="noindent" >Class methods are identified by the keyword <span 
+class="cmtt-10">Class </span>in front of the procedure or function
+declaration, as in the following example:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+&#x00A0;&#x00A0;Class&#x00A0;Function&#x00A0;ClassName&#x00A0;:&#x00A0;String;
+</div>
+</td></tr></table>
+<!--l. 3183--><p class="nopar" >Class methods are methods that do not have an instance (i.e. Self does not point to a class
+instance) but which follow the scoping and inheritance rules of a class. They can be used
+to return information about the current class, for instance for registration or use in a
+class factory. Since no instance is available, no information available in instances can be
+used.
+<!--l. 3190--><p class="noindent" >Class methods can be called from inside a regular method, but can also be called using a class
+identifier:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Var
+&#x00A0;<br />&#x00A0;&#x00A0;AClass&#x00A0;:&#x00A0;TClass;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;..
+&#x00A0;<br />&#x00A0;&#x00A0;if&#x00A0;CompareText(AClass.ClassName,&#8217;TCOMPONENT&#8217;)=0&#x00A0;then
+&#x00A0;<br />&#x00A0;&#x00A0;...
+&#x00A0;<br />
+</div>
+</td></tr></table>
+<!--l. 3201--><p class="nopar" >But calling them from an instance is also possible:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Var
+&#x00A0;<br />&#x00A0;&#x00A0;MyClass&#x00A0;:&#x00A0;TObject;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;..
+&#x00A0;<br />&#x00A0;&#x00A0;if&#x00A0;MyClass.ClassNameis(&#8217;TCOMPONENT&#8217;)&#x00A0;then
+&#x00A0;<br />&#x00A0;&#x00A0;...
+</div>
+</td></tr></table>
+<!--l. 3211--><p class="nopar" >The reverse is not possible: Inside a class method, the <span 
+class="cmtt-10">Self </span>identifier points to the VMT<a 
+ id="dx72-80003"></a> table of
+the class. No fields, properties or regular methods are available inside a class method. Accessing a
+regular property or method will result in a compiler error.
+<!--l. 3217--><p class="noindent" >Note that class methods can be virtual, and can be overridden.
+<!--l. 3219--><p class="noindent" >Class methods cannot be used as read or write specifiers for a property.<a 
+ id="dx72-80004"></a>
+                                                                            
+
+                                                                            
+<!--l. 3224--><div class="crosslinks"><p class="noindent">[<a 
+href="refse33.html" >next</a>] [<a 
+href="refsu25.html" >prev</a>] [<a 
+href="refsu25.html#tailrefsu25.html" >prev-tail</a>] [<a 
+href="refsu26.html" >front</a>] [<a 
+href="refsu24.html#refsu28.html" >up</a>] </p></div>
+<!--l. 3224--><p class="noindent" ><a 
+ id="tailrefsu26.html"></a>  
+</body></html> 

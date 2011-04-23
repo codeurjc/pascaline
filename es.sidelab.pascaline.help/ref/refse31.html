@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Class instantiation</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 3062--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu24.html" >next</a>] [<a 
+href="refse30.html" >prev</a>] [<a 
+href="refse30.html#tailrefse30.html" >prev-tail</a>] [<a 
+href="refch6.html#tailrefse31.html">tail</a>] [<a 
+href="refse31.html#refsu23.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">6.2   </span> <a 
+href="#x67-750006.2" id="x67-750006.2">Class instantiation</a></h3>
+<a 
+ id="dx67-75001"></a>
+<!--l. 3063--><p class="noindent" ><a name="keyword:constructor"></a> Classes must be created using one of their constructors (there can be multiple constructors).
+Remember that a class is a pointer to an object on the heap. When a variable of some class is
+declared, the compiler just allocates room for this pointer, not the entire object. The constructor of
+a class returns a pointer to an initialized instance of the object on the heap. So, to initialize an
+instance of some class, one would do the following :
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+&#x00A0;&#x00A0;ClassVar&#x00A0;:=&#x00A0;ClassType.ConstructorName;
+</div>
+</td></tr></table>
+<!--l. 3072--><p class="nopar" >The extended syntax of <span 
+class="cmtt-10">new </span>and <span 
+class="cmtt-10">dispose </span>can <span 
+class="cmti-10">not </span>be used to instantiate and destroy class
+instances. That construct is reserved for use with objects only. Calling the constructor will
+provoke a call to <span 
+class="cmtt-10">getmem</span>, to allocate enough space to hold the class instance data. After
+that, the constuctor&#8217;s code is executed. The constructor has a pointer to its data, in
+<span 
+class="cmtt-10">Self</span>.
+<!--l. 3081--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span>
+<a 
+ id="dx67-75002"></a>
+     <ul class="itemize1">
+     <li class="itemize">The <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$PackRecords </span><span 
+class="cmsy-10">} </span>directive also affects classes. i.e. the alignment in memory of
+     the different fields depends on the value of the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$PackRecords </span><span 
+class="cmsy-10">} </span>directive.
+     </li>
+     <li class="itemize">Just as for objects and records, a packed class can be declared. This has the same effect
+     as on an object, or record, namely that the elements are aligned on 1-byte boundaries.
+     i.e. as close as possible.
+     </li>
+     <li class="itemize"><span 
+class="cmtt-10">SizeOf(class) </span>will return the same as <span 
+class="cmtt-10">SizeOf(Pointer)</span>, since a class is but a pointer
+     to an object. To get the size of the class instance data, use the <span 
+class="cmtt-10">TObject.InstanceSize</span>
+     method.</li></ul>
+                                                                            
+
+                                                                            
+<!--l. 3097--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu24.html" >next</a>] [<a 
+href="refse30.html" >prev</a>] [<a 
+href="refse30.html#tailrefse30.html" >prev-tail</a>] [<a 
+href="refse31.html" >front</a>] [<a 
+href="refse31.html#refsu23.html" >up</a>] </p></div>
+<!--l. 3097--><p class="noindent" ><a 
+ id="tailrefse31.html"></a>  
+</body></html> 

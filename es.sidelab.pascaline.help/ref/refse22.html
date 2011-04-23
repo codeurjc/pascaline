@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Thread Variables</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 2290--><div class="crosslinks"><p class="noindent">[<a 
+href="refch5.html" >next</a>] [<a 
+href="refse21.html" >prev</a>] [<a 
+href="refse21.html#tailrefse21.html" >prev-tail</a>] [<a 
+href="refse21.html#tailrefse22.html">tail</a>] [<a 
+href="refse19.html#refse23.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">4.4   </span> <a 
+href="#x53-590004.4" id="x53-590004.4">Thread Variables</a></h3>
+<a 
+ id="dx53-59001"></a>
+<a 
+ id="dx53-59002"></a>
+<!--l. 2291--><p class="noindent" ><a name="keyword:threadvar"></a> For a program which uses threads, the variables can be really global, i.e. the same for all threads,
+or thread-local: this means that each thread gets a copy of the variable. Local variables (defined
+inside a procedure) are always thread-local. Global variables are normally the same for all threads.
+A global variable can be declared thread-local by replacing the <span 
+class="cmtt-10">var </span>keyword at the start of the
+variable declaration block with <span 
+class="cmtt-10">Threadvar</span>:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Threadvar
+&#x00A0;<br />&#x00A0;&#x00A0;IOResult&#x00A0;:&#x00A0;Integer;
+</div>
+</td></tr></table>
+<!--l. 2301--><p class="nopar" >If no threads are used, the variable behaves as an ordinary variable. If threads are used then a copy
+is made for each thread (including the main thread). Note that the copy is made with the
+original value of the variable, <span 
+class="cmti-10">not </span>with the value of the variable at the time the thread is
+started.
+<!--l. 2308--><p class="noindent" >Threadvars should be used sparingly: There is an overhead for retrieving or setting the variable&#8217;s
+value. If possible at all, consider using local variables; they are always faster than thread
+variables.
+<!--l. 2312--><p class="noindent" >Threads are not enabled by default. For more information about programming threads, see the
+chapter on threads in the <a 
+href="../prog/prog.html" >Programmers guide</a>.
+                                                                            
+
+                                                                            
+<!--l. 2315--><div class="crosslinks"><p class="noindent">[<a 
+href="refch5.html" >next</a>] [<a 
+href="refse21.html" >prev</a>] [<a 
+href="refse21.html#tailrefse21.html" >prev-tail</a>] [<a 
+href="refse22.html" >front</a>] [<a 
+href="refse19.html#refse23.html" >up</a>] </p></div>
+<!--l. 2315--><p class="noindent" ><a 
+ id="tailrefse22.html"></a>  
+</body></html> 

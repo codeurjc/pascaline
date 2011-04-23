@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Interface implementations</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 3712--><div class="crosslinks"><p class="noindent">[<a 
+href="refse39.html" >next</a>] [<a 
+href="refse35.html" >prev</a>] [<a 
+href="refse35.html#tailrefse35.html" >prev-tail</a>] [<a 
+href="refse34.html#tailrefse36.html">tail</a>] [<a 
+href="refse35.html#refch8.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">7.3   </span> <a 
+href="#x80-870007.3" id="x80-870007.3">Interface implementations</a></h3>
+<a 
+ id="dx80-87001"></a>
+<!--l. 3714--><p class="noindent" >When a class implements an interface, it should implement all methods of the interface. If a
+method of an interface is not implemented, then the compiler will give an error. For
+example:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;IMyInterface&#x00A0;=&#x00A0;Interface
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Function&#x00A0;MyFunc&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Function&#x00A0;MySecondFunc&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;TMyClass&#x00A0;=&#x00A0;Class(TInterfacedObject,IMyInterface)
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Function&#x00A0;MyFunc&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Function&#x00A0;MyOtherFunc&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />Function&#x00A0;TMyClass.MyFunc&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Result:=23;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />Function&#x00A0;TMyClass.MyOtherFunc&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Result:=24;
+&#x00A0;<br />end;
+</div>
+</td></tr></table>
+<!--l. 3740--><p class="nopar" >will result in a compiler error:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Error:&#x00A0;No&#x00A0;matching&#x00A0;implementation&#x00A0;for&#x00A0;interface&#x00A0;method
+&#x00A0;<br />"IMyInterface.MySecondFunc:LongInt"&#x00A0;found
+</div>
+</td></tr></table>
+<!--l. 3745--><p class="nopar" >
+<!--l. 3747--><p class="noindent" >At the moment of writing, the compiler does not yet support providing aliases for an interface as in
+Delphi. i.e. the following will not yet compile:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+ype
+&#x00A0;<br />&#x00A0;&#x00A0;IMyInterface&#x00A0;=&#x00A0;Interface
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Function&#x00A0;MyFunc&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;TMyClass&#x00A0;=&#x00A0;Class(TInterfacedObject,IMyInterface)
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Function&#x00A0;MyOtherFunction&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;//&#x00A0;The&#x00A0;following&#x00A0;fails&#x00A0;in&#x00A0;FPC.
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Function&#x00A0;IMyInterface.MyFunc&#x00A0;=&#x00A0;MyOtherFunction;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+</div>
+</td></tr></table>
+<!--l. 3761--><p class="nopar" >This declaration should tell the compiler that the <span 
+class="cmtt-10">MyFunc </span>method of the <span 
+class="cmtt-10">IMyInterface </span>interface is
+implemented in the <span 
+class="cmtt-10">MyOtherFunction </span>method of the <span 
+class="cmtt-10">TMyClass </span>class.
+                                                                            
+
+                                                                            
+<!--l. 3766--><div class="crosslinks"><p class="noindent">[<a 
+href="refse39.html" >next</a>] [<a 
+href="refse35.html" >prev</a>] [<a 
+href="refse35.html#tailrefse35.html" >prev-tail</a>] [<a 
+href="refse36.html" >front</a>] [<a 
+href="refse35.html#refch8.html" >up</a>] </p></div>
+<!--l. 3766--><p class="noindent" ><a 
+ id="tailrefse36.html"></a>  
+</body></html> 

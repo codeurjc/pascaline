@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Unit scope</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 6743--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu71.html" >prev</a>] [<a 
+href="refsu71.html#tailrefsu71.html" >prev-tail</a>] [<a 
+href="refsu69.html#tailrefsu72.html">tail</a>] [<a 
+href="refsu71.html#refse73.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">13.4.4   </span> <a 
+href="#x165-17200013.4.4" id="x165-17200013.4.4">Unit scope</a></h4>
+<a 
+ id="dx165-172001"></a>
+<a 
+ id="dx165-172002"></a>
+<!--l. 6745--><p class="noindent" >All identifiers in the interface part of a unit are valid from the point of declaration, until the end of
+the unit. Furthermore, the identifiers are known in programs or units that have the unit in their
+uses clause.
+<!--l. 6749--><p class="noindent" >Identifiers from indirectly dependent units are <span 
+class="cmti-10">not </span>available. Identifiers declared in the
+implementation part of a unit are valid from the point of declaration to the end of the
+unit.
+<!--l. 6753--><p class="noindent" >The <span 
+class="cmss-10">system </span>unit is automatically used in all units and programs. Its identifiers are therefore always
+known, in each Pascal program, library or unit.
+<!--l. 6757--><p class="noindent" >The rules of unit scope imply that an identifier of a unit can be redefined. To have access to an
+identifier of another unit that was redeclared in the current unit, precede it with that other units
+name, as in the following example:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+unit&#x00A0;unitA;
+&#x00A0;<br />interface
+&#x00A0;<br />Type
+&#x00A0;<br />&#x00A0;&#x00A0;MyType&#x00A0;=&#x00A0;Real;
+&#x00A0;<br />implementation
+&#x00A0;<br />end.
+&#x00A0;<br />Program&#x00A0;prog;
+&#x00A0;<br />Uses&#x00A0;UnitA;
+&#x00A0;<br />
+&#x00A0;<br />{&#x00A0;Redeclaration&#x00A0;of&#x00A0;MyType}
+&#x00A0;<br />Type&#x00A0;MyType&#x00A0;=&#x00A0;Integer;
+&#x00A0;<br />Var&#x00A0;A&#x00A0;:&#x00A0;Mytype;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;{&#x00A0;Will&#x00A0;be&#x00A0;Integer&#x00A0;}
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;B&#x00A0;:&#x00A0;UnitA.MyType&#x00A0;{&#x00A0;Will&#x00A0;be&#x00A0;real&#x00A0;}
+&#x00A0;<br />begin
+&#x00A0;<br />end.
+</div>
+</td></tr></table>
+<!--l. 6777--><p class="nopar" >This is especially useful when redeclaring the system unit&#8217;s identifiers.
+                                                                            
+
+                                                                            
+<!--l. 6782--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu71.html" >prev</a>] [<a 
+href="refsu71.html#tailrefsu71.html" >prev-tail</a>] [<a 
+href="refsu72.html" >front</a>] [<a 
+href="refsu71.html#refse73.html" >up</a>] </p></div>
+<!--l. 6782--><p class="noindent" ><a 
+ id="tailrefsu72.html"></a>  
+</body></html> 

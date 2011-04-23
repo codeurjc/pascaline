@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Generic class specialization</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 3903--><div class="crosslinks"><p class="noindent">[<a 
+href="refse44.html" >next</a>] [<a 
+href="refse40.html" >prev</a>] [<a 
+href="refse40.html#tailrefse40.html" >prev-tail</a>] [<a 
+href="refch8.html#tailrefse41.html">tail</a>] [<a 
+href="refse41.html#refse43.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">8.3   </span> <a 
+href="#x86-930008.3" id="x86-930008.3">Generic class specialization</a></h3>
+<!--l. 3904--><p class="noindent" >Once a generic class is defined, it can be used to generate other classes: this is like replaying
+the definition of the class, with the template placeholders filled in with actual type
+definitions.
+<!--l. 3908--><p class="noindent" >This can be done in any <span 
+class="cmtt-10">Type </span>definition block. The specialized type looks as follows:
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<span 
+class="cmbx-10">Specialized type</span> <BR/><img 
+src="ref102x.png" alt="--specialized type specialize -identifier- &#x003C; type identifier list &#x003E;----------
+     " ><BR/>
+     <BR/><img 
+src="ref103x.png" alt="--type identifier list--identifier---------------------------------------
+                 ----,-----|
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 3911--><p class="noindent" >Which is a very simple definition. Given the declaration of <span 
+class="cmtt-10">TList </span>in the previous section, the
+following would be a valid type definition:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;TPointerList&#x00A0;=&#x00A0;specialize&#x00A0;TList&#x003C;Pointer&#x003E;;
+&#x00A0;<br />&#x00A0;&#x00A0;TIntegerList&#x00A0;=&#x00A0;specialize&#x00A0;TList&#x003C;Integer&#x003E;;
+</div>
+</td></tr></table>
+<!--l. 3917--><p class="nopar" >The following is not allowed:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Var
+&#x00A0;<br />&#x00A0;&#x00A0;P&#x00A0;:&#x00A0;specialize&#x00A0;TList&#x003C;Pointer&#x003E;;
+</div>
+</td></tr></table>
+<!--l. 3922--><p class="nopar" >that is, a variable cannot be directly declared using a specialization.
+<!--l. 3925--><p class="noindent" >The type in the specialize statement must be known. Given the 2 generic class definitions:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+type
+&#x00A0;<br />&#x00A0;&#x00A0;Generic&#x00A0;TMyFirstType&#x003C;T1&#x003E;&#x00A0;=&#x00A0;Class(TMyObject);
+&#x00A0;<br />&#x00A0;&#x00A0;Generic&#x00A0;TMySecondType&#x003C;T2&#x003E;&#x00A0;=&#x00A0;Class(TMyOtherObject);
+</div>
+</td></tr></table>
+<!--l. 3931--><p class="nopar" >Then the following specialization is not valid:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+type
+&#x00A0;<br />&#x00A0;&#x00A0;TMySpecialType&#x00A0;=&#x00A0;specialize&#x00A0;TMySecondType&#x003C;TMyFirstType&#x003E;;
+</div>
+</td></tr></table>
+<!--l. 3936--><p class="nopar" >because the type <span 
+class="cmtt-10">TMyFirstType </span>is a generic type, and thus not fully defined. However, the
+following is allowed:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+type
+&#x00A0;<br />&#x00A0;&#x00A0;TA&#x00A0;=&#x00A0;specialize&#x00A0;TMyFirstType&#x003C;Atype&#x003E;;
+&#x00A0;<br />&#x00A0;&#x00A0;TB&#x00A0;=&#x00A0;specialize&#x00A0;TMySecondType&#x003C;TA&#x003E;;
+</div>
+</td></tr></table>
+<!--l. 3943--><p class="nopar" >because <span 
+class="cmtt-10">TA </span>is already fully defined when <span 
+class="cmtt-10">TB </span>is specialized.
+<!--l. 3946--><p class="noindent" >Note that 2 specializations of a generic type with the same types in a placeholder are not
+assignment compatible. In the following example:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+type
+&#x00A0;<br />&#x00A0;&#x00A0;TA&#x00A0;=&#x00A0;specialize&#x00A0;TList&#x003C;Pointer&#x003E;;
+&#x00A0;<br />&#x00A0;&#x00A0;TB&#x00A0;=&#x00A0;specialize&#x00A0;TList&#x003C;Pointer&#x003E;;
+</div>
+</td></tr></table>
+<!--l. 3952--><p class="nopar" >variables of types <span 
+class="cmtt-10">TA </span>and <span 
+class="cmtt-10">TB </span>cannot be assigned to each other, i.e the following assignment will be
+invalid:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Var
+&#x00A0;<br />&#x00A0;&#x00A0;A&#x00A0;:&#x00A0;TA;
+&#x00A0;<br />&#x00A0;&#x00A0;B&#x00A0;:&#x00A0;TB;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;A:=B;
+</div>
+</td></tr></table>
+<!--l. 3962--><p class="nopar" >
+<!--l. 3964--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> It is not possible to make a forward definition of a generic class. The compiler will generate an
+error if a forward declaration of a class is later defined as a generic specialization.
+                                                                            
+
+                                                                            
+<!--l. 3970--><div class="crosslinks"><p class="noindent">[<a 
+href="refse44.html" >next</a>] [<a 
+href="refse40.html" >prev</a>] [<a 
+href="refse40.html#tailrefse40.html" >prev-tail</a>] [<a 
+href="refse41.html" >front</a>] [<a 
+href="refse41.html#refse43.html" >up</a>] </p></div>
+<!--l. 3970--><p class="noindent" ><a 
+ id="tailrefse41.html"></a>  
+</body></html> 

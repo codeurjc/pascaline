@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>alias</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 5858--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu57.html" >next</a>] [<a 
+href="refse59.html#tailrefsu53.html">tail</a>] [<a 
+href="refsu55.html#refsu56.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">11.9.1   </span> <a 
+href="#x134-14100011.9.1" id="x134-14100011.9.1">alias</a></h4>
+<a 
+ id="dx134-141001"></a>
+<a 
+ id="dx134-141002"></a>
+<!--l. 5861--><p class="noindent" >The <span 
+class="cmtt-10">alias </span>modifier allows the programmer to specify a different name for a procedure or function.
+This is mostly useful for referring to this procedure from assembly language constructs or from
+another object file. As an example, consider the following program:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Program&#x00A0;Aliases;
+&#x00A0;<br />
+&#x00A0;<br />Procedure&#x00A0;Printit;alias&#x00A0;:&#x00A0;&#8217;DOIT&#8217;;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;WriteLn&#x00A0;(&#8217;In&#x00A0;Printit&#x00A0;(alias&#x00A0;:&#x00A0;"DOIT")&#8217;);
+&#x00A0;<br />end;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;asm
+&#x00A0;<br />&#x00A0;&#x00A0;call&#x00A0;DOIT
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />end.
+</div>
+</td></tr></table>
+<!--l. 5877--><p class="nopar" >
+<!--l. 5878--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> The specified alias is inserted straight into the assembly code, thus it is case sensitive.
+<!--l. 5881--><p class="noindent" >The <span 
+class="cmtt-10">alias </span>modifier does not make the symbol public to other modules, unless the routine is also
+declared in the interface part of a unit, or the <span 
+class="cmtt-10">public </span>modifier is used to force it as public.
+Consider the following:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+&#x00A0;<br />unit&#x00A0;testalias;
+&#x00A0;<br />
+&#x00A0;<br />interface
+&#x00A0;<br />
+&#x00A0;<br />procedure&#x00A0;testroutine;
+&#x00A0;<br />
+&#x00A0;<br />implementation
+&#x00A0;<br />
+&#x00A0;<br />procedure&#x00A0;testroutine;alias:&#8217;ARoutine&#8217;;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;WriteLn(&#8217;Hello&#x00A0;world&#8217;);
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />end.
+</div>
+</td></tr></table>
+<!--l. 5901--><p class="nopar" >This will make the routine <span 
+class="cmtt-10">testroutine </span>available publicly to external object files under the label
+name <span 
+class="cmtt-10">ARoutine</span>.
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+The&#x00A0;\var{alias}&#x00A0;directive&#x00A0;is&#x00A0;considered&#x00A0;deprecated.&#x00A0;Please&#x00A0;use&#x00A0;the
+&#x00A0;<br />\var{public&#x00A0;name}&#x00A0;directive.&#x00A0;See&#x00A0;\sees{public}.
+</div>
+</td></tr></table>
+<!--l. 5908--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 5910--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu57.html" >next</a>] [<a 
+href="refsu53.html" >front</a>] [<a 
+href="refsu55.html#refsu56.html" >up</a>] </p></div>
+<!--l. 5910--><p class="noindent" ><a 
+ id="tailrefsu53.html"></a>  
+</body></html> 

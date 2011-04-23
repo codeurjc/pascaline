@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>inline</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 5955--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu60.html" >next</a>] [<a 
+href="refsu55.html" >prev</a>] [<a 
+href="refsu55.html#tailrefsu55.html" >prev-tail</a>] [<a 
+href="refsu53.html#tailrefsu56.html">tail</a>] [<a 
+href="refsu55.html#refsu59.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">11.9.4   </span> <a 
+href="#x137-14400011.9.4" id="x137-14400011.9.4">inline</a></h4>
+<a 
+ id="dx137-144001"></a>
+<a 
+ id="dx137-144002"></a>
+<!--l. 5958--><p class="noindent" >Procedures that are declared <span 
+class="cmtt-10">inline </span>are copied to the places where they are called. This has the
+effect that there is no actual procedure call, the code of the procedure is just copied to
+where the procedure is needed, this results in faster execution speed if the function
+or procedure is used a lot. It is obvious that inlining large functions does not make
+sense.
+<!--l. 5964--><p class="noindent" >By default, <span 
+class="cmtt-10">inline </span>procedures are not allowed. Inline code must be enabled using the
+command-line switch <span 
+class="cmtt-10">-Si </span>or <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$inline on</span><span 
+class="cmsy-10">} </span>directive.
+<!--l. 5968--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span>
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x137-144004x1"><span 
+class="cmtt-10">inline </span>is only a hint for the compiler. This does <span 
+class="cmti-10">not </span>automatically mean that all
+     calls are inlined; sometimes the compiler may decide that a function simply cannot be
+     inlined, or that a particular call to the function cannot be inlined. If so, the compiler
+     will emit a warning.
+     </li>
+     <li 
+  class="enumerate" id="x137-144006x2">In old versions of Free Pascal, inline code was <span 
+class="cmti-10">not </span>exported from a unit. This meant
+     that when calling an inline procedure from another unit, a normal procedure call will
+     be performed. Only inside units, <span 
+class="cmtt-10">Inline </span>procedures are really inlined. As of version
+     2.0.2, inline works accross units.
+     </li>
+     <li 
+  class="enumerate" id="x137-144008x3">Recursive inline functions are not allowed. i.e. an inline function that calls itself is not
+     allowed.</li></ol>
+                                                                            
+
+                                                                            
+<!--l. 5983--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu60.html" >next</a>] [<a 
+href="refsu55.html" >prev</a>] [<a 
+href="refsu55.html#tailrefsu55.html" >prev-tail</a>] [<a 
+href="refsu56.html" >front</a>] [<a 
+href="refsu55.html#refsu59.html" >up</a>] </p></div>
+<!--l. 5983--><p class="noindent" ><a 
+ id="tailrefsu56.html"></a>  
+</body></html> 

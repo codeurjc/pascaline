@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>6 Classes</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 2885--><div class="crosslinks"><p class="noindent">[<a 
+href="refse35.html" >next</a>] [<a 
+href="refch5.html" >prev</a>] [<a 
+href="refch5.html#tailrefch5.html" >prev-tail</a>] [<a 
+href="refsu22.html#tailrefch6.html">tail</a>] [<a 
+href="ref.html#refse31.html" >up</a>] </p></div>
+<h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;6</span><br /><a 
+href="#x65-730006" id="x65-730006">Classes</a></h2>
+<a 
+ id="dx65-73001"></a>
+<a 
+ id="dx65-73002"></a>
+<!--l. 2886--><p class="noindent" ><a name="keyword:class"></a> In the Delphi approach to Object Oriented Programming, everything revolves around the concept
+of &#8217;Classes&#8217;. A class can be seen as a pointer to an object, or a pointer to a record, with methods
+associated with it.
+<!--l. 2891--><p class="noindent" >The difference between objects and classes is mainly that an object is allocated on the stack, as an
+ordinary record would be, and that classes are always allocated on the heap. In the following
+example:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Var
+&#x00A0;<br />&#x00A0;&#x00A0;A&#x00A0;:&#x00A0;TSomeObject;&#x00A0;//&#x00A0;an&#x00A0;Object
+&#x00A0;<br />&#x00A0;&#x00A0;B&#x00A0;:&#x00A0;TSomeClass;&#x00A0;&#x00A0;//&#x00A0;a&#x00A0;Class
+</div>
+</td></tr></table>
+<!--l. 2898--><p class="nopar" >The main difference is that the variable <span 
+class="cmtt-10">A </span>will take up as much space on the stack as the size of the
+object (<span 
+class="cmtt-10">TSomeObject</span>). The variable <span 
+class="cmtt-10">B</span>, on the other hand, will always take just the size of a pointer
+on the stack. The actual class data is on the heap.
+<!--l. 2904--><p class="noindent" >From this, a second difference follows: a class must <span 
+class="cmti-10">always </span>be initialized through its constructor,
+whereas for an object, this is not necessary. Calling the constructor allocates the necessary memory
+on the heap for the class instance data.
+<!--l. 2909--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> In earlier versions of Free Pascal it was necessary, in order to use classes, to put the <span 
+class="cmss-10">objpas </span>unit in
+the uses clause of a unit or program. <span 
+class="cmti-10">This is no longer needed </span>as of version 0.99.12. As of this
+version, the unit will be loaded automatically when the <span 
+class="cmtt-10">-MObjfpc </span>or <span 
+class="cmtt-10">-MDelphi </span>options are
+specified, or their corresponding directives are used:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+{$mode&#x00A0;objfpc}
+&#x00A0;<br />{$mode&#x00A0;delphi}
+</div>
+</td></tr></table>
+<!--l. 2919--><p class="nopar" >In fact, the compiler will give a warning if it encounters the <span 
+class="cmss-10">objpas </span>unit in a uses clause.
+<div class="sectionTOCS">
+&#x00A0;<span class="sectionToc" >6.1 <a 
+href="refse30.html#x66-740006.1">Class definitions</a></span>
+<br />&#x00A0;<span class="sectionToc" >6.2 <a 
+href="refse31.html#x67-750006.2">Class instantiation</a></span>
+<br />&#x00A0;<span class="sectionToc" >6.3 <a 
+href="refse32.html#x68-760006.3">Methods</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.3.1 <a 
+href="refsu23.html#x69-770006.3.1">Declaration</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.3.2 <a 
+href="refsu24.html#x70-780006.3.2">invocation</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.3.3 <a 
+href="refsu25.html#x71-790006.3.3">Virtual methods</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.3.4 <a 
+href="refsu26.html#x72-800006.3.4">Class methods</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.3.5 <a 
+href="refsu27.html#x73-810006.3.5">Message methods</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.3.6 <a 
+href="refsu28.html#x74-820006.3.6">Using inherited</a></span>
+<br />&#x00A0;<span class="sectionToc" >6.4 <a 
+href="refse33.html#x75-830006.4">Properties</a></span>
+</div>
+
+
+
+                                                                            
+
+                                                                            
+<!--l. 3611--><div class="crosslinks"><p class="noindent">[<a 
+href="refse35.html" >next</a>] [<a 
+href="refch5.html" >prev</a>] [<a 
+href="refch5.html#tailrefch5.html" >prev-tail</a>] [<a 
+href="refch6.html" >front</a>] [<a 
+href="ref.html#refse31.html" >up</a>] </p></div>
+<!--l. 3611--><p class="noindent" ><a 
+ id="tailrefch6.html"></a>  
+</body></html> 

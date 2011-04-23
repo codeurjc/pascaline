@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Forward type declarations</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+ --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2008-08-23 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 1928--><div class="crosslinks"><p class="noindent">[<a 
+href="refse18.html" >next</a>] [<a 
+href="refse15.html" >prev</a>] [<a 
+href="refse15.html#tailrefse15.html" >prev-tail</a>] [<a 
+href="refse15.html#tailrefse16.html">tail</a>] [<a 
+href="refch3.html#refse17.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">3.5   </span> <a 
+href="#x43-490003.5" id="x43-490003.5">Forward type declarations</a></h3>
+<a 
+ id="dx43-49001"></a>
+<a 
+ id="dx43-49002"></a>
+<!--l. 1930--><p class="noindent" >Programs often need to maintain a linked list of records. Each record then contains a pointer to the
+next record (and possibly to the previous record as well). For type safety, it is best
+to define this pointer as a typed pointer, so the next record can be allocated on the
+heap using the <span 
+class="cmtt-10">New </span>call. In order to do so, the record should be defined something like
+this:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;TListItem&#x00A0;=&#x00A0;Record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Data&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Next&#x00A0;:&#x00A0;^TListItem;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+</div>
+</td></tr></table>
+<!--l. 1941--><p class="nopar" >When trying to compile this, the compiler will complain that the <span 
+class="cmtt-10">TListItem </span>type is not yet defined
+when it encounters the <span 
+class="cmtt-10">Next </span>declaration: This is correct, as the definition is still being
+parsed.
+<!--l. 1946--><p class="noindent" >To be able to have the <span 
+class="cmtt-10">Next </span>element as a typed pointer, a &#8217;Forward type declaration&#8217; must be
+introduced:
+                                                                            
+
+                                                                            
+<table 
+class="verbatim"><tr class="verbatim"><td 
+class="verbatim"><div class="verbatim">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;PListItem&#x00A0;=&#x00A0;^TListItem;
+&#x00A0;<br />&#x00A0;&#x00A0;TListItem&#x00A0;=&#x00A0;Record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Data&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Next&#x00A0;:&#x00A0;PTListItem;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+</div>
+</td></tr></table>
+<!--l. 1955--><p class="nopar" >When the compiler encounters a typed pointer declaration where the referenced type is not yet
+known, it postpones resolving the reference till later. The pointer definition is a &#8217;Forward type
+declaration&#8217;.
+<!--l. 1960--><p class="noindent" >The referenced type should be introduced later in the same <span 
+class="cmtt-10">Type </span>block. No other block may come
+between the definition of the pointer type and the referenced type. Indeed, even the word <span 
+class="cmtt-10">Type</span>
+itself may not re-appear: in effect it would start a new type-block, causing the compiler to resolve
+all pending declarations in the current block.
+<!--l. 1966--><p class="noindent" >In most cases, the definition of the referenced type will follow immediatly after the definition of the
+pointer type, as shown in the above listing. The forward defined type can be used in any type
+definition following its declaration.
+<!--l. 1971--><p class="noindent" >Note that a forward type declaration is only possible with pointer types and classes, not with other
+types.
+                                                                            
+
+                                                                            
+<!--l. 1976--><div class="crosslinks"><p class="noindent">[<a 
+href="refse18.html" >next</a>] [<a 
+href="refse15.html" >prev</a>] [<a 
+href="refse15.html#tailrefse15.html" >prev-tail</a>] [<a 
+href="refse16.html" >front</a>] [<a 
+href="refch3.html#refse17.html" >up</a>] </p></div>
+<!--l. 1976--><p class="noindent" ><a 
+ id="tailrefse16.html"></a>  
+</body></html> 
