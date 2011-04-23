@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/es.sidelab.pascaline_1.0.1.qualifier.jar" id="es.sidelab.pascaline" version="1.0.1.qualifier">
+      <category name="es.sidelab.pascaline.ide"/>
+   </feature>
+   <category-def name="es.sidelab.pascaline.ide" label="Pascaline Development Tooling"/>
+</site>
