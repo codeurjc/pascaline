@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            name="Pascal Variables"
+            icon="icons/var_simple_aggr.gif"
+            category="org.eclipse.debug.ui"
+            class="net.sf.pascaline.debug.ui.views.variables.FilteredVariablesView"
+            id="net.sf.pascaline.debug.ui.filteredVariablesView">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="org.eclipse.debug.ui.DebugPerspective">
+         <view
+               relative="org.eclipse.debug.ui.VariableView"
+               visible="true"
+               relationship="stack"
+               id="net.sf.pascaline.debug.ui.filteredVariablesView">
+         </view>
+         <viewShortcut
+               id="net.sf.pascaline.debug.ui.filteredVariablesView">
+         </viewShortcut>
+       </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.ui.contexts">
+      <context
+            name="Debugging Pascal"
+            description="Debugging Pascal Program"
+            parentId="org.eclipse.cdt.debug.ui.debugging"
+            id="net.sf.pascaline.debug.ui.debugging">
+      </context>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.contextViewBindings">
+      <contextViewBinding
+            viewId="net.sf.pascaline.debug.ui.filteredVariablesView"
+            contextId="net.sf.pascaline.debug.ui.debugging">
+      </contextViewBinding>
+   </extension>
+
+   
+
+</plugin>

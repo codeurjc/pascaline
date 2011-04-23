@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Pascaline Debug Plug-in
+Bundle-SymbolicName: es.sidelab.pascaline.debug.ui;singleton:=true
+Bundle-Version: 1.0.1.qualifier
+Bundle-Activator: net.sf.pascaline.debug.ui.PascalDebugUI
+Require-Bundle: es.sidelab.pascaline.core,
+ es.sidelab.pascaline.cdtinterface,
+ org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.debug.ui,
+ org.eclipse.cdt.core,
+ org.eclipse.cdt.debug.core,
+ org.eclipse.cdt.debug.ui,
+ org.eclipse.cdt.ui,
+ org.eclipse.jface.text,
+ org.eclipse.ui.workbench.texteditor,
+ org.eclipse.ui.ide,
+ org.eclipse.ui.editors
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Vendor: Pascaline Team
+Export-Package: net.sf.pascaline.debug.ui,
+ net.sf.pascaline.debug.ui.views.variables
