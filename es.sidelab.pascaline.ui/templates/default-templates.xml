@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+/*******************************************************************************
+ * This file is part of Pascaline.
+ * 
+ * Copyright (c) Pascaline Team.
+ * http://pascaline.sourceforge.net/
+ * 
+ * This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *******************************************************************************/
+
+-->
+
+<!-- NOTE TO TRANSLATOR:
+* This file should remain English as it produces compilable code. 
+-->
+
+<templates>
+<template name="for" description="%forLoop" context="net.sf.pascaline.ui.text.templates.pascal" id="net.sf.pascaline.ui.text.templates.pascal.for" enabled="true">for (${var} = 0; ${var} &lt; ${max}; ++${var}) {
+	${line_selection}${cursor}
+}</template>
+
+<template name="do" description="%doWhileStmt" context="net.sf.pascaline.ui.text.templates.pascal" id="net.sf.pascaline.ui.text.templates.pascal.do" enabled="true">do {
+	${line_selection}${cursor}
+} while (${condition});</template>
+<template name="switch" description="%switchCaseStmt" context="net.sf.pascaline.ui.text.templates.pascal" id="net.sf.pascaline.ui.text.templates.pascal.switch" enabled="true">switch (${key}) {
+	case ${value}:
+		${cursor}
+		break;
+	default:
+		break;
+}</template>
+
+<template name="if" description="%ifStmt" context="net.sf.pascaline.ui.text.templates.pascal" id="net.sf.pascaline.ui.text.templates.pascal.if" enabled="true">if (${condition}) {
+	${line_selection}${cursor}
+}</template>
+<template name="ifelse" description="%ifElseStmt" context="net.sf.pascaline.ui.text.templates.pascal" id="net.sf.pascaline.ui.text.templates.pascal.ifelse" enabled="true">if (${condition}) {
+	${cursor}
+} else {
+	
+}</template>
+<template name="elseif" description="%elseIfBlock" context="net.sf.pascaline.ui.text.templates.pascal" id="net.sf.pascaline.ui.text.templates.pascal.elseif" enabled="true">else if (${condition}) {
+	${cursor}
+}</template>
+<template name="else" description="%elseBlock" context="net.sf.pascaline.ui.text.templates.pascal" id="net.sf.pascaline.ui.text.templates.pascal.else" enabled="true">else {
+	${cursor}
+}</template>
+<template name="main" description="%mainMethod" context="net.sf.pascaline.ui.text.templates.pascal" id="net.sf.pascaline.ui.text.templates.pascal.main" enabled="true">begin
+end.
+</template>
+<template name="class" description="%classDeclaration" context="net.sf.pascaline.ui.text.templates.pascal" id="net.sf.pascaline.ui.text.templates.pascal.class" enabled="true">object ${name}
+public:
+	${cursor}
+
+private:
+end;</template>
+<template name="use" description="%usinganamespace" context="net.sf.pascaline.ui.text.templates.pascal" id="net.sf.pascaline.ui.text.templates.pascal.use" enabled="true">use ${name};
+</template>
+
+<template name="comment" description="%defaultmultilinecomment" context="net.sf.pascaline.ui.text.templates.pascal" id="net.sf.pascaline.ui.text.templates.pascal.comment" enabled="true">
+{
+ author ${user}
+ 
+ %commentText
+}
+</template>
+<template name="stdout" description="%printtostdout" context="net.sf.pascaline.ui.text.templates.pascal" id="net.sf.pascaline.ui.text.templates.pascal.writeln" enabled="true">writeln('${cursor}');</template>
+
+</templates>

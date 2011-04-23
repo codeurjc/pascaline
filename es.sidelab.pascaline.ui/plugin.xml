@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         id="net.sf.pascaline.ui.PascalEditor"
+         point="org.eclipse.ui.editors">
+      <editor
+            class="net.sf.pascaline.internal.ui.editor.FreePascalEditor"
+            contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
+            default="true"
+            icon="icons/full/obj16/f_file_obj.gif"
+            id="net.sf.pascaline.ui.FreePascalEditor"
+            name="FreePascal Editor">
+         <contentTypeBinding
+               contentTypeId="net.sf.pascaline.core.pascalSource">
+         </contentTypeBinding>
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.contexts">
+      <context
+            id="net.sf.pascaline.ui.FreePascalEditorContext"
+            name="FreePascal Editor"
+            parentId="org.eclipse.ui.textEditorScope">
+      </context>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editorActions">
+      <editorContribution
+            id="net.sf.pascaline.ui.FreePascalBreakpointRulerAction"
+            targetID="net.sf.pascaline.ui.FreePascalEditor">
+         <action
+               actionID="RulerDoubleClick"
+               class="org.eclipse.debug.ui.actions.RulerToggleBreakpointActionDelegate"
+               id="org.eclipse.cdt.debug.ui.CEditor.RulerTobbleBreakpointAction"
+               label="Toggle Breakpoint">
+         </action>
+      </editorContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors.templates">
+      <contextType
+            class="net.sf.pascaline.ui.templates.PascalContextType"
+            id="net.sf.pascaline.ui.text.templates.pascal"
+            name="Pascal">
+      </contextType>
+      <include
+            file="templates/default-templates.xml">
+      </include>
+      <include
+            file="templates/default-filetemplates.xml">
+      </include>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.toggleBreakpointsTargetFactories">
+      <toggleTargetFactory
+            class="org.eclipse.cdt.debug.internal.ui.actions.ToggleCBreakpointsTargetFactory"
+            id="net.sf.pascaline.ui.pascalineToggleTargetFactory">
+         <enablement>
+            <or>
+               <instanceof
+                     value="net.sf.pascaline.internal.ui.editor.FreePascalEditor">
+               </instanceof>
+            </or>
+         </enablement>
+      </toggleTargetFactory>
+   </extension>
+
+</plugin>
