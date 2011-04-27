@@ -108,7 +108,7 @@ This Agreement is governed by the laws of the State of New York and the intellec
    </license>
 
    <url>
-      <update label="Pascaline Snapshots Update Site" url="http://www.gavab.es/downloads/pascaline/releases/galileo/"/>
+      <update label="Pascaline Snapshots Update Site" url="http://www.sidelab.es/files/pascaline/tooling/snapshots/"/>
    </url>
 
    <requires>
@@ -119,56 +119,56 @@ This Agreement is governed by the laws of the State of New York and the intellec
          id="es.sidelab.pascaline.cdtinterface"
          download-size="0"
          install-size="0"
-         version="1.0.1.qualifier"
+         version="0.0.0"
          unpack="false"/>
 
    <plugin
          id="es.sidelab.pascaline.core"
          download-size="0"
          install-size="0"
-         version="1.0.1.qualifier"
+         version="0.0.0"
          unpack="false"/>
 
    <plugin
          id="es.sidelab.pascaline.debug.ui"
          download-size="0"
          install-size="0"
-         version="1.0.1.qualifier"
+         version="0.0.0"
          unpack="false"/>
 
    <plugin
          id="es.sidelab.pascaline.help"
          download-size="0"
          install-size="0"
-         version="0.5.1.qualifier"
+         version="0.0.0"
          unpack="false"/>
 
    <plugin
          id="es.sidelab.pascaline.managedbuilder.core"
          download-size="0"
          install-size="0"
-         version="1.0.1.qualifier"
+         version="0.0.0"
          unpack="false"/>
 
    <plugin
          id="es.sidelab.pascaline.managedbuilder.fpc.ui"
          download-size="0"
          install-size="0"
-         version="1.0.1.qualifier"
+         version="0.0.0"
          unpack="false"/>
 
    <plugin
          id="es.sidelab.pascaline.managedbuilder.ui"
          download-size="0"
          install-size="0"
-         version="0.5.0.qualifier"
+         version="0.0.0"
          unpack="false"/>
 
    <plugin
          id="es.sidelab.pascaline.ui"
          download-size="0"
          install-size="0"
-         version="1.0.1.qualifier"
+         version="0.0.0"
          unpack="false"/>
 
 </feature>
