@@ -9,7 +9,7 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package net.sf.pascaline.managedbuilder.core.makegen;
+package es.sidelab.pascaline.managedbuilder.core.makegen;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -17,8 +17,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.Vector;
 
-import net.sf.pascaline.internal.core.model.PascalElement;
-import net.sf.pascaline.managedbuilder.core.ManagedBuilderCorePlugin;
 
 import org.eclipse.cdt.core.CCorePlugin;
 import org.eclipse.cdt.core.model.CModelException;
@@ -72,6 +70,9 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubProgressMonitor;
+
+import es.sidelab.pascaline.internal.core.model.PascalElement;
+import es.sidelab.pascaline.managedbuilder.core.ManagedBuilderCorePlugin;
 
 
 /**

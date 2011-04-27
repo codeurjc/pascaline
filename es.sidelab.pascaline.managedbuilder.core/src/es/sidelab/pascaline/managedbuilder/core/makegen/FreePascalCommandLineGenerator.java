@@ -9,13 +9,11 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package net.sf.pascaline.managedbuilder.core.makegen;
+package es.sidelab.pascaline.managedbuilder.core.makegen;
 
 import java.io.File;
 import java.util.Arrays;
 
-import net.sf.pascaline.internal.core.model.PascalElement;
-import net.sf.pascaline.managedbuilder.core.ManagedBuilderCorePlugin;
 
 import org.eclipse.cdt.core.CCorePlugin;
 import org.eclipse.cdt.core.ICDescriptor;
@@ -40,6 +38,9 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
+
+import es.sidelab.pascaline.internal.core.model.PascalElement;
+import es.sidelab.pascaline.managedbuilder.core.ManagedBuilderCorePlugin;
 
 public class FreePascalCommandLineGenerator implements IManagedCommandLineGenerator {
 
@@ -143,9 +144,9 @@ public class FreePascalCommandLineGenerator implements IManagedCommandLineGenera
 		IToolChain tc = (IToolChain) tool.getParent();
 		if (inputResources == null) {
 			
-			if(tc.getBaseId().startsWith(ManagedBuilderCorePlugin.MINGW_FREEPASCAL_TOOLCHAIN_ID) || tc.getBaseId().startsWith(ManagedBuilderCorePlugin.LINUX_FREEPASCAL_TOOLCHAIN_ID)) {
+			if(tc.getBaseId().startsWith(ManagedBuilderCorePlugin.MINGW_FREEPASCAL_TOOLCHAIN_ID) || tc.getBaseId().startsWith(ManagedBuilderCorePlugin.LINUX_FREEPASCAL_TOOLCHAIN_ID) || tc.getBaseId().startsWith(ManagedBuilderCorePlugin.MACOSX_FREEPASCAL_TOOLCHAIN_ID)) {
 				return new FreePascalCommandLineInfo();
-			} else if(tc.getBaseId().startsWith(ManagedBuilderCorePlugin.MINGW_TURBOPASCAL_ID) || tc.getBaseId().startsWith(ManagedBuilderCorePlugin.LINUX_TURBOPASCAL_TOOLCHAIN_ID)) {
+			} else if(tc.getBaseId().startsWith(ManagedBuilderCorePlugin.MINGW_TURBOPASCAL_ID) || tc.getBaseId().startsWith(ManagedBuilderCorePlugin.LINUX_TURBOPASCAL_TOOLCHAIN_ID) || tc.getBaseId().startsWith(ManagedBuilderCorePlugin.MACOSX_TURBOPASCAL_TOOLCHAIN_ID)) {
 				return new TurboPascalCommandLineInfo();
 			} 
 		}

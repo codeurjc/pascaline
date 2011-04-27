@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Pascaline Managed Builder Core Plug-in
 Bundle-SymbolicName: es.sidelab.pascaline.managedbuilder.core;singleton:=true
 Bundle-Version: 1.0.1.qualifier
-Bundle-Activator: net.sf.pascaline.managedbuilder.core.ManagedBuilderCorePlugin
+Bundle-Activator: es.sidelab.pascaline.managedbuilder.core.ManagedBuilderCorePlugin
 Bundle-Vendor: Pascaline Team
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.cdt.managedbuilder.core,
@@ -13,5 +13,5 @@ Require-Bundle: org.eclipse.core.runtime,
  es.sidelab.pascaline.core;bundle-version="[1.0.0,2.0.0)"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
-Export-Package: net.sf.pascaline.managedbuilder.core,
- net.sf.pascaline.managedbuilder.core.makegen
+Export-Package: es.sidelab.pascaline.managedbuilder.core,
+ es.sidelab.pascaline.managedbuilder.core.makegen

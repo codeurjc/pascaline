@@ -9,7 +9,7 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package net.sf.pascaline.managedbuilder.core.makegen;
+package es.sidelab.pascaline.managedbuilder.core.makegen;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -26,7 +26,6 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-import net.sf.pascaline.cdtinterface.core.FreePascalLanguage;
 
 import org.eclipse.cdt.core.CCorePlugin;
 import org.eclipse.cdt.managedbuilder.core.IBuildObject;
@@ -41,6 +40,8 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.content.IContentType;
+
+import es.sidelab.pascaline.cdtinterface.core.FreePascalLanguage;
 
 
 /**

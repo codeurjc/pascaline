@@ -9,7 +9,7 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package net.sf.pascaline.managedbuilder.core;
+package es.sidelab.pascaline.managedbuilder.core;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -20,7 +20,6 @@ import java.io.OutputStream;
 import java.net.URL;
 import java.util.Enumeration;
 
-import net.sf.pascaline.internal.core.model.PascalElement;
 
 import org.eclipse.cdt.core.CCorePlugin;
 import org.eclipse.cdt.core.model.CModelException;
@@ -38,18 +37,22 @@ import org.eclipse.core.runtime.Plugin;
 import org.eclipse.core.runtime.Status;
 import org.osgi.framework.BundleContext;
 
+import es.sidelab.pascaline.internal.core.model.PascalElement;
+
 /**
  * The activator class controls the plug-in life cycle
  */
 public class ManagedBuilderCorePlugin extends Plugin {
 
 	// The plug-in ID
-	public static final String PLUGIN_ID = "net.sf.pascaline.managedbuilder.core";
+	public static final String PLUGIN_ID = "es.sidelab.pascaline.managedbuilder.core";
 
-	public static final String MINGW_FREEPASCAL_TOOLCHAIN_ID = "net.sf.pascaline.managedbuild.toolchain.fpc.exe.debug.mingw.oo";
-	public static final String LINUX_FREEPASCAL_TOOLCHAIN_ID = "net.sf.pascaline.managedbuild.toolchain.fpc.exe.debug.linux.oo";
-	public static final String MINGW_TURBOPASCAL_ID = "net.sf.pascaline.managedbuild.toolchain.fpc.exe.debug.mingw";
-	public static final String LINUX_TURBOPASCAL_TOOLCHAIN_ID = "net.sf.pascaline.managedbuild.toolchain.fpc.exe.debug.linux";
+	public static final String MINGW_FREEPASCAL_TOOLCHAIN_ID = "es.sidelab.pascaline.managedbuild.toolchain.fpc.exe.debug.mingw.oo";
+	public static final String LINUX_FREEPASCAL_TOOLCHAIN_ID = "es.sidelab.pascaline.managedbuild.toolchain.fpc.exe.debug.linux.oo";
+	public static final String MACOSX_FREEPASCAL_TOOLCHAIN_ID = "es.sidelab.pascaline.managedbuild.toolchain.fpc.exe.debug.macosx.oo";
+	public static final String MINGW_TURBOPASCAL_ID = "es.sidelab.pascaline.managedbuild.toolchain.fpc.exe.debug.mingw";
+	public static final String LINUX_TURBOPASCAL_TOOLCHAIN_ID = "es.sidelab.pascaline.managedbuild.toolchain.fpc.exe.debug.linux";
+	public static final String MACOSX_TURBOPASCAL_TOOLCHAIN_ID = "es.sidelab.pascaline.managedbuild.toolchain.fpc.exe.debug.macosx";
 
 	public static final String FREEPASCAL_COMPILER_WRAPPER_LIB = "metafpc.jar";
 	// The shared instance
@@ -92,7 +95,7 @@ public class ManagedBuilderCorePlugin extends Plugin {
 				log(PLUGIN_ID, "Compiler exists");
 				isCompiler = new FileInputStream(metafpc);
 			} else {
-				log(PLUGIN_ID, "Compiler doesn't exist");
+				log(PLUGIN_ID, "Compiler doesn't exist. Extracting...");
 				isCompiler = this.getClass().getResourceAsStream(srcFile);
 			}
 			
@@ -112,7 +115,7 @@ public class ManagedBuilderCorePlugin extends Plugin {
 			
 			
 		} catch (IOException e) {
-			e.printStackTrace();
+			log(PLUGIN_ID, e);
 		}
 	}
 
