@@ -4,11 +4,11 @@
    <extension
          point="org.eclipse.cdt.core.language">
       <language
-            class="net.sf.pascaline.cdtinterface.core.FreePascalLanguage"
+            class="es.sidelab.pascaline.cdtinterface.core.FreePascalLanguage"
             id="freepascal"
             name="Pascal">
          <contentType
-               id="net.sf.pascaline.core.pascalSource">
+               id="es.sidelab.pascaline.core.pascalSource">
          </contentType>
       </language>
    </extension>
@@ -16,16 +16,16 @@
    <extension
          point="org.eclipse.ui.perspectives">
       <perspective
-            class="net.sf.pascaline.cdtinterface.ui.FreePascalPerspectiveFactory"
+            class="es.sidelab.pascaline.cdtinterface.ui.FreePascalPerspectiveFactory"
             icon="icons/etool16/p_pers.gif"
-            id="net.sf.pascaline.ui.FreePascalPerspective"
+            id="es.sidelab.pascaline.ui.FreePascalPerspective"
             name="Pascal">
       </perspective>
    </extension>
    <extension
          point="org.eclipse.ui.perspectiveExtensions">
       <perspectiveExtension
-            targetID="net.sf.pascaline.ui.FreePascalPerspective">
+            targetID="es.sidelab.pascaline.ui.FreePascalPerspective">
          <perspectiveShortcut
                id="org.eclipse.debug.ui.DebugPerspective">
          </perspectiveShortcut>
@@ -65,22 +65,19 @@
          <viewShortcut
                id="org.eclipse.cdt.ui.includeBrowser">
          </viewShortcut>
-         <actionSet
-               id="net.sf.pascaline.cdtinterface.actionSet1">
-         </actionSet>
       </perspectiveExtension>
    </extension>
    <extension
          point="org.eclipse.ui.views">
       <category
-            id="net.sf.pascaline.ui.views"
+            id="es.sidelab.pascaline.ui.views"
             name="Pascal">
       </category>
       <view
-            category="net.sf.pascaline.ui.views"
-            class="net.sf.pascaline.cdtinterface.ui.FreePascalView"
+            category="es.sidelab.pascaline.ui.views"
+            class="es.sidelab.pascaline.cdtinterface.ui.FreePascalView"
             icon="icons/etool16/pview.gif"
-            id="net.sf.pascaline.ui.FreePascalView"
+            id="es.sidelab.pascaline.ui.FreePascalView"
             name="Pascal Projects"
             restorable="true">
       </view>
@@ -88,17 +85,17 @@
    <extension
          point="org.eclipse.ui.newWizards">
       <category
-            id="net.sf.pascaline.ui.newFreePascalWizards"
+            id="es.sidelab.pascaline.ui.newFreePascalWizards"
             name="Pascal">
       </category>
       <wizard
             canFinishEarly="false"
-            category="net.sf.pascaline.ui.newFreePascalWizards"
-            class="net.sf.pascaline.cdtinterface.ui.wizards.TurboPascalProjectWizard"
-            finalPerspective="net.sf.pascaline.ui.FreePascalPerspective"
+            category="es.sidelab.pascaline.ui.newFreePascalWizards"
+            class="es.sidelab.pascaline.cdtinterface.ui.wizards.TurboPascalProjectWizard"
+            finalPerspective="es.sidelab.pascaline.ui.FreePascalPerspective"
             hasPages="true"
             icon="icons/etool16/newpascal_app.gif"
-            id="net.sf.pascaline.ui.wizards.TurboPascalProjectWizard"
+            id="es.sidelab.pascaline.ui.wizards.TurboPascalProjectWizard"
             name="Turbo Pascal Project"
             project="true">
          <description>
@@ -107,12 +104,12 @@
       </wizard>
       <wizard
             canFinishEarly="false"
-            category="net.sf.pascaline.ui.newFreePascalWizards"
-            class="net.sf.pascaline.cdtinterface.ui.wizards.FreePascalProjectWizard"
-            finalPerspective="net.sf.pascaline.ui.FreePascalPerspective"
+            category="es.sidelab.pascaline.ui.newFreePascalWizards"
+            class="es.sidelab.pascaline.cdtinterface.ui.wizards.FreePascalProjectWizard"
+            finalPerspective="es.sidelab.pascaline.ui.FreePascalPerspective"
             hasPages="true"
             icon="icons/etool16/newpascal_app.gif"
-            id="net.sf.pascaline.ui.wizards.FreePascalProjectWizard"
+            id="es.sidelab.pascaline.ui.wizards.FreePascalProjectWizard"
             name="Free Pascal Project"
             project="true">
          <description>
@@ -120,13 +117,13 @@
          </description>
       </wizard>
       <wizard
-            category="net.sf.pascaline.ui.newFreePascalWizards"
-            class="net.sf.pascaline.cdtinterface.ui.wizards.NewSourceFileCreationWizard"
-            finalPerspective="net.sf.pascaline.ui.FreePascalPerspective"
+            category="es.sidelab.pascaline.ui.newFreePascalWizards"
+            class="es.sidelab.pascaline.cdtinterface.ui.wizards.NewSourceFileCreationWizard"
+            finalPerspective="es.sidelab.pascaline.ui.FreePascalPerspective"
             icon="icons/etool16/newpascalfile_wiz.gif"
-            id="net.sf.pascaline.ui.wizards.NewSourceFileCreationWizard"
+            id="es.sidelab.pascaline.ui.wizards.NewSourceFileCreationWizard"
             name="Pascal Source File">
-         <class class="net.sf.pascaline.cdtinterface.ui.NewSourceFileCreationWizard">
+         <class class="es.sidelab.pascaline.cdtinterface.ui.NewSourceFileCreationWizard">
             <parameter name="cfile" value="true"/>
          </class>
          <description>
@@ -134,13 +131,13 @@
          </description>
       </wizard>
       <wizard
-            category="net.sf.pascaline.ui.newFreePascalWizards"
-            class="net.sf.pascaline.cdtinterface.ui.wizards.NewSourceFolderCreationWizard"
-            finalPerspective="net.sf.pascaline.ui.FreePascalPerspective"
+            category="es.sidelab.pascaline.ui.newFreePascalWizards"
+            class="es.sidelab.pascaline.cdtinterface.ui.wizards.NewSourceFolderCreationWizard"
+            finalPerspective="es.sidelab.pascaline.ui.FreePascalPerspective"
             icon="icons/etool16/newsrcfldr_wiz.gif"
-            id="net.sf.pascaline.ui.wizards.NewSourceFolderCreationWizard"
+            id="es.sidelab.pascaline.ui.wizards.NewSourceFolderCreationWizard"
             name="Source Folder">
-         <class class="net.sf.pascaline.cdtinterface.ui.NewSourceFolderCreationWizard">
+         <class class="es.sidelab.pascaline.cdtinterface.ui.NewSourceFolderCreationWizard">
             <parameter name="cfolder" value="true"/>
          </class>
          <description>
@@ -151,8 +148,8 @@
    <extension
          point="org.eclipse.debug.core.launchConfigurationTypes">
       <launchConfigurationType
-            delegate="net.sf.pascaline.cdtinterface.launch.internal.FreePascalLaunchDelegate"
-            id="net.sf.pascaline.launch.localCLaunch"
+            delegate="es.sidelab.pascaline.cdtinterface.launch.internal.FreePascalLaunchDelegate"
+            id="es.sidelab.pascaline.launch.localCLaunch"
             modes="run,debug"
             name="Pascal Local Application"
             public="true"
@@ -163,25 +160,25 @@
    <extension
          point="org.eclipse.debug.ui.launchConfigurationTabGroups">
       <launchConfigurationTabGroup
-            class="net.sf.pascaline.cdtinterface.launch.FreePascalLocalRunLaunchConfigurationTabGroup"
-            id="net.sf.pascaline.launch.localRunLaunchTabGroup"
-            type="net.sf.pascaline.launch.localCLaunch">
+            class="es.sidelab.pascaline.cdtinterface.launch.FreePascalLocalRunLaunchConfigurationTabGroup"
+            id="es.sidelab.pascaline.launch.localRunLaunchTabGroup"
+            type="es.sidelab.pascaline.launch.localCLaunch">
       </launchConfigurationTabGroup>
    </extension>
    <extension
          point="org.eclipse.debug.ui.launchConfigurationTypeImages">
       <launchConfigurationTypeImage
-            configTypeID="net.sf.pascaline.launch.localCLaunch"
+            configTypeID="es.sidelab.pascaline.launch.localCLaunch"
             icon="icons/obj16/f_app.gif"
-            id="net.sf.pascaline.launch.localRunLaunchImage">
+            id="es.sidelab.pascaline.launch.localRunLaunchImage">
       </launchConfigurationTypeImage>
    </extension>
    <extension
          point="org.eclipse.debug.ui.launchShortcuts">
       <shortcut
-            class="net.sf.pascaline.cdtinterface.launch.FreePascalApplicationLaunchShortcut"
+            class="es.sidelab.pascaline.cdtinterface.launch.FreePascalApplicationLaunchShortcut"
             icon="icons/obj16/f_app.gif"
-            id="net.sf.pascaline.debug.ui.localCShortcut"
+            id="es.sidelab.pascaline.debug.ui.localCShortcut"
             label="Local Pascal Application"
             modes="run,debug">
          <contextualLaunch>
@@ -232,7 +229,7 @@
                mode="debug">
          </description>
          <configurationType
-               id="net.sf.pascaline.launch.localCLaunch">
+               id="es.sidelab.pascaline.launch.localCLaunch">
          </configurationType>
       </shortcut>
    </extension>
@@ -241,31 +238,31 @@
          point="org.eclipse.ui.actionSets">
       <actionSet
             description="Pascal Element Creation Action Set"
-            id="net.sf.pascaline.cdtinterface.FreePascalElementCreationActionSet"
+            id="es.sidelab.pascaline.cdtinterface.FreePascalElementCreationActionSet"
             label="Pascal Element Creation"
             visible="true">
          <action
-               class="net.sf.pascaline.cdtinterface.ui.NewFileDropDownAction"
+               class="es.sidelab.pascaline.cdtinterface.ui.NewFileDropDownAction"
                icon="icons/etool16/newpascalfile_wiz.gif"
-               id="net.sf.pascaline.cdtinterface.actions.NewFileDropDown"
+               id="es.sidelab.pascaline.cdtinterface.actions.NewFileDropDown"
                label="&amp;Source File..."
                style="pulldown"
                toolbarPath="Normal/FreePascalWizards"
                tooltip="New Source File">
          </action>
          <action
-               class="net.sf.pascaline.cdtinterface.ui.NewFolderDropDown"
+               class="es.sidelab.pascaline.cdtinterface.ui.NewFolderDropDown"
                icon="icons/etool16/newsrcfldr_wiz.gif"
-               id="net.sf.pascaline.cdtinterface.actions.NewFolderDropDown"
+               id="es.sidelab.pascaline.cdtinterface.actions.NewFolderDropDown"
                label="&amp;Source Folder..."
                style="pulldown"
                toolbarPath="Normal/FreePascalWizards"
                tooltip="New Source Folder">
          </action>
          <action
-               class="net.sf.pascaline.cdtinterface.ui.NewProjectDropDown"
+               class="es.sidelab.pascaline.cdtinterface.ui.NewProjectDropDown"
                icon="icons/etool16/newpascal_app.gif"
-               id="net.sf.pascaline.cdtinterface.actions.NewProjectDropDown"
+               id="es.sidelab.pascaline.cdtinterface.actions.NewProjectDropDown"
                label="&amp;Project..."
                style="pulldown"
                toolbarPath="Normal/FreePascalWizards"
@@ -279,7 +276,7 @@
       <actionSetPartAssociation
             targetID="org.eclipse.cdt.ui.SearchActionSet">
          <part
-               id="net.sf.pascaline.ui.FreePascalView">
+               id="es.sidelab.pascaline.ui.FreePascalView">
          </part>
          <part
                id="org.eclipse.search.SearchResultView">
@@ -289,10 +286,10 @@
    <extension
          point="org.eclipse.cdt.debug.mi.core.commandFactories">
       <commandFactory
-            class="net.sf.pascaline.cdtinterface.launch.internal.FreePascalStandardWinCommandFactory"
+            class="es.sidelab.pascaline.cdtinterface.launch.internal.FreePascalStandardWinCommandFactory"
             debuggerID="org.eclipse.cdt.debug.mi.core.MinGW"
             description="This MI command factory sets up gdb to open a new console for the debuggee under Windows"
-            id="net.sf.pascaline.cdtinterface.WinShellCommandFactory"
+            id="es.sidelab.pascaline.cdtinterface.WinShellCommandFactory"
             name="Extern Shell Command Factory">
       </commandFactory>
    </extension>
