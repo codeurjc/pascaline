@@ -7,8 +7,8 @@
          point="org.eclipse.cdt.managedbuilder.core.buildDefinitions">
       <tool
             command="fpc"
-            commandLineGenerator="net.sf.pascaline.managedbuilder.core.makegen.FreePascalCommandLineGenerator"
-            id="net.sf.pascaline.managedbuild.tool.freepascal.compiler"
+            commandLineGenerator="es.sidelab.pascaline.managedbuilder.core.makegen.FreePascalCommandLineGenerator"
+            id="es.sidelab.pascaline.managedbuild.tool.freepascal.compiler"
             name="FreePascal Compiler"
             natureFilter="both"
             outputFlag="-o"
@@ -22,15 +22,15 @@
             </property>
          </supportedProperties>
          <inputType
-               dependencyCalculator="net.sf.pascaline.managedbuilder.core.makegen.DefaultFreePascalDependencyCalculator"
+               dependencyCalculator="es.sidelab.pascaline.managedbuilder.core.makegen.DefaultFreePascalDependencyCalculator"
                dependencyExtensions="pas"
-               id="net.sf.pascaline.managedbuild.tool.freepascal.input"
+               id="es.sidelab.pascaline.managedbuild.tool.freepascal.input"
                multipleOfType="true"
                sources="pas">
          </inputType>
          <outputType
                buildVariable="EXECUTABLES"
-               id="net.sf.pascaline.managedbuild.tool.freepascal.output.exe"
+               id="es.sidelab.pascaline.managedbuild.tool.freepascal.output.exe"
                nameProvider="org.eclipse.cdt.managedbuilder.makegen.gnu.GnuLinkOutputNameProvider">
             <enablement
                   type="ALL">
@@ -39,8 +39,8 @@
       </tool>
       <tool
             command="java"
-            commandLineGenerator="net.sf.pascaline.managedbuilder.fpc.MetaFreePascalCommandLineGenerator"
-            id="net.sf.pascaline.managedbuild.tool.metafpc.compiler"
+            commandLineGenerator="es.sidelab.pascaline.managedbuilder.fpc.MetaFreePascalCommandLineGenerator"
+            id="es.sidelab.pascaline.managedbuild.tool.metafpc.compiler"
             name="FPC Wrapper"
             natureFilter="both"
             outputFlag="-o"
@@ -54,15 +54,15 @@
             </property>
          </supportedProperties>
          <inputType
-               dependencyCalculator="net.sf.pascaline.managedbuilder.core.makegen.DefaultFreePascalDependencyCalculator"
+               dependencyCalculator="es.sidelab.pascaline.managedbuilder.core.makegen.DefaultFreePascalDependencyCalculator"
                dependencyExtensions="pas"
-               id="net.sf.pascaline.managedbuild.tool.metafpc.input"
+               id="es.sidelab.pascaline.managedbuild.tool.metafpc.input"
                multipleOfType="true"
                sources="pas">
          </inputType>
          <outputType
                buildVariable="EXECUTABLES"
-               id="net.sf.pascaline.managedbuild.tool.metafpc.output.exe"
+               id="es.sidelab.pascaline.managedbuild.tool.metafpc.output.exe"
                nameProvider="org.eclipse.cdt.managedbuilder.makegen.gnu.GnuLinkOutputNameProvider">
             <enablement
                   type="ALL">
@@ -76,40 +76,40 @@
       
       <projectType
             buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe"
-            id="net.sf.pascaline.managedbuild.target.fpc.exe.linux"
+            id="es.sidelab.pascaline.managedbuild.target.fpc.exe.linux"
             isAbstract="false"
             isTest="false"
             name="Executable (TurboPascal on Linux)">
          <configuration
                buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug"
                cleanCommand="rm -rf"
-               errorParsers="org.eclipse.cdt.core.MakeErrorParser;net.sf.pascaline.core.FreePascalErrorParser"
-               id="net.sf.pascaline.managedbuild.config.fpc.exe.debug.linux"
+               errorParsers="org.eclipse.cdt.core.MakeErrorParser;es.sidelab.pascaline.core.FreePascalErrorParser"
+               id="es.sidelab.pascaline.managedbuild.config.fpc.exe.debug.linux"
                name="Debug">
             <toolChain
                   archList="all"
-                  id="net.sf.pascaline.managedbuild.toolchain.fpc.exe.debug.linux"
+                  id="es.sidelab.pascaline.managedbuild.toolchain.fpc.exe.debug.linux"
                   isAbstract="false"
                   name="Pascal TurboPascal Linux"
                   osList="solaris,linux,hpux,aix,qnx"
                   scannerConfigDiscoveryProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfile"
-                  targetTool="net.sf.pascaline.managedbuild.tool.fpc.compiler.exe.debug.linux">
+                  targetTool="es.sidelab.pascaline.managedbuild.tool.fpc.compiler.exe.debug.linux">
                <targetPlatform
-		              id="net.sf.pascaline.managedbuild.fpc.targetplatform.linux"
+		              id="es.sidelab.pascaline.managedbuild.fpc.targetplatform.linux"
 		              name="Debug Platform"
 		              binaryParser="org.eclipse.cdt.core.GNU_ELF"
 		              osList="solaris,linux,hpux,aix,qnx"
 		              archList="all">
 	              </targetPlatform>
 	              <builder
-                     id="net.sf.pascaline.managedbuild.fpc.builder.linux"
+                     id="es.sidelab.pascaline.managedbuild.fpc.builder.linux"
                      isAbstract="false"
                      isVariableCaseSensitive="false"
                      superClass="org.eclipse.cdt.build.core.internal.builder">
                </builder>
                <tool
-                     id="net.sf.pascaline.managedbuild.tool.fpc.compiler.exe.debug.linux"
-                     superClass="net.sf.pascaline.managedbuild.tool.metafpc.compiler">
+                     id="es.sidelab.pascaline.managedbuild.tool.fpc.compiler.exe.debug.linux"
+                     superClass="es.sidelab.pascaline.managedbuild.tool.metafpc.compiler">
                </tool>
             </toolChain>
             </configuration>
@@ -118,47 +118,133 @@
             
       <projectType
             buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe"
-            id="net.sf.pascaline.managedbuild.target.fpc.exe.linux.oo"
+            id="es.sidelab.pascaline.managedbuild.target.fpc.exe.linux.oo"
             isAbstract="false"
             isTest="false"
             name="Executable (FreePascal on Linux)">
          <configuration
                buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug"
                cleanCommand="rm -rf"
-               errorParsers="org.eclipse.cdt.core.MakeErrorParser;net.sf.pascaline.core.FreePascalErrorParser"
-               id="net.sf.pascaline.managedbuild.config.fpc.exe.debug.linux.oo"
+               errorParsers="org.eclipse.cdt.core.MakeErrorParser;es.sidelab.pascaline.core.FreePascalErrorParser"
+               id="es.sidelab.pascaline.managedbuild.config.fpc.exe.debug.linux.oo"
                name="Debug">
             <toolChain
                   archList="all"
-                  id="net.sf.pascaline.managedbuild.toolchain.fpc.exe.debug.linux.oo"
+                  id="es.sidelab.pascaline.managedbuild.toolchain.fpc.exe.debug.linux.oo"
                   isAbstract="false"
                   name="Pascal FreePascal Linux"
                   osList="solaris,linux,hpux,aix,qnx"
                   scannerConfigDiscoveryProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfile"
-                  targetTool="net.sf.pascaline.managedbuild.tool.fpc.compiler.exe.debug.linux.oo">
+                  targetTool="es.sidelab.pascaline.managedbuild.tool.fpc.compiler.exe.debug.linux.oo">
                <targetPlatform
-		              id="net.sf.pascaline.managedbuild.fpc.targetplatform.linux.oo"
+		              id="es.sidelab.pascaline.managedbuild.fpc.targetplatform.linux.oo"
 		              name="Debug Platform"
 		              binaryParser="org.eclipse.cdt.core.GNU_ELF"
 		              osList="solaris,linux,hpux,aix,qnx"
 		              archList="all">
 	              </targetPlatform>
 	              <builder
-                     id="net.sf.pascaline.managedbuild.fpc.builder.linux.oo"
+                     id="es.sidelab.pascaline.managedbuild.fpc.builder.linux.oo"
                      isAbstract="false"
                      isVariableCaseSensitive="false"
                      superClass="org.eclipse.cdt.build.core.internal.builder">
                </builder>
                <tool
-                     id="net.sf.pascaline.managedbuild.tool.fpc.compiler.exe.debug.linux.oo"
-                     superClass="net.sf.pascaline.managedbuild.tool.metafpc.compiler">
+                     id="es.sidelab.pascaline.managedbuild.tool.fpc.compiler.exe.debug.linux.oo"
+                     superClass="es.sidelab.pascaline.managedbuild.tool.metafpc.compiler">
                </tool>
             </toolChain>
             </configuration>
             </projectType>
+            
+        <projectType
+            buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe"
+            id="es.sidelab.pascaline.managedbuild.target.fpc.exe.macosx"
+            isAbstract="false"
+            isTest="false"
+            name="Executable (TurboPascal on MacOS)">
+         <configuration
+               buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug"
+               cleanCommand="rm -rf"
+               errorParsers="org.eclipse.cdt.core.MakeErrorParser;es.sidelab.pascaline.core.FreePascalErrorParser"
+               id="es.sidelab.pascaline.managedbuild.config.fpc.exe.debug.macosx"
+               name="Debug">
+            <toolChain
+                  archList="all"
+                  id="es.sidelab.pascaline.managedbuild.toolchain.fpc.exe.debug.macosx"
+                  isAbstract="false"
+                  name="Pascal TurboPascal MacOS"
+                  osList="macosx"
+                  scannerConfigDiscoveryProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfile"
+                  targetTool="es.sidelab.pascaline.managedbuild.tool.fpc.compiler.exe.debug.macosx">
+               <targetPlatform
+		              id="es.sidelab.pascaline.managedbuild.fpc.targetplatform.macosx"
+		              name="Debug Platform"
+		              binaryParser="org.eclipse.cdt.core.MachO"
+		              osList="macosx"
+		              archList="all">
+	              </targetPlatform>
+	              <builder
+                     id="es.sidelab.pascaline.managedbuild.fpc.builder.macosx"
+                     isAbstract="false"
+                     isVariableCaseSensitive="false"
+                     superClass="org.eclipse.cdt.build.core.internal.builder">
+               </builder>
+               <tool
+                     id="es.sidelab.pascaline.managedbuild.tool.fpc.compiler.exe.debug.macosx"
+                     superClass="es.sidelab.pascaline.managedbuild.tool.metafpc.compiler">
+               </tool>
+            </toolChain>
+            </configuration>
+            </projectType>
+            
+            
       <projectType
             buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe"
-            id="net.sf.pascaline.managedbuild.target.fpc.exe.win"
+            id="es.sidelab.pascaline.managedbuild.target.fpc.exe.macosx.oo"
+            isAbstract="false"
+            isTest="false"
+            name="Executable (FreePascal on MacOS)">
+         <configuration
+               buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug"
+               cleanCommand="rm -rf"
+               errorParsers="org.eclipse.cdt.core.MakeErrorParser;es.sidelab.pascaline.core.FreePascalErrorParser"
+               id="es.sidelab.pascaline.managedbuild.config.fpc.exe.debug.macosx.oo"
+               name="Debug">
+            <toolChain
+                  archList="all"
+                  id="es.sidelab.pascaline.managedbuild.toolchain.fpc.exe.debug.macosx.oo"
+                  isAbstract="false"
+                  name="Pascal FreePascal MacOS"
+                  osList="macosx"
+                  scannerConfigDiscoveryProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfile"
+                  targetTool="es.sidelab.pascaline.managedbuild.tool.fpc.compiler.exe.debug.macosx.oo">
+               <targetPlatform
+		              id="es.sidelab.pascaline.managedbuild.fpc.targetplatform.macosx.oo"
+		              name="Debug Platform"
+		              binaryParser="org.eclipse.cdt.core.MachO"
+		              osList="macosx"
+		              archList="all">
+	              </targetPlatform>
+	              <builder
+                     id="es.sidelab.pascaline.managedbuild.fpc.builder.macosx.oo"
+                     isAbstract="false"
+                     isVariableCaseSensitive="false"
+                     superClass="org.eclipse.cdt.build.core.internal.builder">
+               </builder>
+               <tool
+                     id="es.sidelab.pascaline.managedbuild.tool.fpc.compiler.exe.debug.macosx.oo"
+                     superClass="es.sidelab.pascaline.managedbuild.tool.metafpc.compiler">
+               </tool>
+            </toolChain>
+            </configuration>
+            </projectType>
+            
+            
+      
+      <projectType
+            buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe"
+            id="es.sidelab.pascaline.managedbuild.target.fpc.exe.win"
             isAbstract="false"
             isTest="false"
             name="Executable (TurboPascal on Windows)">
@@ -166,20 +252,20 @@
                artifactExtension="exe"
                buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug"
                cleanCommand="rm -rf"
-               errorParsers="org.eclipse.cdt.core.MakeErrorParser;net.sf.pascaline.core.FreePascalErrorParser"
-               id="net.sf.pascaline.managedbuild.config.fpc.exe.debug.win"
+               errorParsers="org.eclipse.cdt.core.MakeErrorParser;es.sidelab.pascaline.core.FreePascalErrorParser"
+               id="es.sidelab.pascaline.managedbuild.config.fpc.exe.debug.win"
                name="Debug">
             <toolChain
                   archList="all"
-                  configurationEnvironmentSupplier="net.sf.pascaline.managedbuilder.fpc.FreePascalEnvironmentVariableSupplier"
-                  id="net.sf.pascaline.managedbuild.toolchain.fpc.exe.debug.mingw"
+                  configurationEnvironmentSupplier="es.sidelab.pascaline.managedbuilder.fpc.FreePascalEnvironmentVariableSupplier"
+                  id="es.sidelab.pascaline.managedbuild.toolchain.fpc.exe.debug.mingw"
                   isAbstract="false"
                   name="Pascal TurboPascal Win32"
                   osList="win32"
                   scannerConfigDiscoveryProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfile"
-                  targetTool="net.sf.pascaline.managedbuild.tool.fpc.compiler.exe.debug.mingw">
+                  targetTool="es.sidelab.pascaline.managedbuild.tool.fpc.compiler.exe.debug.mingw">
                <targetPlatform
-		              id="net.sf.pascaline.managedbuild.fpc.targetplatform.mingw"
+		              id="es.sidelab.pascaline.managedbuild.fpc.targetplatform.mingw"
 		              name="Debug Platform"
 		              binaryParser="org.eclipse.cdt.core.PE"
 		              osList="win32"
@@ -188,28 +274,28 @@
 <!--
 	              <builder
                      arguments="-k"
-                     buildfileGenerator="net.sf.pascaline.managedbuilder.core.makegen.TurboPascalMakefileGenerator"
+                     buildfileGenerator="es.sidelab.pascaline.managedbuilder.core.makegen.TurboPascalMakefileGenerator"
                      command="make"
-                     id="net.sf.pascaline.managedbuild.fpc.builder.mingw"
+                     id="es.sidelab.pascaline.managedbuild.fpc.builder.mingw"
                      name="Gnu Make">
                </builder>
 -->
 	              <builder
-                     id="net.sf.pascaline.managedbuild.fpc.builder.mingw"
+                     id="es.sidelab.pascaline.managedbuild.fpc.builder.mingw"
                      isAbstract="false"
                      isVariableCaseSensitive="false"
                      superClass="org.eclipse.cdt.build.core.internal.builder">
                </builder>
                <tool
-                     id="net.sf.pascaline.managedbuild.tool.fpc.compiler.exe.debug.mingw"
-                     superClass="net.sf.pascaline.managedbuild.tool.metafpc.compiler">
+                     id="es.sidelab.pascaline.managedbuild.tool.fpc.compiler.exe.debug.mingw"
+                     superClass="es.sidelab.pascaline.managedbuild.tool.metafpc.compiler">
                </tool>
             </toolChain>
             </configuration>
             </projectType>
       <projectType
             buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe"
-            id="net.sf.pascaline.managedbuild.target.fpc.exe.win.oo"
+            id="es.sidelab.pascaline.managedbuild.target.fpc.exe.win.oo"
             isAbstract="false"
             isTest="false"
             name="Executable (FreePascal on Windows)">
@@ -217,41 +303,41 @@
                artifactExtension="exe"
                buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug"
                cleanCommand="rm -rf"
-               errorParsers="org.eclipse.cdt.core.MakeErrorParser;net.sf.pascaline.core.FreePascalErrorParser"
-               id="net.sf.pascaline.managedbuild.config.fpc.exe.debug.win.oo"
+               errorParsers="org.eclipse.cdt.core.MakeErrorParser;es.sidelab.pascaline.core.FreePascalErrorParser"
+               id="es.sidelab.pascaline.managedbuild.config.fpc.exe.debug.win.oo"
                name="Debug">
             <toolChain
                   archList="all"
-                  configurationEnvironmentSupplier="net.sf.pascaline.managedbuilder.fpc.FreePascalEnvironmentVariableSupplier"
-                  id="net.sf.pascaline.managedbuild.toolchain.fpc.exe.debug.mingw.oo"
+                  configurationEnvironmentSupplier="es.sidelab.pascaline.managedbuilder.fpc.FreePascalEnvironmentVariableSupplier"
+                  id="es.sidelab.pascaline.managedbuild.toolchain.fpc.exe.debug.mingw.oo"
                   isAbstract="false"
                   name="Pascal FreePascal Win32"
                   osList="win32"
                   scannerConfigDiscoveryProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfile"
-                  targetTool="net.sf.pascaline.managedbuild.tool.fpc.compiler.exe.debug.mingw.oo">
+                  targetTool="es.sidelab.pascaline.managedbuild.tool.fpc.compiler.exe.debug.mingw.oo">
                <targetPlatform
-		              id="net.sf.pascaline.managedbuild.fpc.targetplatform.mingw.oo"
+		              id="es.sidelab.pascaline.managedbuild.fpc.targetplatform.mingw.oo"
 		              name="Debug Platform"
 		              binaryParser="org.eclipse.cdt.core.PE"
 		              osList="win32"
 		              archList="all">
 	              </targetPlatform>
 	              <builder
-                     id="net.sf.pascaline.managedbuild.fpc.builder.mingw.oo"
+                     id="es.sidelab.pascaline.managedbuild.fpc.builder.mingw.oo"
                      isAbstract="false"
                      isVariableCaseSensitive="false"
                      superClass="org.eclipse.cdt.build.core.internal.builder">
                </builder>
                <tool
-                     id="net.sf.pascaline.managedbuild.tool.fpc.compiler.exe.debug.mingw.oo"
-                     superClass="net.sf.pascaline.managedbuild.tool.metafpc.compiler">
+                     id="es.sidelab.pascaline.managedbuild.tool.fpc.compiler.exe.debug.mingw.oo"
+                     superClass="es.sidelab.pascaline.managedbuild.tool.metafpc.compiler">
                </tool>
             </toolChain>
          </configuration>
 <!--
          <configuration
                cleanCommand="rm -rf"
-               errorParsers="org.eclipse.cdt.core.MakeErrorParser;net.sf.pascaline.core.FreePascalErrorParser"
+               errorParsers="org.eclipse.cdt.core.MakeErrorParser;es.sidelab.pascaline.core.FreePascalErrorParser"
                id="fpdt.managedbuilder.fpc.config.exe.release"
                name="Release">
             <toolChain

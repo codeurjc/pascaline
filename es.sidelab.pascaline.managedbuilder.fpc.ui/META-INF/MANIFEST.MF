@@ -11,4 +11,4 @@ Require-Bundle: org.eclipse.cdt.managedbuilder.core,
  org.eclipse.core.resources,
  es.sidelab.pascaline.managedbuilder.core;bundle-version="[1.0.0,2.0.0)"
 Bundle-Vendor: Pascaline Team
-Export-Package: net.sf.pascaline.managedbuilder.fpc
+Export-Package: es.sidelab.pascaline.managedbuilder.fpc

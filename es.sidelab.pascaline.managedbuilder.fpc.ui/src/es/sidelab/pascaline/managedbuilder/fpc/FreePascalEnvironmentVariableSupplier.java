@@ -9,13 +9,12 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package net.sf.pascaline.managedbuilder.fpc;
+package es.sidelab.pascaline.managedbuilder.fpc;
 
 import java.io.File;
 import java.io.FileFilter;
 import java.util.StringTokenizer;
 
-import net.sf.pascaline.managedbuilder.core.ManagedBuilderCorePlugin;
 
 import org.eclipse.cdt.managedbuilder.core.IConfiguration;
 import org.eclipse.cdt.managedbuilder.envvar.IBuildEnvironmentVariable;
@@ -25,6 +24,8 @@ import org.eclipse.cdt.utils.WindowsRegistry;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
+
+import es.sidelab.pascaline.managedbuilder.core.ManagedBuilderCorePlugin;
 
 public class FreePascalEnvironmentVariableSupplier implements
 		IConfigurationEnvironmentVariableSupplier {
