@@ -5,7 +5,7 @@
          point="org.eclipse.ui.propertyPages">
       <page
             class="org.eclipse.cdt.managedbuilder.ui.properties.Page_head_build"
-            id="net.sf.pascaline.managedbuilder.ui.properties.Page_head_build"
+            id="es.sidelab.pascaline.managedbuilder.ui.properties.Page_head_build"
             name="FreePascal Build">
          <filter
                name="projectNature"
@@ -35,9 +35,9 @@
          </enabledWhen>
       </page>
       <page
-            category="net.sf.pascaline.managedbuilder.ui.properties.Page_head_build"
+            category="es.sidelab.pascaline.managedbuilder.ui.properties.Page_head_build"
             class="org.eclipse.cdt.managedbuilder.ui.properties.Page_BuildSettings"
-            id="net.sf.pascaline.managedbuilder.ui.properties.PageBuildSettings"
+            id="es.sidelab.pascaline.managedbuilder.ui.properties.PageBuildSettings"
             name="Settings">
          <filter
                name="projectNature"

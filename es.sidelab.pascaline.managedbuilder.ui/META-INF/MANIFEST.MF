@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Pascaline Managed Builder UI Plug-in
 Bundle-SymbolicName: es.sidelab.pascaline.managedbuilder.ui;singleton:=true
 Bundle-Version: 0.5.0.qualifier
-Bundle-Activator: net.sf.pascaline.managedbuilder.internal.ui.ManagedBuilderUIPlugin
+Bundle-Activator: es.sidelab.pascaline.managedbuilder.internal.ui.ManagedBuilderUIPlugin
 Bundle-Vendor: Pascaline Team
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
@@ -12,4 +12,4 @@ Require-Bundle: org.eclipse.ui,
  es.sidelab.pascaline.core;bundle-version="[1.0.0,2.0.0)"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
-Export-Package: net.sf.pascaline.managedbuilder.internal.ui
+Export-Package: es.sidelab.pascaline.managedbuilder.internal.ui

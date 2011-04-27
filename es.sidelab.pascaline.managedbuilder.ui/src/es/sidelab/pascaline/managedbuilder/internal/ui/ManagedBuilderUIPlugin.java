@@ -9,7 +9,7 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package net.sf.pascaline.managedbuilder.internal.ui;
+package es.sidelab.pascaline.managedbuilder.internal.ui;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
@@ -20,7 +20,7 @@ import org.osgi.framework.BundleContext;
 public class ManagedBuilderUIPlugin extends AbstractUIPlugin {
 
 	// The plug-in ID
-	public static final String PLUGIN_ID = "net.sf.pascaline.managedbuilder.ui";
+	public static final String PLUGIN_ID = "es.sidelab.pascaline.managedbuilder.ui";
 
 	// The shared instance
 	private static ManagedBuilderUIPlugin plugin;
