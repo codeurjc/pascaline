@@ -9,14 +9,14 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package net.sf.pascaline.internal.ui.editor;
+package es.sidelab.pascaline.internal.ui.editor;
 
-import org.eclipse.swt.graphics.RGB;
+import org.eclipse.jface.text.rules.IWhitespaceDetector;
 
-public interface IPascalColorConstants {
-	RGB OPERATOR = new RGB(0, 0, 0);
-	RGB DEFAULT = new RGB(0, 0, 0);
-	RGB COMMENT = new RGB(63, 127, 95);
-	RGB STRING = new RGB(42, 0, 255);
-	RGB RESERVED_WORD = new RGB(127, 0, 85);
+
+public class PascalWhitespaceDetector implements IWhitespaceDetector {
+
+	public boolean isWhitespace(char c) {
+		return (c == ' ' || c == '\t' || c == '\n' || c == '\r');
+	}
 }

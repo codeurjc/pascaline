@@ -2,24 +2,24 @@
 <?eclipse version="3.2"?>
 <plugin>
    <extension
-         id="net.sf.pascaline.ui.PascalEditor"
+         id="es.sidelab.pascaline.ui.PascalEditor"
          point="org.eclipse.ui.editors">
       <editor
-            class="net.sf.pascaline.internal.ui.editor.FreePascalEditor"
+            class="es.sidelab.pascaline.internal.ui.editor.FreePascalEditor"
             contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
             default="true"
             icon="icons/full/obj16/f_file_obj.gif"
-            id="net.sf.pascaline.ui.FreePascalEditor"
+            id="es.sidelab.pascaline.ui.FreePascalEditor"
             name="FreePascal Editor">
          <contentTypeBinding
-               contentTypeId="net.sf.pascaline.core.pascalSource">
+               contentTypeId="es.sidelab.pascaline.core.pascalSource">
          </contentTypeBinding>
       </editor>
    </extension>
    <extension
          point="org.eclipse.ui.contexts">
       <context
-            id="net.sf.pascaline.ui.FreePascalEditorContext"
+            id="es.sidelab.pascaline.ui.FreePascalEditorContext"
             name="FreePascal Editor"
             parentId="org.eclipse.ui.textEditorScope">
       </context>
@@ -27,8 +27,8 @@
    <extension
          point="org.eclipse.ui.editorActions">
       <editorContribution
-            id="net.sf.pascaline.ui.FreePascalBreakpointRulerAction"
-            targetID="net.sf.pascaline.ui.FreePascalEditor">
+            id="es.sidelab.pascaline.ui.FreePascalBreakpointRulerAction"
+            targetID="es.sidelab.pascaline.ui.FreePascalEditor">
          <action
                actionID="RulerDoubleClick"
                class="org.eclipse.debug.ui.actions.RulerToggleBreakpointActionDelegate"
@@ -40,8 +40,8 @@
    <extension
          point="org.eclipse.ui.editors.templates">
       <contextType
-            class="net.sf.pascaline.ui.templates.PascalContextType"
-            id="net.sf.pascaline.ui.text.templates.pascal"
+            class="es.sidelab.pascaline.ui.templates.PascalContextType"
+            id="es.sidelab.pascaline.ui.text.templates.pascal"
             name="Pascal">
       </contextType>
       <include
@@ -55,11 +55,11 @@
          point="org.eclipse.debug.ui.toggleBreakpointsTargetFactories">
       <toggleTargetFactory
             class="org.eclipse.cdt.debug.internal.ui.actions.ToggleCBreakpointsTargetFactory"
-            id="net.sf.pascaline.ui.pascalineToggleTargetFactory">
+            id="es.sidelab.pascaline.ui.pascalineToggleTargetFactory">
          <enablement>
             <or>
                <instanceof
-                     value="net.sf.pascaline.internal.ui.editor.FreePascalEditor">
+                     value="es.sidelab.pascaline.internal.ui.editor.FreePascalEditor">
                </instanceof>
             </or>
          </enablement>

@@ -9,7 +9,7 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package net.sf.pascaline.internal.ui.editor;
+package es.sidelab.pascaline.internal.ui.editor;
 
 import java.util.ArrayList;
 import java.util.List;

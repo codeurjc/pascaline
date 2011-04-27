@@ -16,12 +16,12 @@
 
 <templates>
 
-<template name="Pascal program template" id="net.sf.pascaline.ui.text.codetemplates.programfile" description="Pascal program file" context="net.sf.pascaline.core.pascalSource.contenttype_context" enabled="true">program prog; 
+<template name="Pascal program template" id="es.sidelab.pascaline.ui.text.codetemplates.programfile" description="Pascal program file" context="es.sidelab.pascaline.core.pascalSource.contenttype_context" enabled="true">program prog; 
 begin
 
 end.
 </template>
-<template name="Pascal unit template" id="net.sf.pascaline.ui.text.codetemplates.unitfile" description="Pascal program file" context="net.sf.pascaline.core.pascalSource.contenttype_context" enabled="true">unit myUnit; 
+<template name="Pascal unit template" id="es.sidelab.pascaline.ui.text.codetemplates.unitfile" description="Pascal program file" context="es.sidelab.pascaline.core.pascalSource.contenttype_context" enabled="true">unit myUnit; 
 interface
 
 implementation

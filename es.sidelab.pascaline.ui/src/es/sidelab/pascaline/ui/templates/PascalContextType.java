@@ -9,7 +9,7 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package net.sf.pascaline.ui.templates;
+package es.sidelab.pascaline.ui.templates;
 
 import org.eclipse.jface.text.templates.TemplateContextType;
 

@@ -9,9 +9,8 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package net.sf.pascaline.internal.ui.editor;
+package es.sidelab.pascaline.internal.ui.editor;
 
-import net.sf.pascaline.ui.FreePascalUIPlugin;
 
 import org.eclipse.cdt.core.model.CModelException;
 import org.eclipse.cdt.core.model.ICElement;
@@ -48,6 +47,8 @@ import org.eclipse.ui.texteditor.ChainedPreferenceStore;
 import org.eclipse.ui.texteditor.DefaultRangeIndicator;
 import org.eclipse.ui.texteditor.ITextEditorActionConstants;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
+
+import es.sidelab.pascaline.ui.FreePascalUIPlugin;
 
 
 public class FreePascalEditor extends TextEditor implements ISelectionChangedListener {

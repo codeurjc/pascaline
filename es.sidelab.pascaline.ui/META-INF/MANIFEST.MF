@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Pascaline UI Plug-in
 Bundle-SymbolicName: es.sidelab.pascaline.ui;singleton:=true
 Bundle-Version: 1.0.1.qualifier
-Bundle-Activator: net.sf.pascaline.ui.FreePascalUIPlugin
+Bundle-Activator: es.sidelab.pascaline.ui.FreePascalUIPlugin
 Bundle-Vendor: Pascaline Team
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
@@ -21,5 +21,5 @@ Require-Bundle: org.eclipse.ui,
  es.sidelab.pascaline.core;bundle-version="[1.0.0,2.0.0)"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
-Export-Package: net.sf.pascaline.internal.ui.editor,
- net.sf.pascaline.ui
+Export-Package: es.sidelab.pascaline.internal.ui.editor,
+ es.sidelab.pascaline.ui
