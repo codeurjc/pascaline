@@ -9,10 +9,8 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package net.sf.pascaline.debug.ui.views.variables;
+package es.sidelab.pascaline.debug.ui.views.variables;
 
-import net.sf.pascaline.debug.internal.ui.PVariable;
-import net.sf.pascaline.debug.ui.PascalDebugUI;
 
 import org.eclipse.cdt.debug.core.model.ICGlobalVariable;
 import org.eclipse.cdt.debug.core.model.ICVariable;
@@ -20,6 +18,9 @@ import org.eclipse.debug.core.DebugException;
 import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.swt.graphics.Image;
+
+import es.sidelab.pascaline.debug.internal.ui.PVariable;
+import es.sidelab.pascaline.debug.ui.PascalDebugUI;
 
 
 /**

@@ -9,7 +9,7 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package net.sf.pascaline.debug.ui;
+package es.sidelab.pascaline.debug.ui;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
@@ -23,7 +23,7 @@ import org.osgi.framework.BundleContext;
 public class PascalDebugUI extends AbstractUIPlugin {
 
 	// The plug-in ID
-	public static final String PLUGIN_ID = "net.sf.pascaline.debug.ui";
+	public static final String PLUGIN_ID = "es.sidelab.pascaline.debug.ui";
 
 	// The shared instance
 	private static PascalDebugUI plugin;

@@ -9,14 +9,15 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package net.sf.pascaline.debug.internal.ui;
+package es.sidelab.pascaline.debug.internal.ui;
 
-import net.sf.pascaline.internal.core.model.PascalElement;
 
 import org.eclipse.cdt.debug.core.model.ICVariable;
 import org.eclipse.cdt.debug.internal.core.model.CStackFrame;
 import org.eclipse.debug.core.DebugException;
 import org.eclipse.debug.core.model.IVariable;
+
+import es.sidelab.pascaline.internal.core.model.PascalElement;
 
 
 /**

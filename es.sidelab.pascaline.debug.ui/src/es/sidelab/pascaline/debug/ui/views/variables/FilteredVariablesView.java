@@ -9,9 +9,8 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package net.sf.pascaline.debug.ui.views.variables;
+package es.sidelab.pascaline.debug.ui.views.variables;
 
-import net.sf.pascaline.debug.internal.ui.PFrame;
 
 import org.eclipse.cdt.debug.core.CDebugCorePlugin;
 import org.eclipse.cdt.debug.internal.core.model.CStackFrame;
@@ -36,6 +35,8 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeColumn;
+
+import es.sidelab.pascaline.debug.internal.ui.PFrame;
 
 
 public class FilteredVariablesView extends AbstractDebugView implements IDebugContextListener {

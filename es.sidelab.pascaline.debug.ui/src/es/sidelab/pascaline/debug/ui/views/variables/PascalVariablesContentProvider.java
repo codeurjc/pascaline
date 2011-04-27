@@ -9,15 +9,16 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package net.sf.pascaline.debug.ui.views.variables;
+package es.sidelab.pascaline.debug.ui.views.variables;
 
-import net.sf.pascaline.debug.internal.ui.PFrame;
-import net.sf.pascaline.debug.internal.ui.PVariable;
 
 import org.eclipse.debug.core.DebugException;
 import org.eclipse.debug.core.model.IVariable;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
+
+import es.sidelab.pascaline.debug.internal.ui.PFrame;
+import es.sidelab.pascaline.debug.internal.ui.PVariable;
 
 
 /**

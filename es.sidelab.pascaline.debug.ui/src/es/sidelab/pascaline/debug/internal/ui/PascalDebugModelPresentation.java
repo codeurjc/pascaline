@@ -9,7 +9,7 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package net.sf.pascaline.debug.internal.ui;
+package es.sidelab.pascaline.debug.internal.ui;
 
 import java.io.File;
 import java.text.MessageFormat;
