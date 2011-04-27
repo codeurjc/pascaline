@@ -9,7 +9,7 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package net.sf.pascaline.core;
+package es.sidelab.pascaline.core;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
@@ -22,9 +22,9 @@ import org.osgi.framework.BundleContext;
 public class PascalineCorePlugin extends AbstractUIPlugin {
 
 	// The plug-in ID
-	public static final String PLUGIN_ID = "net.sf.pascaline.core";
+	public static final String PLUGIN_ID = "es.sidelab.pascaline.core";
 
-	public static final String FREEPASCAL_CONTENT_TYPE = "net.sf.pascaline.core.pascalSource";
+	public static final String FREEPASCAL_CONTENT_TYPE = "es.sidelab.pascaline.core.pascalSource";
 
 	// The shared instance
 	private static PascalineCorePlugin plugin;

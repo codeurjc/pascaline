@@ -9,19 +9,20 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package net.sf.pascaline.internal.errorparser;
+package es.sidelab.pascaline.internal.errorparser;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import net.sf.pascaline.core.PascalineCorePlugin;
 
 import org.eclipse.cdt.core.ErrorParserManager;
 import org.eclipse.cdt.core.IErrorParser;
 import org.eclipse.cdt.core.IMarkerGenerator;
 import org.eclipse.core.resources.IFile;
+
+import es.sidelab.pascaline.core.PascalineCorePlugin;
 
 public class FreePascalErrorParser implements IErrorParser {
 

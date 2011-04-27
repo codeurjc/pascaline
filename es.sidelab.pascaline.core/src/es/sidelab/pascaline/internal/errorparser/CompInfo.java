@@ -9,7 +9,7 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package net.sf.pascaline.internal.errorparser;
+package es.sidelab.pascaline.internal.errorparser;
 
 public class CompInfo {
 

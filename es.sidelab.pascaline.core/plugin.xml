@@ -16,7 +16,8 @@
          name="Pascaline Error Parser for FreePascal Compiler"
          point="org.eclipse.cdt.core.ErrorParser">
       <errorparser
-            class="net.sf.pascaline.internal.errorparser.FreePascalErrorParser">
+      		id="es.sidelab.pascaline.core.FreePascalErrorParser"
+            class="es.sidelab.pascaline.internal.errorparser.FreePascalErrorParser">
       </errorparser>
    </extension>
 
