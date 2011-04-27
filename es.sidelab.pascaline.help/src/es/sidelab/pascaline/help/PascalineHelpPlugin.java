@@ -9,7 +9,7 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package net.sf.pascaline.help;
+package es.sidelab.pascaline.help;
 
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -21,7 +21,7 @@ import org.osgi.framework.BundleContext;
 public class PascalineHelpPlugin extends AbstractUIPlugin {
 
 	// The plug-in ID
-	public static final String PLUGIN_ID = "net.sf.pascaline.help";
+	public static final String PLUGIN_ID = "es.sidelab.pascaline.help";
 
 	// The shared instance
 	private static PascalineHelpPlugin plugin;
