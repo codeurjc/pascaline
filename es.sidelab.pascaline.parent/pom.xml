@@ -127,7 +127,7 @@
      		    </environments>
         	</configuration>
    		</plugin>
-		<plugin>
+		<!-- <plugin>
         	<groupId>org.codehaus.mojo</groupId>
         	<artifactId>exec-maven-plugin</artifactId>
         	<version>1.1</version>
@@ -141,7 +141,7 @@
         	<configuration>
           		<executable>publish-snapshot.sh</executable>
         	</configuration>
-      </plugin>      
+      </plugin> -->      
     </plugins>
   	<pluginManagement>
   		<plugins>
