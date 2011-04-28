@@ -32,3 +32,4 @@ Export-Package: es.sidelab.pascaline.cdtinterface,
  es.sidelab.pascaline.cdtinterface.launch,
  es.sidelab.pascaline.cdtinterface.ui,
  es.sidelab.pascaline.internal.core.model
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
