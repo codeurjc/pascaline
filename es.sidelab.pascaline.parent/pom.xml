@@ -15,6 +15,11 @@
   
   <description>Pascaline Development Tooling for Pascal development</description>
   
+  <scm>
+  	<connection>scm:svn:https://code.sidelab.es/svn/pascaline/ide/trunk</connection>
+  	<url>https://code.sidelab.es/svn/pascaline/ide</url>
+  </scm>
+  
   <issueManagement>
   	<url>http://code.sidelab.es/projects/pascaline/issues</url>
   	<system>Redmine</system>
@@ -127,21 +132,6 @@
      		    </environments>
         	</configuration>
    		</plugin>
-		<!-- <plugin>
-        	<groupId>org.codehaus.mojo</groupId>
-        	<artifactId>exec-maven-plugin</artifactId>
-        	<version>1.1</version>
-        	<executions>
-          		<execution>
-		            <goals>
-        		      <goal>exec</goal>
-            		</goals>
-          		</execution>
-        	</executions>
-        	<configuration>
-          		<executable>publish-snapshot.sh</executable>
-        	</configuration>
-      </plugin> -->      
     </plugins>
   	<pluginManagement>
   		<plugins>
