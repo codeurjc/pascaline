@@ -68,7 +68,7 @@
   </distributionManagement>
   
   <properties>
-    <tycho-version>0.12.0-SNAPSHOT</tycho-version>
+    <tycho-version>0.11.1</tycho-version>
     <pascaline-url>http://code.sidelab.es/projects/pascaline/</pascaline-url>
     <platform-version-name>galileo</platform-version-name>
     <eclipse-site>http://download.eclipse.org/releases/${platform-version-name}</eclipse-site>  
