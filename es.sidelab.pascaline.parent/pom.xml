@@ -87,6 +87,10 @@
       <id>sonatype.snapshots</id>
       <url>http://build.sidelab.es:8080/nexus/content/repositories/sonatype-snapshots/</url>
     </pluginRepository>
+    <pluginRepository>
+      <id>sonatype.releases</id>
+      <url>http://build.sidelab.es:8080/nexus/content/repositories/sonatype-releases/</url>
+    </pluginRepository>
   </pluginRepositories>
   
   <build>
