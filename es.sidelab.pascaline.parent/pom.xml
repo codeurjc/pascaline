@@ -47,6 +47,7 @@
   	<module>../es.sidelab.pascaline.managedbuilder.core</module>
   	<module>../es.sidelab.pascaline.managedbuilder.fpc.ui</module>
   	<module>../es.sidelab.pascaline.managedbuilder.ui</module>
+  	<module>../es.sidelab.pascaline.ui</module>
   	<module>../es.sidelab.pascaline-feature</module>
   	<module>../es.sidelab.pascaline-site</module>
   	<!-- <module>../es.sidelab.pascaline.product</module> -->
@@ -87,10 +88,10 @@
       <id>sonatype.snapshots</id>
       <url>http://build.sidelab.es:8080/nexus/content/repositories/sonatype-snapshots/</url>
     </pluginRepository>
-    <pluginRepository>
+<!--<pluginRepository>
       <id>sonatype.releases</id>
       <url>http://build.sidelab.es:8080/nexus/content/repositories/sonatype-releases/</url>
-    </pluginRepository>
+    </pluginRepository> -->
   </pluginRepositories>
   
   <build>
