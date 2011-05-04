@@ -28,16 +28,24 @@ echo "password=$password"
 echo "host=$host"
 echo "remotedir=$remotedir"
 
+echo "Cleaning tmp repo: $tmpp2"
+
 rm -Rf $tmpp2
 mkdir $tmpp2
+
+echo "Mirroring artifacts..."
 
 # Artifact mirroring
 $eclipsedir/eclipse -nosplash -consolelog -application org.eclipse.equinox.p2.artifact.repository.mirrorApplication -source $remotep2 -destination file:$tmpp2
 $eclipsedir/eclipse -nosplash -consolelog -application org.eclipse.equinox.p2.artifact.repository.mirrorApplication -source $mavenp2 -destination file:$tmpp2
 
+echo "Mirroring metadata..."
+
 # Metadata mirroring
 $eclipsedir/eclipse -nosplash -consolelog -application org.eclipse.equinox.p2.metadata.repository.mirrorApplication -source $remotep2 -destination file:$tmpp2
 $eclipsedir/eclipse -nosplash -consolelog -application org.eclipse.equinox.p2.metadata.repository.mirrorApplication -source $mavenp2 -destination file:$tmpp2
+
+echo "Uploading repo..."
 
 lftp -u ${username},${password} sftp://${host} <<EOF
 mrm $remotedir/*
