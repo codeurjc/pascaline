@@ -10,7 +10,7 @@
   <artifactId>es.sidelab.pascaline-site</artifactId>
   <packaging>eclipse-repository</packaging>
   
-  <build>
+  <!-- <build>
   	<plugins>
 		<plugin>
         	<groupId>org.codehaus.mojo</groupId>
@@ -29,5 +29,5 @@
         	</configuration>
       </plugin>      
   	</plugins>
-  </build>
+  </build> -->
 </project>
