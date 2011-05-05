@@ -32,24 +32,24 @@ export PATH=$PATH:$M2
 
 cd trunk/es.sidelab.pascaline.parent
 
-# Prepare release versions
+echo "Preparing release versions"
 mvn org.sonatype.tycho:tycho-versions-plugin:set-version -Dtycho.mode=maven -DnewVersion=$releaseVersion
 
-# Perform build with the release version
+echo "Performing build with the release version"
 mvn clean deploy
 
-# Commit changes (preparing for tagging)
+echo "Committing changes (preparing for tagging)"
 cd ..
 svn ci -m "prepare release pascaline-ide-$tagVersion" --username $3 --password $4
 
-# Tag release
+echo "Tagging release"
 svn copy https://code.sidelab.es/svn/pascaline/ide/trunk/ https://code.sidelab.es/svn/pascaline/ide/tags/pascaline-ide-$tagVersion -m "copy for tag pascaline-ide-$tagVersion" --username $3 --password $4
 
-# Prepare next development version
+echo "Preparing next development version"
 cd es.sidelab.pascaline.parent
 mvn org.sonatype.tycho:tycho-versions-plugin:set-version -Dtycho.mode=maven -DnewVersion=$nextVersion
 
-# Commit changes to trunk (trunk now contains the new development version)
+echo "Committing changes to trunk (trunk now contains the new development version)"
 cd ..
 svn ci -m "prepare for next development iteration" --username $3 --password $4
 
