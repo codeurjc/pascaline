@@ -139,6 +139,8 @@ public class FreePascalApplicationLaunchShortcut implements ILaunchShortcut2 {
        				debugConfig = dc;
        			} else if(Platform.getOS().equals(Platform.OS_LINUX) && dcId.equals("org.eclipse.cdt.debug.mi.core.CDebuggerNew")) {
        				debugConfig = dc;
+       			} else if(Platform.getOS().equals(Platform.OS_MACOSX) && dcId.equals("org.eclipse.cdt.debug.mi.core.CDebuggerNew")) {
+       				debugConfig = dc;
        			}
 			}
 
@@ -178,12 +180,12 @@ public class FreePascalApplicationLaunchShortcut implements ILaunchShortcut2 {
 			wc.setAttribute(ICDTLaunchConfigurationConstants.ATTR_PROGRAM_NAME, projectName);
 			wc.setAttribute(ICDTLaunchConfigurationConstants.ATTR_PROJECT_NAME, bin.getCProject().getElementName());
 			wc.setMappedResources(new IResource[] {bin.getResource(), bin.getResource().getProject()});
-			wc.setAttribute(ICDTLaunchConfigurationConstants.ATTR_WORKING_DIRECTORY, (String) null);
-			wc.setAttribute(ICDTLaunchConfigurationConstants.ATTR_DEBUGGER_STOP_AT_MAIN, true);
+			wc.setAttribute(ICDTLaunchConfigurationConstants.ATTR_DEBUGGER_STOP_AT_MAIN, false);
 			wc.setAttribute(
 				ICDTLaunchConfigurationConstants.ATTR_DEBUGGER_START_MODE,
 				ICDTLaunchConfigurationConstants.DEBUGGER_MODE_RUN);
 			wc.setAttribute(ICDTLaunchConfigurationConstants.ATTR_DEBUGGER_ID, debugConfig.getID());
+			wc.setAttribute(ICDTLaunchConfigurationConstants.ATTR_WORKING_DIRECTORY, (String) null);
 
 			ICProjectDescription projDes = CCorePlugin.getDefault().getProjectDescription(bin.getCProject().getProject());
 			if (projDes != null)
