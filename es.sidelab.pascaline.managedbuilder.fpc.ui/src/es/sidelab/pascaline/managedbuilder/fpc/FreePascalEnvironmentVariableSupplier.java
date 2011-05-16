@@ -46,10 +46,28 @@ public class FreePascalEnvironmentVariableSupplier implements
 			return getFpcBinDir(binPath); 
 		}
 		
-		// 3. Try the default FPC install dir
+		// 3. Try the default Windows FPC install dir
 		binPath = new Path("C:\\fpc");
 		if(binPath.toFile().isDirectory()) {
 			return getFpcBinDir(binPath);
+		}
+		
+		// 4. Try the /usr/bin path
+		binPath = new Path("/usr/bin/fpc");
+		if(binPath.toFile().exists() && binPath.toFile().isFile()) {
+			return new Path("/usr/bin");
+		}
+		
+		// 5. Try the /usr/local/bin path
+		binPath = new Path("/usr/local/bin/fpc");
+		if(binPath.toFile().exists() && binPath.toFile().isFile()) {
+			return new Path("/usr/local/bin");
+		}
+		
+		// 6. Try the bin dir in user home
+		binPath = new Path(System.getProperty("user.home")).append("bin");
+		if(binPath.toFile().exists() && binPath.toFile().isFile()) {
+			return binPath;
 		}
 		
 		// Oooops!, not found

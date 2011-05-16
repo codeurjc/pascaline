@@ -173,7 +173,11 @@ public class MetaFreePascalCommandLineGenerator implements IManagedCommandLineGe
 			sb.append("\"" + fpcPath.toOSString() + File.separator + "fpc.exe\"");
 		} else {
 			// On *nix systems, fpc would usually be in the path
-			sb.append("fpc");
+			// However, some problems were detected on MacOS to find fpc executable
+			// so we let the FreePascalEnvironmentVariableSupplier detect
+			// installation directory
+			IPath fpcPath = FreePascalEnvironmentVariableSupplier.getFPCPath();
+			sb.append(fpcPath.toOSString() + "/fpc");
 		}
 		
 		sb.append(" ");
