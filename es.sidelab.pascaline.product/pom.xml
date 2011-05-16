@@ -15,10 +15,5 @@
   		<layout>p2</layout>
   		<url>http://community.polarion.com/projects/subversive/download/eclipse/2.0/update-site/</url>
   	</repository>
-  	<repository>
-  		<id>eclipse-installation</id>
-  		<layout>p2</layout>
-  		<url>file:///home/patxi/Documentos/eclipse/</url>
-  	</repository>
   </repositories>
 </project>
