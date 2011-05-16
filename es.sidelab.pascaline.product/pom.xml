@@ -8,4 +8,17 @@
 	<modelVersion>4.0.0</modelVersion>
   <artifactId>es.sidelab.pascaline.product</artifactId>
   <packaging>eclipse-application</packaging>
+  
+  <repositories>
+  	<repository>
+  		<id>polarion-subversive</id>
+  		<layout>p2</layout>
+  		<url>http://community.polarion.com/projects/subversive/download/eclipse/2.0/update-site/</url>
+  	</repository>
+  	<repository>
+  		<id>eclipse-installation</id>
+  		<layout>p2</layout>
+  		<url>file:///home/patxi/Documentos/eclipse/</url>
+  	</repository>
+  </repositories>
 </project>

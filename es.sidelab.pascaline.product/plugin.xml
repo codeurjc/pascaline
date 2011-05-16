@@ -6,7 +6,8 @@
          point="org.eclipse.core.runtime.products">
       <product
             application="org.eclipse.ui.ide.workbench"
-            name="%productName">
+            description="Pascal Development Tools"
+            name="Pascaline IDE">
          <property
                name="windowImages"
                value="eclipse.gif,eclipse32.gif,eclipse48.gif,eclipse.png,eclipse32.png">
@@ -25,7 +26,7 @@
          </property>
          <property
                name="startupProgressRect"
-               value="0,280,455,15">
+               value="0,280,454,15">
          </property>
          <property
                name="startupMessageRect"
@@ -33,7 +34,7 @@
          </property>
          <property
                name="appName"
-               value="%productName">
+               value="Pascaline IDE">
          </property>
          <property
                name="preferenceCustomization"

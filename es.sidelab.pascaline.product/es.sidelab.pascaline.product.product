@@ -20,7 +20,8 @@
    <windowImages i16="eclipse.gif" i32="eclipse32.gif" i48="eclipse48.gif" i64="eclipse.png" i128="eclipse32.png"/>
 
    <splash
-      startupProgressRect="0,280,455,15"
+      location="org.eclipse.platform"
+      startupProgressRect="0,280,454,15"
       startupMessageRect="7,220,441,20"
       startupForegroundColor="C8D5EA" />
    <launcher name="pascaline">
@@ -29,6 +30,7 @@
          <bmp/>
       </win>
    </launcher>
+
 
    <vm>
    </vm>
@@ -81,8 +83,19 @@
 
    <features>
       <feature id="es.sidelab.pascaline" version="1.0.1.qualifier"/>
-      <feature id="org.eclipse.sdk" version="3.5.1.R35x_v20090811-7Q7bAIBPVUBVbKSMTyyfpOteKTem7_g2paS1__z-Rrmf4"/>
       <feature id="org.eclipse.cdt.platform" version="6.0.0.200909110608"/>
+      <feature id="org.eclipse.sdk" version="3.5.2.R35x_v20100119-7Q7bARBPWUHM_CSjz-8bF1f7_n8rLSyWHoiKoyxBQSGT4"/>
+      <feature id="org.eclipse.cdt" version="6.0.0.200909110608"/>
+      <feature id="org.eclipse.cdt.gnu.build" version="6.0.0.200909110608"/>
+      <feature id="org.eclipse.cdt.gnu.debug" version="6.0.0.200909110608"/>
+      <feature id="org.eclipse.cdt.gnu.dsf" version="2.0.0.200909110608"/>
+      <feature id="org.eclipse.cvs" version="1.1.101.R35x_v20100125-7E79FGD9kKF67BPDZ7PKCE1911"/>
+      <feature id="org.eclipse.help" version="1.1.2.R35x_v20100119-7e7eFAnFEx2X_fZltJhDjz-D"/>
+      <feature id="org.eclipse.platform" version="3.5.2.R35x_v20100210-0800-9hEiFzmFst-TiEn9hNYgDWg1XN8ulH_JvCNGB"/>
+      <feature id="org.eclipse.equinox.p2.user.ui" version="1.1.2.R35x_v20091106-7u6FbQFUAtsCKD5Fxz0qz0fb2932"/>
+      <feature id="org.eclipse.team.svn" version="0.7.8.I20090904-1300"/>
+      <feature id="org.polarion.eclipse.team.svn.connector" version="2.2.1.I20091009-1900"/>
+      <feature id="org.polarion.eclipse.team.svn.connector.svnkit16" version="2.2.1.I20091009-1900"/>
    </features>
 
 
