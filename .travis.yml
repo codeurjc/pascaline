@@ -1,0 +1,4 @@
+language: java
+before_install: "cd es.sidelab.pascaline.parent"
+install: "mvn install"
+script: "mvn package"
