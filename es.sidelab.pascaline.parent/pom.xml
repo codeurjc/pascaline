@@ -11,9 +11,15 @@
 	<version>1.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
+	<properties>
+		<tycho-version>0.20.0</tycho-version>
+		<pascaline-url>http://github.com/sidelab-urjc/pascaline/</pascaline-url>
+		<platform-version-name>galileo</platform-version-name>
+		<eclipse-site>http://download.eclipse.org/releases/${platform-version-name}</eclipse-site>
+	</properties>
+
 	<name>Pascaline Development Tooling - Parent</name>
 	<url>${pascaline-url}</url>
-
 	<description>Pascaline Development Tooling for Pascal development</description>
 
 	<organization>
@@ -22,13 +28,14 @@
 	</organization>
 
 	<scm>
-		<connection>scm:svn:https://code.sidelab.es/svn/pascaline/ide/trunk</connection>
-		<url>https://code.sidelab.es/svn/pascaline/ide</url>
+		<connection>scm:git:https://github.com/sidelab-urjc/pascaline.git</connection>
+		<developerConnection>scm:git:git@github.com:sidelab-urjc/pascaline.git</developerConnection>
+		<url>https://github.com/sidelab-urjc/pascaline</url>
 	</scm>
 
 	<issueManagement>
-		<url>http://code.sidelab.es/projects/pascaline/issues</url>
-		<system>Redmine</system>
+		<url>https://github.com/sidelab-urjc/pascaline/issues</url>
+		<system>Github</system>
 	</issueManagement>
 
 	<licenses>
@@ -45,6 +52,42 @@
 		</license>
 	</licenses>
 
+	<developers>
+		<developer>
+			<name>Francisco Gortázar</name>
+			<email>patxi.gortazar@gmail.com</email>
+			<organization>Sidelab</organization>
+			<organizationUrl>http://www.sidelab.es</organizationUrl>
+		</developer>
+	</developers>
+	
+	<distributionManagement>
+		<site>
+			<id>www.sidelab.es</id>
+			<url>file:///home/usuario/pascaline-site/</url>
+		</site>
+		<!-- use the following if you're not using a snapshot version. -->
+		<repository>
+			<id>releases</id>
+			<name>Sidelab Releases</name>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+		<!-- use the following if you ARE using a snapshot version. -->
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>Sidelab Snapshots</name>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<repositories>
+		<repository>
+			<id>helios</id>
+			<layout>p2</layout>
+			<url>${eclipse-site}</url>
+		</repository>
+	</repositories>
+
 	<modules>
 		<module>../es.sidelab.pascaline.cdtinterface</module>
 		<module>../es.sidelab.pascaline.core</module>
@@ -59,58 +102,12 @@
 		<!-- <module>../es.sidelab.pascaline.product</module> -->
 	</modules>
 
-	<distributionManagement>
-		<site>
-			<id>www.sidelab.es</id>
-			<url>file:///home/usuario/pascaline-site/</url>
-		</site>
-		<!-- use the following if you're not using a snapshot version. -->
-		<repository>
-			<id>releases</id>
-			<name>Sidelab Releases</name>
-			<url>http://build.sidelab.es:8080/nexus/content/repositories/releases/</url>
-		</repository>
-		<!-- use the following if you ARE using a snapshot version. -->
-		<snapshotRepository>
-			<id>snapshots</id>
-			<name>Sidelab Snapshots</name>
-			<url>http://build.sidelab.es:8080/nexus/content/repositories/snapshots/</url>
-		</snapshotRepository>
-	</distributionManagement>
-
-	<properties>
-		<tycho-version>0.11.1</tycho-version>
-		<pascaline-url>http://code.sidelab.es/projects/pascaline/</pascaline-url>
-		<platform-version-name>galileo</platform-version-name>
-		<eclipse-site>http://download.eclipse.org/releases/${platform-version-name}</eclipse-site>
-	</properties>
-
-	<repositories>
-		<repository>
-			<id>helios</id>
-			<layout>p2</layout>
-			<url>${eclipse-site}</url>
-		</repository>
-	</repositories>
-
-	<pluginRepositories>
-		<pluginRepository>
-			<id>sonatype.snapshots</id>
-			<url>http://build.sidelab.es:8080/nexus/content/repositories/sonatype-snapshots/</url>
-		</pluginRepository>
-		<!--
-			<pluginRepository> <id>sonatype.releases</id>
-			<url>http://build.sidelab.es:8080/nexus/content/repositories/sonatype-releases/</url>
-			</pluginRepository>
-		-->
-	</pluginRepositories>
-
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-site-plugin</artifactId>
-				<version>3.0-beta-3</version>
+				<version>3.4</version>
 				<configuration>
 					<reportPlugins>
 						<plugin>
@@ -168,13 +165,13 @@
 				</configuration>
 			</plugin>
 			<plugin>
-				<groupId>org.sonatype.tycho</groupId>
+				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-maven-plugin</artifactId>
 				<version>${tycho-version}</version>
 				<extensions>true</extensions>
 			</plugin>
 			<plugin>
-				<groupId>org.sonatype.tycho</groupId>
+				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>target-platform-configuration</artifactId>
 				<version>${tycho-version}</version>
 				<configuration>
@@ -213,6 +210,25 @@
 			<plugins>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-gpg-plugin</artifactId>
+					<version>1.5</version>
+					<configuration>
+						<mavenExecutorId>forked-path</mavenExecutorId>
+						<useReleaseProfile>true</useReleaseProfile>
+						<arguments>${arguments} -Psonatype-oss-release</arguments>
+					</configuration>
+					<executions>
+						<execution>
+							<id>sign-artifacts</id>
+							<phase>verify</phase>
+							<goals>
+								<goal>sign</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
 					<configuration>
 						<source>1.6</source>
@@ -221,12 +237,12 @@
 					</configuration>
 				</plugin>
 				<plugin>
-					<groupId>org.sonatype.tycho</groupId>
+					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>maven-osgi-compiler-plugin</artifactId>
 					<version>${tycho-version}</version>
 				</plugin>
 				<plugin>
-					<groupId>org.sonatype.tycho</groupId>
+					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>maven-osgi-source-plugin</artifactId>
 					<version>${tycho-version}</version>
 				</plugin>
@@ -241,7 +257,7 @@
 					<version>1.6</version>
 				</plugin>
 				<plugin>
-					<groupId>org.sonatype.tycho</groupId>
+					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>tycho-p2-repository-plugin</artifactId>
 					<version>${tycho-version}</version>
 					<configuration>
@@ -250,7 +266,7 @@
 					</configuration>
 				</plugin>
 				<plugin>
-					<groupId>org.sonatype.tycho</groupId>
+					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>tycho-p2-director-plugin</artifactId>
 					<version>${tycho-version}</version>
 					<executions>
@@ -269,7 +285,7 @@
 					</executions>
 				</plugin>
 				<plugin>
-					<groupId>org.sonatype.tycho</groupId>
+					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>maven-osgi-packaging-plugin</artifactId>
 					<version>${tycho-version}</version>
 					<configuration>

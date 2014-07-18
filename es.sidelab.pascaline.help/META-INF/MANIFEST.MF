@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Pascal Help Plug-in
 Bundle-SymbolicName: es.sidelab.pascaline.help;singleton:=true
-Bundle-Version: 0.5.1.qualifier
+Bundle-Version: 1.0.1.qualifier
 Bundle-Activator: es.sidelab.pascaline.help.PascalineHelpPlugin
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime

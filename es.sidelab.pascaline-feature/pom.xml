@@ -7,6 +7,6 @@
 		<relativePath>../es.sidelab.pascaline.parent</relativePath>
 	</parent>
 	
-  <artifactId>es.sidelab.pascaline-feature</artifactId>
+  <artifactId>es.sidelab.pascaline</artifactId>
   <packaging>eclipse-feature</packaging>
 </project>
