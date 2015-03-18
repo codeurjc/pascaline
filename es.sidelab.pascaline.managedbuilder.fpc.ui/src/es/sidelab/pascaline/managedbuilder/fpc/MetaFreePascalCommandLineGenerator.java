@@ -15,7 +15,6 @@ import java.io.File;
 import java.util.Arrays;
 import java.util.jar.JarFile;
 
-
 import org.eclipse.cdt.core.CCorePlugin;
 import org.eclipse.cdt.core.ICDescriptor;
 import org.eclipse.cdt.core.model.CModelException;
@@ -41,6 +40,7 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.osgi.service.datalocation.Location;
 
+import es.sidelab.pascaline.cdtinterface.launch.FpcPathDiscoverer;
 import es.sidelab.pascaline.internal.core.model.PascalElement;
 import es.sidelab.pascaline.managedbuilder.core.ManagedBuilderCorePlugin;
 
@@ -169,14 +169,14 @@ public class MetaFreePascalCommandLineGenerator implements IManagedCommandLineGe
 		sb.append(" ");
 		
 		if(Platform.getOS().equals(Platform.OS_WIN32)) {
-			IPath fpcPath = FreePascalEnvironmentVariableSupplier.getFPCPath();
+			IPath fpcPath = FpcPathDiscoverer.getFPCPath();
 			sb.append("\"" + fpcPath.toOSString() + File.separator + "fpc.exe\"");
 		} else {
 			// On *nix systems, fpc would usually be in the path
 			// However, some problems were detected on MacOS to find fpc executable
 			// so we let the FreePascalEnvironmentVariableSupplier detect
 			// installation directory
-			IPath fpcPath = FreePascalEnvironmentVariableSupplier.getFPCPath();
+			IPath fpcPath = FpcPathDiscoverer.getFPCPath();
 			sb.append(fpcPath.toOSString() + "/fpc");
 		}
 		

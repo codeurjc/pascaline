@@ -33,6 +33,9 @@ public class TurboPascalMainWizardPage extends FreePascalMainWizardPage {
 					filteredItems.add(ed);
 				}
 			}
+			if(ed.getId().equals("Others")) {
+				filteredItems.add(ed);
+			}			
 		}
 		return filteredItems; 
 	}

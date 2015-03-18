@@ -18,7 +18,6 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 
-
 import org.eclipse.cdt.core.CCorePlugin;
 import org.eclipse.cdt.core.model.CModelException;
 import org.eclipse.cdt.core.model.CoreModel;
@@ -176,7 +175,7 @@ public class FreePascalApplicationLaunchShortcut implements ILaunchShortcut2 {
 			String projectName = bin.getResource().getProjectRelativePath().toString();
 			ILaunchConfigurationType configType = getCLaunchConfigType();
 			ILaunchConfigurationWorkingCopy wc =
-				configType.newInstance(null, getLaunchManager().generateUniqueLaunchConfigurationNameFrom(bin.getElementName()));
+				configType.newInstance(null, getLaunchManager().generateLaunchConfigurationName(bin.getElementName()));
 			wc.setAttribute(ICDTLaunchConfigurationConstants.ATTR_PROGRAM_NAME, projectName);
 			wc.setAttribute(ICDTLaunchConfigurationConstants.ATTR_PROJECT_NAME, bin.getCProject().getElementName());
 			wc.setMappedResources(new IResource[] {bin.getResource(), bin.getResource().getProject()});
@@ -198,6 +197,8 @@ public class FreePascalApplicationLaunchShortcut implements ILaunchShortcut2 {
 			// extension point for this.
 			ICDebuggerPage page = CDebugUIPlugin.getDefault().getDebuggerPage(debugConfig.getID());
 			page.setDefaults(wc);
+			IPath gdbPath = FpcPathDiscoverer.getFPCPath().append("gdb");
+			wc.setAttribute( IMILaunchConfigurationConstants.ATTR_DEBUG_NAME, gdbPath.toString());
 			// On windows we override the defaults to set our CommandFactory
 			if(Platform.getOS().equals(Platform.OS_WIN32)) {
 				wc.setAttribute( IMILaunchConfigurationConstants.ATTR_DEBUGGER_COMMAND_FACTORY, CDTInterfacePlugin.WINDOWS_COMMAND_FACTORY );
@@ -330,7 +331,7 @@ public class FreePascalApplicationLaunchShortcut implements ILaunchShortcut2 {
 			String projectName = bin.getResource().getProjectRelativePath().toString();
 			ILaunchConfigurationType configType = getCLaunchConfigType();
 			ILaunchConfigurationWorkingCopy wc =
-				configType.newInstance(null, getLaunchManager().generateUniqueLaunchConfigurationNameFrom(bin.getElementName()));
+				configType.newInstance(null, getLaunchManager().generateLaunchConfigurationName(bin.getElementName()));
 			wc.setAttribute(ICDTLaunchConfigurationConstants.ATTR_PROGRAM_NAME, projectName);
 			wc.setAttribute(ICDTLaunchConfigurationConstants.ATTR_PROJECT_NAME, bin.getCProject().getElementName());
 			wc.setMappedResources(new IResource[] {bin.getResource().getProject()});
@@ -362,6 +363,8 @@ public class FreePascalApplicationLaunchShortcut implements ILaunchShortcut2 {
 			// Load up the debugger page to set the defaults. There should probably be a separate
 			// extension point for this.
 			ICDebuggerPage page = CDebugUIPlugin.getDefault().getDebuggerPage(debugConfig.getID());
+			IPath gdbPath = FpcPathDiscoverer.getFPCPath().append("gdb");
+			wc.setAttribute( IMILaunchConfigurationConstants.ATTR_DEBUG_NAME, gdbPath.toString());
 			page.setDefaults(wc);
 			
 			config = wc.doSave();

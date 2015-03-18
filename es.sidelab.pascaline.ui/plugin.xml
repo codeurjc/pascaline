@@ -54,7 +54,7 @@
    <extension
          point="org.eclipse.debug.ui.toggleBreakpointsTargetFactories">
       <toggleTargetFactory
-            class="org.eclipse.cdt.debug.internal.ui.actions.ToggleCBreakpointsTargetFactory"
+            class="org.eclipse.cdt.debug.internal.ui.actions.breakpoints.ToggleCBreakpointsTargetFactory"
             id="es.sidelab.pascaline.ui.pascalineToggleTargetFactory">
          <enablement>
             <or>

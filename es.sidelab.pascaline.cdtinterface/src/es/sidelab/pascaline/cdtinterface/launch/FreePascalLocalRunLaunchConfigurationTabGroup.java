@@ -35,7 +35,7 @@ public class FreePascalLocalRunLaunchConfigurationTabGroup extends MultiLaunchCo
 	@Override
 	public void createTabs(ILaunchConfigurationDialog dialog, String mode) {
 		ILaunchConfigurationTab[] tabs = new ILaunchConfigurationTab[] {
-				new CMainTab(true), new CArgumentsTab(), new EnvironmentTab(), new CDebuggerTab(false), new SourceLookupTab(), new CommonTab()
+		    new CMainTab(true), new CArgumentsTab(), new EnvironmentTab(), new CDebuggerTab(false), new SourceLookupTab(), new CommonTab()
         };
 		setTabs(tabs);
 	}	
