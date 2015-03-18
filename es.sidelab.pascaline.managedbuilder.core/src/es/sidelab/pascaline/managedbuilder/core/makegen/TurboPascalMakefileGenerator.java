@@ -32,7 +32,6 @@ import org.eclipse.cdt.core.settings.model.ICSettingEntry;
 import org.eclipse.cdt.core.settings.model.ICSourceEntry;
 import org.eclipse.cdt.core.settings.model.util.CDataUtil;
 import org.eclipse.cdt.core.settings.model.util.PathSettingsContainer;
-import org.eclipse.cdt.internal.core.model.Util;
 import org.eclipse.cdt.managedbuilder.core.BuildException;
 import org.eclipse.cdt.managedbuilder.core.IBuilder;
 import org.eclipse.cdt.managedbuilder.core.IConfiguration;
@@ -505,9 +504,34 @@ public class TurboPascalMakefileGenerator implements IManagedBuilderMakefileGene
 		} 
 			
 			// Save the file
-			Util.save(buffer, fileHandle);
+			save(buffer, fileHandle);
 	}
 
+	private static void save(StringBuffer buffer, IFile file)
+			throws CoreException {
+        String encoding = null;
+        try {
+        	encoding = file.getCharset();
+        } catch (CoreException ce) {
+        	// use no encoding
+        }
+        
+        byte[] bytes = null;		
+        if (encoding != null) {
+        	try {
+        		bytes = buffer.toString().getBytes(encoding);
+        	} catch (Exception e) {
+        	}
+        } else {
+        	bytes = buffer.toString().getBytes();
+        }		
+        
+        ByteArrayInputStream stream = new ByteArrayInputStream(bytes);
+        // use a platform operation to update the resource contents
+        boolean force = true;
+        file.setContents(stream, force, true, null); // record history
+	}	
+	
 //	/**
 //	 * @param project
 //	 * @return
