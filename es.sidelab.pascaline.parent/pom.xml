@@ -14,7 +14,7 @@
 	<properties>
 		<tycho-version>0.20.0</tycho-version>
 		<pascaline-url>http://github.com/sidelab-urjc/pascaline/</pascaline-url>
-		<platform-version-name>galileo</platform-version-name>
+		<platform-version-name>luna</platform-version-name>
 		<eclipse-site>http://download.eclipse.org/releases/${platform-version-name}</eclipse-site>
 	</properties>
 
