@@ -45,6 +45,9 @@ public class FreePascalMainWizardPage extends CDTMainWizardPage {
 					filteredItems.add(ed);
 				}									
 			}
+			if(ed.getId().equals("Others")) {
+				filteredItems.add(ed);
+			}			
 		}
 		return filteredItems; 
 	}

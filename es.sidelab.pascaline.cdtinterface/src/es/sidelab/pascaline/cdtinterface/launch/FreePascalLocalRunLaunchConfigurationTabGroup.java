@@ -11,7 +11,7 @@
  *******************************************************************************/
 package es.sidelab.pascaline.cdtinterface.launch;
 
-import org.eclipse.cdt.launch.internal.ui.LocalRunLaunchConfigurationTabGroup;
+import org.eclipse.cdt.launch.internal.ui.MultiLaunchConfigurationTabGroup;
 import org.eclipse.cdt.launch.ui.CArgumentsTab;
 import org.eclipse.cdt.launch.ui.CDebuggerTab;
 import org.eclipse.cdt.launch.ui.CMainTab;
@@ -22,7 +22,7 @@ import org.eclipse.debug.ui.ILaunchConfigurationTab;
 import org.eclipse.debug.ui.sourcelookup.SourceLookupTab;
 
 
-public class FreePascalLocalRunLaunchConfigurationTabGroup extends LocalRunLaunchConfigurationTabGroup {
+public class FreePascalLocalRunLaunchConfigurationTabGroup extends MultiLaunchConfigurationTabGroup {
 
 	/*
 	 * (non-Javadoc)
@@ -35,13 +35,9 @@ public class FreePascalLocalRunLaunchConfigurationTabGroup extends LocalRunLaunc
 	@Override
 	public void createTabs(ILaunchConfigurationDialog dialog, String mode) {
 		ILaunchConfigurationTab[] tabs = new ILaunchConfigurationTab[] {
-				new CMainTab(true) {
-					protected void createExeFileGroup(org.eclipse.swt.widgets.Composite parent, int colSpan) {
-						super.createExeFileGroup(parent, colSpan);
-						fProjLabel.setText("FreePascal Application");
-					};
-				}, new CArgumentsTab(), new EnvironmentTab(), new CDebuggerTab(false), new SourceLookupTab(), new CommonTab() };
+		    new CMainTab(true), new CArgumentsTab(), new EnvironmentTab(), new CDebuggerTab(false), new SourceLookupTab(), new CommonTab()
+        };
 		setTabs(tabs);
-	}
+	}	
 
 }
